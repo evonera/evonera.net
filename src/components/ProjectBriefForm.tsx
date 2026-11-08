@@ -12,7 +12,7 @@ interface BriefState {
 }
 
 const PLATFORMS = [
-  "Bespoke Website (Restaurant / Business)",
+  "Modern Website / Web App",
   "Lovable",
   "Emergent",
   "Bolt / v0",
@@ -39,7 +39,7 @@ export function ProjectBriefForm() {
   const [formData, setFormData] = useState<BriefState>({
     name: "",
     email: "",
-    platform: "Bespoke Website (Restaurant / Business)",
+    platform: "Modern Website / Web App",
     projectUrl: "",
     blocker: "",
   });
@@ -89,7 +89,7 @@ export function ProjectBriefForm() {
         <span className="text-xs font-mono uppercase tracking-wider text-blue-300">Project inquiry</span>
         <h2 className="text-2xl font-medium text-neutral-100 mt-1">Tell us about your project.</h2>
         <p className="mt-2 text-sm text-neutral-300 leading-relaxed">
-          Whether you need a bespoke restaurant/business website or help finishing an AI app prototype, share your details below and we will reply within 24 hours.
+          Whether you need a fast, reliable website or help finishing an app prototype, share your details below and we will reply within 24 hours.
         </p>
       </div>
 
@@ -149,7 +149,7 @@ export function ProjectBriefForm() {
           value={formData.blocker}
           onChange={(event) => updateField("blocker", event.target.value)}
           className="mt-1.5 w-full resize-y rounded-lg border border-white/15 bg-ink-950 px-3.5 py-3 text-neutral-100 placeholder:text-neutral-500 focus:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-400/30"
-          placeholder="For example: A bespoke website for my restaurant, or finishing authentication, database, and payments in our web app."
+          placeholder="For example: Building a new web app, or connecting authentication, database, and payments to an existing prototype."
         />
       </label>
 

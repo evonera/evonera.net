@@ -1,0 +1,168 @@
+---
+import RestaurantDemoLayout from "../../../layouts/RestaurantDemoLayout.astro";
+import data from "../../../data/restaurants/gamja.json";
+
+const { restaurant, contact } = data;
+const encodedAddress = encodeURIComponent(`${restaurant.address} Singapore ${restaurant.postalCode}`);
+const mapEmbedSrc = `https://maps.google.com/maps?q=${encodedAddress}&t=&z=16&ie=UTF8&iwloc=&output=embed`;
+---
+
+<RestaurantDemoLayout
+  restaurantData={data}
+  title={`Location & Contact | ${restaurant.name} Telok Ayer`}
+  description={`Visit ${restaurant.name} at 21 Boon Tat Street, Singapore. Opening hours, MRT transit directions, and direct WhatsApp contact.`}
+  currentPath="/demo/gamja/contact"
+>
+  <!-- Subpage Header -->
+  <section class="w-full text-[var(--color-on-primary)] pt-28 pb-12 sm:pt-36 sm:pb-16 px-4 sm:px-6 text-center border-b border-[var(--color-on-primary)]/10" style="background-color: color-mix(in srgb, var(--color-primary) 90%, black);">
+    <div class="max-w-2xl mx-auto">
+      <span class="text-xs uppercase tracking-[0.3em] text-[var(--color-accent)] font-semibold mb-3 block">
+        Getting Here
+      </span>
+      <h1 class="font-display text-4xl sm:text-5xl md:text-6xl font-light tracking-tight mb-4 text-[var(--color-on-primary)]">
+        {contact.headline}
+      </h1>
+      <p class="text-base sm:text-lg text-[var(--color-on-primary)]/85 font-light leading-relaxed">
+        {contact.subline}
+      </p>
+    </div>
+  </section>
+
+  <!-- Contact & Access Details (Warm Surface) -->
+  <section class="w-full bg-[var(--color-surface)] text-[var(--color-ink)] py-16 sm:py-24 px-4 sm:px-6">
+    <div class="max-w-5xl mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+        <!-- Col 1: Detail Cards -->
+        <div class="lg:col-span-5 space-y-6">
+          <!-- Card 1: Address & Transit -->
+          <div class="bg-white p-6 sm:p-8 rounded-2xl border border-[var(--color-ink)]/10 shadow-sm space-y-4">
+            <span class="text-[10px] uppercase tracking-[0.25em] text-[var(--color-primary)] font-bold block">
+              Address & Transit
+            </span>
+            <div class="space-y-1">
+              <p class="font-display text-xl font-medium text-[var(--color-ink)]">
+                {restaurant.address}
+              </p>
+              <p class="text-xs text-[var(--color-ink)]/70">
+                Singapore {restaurant.postalCode}
+              </p>
+            </div>
+            <div class="pt-3 border-t border-neutral-100 space-y-1 text-xs">
+              <p class="font-semibold text-[var(--color-ink)]">MRT Access:</p>
+              <p class="text-[var(--color-ink)]/80">{restaurant.mrt}</p>
+            </div>
+            <div class="pt-3 border-t border-neutral-100 space-y-1 text-xs">
+              <p class="font-semibold text-[var(--color-ink)]">Parking:</p>
+              <p class="text-[var(--color-ink)]/80">{restaurant.parking}</p>
+            </div>
+            <div class="pt-3">
+              <a
+                href={restaurant.googleMapsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-2 text-xs uppercase tracking-wider text-[var(--color-primary)] font-semibold underline hover:opacity-80 transition-opacity"
+              >
+                <span>Open in Google Maps</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Card 2: Operating Hours -->
+          <div class="bg-white p-6 sm:p-8 rounded-2xl border border-[var(--color-ink)]/10 shadow-sm space-y-4">
+            <span class="text-[10px] uppercase tracking-[0.25em] text-[var(--color-primary)] font-bold block">
+              Operating Hours
+            </span>
+            <div class="space-y-2 text-xs text-[var(--color-ink)]/90">
+              <div class="flex justify-between py-1 border-b border-neutral-100">
+                <span class="font-semibold">Monday - Friday</span>
+                <span class="text-right">11:00 AM - 3:00 PM<br/>5:30 PM - 11:00 PM</span>
+              </div>
+              <div class="flex justify-between py-1 border-b border-neutral-100">
+                <span class="font-semibold">Saturday - Sunday, PH</span>
+                <span class="text-right">12:00 PM - 10:00 PM<br/><span class="text-xs text-[var(--color-ink)]/60">(No Break Time)</span></span>
+              </div>
+              <p class="text-[11px] text-[var(--color-ink)]/60 pt-1">
+                Last food orders accepted 45 minutes before closing. Walk-ins and reservations are welcomed.
+              </p>
+            </div>
+          </div>
+
+          <!-- Card 3: Direct Reach -->
+          <div class="bg-white p-6 sm:p-8 rounded-2xl border border-[var(--color-ink)]/10 shadow-sm space-y-3">
+            <span class="text-[10px] uppercase tracking-[0.25em] text-[var(--color-primary)] font-bold block">
+              Direct Contact
+            </span>
+            <div class="space-y-2 text-xs">
+              <p>
+                <strong>Phone:</strong>{" "}
+                <a href={`tel:${restaurant.phone.replace(/[^0-9+]/g, '')}`} class="underline text-[var(--color-primary)] font-semibold">
+                  {restaurant.phone}
+                </a>
+              </p>
+              <p>
+                <strong>WhatsApp Bookings:</strong>{" "}
+                <a href={`https://wa.me/${restaurant.whatsapp.replace(/[^0-9]/g, '')}`} class="underline text-[var(--color-primary)] font-semibold">
+                  {restaurant.phone}
+                </a>
+              </p>
+              <p>
+                <strong>Instagram:</strong>{" "}
+                <a href={restaurant.social.instagram} target="_blank" rel="noopener noreferrer" class="underline text-[var(--color-primary)] font-semibold">
+                  @gamja_sg
+                </a>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Col 2: Responsive Map Embed & Arrival Guide -->
+        <div class="lg:col-span-7 space-y-6">
+          <div class="rounded-2xl overflow-hidden border border-[var(--color-ink)]/15 shadow-md bg-neutral-200 aspect-[4/3] sm:aspect-[16/10] relative">
+            <iframe
+              title="GAMJA 21 Boon Tat Street Location Map"
+              width="100%"
+              height="100%"
+              frameborder="0"
+              scrolling="no"
+              marginheight="0"
+              marginwidth="0"
+              src={mapEmbedSrc}
+              class="w-full h-full grayscale-[25%] contrast-[1.05]"
+              loading="lazy"
+            ></iframe>
+          </div>
+
+          <!-- Walking Directions Card -->
+          <div class="bg-white p-6 sm:p-8 rounded-2xl border border-[var(--color-ink)]/10 shadow-sm space-y-4">
+            <h3 class="font-display text-xl font-medium text-[var(--color-ink)]">
+              Walking Directions from Nearby Stations
+            </h3>
+            <div class="space-y-4 text-xs text-[var(--color-ink)]/80 leading-relaxed">
+              <div class="flex gap-3">
+                <span class="flex-shrink-0 w-6 h-6 rounded-full bg-[var(--color-primary)] text-[var(--color-surface)] text-[11px] font-bold flex items-center justify-center">
+                  1
+                </span>
+                <div>
+                  <strong class="text-[var(--color-ink)]">From Telok Ayer MRT (DT18):</strong>
+                  <p class="mt-0.5">Take Exit A onto Cross Street. Turn left onto Telok Ayer Street, walk 100 meters, then turn left into Boon Tat Street. GAMJA is at number 21 on the left (2 minutes total walk).</p>
+                </div>
+              </div>
+              <div class="flex gap-3">
+                <span class="flex-shrink-0 w-6 h-6 rounded-full bg-[var(--color-primary)] text-[var(--color-surface)] text-[11px] font-bold flex items-center justify-center">
+                  2
+                </span>
+                <div>
+                  <strong class="text-[var(--color-ink)]">From Tanjong Pagar MRT (EW15):</strong>
+                  <p class="mt-0.5">Take Exit G onto Cecil Street. Walk northeast towards Boon Tat Street, turn right. We are located right at 21 Boon Tat Street (approximately 6 minutes walk).</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</RestaurantDemoLayout>

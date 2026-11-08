@@ -1,0 +1,84 @@
+---
+import RestaurantDemoLayout from "../../../layouts/RestaurantDemoLayout.astro";
+import ReservationForm from "../../../components/restaurant/ReservationForm";
+import data from "../../../data/restaurants/gamja.json";
+
+const { restaurant, reservations } = data;
+---
+
+<RestaurantDemoLayout
+  restaurantData={data}
+  title={`Table Reservations | ${restaurant.name} Telok Ayer`}
+  description={`Request a table or KBBQ reservation at ${restaurant.name} (21 Boon Tat Street, Singapore). Connect directly with the team via WhatsApp.`}
+  currentPath="/demo/gamja/reservations"
+>
+  <!-- Subpage Header -->
+  <section class="w-full text-[var(--color-on-primary)] pt-28 pb-12 sm:pt-36 sm:pb-16 px-4 sm:px-6 text-center border-b border-[var(--color-on-primary)]/10" style="background-color: color-mix(in srgb, var(--color-primary) 90%, black);">
+    <div class="max-w-2xl mx-auto">
+      <span class="text-xs uppercase tracking-[0.3em] text-[var(--color-accent)] font-semibold mb-3 block">
+        Direct Table Bookings
+      </span>
+      <h1 class="font-display text-4xl sm:text-5xl md:text-6xl font-light tracking-tight mb-4 text-[var(--color-on-primary)]">
+        {reservations.title}
+      </h1>
+      <p class="text-base sm:text-lg text-[var(--color-on-primary)]/85 font-light leading-relaxed">
+        {reservations.subtitle}. Request your preferred lunch or dinner seating directly with the founding team.
+      </p>
+    </div>
+  </section>
+
+  <!-- Reservation Form Area (Surface Background) -->
+  <section class="w-full bg-[var(--color-surface)] py-16 sm:py-24 px-4 sm:px-6">
+    <div class="max-w-4xl mx-auto">
+      <!-- React Form Component -->
+      <ReservationForm
+        client:load
+        whatsappNumber={restaurant.whatsapp}
+        restaurantName={restaurant.name}
+        recipientName="Shin Jae-Yun & Chef Nam Wan-Hyuk"
+        seatingTimes={reservations.seatingTimes}
+        capacityText={reservations.capacityText}
+        closedDays={[]}
+        closedDaysNotice={reservations.closedDaysNotice}
+        maxPartySize={12}
+      />
+
+      <!-- Policies & Dining Information Grid -->
+      <div class="mt-16 max-w-xl mx-auto pt-10 border-t border-[var(--color-ink)]/15 text-[var(--color-ink)] space-y-6">
+        <h2 class="text-xs uppercase tracking-[0.25em] text-[var(--color-ink)]/60 font-semibold text-center mb-6">
+          Seating & Reservation Guidelines
+        </h2>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 text-xs leading-relaxed">
+          <div class="space-y-2 p-4 rounded-xl bg-white border border-[var(--color-ink)]/10 shadow-sm">
+            <span class="font-semibold block text-sm text-[var(--color-primary)]">Open 7 Days a Week</span>
+            <p class="text-[var(--color-ink)]/75">
+              Weekday lunch from 11:00 AM to 3:00 PM and dinner from 5:30 PM to 11:00 PM. Weekends run all day from 12:00 PM to 10:00 PM without break.
+            </p>
+          </div>
+
+          <div class="space-y-2 p-4 rounded-xl bg-white border border-[var(--color-ink)]/10 shadow-sm">
+            <span class="font-semibold block text-sm text-[var(--color-primary)]">5 K-BBQ Tables Daily</span>
+            <p class="text-[var(--color-ink)]/75">
+              To keep meat preparation and table-side grilling at their finest, our Cast-Iron K-BBQ is limited to only 5 tables a day. Advance booking is recommended.
+            </p>
+          </div>
+
+          <div class="space-y-2 p-4 rounded-xl bg-white border border-[var(--color-ink)]/10 shadow-sm">
+            <span class="font-semibold block text-sm text-[var(--color-primary)]">Weekend Early Bird Special</span>
+            <p class="text-[var(--color-ink)]/75">
+              Visit before 12:00 PM on weekends with 2+ guests and order a main dish to receive a complimentary plate of Ppyeogui (Spicy Grilled Pork Bones).
+            </p>
+          </div>
+
+          <div class="space-y-2 p-4 rounded-xl bg-white border border-[var(--color-ink)]/10 shadow-sm">
+            <span class="font-semibold block text-sm text-[var(--color-primary)]">Direct WhatsApp Booking</span>
+            <p class="text-[var(--color-ink)]/75">
+              This concept booking form sends your booking request directly to the GAMJA team via WhatsApp. No third-party platform booking fees.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</RestaurantDemoLayout>

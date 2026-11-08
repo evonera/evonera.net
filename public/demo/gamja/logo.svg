@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 120" width="100%" height="100%">
+  <!-- Circular Traditional Korean Seal / Emblem -->
+  <g transform="translate(15, 10)">
+    <!-- Outer Seal Ring -->
+    <circle cx="50" cy="50" r="46" fill="#FAF3E9" stroke="#4A0E0A" stroke-width="3.5" />
+    <circle cx="50" cy="50" r="41" fill="none" stroke="#D48B47" stroke-width="1.2" stroke-dasharray="3 2" />
+    
+    <!-- Stylized Gamja / Potato Silhouette Motif -->
+    <path d="M 36 32 C 42 26, 60 26, 66 34 C 72 42, 70 58, 64 66 C 56 74, 40 72, 34 64 C 28 56, 30 38, 36 32 Z" 
+          fill="#4A0E0A" opacity="0.95" />
+    
+    <!-- Korean Hangul '감자' inside seal -->
+    <text x="50" y="55" 
+          font-family="'Plus Jakarta Sans', -apple-system, sans-serif" 
+          font-weight="700" 
+          font-size="16" 
+          fill="#FAF3E9" 
+          text-anchor="middle" 
+          dominant-baseline="central" 
+          letter-spacing="1">감자</text>
+  </g>
+
+  <!-- Typography: GAMJA -->
+  <text x="135" y="60" 
+        font-family="'Fraunces', 'Cormorant Garamond', Georgia, serif" 
+        font-weight="600" 
+        font-size="36" 
+        fill="#FAF3E9" 
+        letter-spacing="4">GAMJA</text>
+
+  <!-- Korean Subtitle & Location -->
+  <text x="138" y="84" 
+        font-family="'Plus Jakarta Sans', -apple-system, sans-serif" 
+        font-weight="500" 
+        font-size="10.5" 
+        fill="#D48B47" 
+        letter-spacing="3.2">KOREAN SOUL FOOD • TELOK AYER</text>
+</svg>

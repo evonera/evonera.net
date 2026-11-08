@@ -37,7 +37,7 @@
     <path d="M440 30 H520" stroke="#8B5CF6" stroke-width="1.5" stroke-dasharray="4 4"/>
     
     <rect x="520" y="0" width="180" height="60" rx="8" fill="#141414" stroke="#10B981" stroke-width="1.5"/>
-    <text x="540" y="35" fill="#FFFFFF" font-family="monospace" font-size="14">Verifier & Tool</text>
+    <text x="540" y="35" fill="#FFFFFF" font-family="monospace" font-size="14">Verifier &amp; Tool</text>
   </g>
   
   <text x="100" y="520" fill="#6B7280" font-family="monospace" font-size="13">Evonera Research · 2026 Architecture Series</text>

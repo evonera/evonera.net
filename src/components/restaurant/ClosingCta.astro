@@ -9,15 +9,15 @@ interface Props {
 const { heading, subline, ctaLabel, ctaHref } = Astro.props;
 ---
 
-<section class="w-full bg-[#FDF1DC] text-[#5A0F22] py-24 sm:py-32 px-4 sm:px-6 text-center">
+<section class="w-full bg-[var(--color-surface)] text-[var(--color-ink)] py-24 sm:py-32 px-4 sm:px-6 text-center">
   <div class="max-w-2xl mx-auto flex flex-col items-center">
-    <span class="text-xs uppercase tracking-[0.3em] text-[#5A0F22]/60 font-semibold mb-3">
+    <span class="text-xs uppercase tracking-[0.3em] text-[var(--color-ink)]/60 font-semibold mb-3">
       Reservations
     </span>
-    <h2 class="font-display text-4xl sm:text-5xl md:text-6xl font-light tracking-tight mb-4 text-[#5A0F22]">
+    <h2 class="font-display text-4xl sm:text-5xl md:text-6xl font-light tracking-tight mb-4 text-[var(--color-ink)]">
       {heading}
     </h2>
-    <p class="text-base sm:text-lg text-[#5A0F22]/80 font-light mb-10 max-w-lg leading-relaxed">
+    <p class="text-base sm:text-lg text-[var(--color-ink)]/80 font-light mb-10 max-w-lg leading-relaxed">
       {subline}
     </p>
     <a

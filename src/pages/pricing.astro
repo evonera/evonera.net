@@ -22,6 +22,13 @@ import { ProjectBriefForm } from "../components/ProjectBriefForm";
     <p class="mt-6 text-sm text-neutral-400">Third-party hosting, AI usage, payment processing, and other vendor fees are separate from engineering work.</p>
   </section>
   <section id="project-review" class="border-t border-white/10 bg-ink-950 px-4 sm:px-6 py-16 sm:py-20">
-    <div class="max-w-6xl mx-auto"><ProjectBriefForm client:load /></div>
+    <div class="max-w-6xl mx-auto">
+      <div class="max-w-2xl mx-auto text-center mb-8">
+        <p class="text-sm font-medium text-blue-300">Request a quote</p>
+        <h2 class="mt-2 text-3xl sm:text-4xl font-semibold text-neutral-50">Tell us about your project.</h2>
+        <p class="mt-3 text-sm text-neutral-300 leading-relaxed">Share what you need built or fixed. We'll send a clear, fixed-price scope within 24 hours.</p>
+      </div>
+      <ProjectBriefForm client:load />
+    </div>
   </section>
 </Layout>

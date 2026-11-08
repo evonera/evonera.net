@@ -1,31 +1,40 @@
 ---
-import data from "../data/restaurants/toriei.json";
+import torieiData from "../data/restaurants/toriei.json";
 import "../styles/globals.css";
 
 interface Props {
+  restaurantData?: any;
   title?: string;
   description?: string;
   currentPath?: string;
 }
 
 const {
-  title = `${data.restaurant.name} | ${data.restaurant.tagline}`,
-  description = data.hero.subline,
+  restaurantData = torieiData,
+  title,
+  description,
   currentPath = Astro.url.pathname,
 } = Astro.props;
 
+const data = restaurantData;
 const { restaurant, branding, demo } = data;
 const { colors } = branding;
 
+const slug = restaurant.slug || (currentPath.includes("saikyo-pasta") ? "saikyo-pasta" : "toriei");
+const basePath = `/demo/${slug}`;
+
+const resolvedTitle = title || `${restaurant.name} | ${restaurant.tagline}`;
+const resolvedDescription = description || data.hero?.subline || restaurant.tagline;
+
 const navLinks = [
-  { label: "Home", href: "/demo/toriei" },
-  { label: "Menu", href: "/demo/toriei/menu" },
-  { label: "Reservations", href: "/demo/toriei/reservations" },
-  { label: "Contact", href: "/demo/toriei/contact" },
+  { label: "Home", href: basePath },
+  { label: "Menu", href: `${basePath}/menu` },
+  { label: "Reservations", href: `${basePath}/reservations` },
+  { label: "Contact", href: `${basePath}/contact` },
 ];
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site || "https://evonera.net").toString();
-const ogImageURL = new URL(data.hero.image, Astro.site || "https://evonera.net").toString();
+const ogImageURL = new URL(data.hero?.image || "/demo/saikyo-pasta/hero.jpg", Astro.site || "https://evonera.net").toString();
 
 // Structured JSON-LD for local restaurant SEO
 const schemaData = {
@@ -43,14 +52,6 @@ const schemaData = {
     "postalCode": restaurant.postalCode,
     "addressCountry": "SG"
   },
-  "openingHoursSpecification": [
-    {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-      "opens": "19:00",
-      "closes": "22:00"
-    }
-  ],
   "url": canonicalURL
 };
 ---
@@ -60,8 +61,8 @@ const schemaData = {
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <title>{title}</title>
-    <meta name="description" content={description} />
+    <title>{resolvedTitle}</title>
+    <meta name="description" content={resolvedDescription} />
     <link rel="canonical" href={canonicalURL} />
 
     {demo.isDemo && (
@@ -80,16 +81,16 @@ const schemaData = {
     />
 
     <!-- Open Graph -->
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
+    <meta property="og:title" content={resolvedTitle} />
+    <meta property="og:description" content={resolvedDescription} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:image" content={ogImageURL} />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content={description} />
+    <meta name="twitter:title" content={resolvedTitle} />
+    <meta name="twitter:description" content={resolvedDescription} />
     <meta name="twitter:image" content={ogImageURL} />
 
     <!-- JSON-LD -->
@@ -194,31 +195,31 @@ const schemaData = {
       .btn-pill-burgundy:hover {
         transform: translateY(-1px);
         opacity: 0.95;
-        box-shadow: 0 4px 14px rgba(74, 13, 28, 0.35);
+        box-shadow: 0 4px 14px rgba(0,0,0, 0.35);
       }
     </style>
   </head>
-  <body class="selection:bg-[#FDF1DC] selection:text-[#4A0D1C] min-h-screen flex flex-col">
+  <body class="min-h-screen flex flex-col" style="background-color: var(--color-primary); color: var(--color-on-primary);">
     <!-- Top Demo Banner (Non-intrusive) -->
     {demo.isDemo && (
-      <aside aria-label="Demo notice" class="w-full bg-[#1b050b] text-[#FDF1DC]/80 text-xs py-2 px-4 text-center border-b border-[#FDF1DC]/10 flex items-center justify-center gap-2">
-        <span>Concept demo prepared for <strong>Chef Roy & {restaurant.name}</strong></span>
+      <aside aria-label="Demo notice" class="w-full bg-black/40 text-[var(--color-on-primary)]/80 text-xs py-2 px-4 text-center border-b border-[var(--color-on-primary)]/10 flex items-center justify-center gap-2">
+        <span>Concept demo prepared for <strong>{demo.recipientName || restaurant.name}</strong></span>
         <span class="hidden sm:inline opacity-40">•</span>
-        <a href={demo.agencyUrl} class="underline hover:text-white transition-colors">By {demo.agencyName}</a>
+        <a href={demo.agencyUrl || "https://evonera.net"} class="underline hover:text-white transition-colors">By {demo.agencyName || "Evonera Technologies"}</a>
       </aside>
     )}
 
     <!-- Navigation Header -->
-    <header class="sticky top-0 z-40 w-full transition-all duration-300 backdrop-blur-md bg-[#4A0D1C]/85 border-b border-[#FDF1DC]/10" id="main-header">
+    <header class="sticky top-0 z-40 w-full transition-all duration-300 backdrop-blur-md border-b border-[var(--color-on-primary)]/10" style="background-color: color-mix(in srgb, var(--color-primary) 88%, transparent);" id="main-header">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between relative">
         <!-- Spacer on mobile to center the logo -->
         <div class="w-8 sm:hidden"></div>
 
         <!-- Logo -->
-        <a href="/demo/toriei" class="group flex items-center gap-2 text-surface focus:outline-none sm:static absolute left-1/2 -translate-x-1/2 sm:translate-x-0">
+        <a href={basePath} class="group flex items-center gap-2 focus:outline-none sm:static absolute left-1/2 -translate-x-1/2 sm:translate-x-0">
           <div class="flex flex-col items-center sm:items-start leading-none">
-            <span class="font-display text-2xl sm:text-2xl tracking-[0.25em] font-light text-[#FDF1DC]">鳥栄</span>
-            <span class="text-[9px] tracking-[0.45em] text-[#FDF1DC]/70 font-medium uppercase mt-0.5">TORIEI</span>
+            <span class="font-display text-2xl sm:text-2xl tracking-[0.2em] font-light text-[var(--color-on-primary)]">{restaurant.japaneseName || restaurant.name}</span>
+            <span class="text-[9px] tracking-[0.45em] text-[var(--color-on-primary)]/70 font-medium uppercase mt-0.5">{restaurant.name.toUpperCase()}</span>
           </div>
         </a>
 
@@ -231,8 +232,8 @@ const schemaData = {
                 href={link.href}
                 class={`transition-colors duration-200 ${
                   isActive
-                    ? "text-[#FDF1DC] font-semibold border-b border-[#FDF1DC] pb-0.5"
-                    : "text-[#FDF1DC]/75 hover:text-[#FDF1DC]"
+                    ? "text-[var(--color-on-primary)] font-semibold border-b border-[var(--color-on-primary)] pb-0.5"
+                    : "text-[var(--color-on-primary)]/75 hover:text-[var(--color-on-primary)]"
                 }`}
               >
                 {link.label}
@@ -244,7 +245,7 @@ const schemaData = {
         <!-- Right Side: Reserve CTA (Desktop only) & Hamburger Button -->
         <div class="flex items-center gap-4">
           <a
-            href="/demo/toriei/reservations"
+            href={`${basePath}/reservations`}
             class="hidden md:inline-flex btn-pill-cream text-xs uppercase tracking-widest px-5 py-2.5"
           >
             Reservation
@@ -256,7 +257,7 @@ const schemaData = {
             id="mobile-menu-btn"
             aria-label="Toggle navigation menu"
             aria-expanded="false"
-            class="p-2 text-[#FDF1DC] hover:text-white rounded-lg focus:outline-none transition-colors"
+            class="p-2 text-[var(--color-on-primary)] hover:text-white rounded-lg focus:outline-none transition-colors"
           >
             <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path id="hamburger-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M4 7h16M4 12h16M4 17h16" />
@@ -266,22 +267,23 @@ const schemaData = {
       </div>
     </header>
 
-    <!-- Full-Screen Mobile / Desktop Overlay Menu (Solid background, zero double exposure) -->
+    <!-- Full-Screen Mobile / Desktop Overlay Menu -->
     <div
       id="fullscreen-nav-overlay"
-      class="fixed inset-0 z-50 bg-[#4A0D1C] text-[#FDF1DC] flex flex-col justify-between p-6 sm:p-12 opacity-0 pointer-events-none transition-all duration-300 translate-y-[-8px] overflow-y-auto"
+      class="fixed inset-0 z-50 flex flex-col justify-between p-6 sm:p-12 opacity-0 pointer-events-none transition-all duration-300 translate-y-[-8px] overflow-y-auto"
+      style="background-color: var(--color-primary); color: var(--color-on-primary);"
     >
       <!-- Overlay Header with Close Button -->
-      <div class="flex items-center justify-between border-b border-[#FDF1DC]/15 pb-6">
-        <a href="/demo/toriei" class="flex flex-col leading-none" id="overlay-logo">
-          <span class="font-display text-2xl tracking-[0.2em] font-light">鳥栄</span>
-          <span class="text-[10px] tracking-[0.45em] text-[#FDF1DC]/70 font-medium uppercase mt-0.5">TORIEI</span>
+      <div class="flex items-center justify-between border-b border-[var(--color-on-primary)]/15 pb-6">
+        <a href={basePath} class="flex flex-col leading-none" id="overlay-logo">
+          <span class="font-display text-2xl tracking-[0.2em] font-light">{restaurant.japaneseName || restaurant.name}</span>
+          <span class="text-[10px] tracking-[0.45em] text-[var(--color-on-primary)]/70 font-medium uppercase mt-0.5">{restaurant.name.toUpperCase()}</span>
         </a>
         <button
           type="button"
           id="close-overlay-btn"
           aria-label="Close menu"
-          class="p-2 text-[#FDF1DC] hover:opacity-80 transition-opacity min-w-[44px] min-h-[44px] flex items-center justify-center"
+          class="p-2 text-[var(--color-on-primary)] hover:opacity-80 transition-opacity min-w-[44px] min-h-[44px] flex items-center justify-center"
         >
           <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12" />
@@ -291,29 +293,29 @@ const schemaData = {
 
       <!-- Overlay Links List -->
       <div class="py-12 flex flex-col gap-6 text-center sm:text-left sm:max-w-xl mx-auto sm:mx-0">
-        <span class="text-xs uppercase tracking-[0.3em] text-[#FDF1DC]/50 mb-2">Navigation</span>
+        <span class="text-xs uppercase tracking-[0.3em] text-[var(--color-on-primary)]/50 mb-2">Navigation</span>
         {navLinks.map((link) => (
           <a
             href={link.href}
-            class="font-display text-3xl sm:text-5xl font-light hover:translate-x-2 transition-transform duration-200 text-[#FDF1DC] hover:text-[#C5A059] py-1 min-h-[44px] flex items-center"
+            class="font-display text-3xl sm:text-5xl font-light hover:translate-x-2 transition-transform duration-200 text-[var(--color-on-primary)] hover:text-[var(--color-accent)] py-1 min-h-[44px] flex items-center"
           >
             {link.label}
           </a>
         ))}
         <div class="pt-6">
           <a
-            href="/demo/toriei/reservations"
+            href={`${basePath}/reservations`}
             class="btn-pill-cream text-sm uppercase tracking-widest px-8 py-3.5 inline-block text-center"
           >
-            Reserve Your Counter Seat
+            Reserve Your Table
           </a>
         </div>
       </div>
 
       <!-- Overlay Footer Info -->
-      <div class="border-t border-[#FDF1DC]/15 pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-[#FDF1DC]/70 gap-4">
+      <div class="border-t border-[var(--color-on-primary)]/15 pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-[var(--color-on-primary)]/70 gap-4">
         <div>{restaurant.address}, {restaurant.city} {restaurant.postalCode}</div>
-        <div>Mon - Sat: 7:00 PM - 10:00 PM • <a href={`tel:${restaurant.phone}`} class="underline">{restaurant.phone}</a></div>
+        <div>{restaurant.hours?.monday || "Mon - Sat: 11:30 AM - 8:00 PM"} • <a href={`tel:${restaurant.phone}`} class="underline">{restaurant.phone}</a></div>
       </div>
     </div>
 
@@ -323,51 +325,53 @@ const schemaData = {
     </main>
 
     <!-- Global Footer -->
-    <footer class="bg-[#4A0D1C] text-[#FDF1DC] border-t border-[#FDF1DC]/15 pt-16 pb-12">
+    <footer class="border-t border-[var(--color-on-primary)]/15 pt-16 pb-12" style="background-color: var(--color-primary); color: var(--color-on-primary);">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 md:grid-cols-12 gap-12 pb-12 border-b border-[#FDF1DC]/15">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-12 pb-12 border-b border-[var(--color-on-primary)]/15">
           <!-- Col 1: Brand Info -->
           <div class="md:col-span-5 flex flex-col items-start gap-4">
             <div class="flex flex-col leading-none">
-              <span class="font-display text-3xl tracking-[0.2em] font-light">鳥栄</span>
-              <span class="text-[10px] tracking-[0.45em] text-[#FDF1DC]/70 font-medium uppercase mt-1">TORIEI • SINGAPORE</span>
+              <span class="font-display text-3xl tracking-[0.2em] font-light">{restaurant.japaneseName || restaurant.name}</span>
+              <span class="text-[10px] tracking-[0.45em] text-[var(--color-on-primary)]/70 font-medium uppercase mt-1">{restaurant.name.toUpperCase()} • SINGAPORE</span>
             </div>
-            <p class="text-sm text-[#FDF1DC]/80 font-light max-w-sm leading-relaxed mt-2">
-              An intimate ten-seat Japanese yakitori omakase dedicated to whole-bird French poulet, Kishu Binchotan fire, and artisanal shio seasoning.
+            <p class="text-sm text-[var(--color-on-primary)]/80 font-light max-w-sm leading-relaxed mt-2">
+              {restaurant.description || restaurant.tagline}
             </p>
-            <div class="text-xs text-[#FDF1DC]/60 font-mono mt-1">
-              Chef-Owner Roy Koh & Head Chef Masashi Asai
+            <div class="text-xs text-[var(--color-on-primary)]/60 font-mono mt-1">
+              {restaurant.chef?.summary || restaurant.chef?.owner || "Founding Team"}
             </div>
           </div>
 
           <!-- Col 2: Navigation Links -->
           <div class="md:col-span-3">
-            <h2 class="text-xs uppercase tracking-[0.25em] text-[#FDF1DC]/50 font-semibold mb-4">Explore</h2>
+            <h2 class="text-xs uppercase tracking-[0.25em] text-[var(--color-on-primary)]/50 font-semibold mb-4">Explore</h2>
             <ul class="space-y-2.5 text-sm">
-              <li><a href="/demo/toriei" class="hover:text-[#C5A059] transition-colors">Home</a></li>
-              <li><a href="/demo/toriei/menu" class="hover:text-[#C5A059] transition-colors">18-Course Tasting Menu</a></li>
-              <li><a href="/demo/toriei/reservations" class="hover:text-[#C5A059] transition-colors">Counter Reservations</a></li>
-              <li><a href="/demo/toriei/contact" class="hover:text-[#C5A059] transition-colors">Location & Hours</a></li>
-              <li><a href="/demo/toriei#story" class="hover:text-[#C5A059] transition-colors">Our Story & Craft</a></li>
+              <li><a href={basePath} class="hover:text-[var(--color-accent)] transition-colors">Home</a></li>
+              <li><a href={`${basePath}/menu`} class="hover:text-[var(--color-accent)] transition-colors">Menu & Courses</a></li>
+              <li><a href={`${basePath}/reservations`} class="hover:text-[var(--color-accent)] transition-colors">Counter Reservations</a></li>
+              <li><a href={`${basePath}/contact`} class="hover:text-[var(--color-accent)] transition-colors">Location & Hours</a></li>
+              <li><a href={`${basePath}#story`} class="hover:text-[var(--color-accent)] transition-colors">Our Story & Craft</a></li>
             </ul>
           </div>
 
           <!-- Col 3: Hours & Direct Contact -->
           <div class="md:col-span-4 flex flex-col gap-3 text-sm">
-            <h2 class="text-xs uppercase tracking-[0.25em] text-[#FDF1DC]/50 font-semibold mb-1">Hours & Location</h2>
-            <p class="text-[#FDF1DC]/90 font-medium">{restaurant.address}</p>
-            <p class="text-xs text-[#FDF1DC]/70">{restaurant.mrt}</p>
-            <div class="pt-2 text-xs space-y-1 text-[#FDF1DC]/80">
-              <p><strong>Monday - Saturday:</strong> 7:00 PM - 10:00 PM</p>
-              <p><strong>Sunday:</strong> Closed</p>
-              <p><strong>Seating:</strong> Single seating at 7:00 PM</p>
+            <h2 class="text-xs uppercase tracking-[0.25em] text-[var(--color-on-primary)]/50 font-semibold mb-1">Hours & Location</h2>
+            <p class="text-[var(--color-on-primary)]/90 font-medium">{restaurant.address}</p>
+            <p class="text-xs text-[var(--color-on-primary)]/70">{restaurant.mrt}</p>
+            <div class="pt-2 text-xs space-y-1 text-[var(--color-on-primary)]/80">
+              <p><strong>Monday - Saturday:</strong> {restaurant.hours?.monday || "11:30 AM - 2:00 PM, 6:00 PM - 8:00 PM"}</p>
+              <p><strong>Sunday:</strong> {restaurant.hours?.sunday || "Closed"}</p>
+              <p><strong>Seating:</strong> {restaurant.seatingTime || restaurant.capacity || "Counter seatings"}</p>
             </div>
             <div class="pt-2 flex items-center gap-4">
-              <a href={restaurant.social.instagram} target="_blank" rel="noopener noreferrer" class="text-xs uppercase tracking-wider text-[#FDF1DC] underline hover:text-[#C5A059]">
-                Instagram @toriei.sg
-              </a>
-              <span class="text-[#FDF1DC]/30">•</span>
-              <a href={`https://wa.me/${restaurant.whatsapp.replace(/[^0-9]/g, '')}`} target="_blank" rel="noopener noreferrer" class="text-xs uppercase tracking-wider text-[#FDF1DC] underline hover:text-[#C5A059]">
+              {restaurant.social?.instagram && (
+                <a href={restaurant.social.instagram} target="_blank" rel="noopener noreferrer" class="text-xs uppercase tracking-wider text-[var(--color-on-primary)] underline hover:text-[var(--color-accent)]">
+                  Instagram
+                </a>
+              )}
+              <span class="text-[var(--color-on-primary)]/30">•</span>
+              <a href={`https://wa.me/${restaurant.whatsapp.replace(/[^0-9]/g, '')}`} target="_blank" rel="noopener noreferrer" class="text-xs uppercase tracking-wider text-[var(--color-on-primary)] underline hover:text-[var(--color-accent)]">
                 WhatsApp Us
               </a>
             </div>
@@ -375,9 +379,9 @@ const schemaData = {
         </div>
 
         <!-- Mandatory Evonera Demo Disclaimer (Section 2 & 16) -->
-        <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-[#FDF1DC]/60 gap-4">
-          <p class="text-center sm:text-left">
-            <strong>Demo concept by <a href={demo.agencyUrl} class="underline hover:text-white">{demo.agencyName}</a>.</strong> Not the official website of {restaurant.name}.
+        <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-[var(--color-on-primary)]/60 gap-4">
+          <p class="text-center sm:left">
+            <strong>Demo concept by <a href={demo.agencyUrl || "https://evonera.net"} class="underline hover:text-white">{demo.agencyName || "Evonera Technologies"}</a>.</strong> Not the official website of {restaurant.name}.
           </p>
           <div class="flex items-center gap-6">
             <span>Built with Astro & Tailwind</span>

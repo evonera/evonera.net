@@ -79,7 +79,7 @@ const ogImageURL = new URL(image, Astro.site || "https://evonera.net").toString(
             <span>Get project help</span>
           </a>
           <button id="menu-btn" aria-expanded="false" aria-label="Open menu" class="md:hidden size-9 inline-flex items-center justify-center rounded-md border border-white/15 bg-ink-800 text-neutral-200">
-            ☰
+            <span id="menu-icon" class="text-base leading-none">☰</span>
           </button>
         </div>
       </div>
@@ -129,7 +129,6 @@ const ogImageURL = new URL(image, Astro.site || "https://evonera.net").toString(
         <div class="space-y-2">
           <p class="font-mono text-xs font-medium text-neutral-200 uppercase tracking-wider">Company</p>
           <ul class="space-y-1.5 text-xs text-neutral-400">
-            <li><a href="/pricing" class="hover:text-neutral-200 transition-colors">How pricing works</a></li>
             <li><a href="/contact" class="hover:text-neutral-200 transition-colors">Contact</a></li>
             <li><a href="/privacy" class="hover:text-neutral-200 transition-colors">Privacy Policy</a></li>
             <li><a href="/terms" class="hover:text-neutral-200 transition-colors">Terms of Service</a></li>
@@ -146,15 +145,22 @@ const ogImageURL = new URL(image, Astro.site || "https://evonera.net").toString(
     <script>
       const menuButton = document.getElementById("menu-btn");
       const mobileMenu = document.getElementById("mobile-menu");
+      const menuIcon = document.getElementById("menu-icon");
       menuButton?.addEventListener("click", () => {
         const isExpanded = menuButton.getAttribute("aria-expanded") === "true";
         menuButton.setAttribute("aria-expanded", String(!isExpanded));
         mobileMenu?.classList.toggle("hidden", isExpanded);
+        if (menuIcon) {
+          menuIcon.textContent = isExpanded ? "☰" : "✕";
+        }
       });
       mobileMenu?.querySelectorAll("a").forEach((link) => {
         link.addEventListener("click", () => {
           mobileMenu.classList.add("hidden");
           menuButton?.setAttribute("aria-expanded", "false");
+          if (menuIcon) {
+            menuIcon.textContent = "☰";
+          }
         });
       });
     </script>

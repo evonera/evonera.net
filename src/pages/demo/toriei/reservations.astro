@@ -1,6 +1,6 @@
 ---
 import RestaurantDemoLayout from "../../../layouts/RestaurantDemoLayout.astro";
-import ReservationForm from "../../../components/restaurant/ReservationForm.tsx";
+import ReservationForm from "../../../components/restaurant/ReservationForm.astro";
 import data from "../../../data/restaurants/toriei.json";
 
 const { restaurant } = data;
@@ -29,12 +29,16 @@ const { restaurant } = data;
   <!-- Reservation Section (Warm Cream #FDF1DC) -->
   <section class="w-full bg-[#FDF1DC] text-[#5A0F22] py-20 sm:py-28 px-4 sm:px-6">
     <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-12 items-start">
-      <!-- Left: Interactive Booking Form Component (React) -->
+      <!-- Left: Interactive Booking Form Component -->
       <div class="md:col-span-7">
         <ReservationForm
-          client:load
           whatsappNumber={restaurant.whatsapp}
           restaurantName={restaurant.name}
+          recipientName="Chef Roy & Toriei team"
+          seatingTimes={["7:00 PM (Single Seating)"]}
+          capacityText="Single evening seating at 7:00 PM • 10 seats total"
+          closedDaysNotice="Toriei is closed on Sundays. Please select a dining date between Monday and Saturday."
+          maxPartySize={10}
         />
       </div>
 

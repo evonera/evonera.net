@@ -1,0 +1,82 @@
+---
+import RestaurantDemoLayout from "../../../layouts/RestaurantDemoLayout.astro";
+import ReservationForm from "../../../components/restaurant/ReservationForm.astro";
+import data from "../../../data/restaurants/saikyo-pasta.json";
+
+const { restaurant, reservations } = data;
+---
+
+<RestaurantDemoLayout
+  restaurantData={data}
+  title={`Counter Reservations | ${restaurant.name} Tanjong Pagar`}
+  description={`Request a counter reservation at ${restaurant.name} (12 counter seats at Icon Village, Tanjong Pagar). Connect directly via WhatsApp.`}
+  currentPath="/demo/saikyo-pasta/reservations"
+>
+  <!-- Subpage Header -->
+  <section class="w-full text-[var(--color-on-primary)] pt-28 pb-12 sm:pt-36 sm:pb-16 px-4 sm:px-6 text-center border-b border-[var(--color-on-primary)]/10" style="background-color: color-mix(in srgb, var(--color-primary) 90%, black);">
+    <div class="max-w-2xl mx-auto">
+      <span class="text-xs uppercase tracking-[0.3em] text-[var(--color-on-primary)]/60 font-semibold mb-3 block">
+        Direct Counter Bookings
+      </span>
+      <h1 class="font-display text-4xl sm:text-5xl md:text-6xl font-light tracking-tight mb-4 text-[var(--color-on-primary)]">
+        {reservations.title}
+      </h1>
+      <p class="text-base sm:text-lg text-[var(--color-on-primary)]/85 font-light leading-relaxed">
+        {reservations.subtitle}. Request your preferred lunch or dinner seating directly with the founding team.
+      </p>
+    </div>
+  </section>
+
+  <!-- Reservation Form Area (Surface Background) -->
+  <section class="w-full bg-[var(--color-surface)] py-16 sm:py-24 px-4 sm:px-6">
+    <div class="max-w-4xl mx-auto">
+      <!-- Astro Form Component -->
+      <ReservationForm
+        whatsappNumber={restaurant.whatsapp}
+        restaurantName={restaurant.name}
+        recipientName="Arya, Angeline & Chef Keisuke"
+        seatingTimes={reservations.seatingTimes}
+        capacityText={reservations.capacityText}
+        closedDaysNotice={reservations.closedDaysNotice}
+        maxPartySize={12}
+      />
+
+      <!-- Policies & Dining Information Grid -->
+      <div class="mt-16 max-w-xl mx-auto pt-10 border-t border-[var(--color-ink)]/15 text-[var(--color-ink)] space-y-6">
+        <h2 class="text-xs uppercase tracking-[0.25em] text-[var(--color-ink)]/60 font-semibold text-center mb-6">
+          Seating & Reservation Guidelines
+        </h2>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 text-xs leading-relaxed">
+          <div class="space-y-2 p-4 rounded-xl bg-white border border-[var(--color-ink)]/10 shadow-sm">
+            <span class="font-semibold block text-sm text-[var(--color-primary)]">Intimate 12-Seat Bar</span>
+            <p class="text-[var(--color-ink)]/75">
+              With only 12 counter seats, prompt arrival ensures every party enjoys their courses fresh from the pans. Seats are held for up to 10 minutes.
+            </p>
+          </div>
+
+          <div class="space-y-2 p-4 rounded-xl bg-white border border-[var(--color-ink)]/10 shadow-sm">
+            <span class="font-semibold block text-sm text-[var(--color-primary)]">Full Counter Buyouts</span>
+            <p class="text-[var(--color-ink)]/75">
+              Planning a celebration or corporate dinner? Full 12-seat counter buyouts are available with bespoke set menus. Message us directly on WhatsApp.
+            </p>
+          </div>
+
+          <div class="space-y-2 p-4 rounded-xl bg-white border border-[var(--color-ink)]/10 shadow-sm">
+            <span class="font-semibold block text-sm text-[var(--color-primary)]">Dietary Requirements</span>
+            <p class="text-[var(--color-ink)]/75">
+              Our signature mentaiko pasta is completely dairy-free. Vegetarian modifications for our shiso mushroom pasta are gladly accommodated with advance note.
+            </p>
+          </div>
+
+          <div class="space-y-2 p-4 rounded-xl bg-white border border-[var(--color-ink)]/10 shadow-sm">
+            <span class="font-semibold block text-sm text-[var(--color-primary)]">Direct WhatsApp Confirmation</span>
+            <p class="text-[var(--color-ink)]/75">
+              This concept booking form sends your details directly to the team via WhatsApp. No credit card deposit is charged on this demo prototype.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</RestaurantDemoLayout>

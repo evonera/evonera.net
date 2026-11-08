@@ -3,24 +3,42 @@ interface Props {
   heading: string;
   subline: string;
   address: string;
+  postalCode?: string;
   mrt: string;
-  hours: Record<string, string>;
+  hours?: Record<string, string>;
+  hoursText?: string;
+  hoursSubtext?: string;
   phone: string;
   googleMapsUrl: string;
+  mapTitle?: string;
 }
 
-const { heading, subline, address, mrt, hours, phone, googleMapsUrl } = Astro.props;
+const {
+  heading,
+  subline,
+  address,
+  postalCode = "Singapore",
+  mrt,
+  hoursText = "Mon - Sat: 11:30 AM - 8:00 PM",
+  hoursSubtext = "Closed on Sundays",
+  phone,
+  googleMapsUrl,
+  mapTitle = "Restaurant Location Map",
+} = Astro.props;
+
+const encodedAddress = encodeURIComponent(`${address} Singapore ${postalCode}`);
+const mapEmbedSrc = `https://maps.google.com/maps?q=${encodedAddress}&t=&z=16&ie=UTF8&iwloc=&output=embed`;
 ---
 
-<section class="w-full bg-[#4A0D1C] text-[#FDF1DC] py-20 sm:py-28 px-4 sm:px-6 border-t border-[#FDF1DC]/10">
+<section class="w-full bg-[var(--color-primary)] text-[var(--color-on-primary)] py-20 sm:py-28 px-4 sm:px-6 border-t border-[var(--color-on-primary)]/10">
   <div class="max-w-4xl mx-auto text-center flex flex-col items-center">
-    <span class="text-xs uppercase tracking-[0.3em] text-[#FDF1DC]/60 font-semibold mb-3">
+    <span class="text-xs uppercase tracking-[0.3em] text-[var(--color-on-primary)]/60 font-semibold mb-3">
       Visit Us
     </span>
     <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-light mb-3">
       {heading}
     </h2>
-    <p class="text-base text-[#FDF1DC]/80 font-light mb-12 max-w-lg">
+    <p class="text-base text-[var(--color-on-primary)]/80 font-light mb-12 max-w-lg">
       {subline}
     </p>
 
@@ -29,14 +47,14 @@ const { heading, subline, address, mrt, hours, phone, googleMapsUrl } = Astro.pr
       <!-- Address & Access Column -->
       <div class="md:col-span-6 flex flex-col gap-4">
         <div>
-          <span class="text-[10px] uppercase tracking-[0.25em] text-[#4A0D1C] font-bold block mb-1">
+          <span class="text-[10px] uppercase tracking-[0.25em] text-[var(--color-primary)] font-bold block mb-1">
             Address
           </span>
           <p class="text-lg sm:text-xl font-medium text-[#191919]">
             {address}
           </p>
           <p class="text-sm text-neutral-500 mt-1">
-            Singapore 228796
+            Singapore {postalCode}
           </p>
         </div>
 
@@ -54,8 +72,8 @@ const { heading, subline, address, mrt, hours, phone, googleMapsUrl } = Astro.pr
             Dining Hours
           </span>
           <p class="text-sm text-neutral-800">
-            <strong>Mon - Sat:</strong> 7:00 PM - 10:00 PM<br />
-            <span class="text-neutral-500 text-xs">Closed on Sundays • Single seating at 7:00 PM</span>
+            <strong>Operating:</strong> {hoursText}<br />
+            <span class="text-neutral-500 text-xs">{hoursSubtext}</span>
           </p>
         </div>
 
@@ -64,7 +82,7 @@ const { heading, subline, address, mrt, hours, phone, googleMapsUrl } = Astro.pr
             href={googleMapsUrl}
             target="_blank"
             rel="noopener noreferrer"
-            class="inline-flex items-center gap-2 text-xs uppercase tracking-wider text-[#4A0D1C] font-semibold underline hover:opacity-80 transition-opacity"
+            class="inline-flex items-center gap-2 text-xs uppercase tracking-wider text-[var(--color-primary)] font-semibold underline hover:opacity-80 transition-opacity"
           >
             <span>Open in Google Maps</span>
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -77,15 +95,15 @@ const { heading, subline, address, mrt, hours, phone, googleMapsUrl } = Astro.pr
       <!-- Map Graphic / Directions Card Visual -->
       <div class="md:col-span-6 h-[260px] sm:h-[300px] w-full rounded-2xl overflow-hidden relative border border-neutral-200 bg-neutral-100">
         <iframe
-          title="Toriei Cuppage Plaza Map"
+          title={mapTitle}
           width="100%"
           height="100%"
           style="border:0;"
           loading="lazy"
           allowfullscreen
           referrerpolicy="no-referrer-when-downgrade"
-          src="https://maps.google.com/maps?q=Toriei%20Yakitori%20Omakase%20Cuppage%20Plaza%20Singapore&t=&z=17&ie=UTF8&iwloc=&output=embed"
-          class="w-full h-full filter grayscale-[0.2] contrast-[1.05] brightness-[0.96]"
+          src={mapEmbedSrc}
+          class="w-full h-full filter saturate-[0.85] contrast-[1.05]"
         ></iframe>
       </div>
     </div>

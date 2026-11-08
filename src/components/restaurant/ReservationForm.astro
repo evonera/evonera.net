@@ -1,0 +1,220 @@
+---
+interface Props {
+  whatsappNumber: string;
+  restaurantName: string;
+  recipientName?: string;
+  seatingTimes?: string[];
+  capacityText?: string;
+  closedDaysNotice?: string;
+  maxPartySize?: number;
+}
+
+const {
+  whatsappNumber,
+  restaurantName,
+  recipientName = `${restaurantName} team`,
+  seatingTimes = ["7:00 PM (Single Seating)"],
+  capacityText = "Counter seating • Direct reservation",
+  closedDaysNotice = `${restaurantName} is closed on Sundays. Please select an available dining date.`,
+  maxPartySize = 10,
+} = Astro.props;
+
+// Today's date in YYYY-MM-DD
+const today = new Date().toISOString().split("T")[0];
+const partyOptions = Array.from({ length: maxPartySize }, (_, i) => i + 1);
+const formId = `res-form-${Math.random().toString(36).substring(2, 7)}`;
+---
+
+<div class="w-full max-w-xl mx-auto bg-white text-[#191919] rounded-[24px] p-6 sm:p-10 shadow-2xl border border-[var(--color-surface)]/20">
+  <div class="mb-6 pb-6 border-b border-neutral-100 text-center">
+    <span class="text-[10px] uppercase tracking-[0.25em] text-[var(--color-primary)] font-bold block mb-1">
+      Counter Seating Request
+    </span>
+    <h3 class="font-display text-2xl sm:text-3xl font-light text-[#191919]">
+      Reserve Your Table
+    </h3>
+    <p class="text-xs text-neutral-500 mt-1">
+      {capacityText}
+    </p>
+  </div>
+
+  <!-- Demo Notification Banner -->
+  <div class="mb-6 p-3.5 rounded-xl bg-[var(--color-surface)] border border-[var(--color-primary)]/20 text-[var(--color-ink)] text-xs flex items-center gap-2.5">
+    <svg class="w-5 h-5 flex-shrink-0 text-[var(--color-primary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+    </svg>
+    <span>
+      <strong>Demo Notice:</strong> Submitting prefills a direct WhatsApp message to the restaurant for the team to confirm. No live payment is taken.
+    </span>
+  </div>
+
+  <form id={formId} class="space-y-4">
+    <div>
+      <label class="block text-xs uppercase tracking-wider text-neutral-600 font-semibold mb-1">
+        Your Name *
+      </label>
+      <input
+        type="text"
+        name="name"
+        required
+        placeholder="e.g. Kenneth Tan"
+        class="w-full px-4 py-3 rounded-xl border border-neutral-200 focus:border-[var(--color-primary)] focus:ring-1 focus:ring-[var(--color-primary)] text-sm outline-none transition-colors"
+      />
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <div>
+        <label class="block text-xs uppercase tracking-wider text-neutral-600 font-semibold mb-1">
+          Phone / WhatsApp *
+        </label>
+        <input
+          type="tel"
+          name="phone"
+          required
+          placeholder="+65 9123 4567"
+          class="w-full px-4 py-3 rounded-xl border border-neutral-200 focus:border-[var(--color-primary)] focus:ring-1 focus:ring-[var(--color-primary)] text-sm outline-none transition-colors"
+        />
+      </div>
+
+      <div>
+        <label class="block text-xs uppercase tracking-wider text-neutral-600 font-semibold mb-1">
+          Party Size *
+        </label>
+        <select
+          name="partySize"
+          class="w-full px-4 py-3 rounded-xl border border-neutral-200 focus:border-[var(--color-primary)] focus:ring-1 focus:ring-[var(--color-primary)] text-sm outline-none transition-colors bg-white"
+        >
+          {partyOptions.map((num) => (
+            <option value={num} selected={num === 2}>
+              {num} {num === 1 ? "Guest" : "Guests"} {num === maxPartySize ? "(Full Counter Buyout)" : ""}
+            </option>
+          ))}
+        </select>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <div>
+        <label class="block text-xs uppercase tracking-wider text-neutral-600 font-semibold mb-1">
+          Date *
+        </label>
+        <input
+          type="date"
+          name="date"
+          required
+          min={today}
+          class="res-date-input w-full px-4 py-3 rounded-xl border border-neutral-200 focus:border-[var(--color-primary)] focus:ring-1 focus:ring-[var(--color-primary)] text-sm outline-none transition-colors"
+        />
+        <p class="res-date-error hidden text-[11px] text-red-600 mt-1 font-medium leading-tight">
+          {closedDaysNotice}
+        </p>
+      </div>
+
+      <div>
+        <label class="block text-xs uppercase tracking-wider text-neutral-600 font-semibold mb-1">
+          Seating Time
+        </label>
+        {seatingTimes.length > 1 ? (
+          <select
+            name="time"
+            class="w-full px-4 py-3 rounded-xl border border-neutral-200 focus:border-[var(--color-primary)] focus:ring-1 focus:ring-[var(--color-primary)] text-sm outline-none transition-colors bg-white"
+          >
+            {seatingTimes.map((st) => (
+              <option value={st}>{st}</option>
+            ))}
+          </select>
+        ) : (
+          <input
+            type="text"
+            name="time"
+            readonly
+            value={seatingTimes[0]}
+            class="w-full px-4 py-3 rounded-xl border border-neutral-200 bg-neutral-50 text-neutral-500 text-sm cursor-not-allowed"
+          />
+        )}
+      </div>
+    </div>
+
+    <div>
+      <label class="block text-xs uppercase tracking-wider text-neutral-600 font-semibold mb-1">
+        Dietary Restrictions / Notes
+      </label>
+      <textarea
+        name="dietaryNotes"
+        rows="3"
+        placeholder="Please let us know of any allergies or special celebrations..."
+        class="w-full px-4 py-3 rounded-xl border border-neutral-200 focus:border-[var(--color-primary)] focus:ring-1 focus:ring-[var(--color-primary)] text-sm outline-none transition-colors"
+      ></textarea>
+    </div>
+
+    <button
+      type="submit"
+      class="res-submit-btn w-full py-4 px-6 rounded-full bg-[var(--color-primary)] text-[var(--color-on-primary)] font-medium text-xs uppercase tracking-widest hover:opacity-95 transition-opacity shadow-lg mt-2 flex items-center justify-center gap-2 cursor-pointer"
+    >
+      <span>Send Booking Request via WhatsApp</span>
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+      </svg>
+    </button>
+  </form>
+
+  <div class="res-success-banner hidden mt-4 p-4 rounded-xl bg-[var(--color-surface)] border border-[var(--color-primary)]/25 text-[var(--color-primary)] text-xs text-center font-medium">
+    WhatsApp opened with your pre-filled reservation details. Tap Send in WhatsApp to contact {recipientName}.
+  </div>
+</div>
+
+<script define:vars={{ formId, whatsappNumber, recipientName }}>
+  const form = document.getElementById(formId);
+  if (form) {
+    const dateInput = form.querySelector('.res-date-input');
+    const dateError = form.querySelector('.res-date-error');
+    const submitBtn = form.querySelector('.res-submit-btn');
+    const successBanner = form.closest('div').querySelector('.res-success-banner');
+
+    dateInput?.addEventListener('change', () => {
+      const val = dateInput.value;
+      if (val) {
+        const d = new Date(val + 'T00:00:00');
+        if (d.getDay() === 0) {
+          dateError?.classList.remove('hidden');
+          dateInput.classList.add('border-red-500', 'bg-red-50/30');
+          submitBtn?.setAttribute('disabled', 'true');
+          submitBtn?.classList.add('opacity-50', 'cursor-not-allowed');
+          return;
+        }
+      }
+      dateError?.classList.add('hidden');
+      dateInput.classList.remove('border-red-500', 'bg-red-50/30');
+      submitBtn?.removeAttribute('disabled');
+      submitBtn?.classList.remove('opacity-50', 'cursor-not-allowed');
+    });
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const formData = new FormData(form);
+      const name = formData.get('name') || '';
+      const phone = formData.get('phone') || '';
+      const date = formData.get('date') || '';
+      const time = formData.get('time') || '';
+      const partySize = formData.get('partySize') || '2';
+      const notes = formData.get('dietaryNotes') || 'None';
+
+      const cleanDigits = phone.toString().replace(/[^0-9]/g, '');
+      if (cleanDigits.length < 8) {
+        alert('Please enter a valid phone number (at least 8 digits).');
+        return;
+      }
+
+      const cleanNumber = whatsappNumber.replace(/[^0-9]/g, '');
+      const message = encodeURIComponent(
+        `Hello ${recipientName},\n\nI would like to request a counter reservation:\n• Name: ${name}\n• Contact: ${phone}\n• Date: ${date}\n• Time: ${time}\n• Party Size: ${partySize} guest(s)\n• Dietary/Special Notes: ${notes}\n\nThank you!`
+      );
+
+      const url = `https://wa.me/${cleanNumber}?text=${message}`;
+      if (successBanner) {
+        successBanner.classList.remove('hidden');
+      }
+      window.open(url, '_blank', 'noopener,noreferrer');
+    });
+  }
+</script>

@@ -5,6 +5,8 @@ interface Props {
   image: string;
   ctaLabel: string;
   ctaHref?: string;
+  eyebrow?: string;
+  imageAlt?: string;
 }
 
 const {
@@ -12,57 +14,57 @@ const {
   subline,
   image,
   ctaLabel,
-  ctaHref = "/demo/toriei/reservations"
+  ctaHref = "#",
+  eyebrow = "Counter Seating • Singapore",
+  imageAlt = "Dining experience",
 } = Astro.props;
 ---
 
-<section class="relative w-full min-h-[88vh] sm:min-h-[92vh] flex flex-col justify-between overflow-hidden bg-[#24060d]">
+<section class="relative w-full min-h-[88vh] sm:min-h-[92vh] flex flex-col justify-between overflow-hidden bg-black/90">
   <!-- Background Image with Dark Vignette Overlay -->
   <div class="absolute inset-0 z-0">
     <img
       src={image}
-      alt="Toriei Kishu Binchotan yakitori counter"
+      alt={imageAlt}
       class="w-full h-full object-cover object-center filter brightness-[0.7] contrast-[1.08] scale-105 transform motion-safe:transition-transform motion-safe:duration-1000"
       loading="eager"
       fetchpriority="high"
     />
-    <div class="absolute inset-0 bg-gradient-to-b from-[#25050e]/85 via-black/45 to-[#25050e]/95"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-black/80 via-black/45 to-black/90"></div>
   </div>
 
   <!-- Center Content Area -->
   <div class="relative z-10 flex-grow flex flex-col items-center justify-center text-center px-4 sm:px-6 max-w-4xl mx-auto pt-24 pb-28 sm:pt-28 sm:pb-32">
     <!-- Subtle Tagline Badge -->
-    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#FDF1DC]/10 backdrop-blur-sm border border-[#FDF1DC]/20 text-[#FDF1DC] text-[10px] sm:text-xs uppercase tracking-[0.2em] sm:tracking-[0.3em] font-medium mb-6">
-      <span>10 Counter Seats</span>
-      <span>•</span>
-      <span>Cuppage Plaza Level 4</span>
+    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[var(--color-on-primary)]/10 backdrop-blur-sm border border-[var(--color-on-primary)]/20 text-[var(--color-on-primary)] text-[10px] sm:text-xs uppercase tracking-[0.2em] sm:tracking-[0.3em] font-medium mb-6">
+      <span>{eyebrow}</span>
     </div>
 
     <!-- Editorial Light-Weight Serif Headline in Cream -->
-    <h1 class="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light text-[#FDF1DC] leading-[1.12] tracking-tight mb-5 sm:mb-6 drop-shadow-sm">
+    <h1 class="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light text-[var(--color-on-primary)] leading-[1.12] tracking-tight mb-5 sm:mb-6 drop-shadow-sm">
       {headline}
     </h1>
 
     <!-- Short Subline -->
-    <p class="text-sm sm:text-lg md:text-xl text-[#FDF1DC]/85 font-light max-w-2xl leading-relaxed mb-8 sm:mb-10">
+    <p class="text-sm sm:text-lg md:text-xl text-[var(--color-on-primary)]/85 font-light max-w-2xl leading-relaxed mb-8 sm:mb-10">
       {subline}
     </p>
 
-    <!-- Pill Button (Cream Pill with Burgundy Text) -->
+    <!-- Pill Button (Cream Pill with Primary Text) -->
     <div>
       <a
         href={ctaHref}
-        class="inline-flex items-center justify-center font-medium rounded-full bg-[#FDF1DC] text-[#4A0D1C] text-xs sm:text-sm uppercase tracking-widest px-8 py-3.5 sm:px-10 sm:py-4 shadow-xl hover:shadow-2xl hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 cursor-pointer"
+        class="inline-flex items-center justify-center font-medium rounded-full bg-[var(--color-surface)] text-[var(--color-primary)] text-xs sm:text-sm uppercase tracking-widest px-8 py-3.5 sm:px-10 sm:py-4 shadow-xl hover:shadow-2xl hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 cursor-pointer"
       >
         {ctaLabel}
       </a>
     </div>
   </div>
 
-  <!-- Bottom Organic Wave SVG Curve Transition (Cutting into Warm Cream #FDF1DC) -->
+  <!-- Bottom Organic Wave SVG Curve Transition (Cutting into Surface) -->
   <div class="relative z-10 w-full overflow-hidden leading-none -mb-[1px]">
     <svg
-      class="relative block w-full h-12 sm:h-20 md:h-28 text-[#FDF1DC]"
+      class="relative block w-full h-12 sm:h-20 md:h-28 text-[var(--color-surface)]"
       viewBox="0 0 1440 160"
       preserveAspectRatio="none"
       fill="currentColor"

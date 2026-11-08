@@ -1,0 +1,527 @@
+{
+  "restaurant": {
+    "name": "GAMJA",
+    "japaneseName": "감자",
+    "slug": "gamja",
+    "tagline": "Authentic Korean Soul Food & Gamjatang Specialty in Telok Ayer",
+    "cuisine": "Korean Soul Food & Gamjatang",
+    "area": "Telok Ayer, Downtown CBD",
+    "mrt": "Telok Ayer MRT (DT18, Exit A, 2 min walk) • Tanjong Pagar MRT (EW15, 6 min walk)",
+    "address": "21 Boon Tat Street",
+    "unit": "Ground Floor",
+    "city": "Singapore",
+    "postalCode": "069620",
+    "country": "Singapore",
+    "phone": "+65 6222 1206",
+    "whatsapp": "+6562221206",
+    "email": "contact@gamja.sg",
+    "parking": "Street parking along Boon Tat Street, Stanley Street, and Amoy Street",
+    "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=GAMJA+21+Boon+Tat+Street+Singapore+069620",
+    "hours": {
+      "monday": "11:00 AM - 3:00 PM, 5:30 PM - 11:00 PM",
+      "tuesday": "11:00 AM - 3:00 PM, 5:30 PM - 11:00 PM",
+      "wednesday": "11:00 AM - 3:00 PM, 5:30 PM - 11:00 PM",
+      "thursday": "11:00 AM - 3:00 PM, 5:30 PM - 11:00 PM",
+      "friday": "11:00 AM - 3:00 PM, 5:30 PM - 11:00 PM",
+      "saturday": "12:00 PM - 10:00 PM",
+      "sunday": "12:00 PM - 10:00 PM"
+    },
+    "seatingTime": "Weekday Lunch 11:00 AM - 3:00 PM • Dinner 5:30 PM - 11:00 PM • Weekends 12:00 PM - 10:00 PM",
+    "capacity": "Full Dining Room & 5 Dedicated KBBQ Tables Daily",
+    "priceRange": "$$",
+    "tastingPrice": "Lunch bowls from S$15.80 • Sharing pots from S$53",
+    "social": {
+      "instagram": "https://www.instagram.com/gamja_sg/"
+    },
+    "chef": {
+      "owner": "Shin Jae-Yun & Chef Nam Wan-Hyuk",
+      "headChef": "Chef Nam Wan-Hyuk",
+      "summary": "Founders Shin Jae-Yun (The Energetic Host) & Master Chef Nam Wan-Hyuk (Tsuji Culinary Institute)",
+      "background": "Founded by entrepreneur Shin Jae-Yun and Master Chef Nam Wan-Hyuk under SHIN NAM F&B ('Shin' + 'Nam' means 'Exciting' in Korean). Chef Nam brings over 15 years of culinary devotion and classical training from Japan's famed Tsuji Culinary Institute, managing more than 10 dining concepts across Seoul, Tokyo, and Hong Kong before opening GAMJA at 21 Boon Tat Street."
+    }
+  },
+  "branding": {
+    "archetype": "Modern Korean Dining Room & Gamjatang Specialist",
+    "colors": {
+      "primary": "#4A0E0A",
+      "surface": "#FAF3E9",
+      "ink": "#2A0806",
+      "onPrimary": "#FAF3E9",
+      "accent": "#D48B47",
+      "card": "#FFFFFF"
+    },
+    "typography": {
+      "display": "'Fraunces', serif",
+      "body": "'Plus Jakarta Sans', sans-serif"
+    },
+    "logo": "/demo/gamja/logo.svg"
+  },
+  "demo": {
+    "isDemo": true,
+    "recipientName": "Shin Jae-Yun, Chef Nam Wan-Hyuk & GAMJA Team",
+    "agencyName": "Evonera Technologies",
+    "agencyUrl": "https://evonera.net",
+    "bannerNotice": "Concept demo prepared for Shin Jae-Yun & Chef Nam Wan-Hyuk (GAMJA)",
+    "conceptDisclaimer": "Demo concept by Evonera Technologies. Not the official website of GAMJA."
+  },
+  "hero": {
+    "eyebrow": "21 Boon Tat Street • Telok Ayer CBD",
+    "headline": "Soul-Warming Korean Gamjatang & Sizzling Cast-Iron BBQ in Telok Ayer",
+    "subline": "Four-hour slow-simmered pork bone broth, tender fall-off-the-bone ribs, and sizzling cauldron-lid kimchi samgyeopsal in the heart of Singapore.",
+    "ctaLabel": "Reserve a Table",
+    "ctaText": "Reserve a Table",
+    "ctaHref": "/demo/gamja/reservations",
+    "image": "/demo/gamja/hero.jpg"
+  },
+  "intro": {
+    "eyebrow": "Authentic Korean Taste & Soul",
+    "heading": "Four Hours of Simmering Dedication at 21 Boon Tat Street",
+    "headline": "Four Hours of Simmering Dedication at 21 Boon Tat Street",
+    "paragraphs": [
+      "Founded by Korean entrepreneur Shin Jae-Yun and Master Chef Nam Wan-Hyuk (trained at Japan's famed Tsuji Culinary Institute with over 15 years developing dining concepts across Seoul, Tokyo, and Hong Kong), GAMJA brings Korea's most cherished comfort food to Singapore's CBD.",
+      "At GAMJA, we believe potatoes are never the main character, but the ultimate partner that completes every delicious moment. Absorbing the savory richness of pork broth, softening the fiery heat of flame-torched pork bones, and balancing the hearty depth of our slow-simmered Gamjatang.",
+      "Hand-trimmed pork bones are soaked for four hours to eliminate gaminess, blanched clean, and simmered gently on low heat with our secret chili blend of three Korean Gochugaru varieties, fresh ginger, and garlic. Finished with fresh greens, potatoes, and glass noodles right before serving hot at your table."
+    ]
+  },
+  "fiveTiles": [
+    {
+      "title": "The Shophouse",
+      "subtitle": "21 Boon Tat Street",
+      "image": "/demo/gamja/tile-1.jpg",
+      "href": "/demo/gamja/contact"
+    },
+    {
+      "title": "Gamjatang",
+      "subtitle": "4-Hour Pork Bone Stew",
+      "image": "/demo/gamja/tile-2.jpg",
+      "href": "/demo/gamja/menu"
+    },
+    {
+      "title": "Cast-Iron BBQ",
+      "subtitle": "Sizzling Kimchi Samgyeopsal",
+      "image": "/demo/gamja/tile-3.jpg",
+      "href": "/demo/gamja/menu"
+    },
+    {
+      "title": "Nightly Vibes",
+      "subtitle": "Somaek & Pocha Gathering",
+      "image": "/demo/gamja/tile-4.jpg",
+      "href": "/demo/gamja/reservations"
+    },
+    {
+      "title": "Hospitality",
+      "subtitle": "Shin Nam F&B Family",
+      "image": "/demo/gamja/tile-5.jpg",
+      "href": "/demo/gamja/contact"
+    }
+  ],
+  "craftFeature": {
+    "tag": "Master Craft & Dedication",
+    "title": "The Honest Simmer: No Shortcuts, Pure Dedication",
+    "bodyParagraphs": [
+      "Making authentic Gamjatang is an unhurried craft. Each batch begins with hand-trimmed pork bones soaked in cold water for four hours to draw out all impurities, followed by a vigorous blanching and thorough cleansing.",
+      "Our master broth is seasoned with Chef Nam's signature chili paste: an aromatic harmony of three Korean Gochugaru varieties, aged soy, fermented bean paste, fresh ginger, and crushed garlic. It simmers gently for another four hours until the pork effortlessly separates from the bone.",
+      "On the grill, our traditional cast-iron cauldron lid caramelizes thick-cut pork belly, letting the savory pork drippings naturally infuse into aged ripe kimchi and golden potato slices."
+    ],
+    "bulletPoints": [
+      "4+ hours bone soaking and cleansing to eliminate gaminess",
+      "Signature chili paste with 3 distinct Korean Gochugaru varieties",
+      "Fall-off-the-bone tender meat served with perilla leaves and potato",
+      "Traditional cast-iron cauldron lid grilling for premium meats"
+    ],
+    "ctaText": "Explore Our Full Menu",
+    "ctaHref": "/demo/gamja/menu",
+    "image": "/demo/gamja/feature-craft.jpg"
+  },
+  "story": {
+    "tag": "The Founders' Journey",
+    "title": "When Shin Meets Nam: Bringing Exciting Korean Soul to Singapore",
+    "paragraphs": [
+      "SHIN NAM F&B was born from the combination of two Korean surnames: Shin Jae-Yun (The Energetic Host) and Chef Nam Wan-Hyuk (The Master Chef). Together in Korean, 'Shin Nam' means 'Exciting'.",
+      "After traveling across Seoul and Busan researching the authentic roots of Korea's most comforting dishes, the duo set their sights on 21 Boon Tat Street in Singapore's Telok Ayer district to share true Korean soul food with office workers and dining enthusiasts alike.",
+      "During the Singapore F1 Grand Prix, GAMJA had the honor of welcoming Michelin 3-Star Chef Yim Jungsik and the entire Jungsik dining crew, who chose GAMJA as their soul-food sanctuary after cooking at the world-class F1 Paddock Club."
+    ],
+    "chefName": "Chef Nam Wan-Hyuk & Shin Jae-Yun",
+    "chefRole": "Founders & Culinary Director, SHIN NAM F&B",
+    "quote": "Potatoes are never the main character. But they are the ultimate partner that completes every delicious moment at GAMJA.",
+    "image": "/demo/gamja/chef-jungsik.jpg"
+  },
+  "carousel": {
+    "title": "Authentic Korean Soul Dishes",
+    "subtitle": "Signature Creations",
+    "slides": [
+      {
+        "image": "/demo/gamja/carousel-1.jpg",
+        "caption": "Traditional Gamjatang (전통 감자탕)",
+        "subcaption": "Slow-simmered pork bone and potato stew with 3-Gochugaru broth and perilla seed powder. S$15.80 lunch with rice, sharing pots from S$53.",
+        "alt": "GAMJA Traditional slow-simmered Gamjatang pork bone stew"
+      },
+      {
+        "image": "/demo/gamja/carousel-2.jpg",
+        "caption": "White Gamjatang (맑은 감자탕)",
+        "subcaption": "Clear, comforting, non-spicy pork bone broth with seaweed kombu notes and fall-off-the-bone tender ribs. S$15.80 lunch.",
+        "alt": "GAMJA White Gamjatang non-spicy broth"
+      },
+      {
+        "image": "/demo/gamja/carousel-3.jpg",
+        "caption": "Cast-Iron Lid Kimchi Samgyeopsal (솥뚜껑 김치 삼겹살)",
+        "subcaption": "Thick-cut pork belly sizzling on traditional cast-iron, served with pork-oil grilled aged ripe kimchi and potato.",
+        "alt": "GAMJA Cast iron lid kimchi samgyeopsal"
+      },
+      {
+        "image": "/demo/gamja/carousel-4.jpg",
+        "caption": "Fiery Flame-Torched Ppyeogui (직화 매운 뼈구이)",
+        "subcaption": "Korea's viral sensation: pork bones coated in secret spicy glaze, torched over an open flame for deep smoky char.",
+        "alt": "GAMJA Fiery Ppyeogui flame-torched pork bones"
+      },
+      {
+        "image": "/demo/gamja/carousel-5.jpg",
+        "caption": "Signature Pork & Beef KBBQ Set (코리안 바베큐)",
+        "subcaption": "600g feast with Japanese Miyazaki Wagyu sirloin, ribeye cap, black pork belly, pork kimchi stew, and condiments. S$128.80 (limited to 5 tables daily).",
+        "alt": "GAMJA KBBQ Japanese Miyazaki Wagyu and black pork set"
+      },
+      {
+        "image": "/demo/gamja/carousel-6.jpg",
+        "caption": "Korean Feast Spread & Unlimited Banchan (한상차림)",
+        "subcaption": "Complete Korean dining table with refillable banchan, grated cheese potato salad, chive jeon, and steaming stews.",
+        "alt": "GAMJA Full table dining feast with banchan"
+      },
+      {
+        "image": "/demo/gamja/carousel-7.jpg",
+        "caption": "Weekday Lunch 50% Off Drinks & Soju Shots (낮술)",
+        "subcaption": "Celebrate weekday lunch with 50% off Soju, chilled Terra beer, and Makgeolli from 11:00 AM to 3:00 PM, plus S$10 soju shots.",
+        "alt": "GAMJA Drinks pairing Terra beer and Korean soju"
+      }
+    ]
+  },
+  "sections": {
+    "intro": {
+      "heading": "Four Hours of Simmering Dedication at 21 Boon Tat Street",
+      "paragraphs": [
+        "Founded by Korean entrepreneur Shin Jae-Yun and Master Chef Nam Wan-Hyuk (trained at Japan's famed Tsuji Culinary Institute with over 15 years developing dining concepts across Seoul, Tokyo, and Hong Kong), GAMJA brings Korea's most cherished comfort food to Singapore's CBD.",
+        "At GAMJA, we believe potatoes are never the main character, but the ultimate partner that completes every delicious moment. Absorbing the savory richness of pork broth, softening the fiery heat of flame-torched pork bones, and balancing the hearty depth of our slow-simmered Gamjatang.",
+        "Hand-trimmed pork bones are soaked for four hours to eliminate gaminess, blanched clean, and simmered gently on low heat with our secret chili blend of three Korean Gochugaru varieties, fresh ginger, and garlic. Finished with fresh greens, potatoes, and glass noodles right before serving hot at your table."
+      ]
+    },
+    "fiveTiles": [
+      {
+        "title": "The Shophouse",
+        "subtitle": "21 Boon Tat Street",
+        "image": "/demo/gamja/tile-1.jpg",
+        "href": "/demo/gamja/contact"
+      },
+      {
+        "title": "Gamjatang",
+        "subtitle": "4-Hour Pork Bone Stew",
+        "image": "/demo/gamja/tile-2.jpg",
+        "href": "/demo/gamja/menu"
+      },
+      {
+        "title": "Cast-Iron BBQ",
+        "subtitle": "Sizzling Kimchi Samgyeopsal",
+        "image": "/demo/gamja/tile-3.jpg",
+        "href": "/demo/gamja/menu"
+      },
+      {
+        "title": "Nightly Vibes",
+        "subtitle": "Somaek & Pocha Gathering",
+        "image": "/demo/gamja/tile-4.jpg",
+        "href": "/demo/gamja/reservations"
+      },
+      {
+        "title": "Hospitality",
+        "subtitle": "Shin Nam F&B Family",
+        "image": "/demo/gamja/tile-5.jpg",
+        "href": "/demo/gamja/contact"
+      }
+    ],
+    "feature": {
+      "tag": "Master Craft & Dedication",
+      "heading": "The Honest Simmer: No Shortcuts, Pure Dedication",
+      "paragraph": "Every pot of Gamjatang begins with hand-trimmed pork bones soaked for four hours to eliminate all gaminess, followed by low-heat simmering with three distinct Korean Gochugaru varieties, ginger, and garlic until the meat effortlessly falls off the bone.",
+      "ctaLabel": "Explore Our Full Menu",
+      "ctaHref": "/demo/gamja/menu",
+      "image": "/demo/gamja/feature-craft.jpg"
+    },
+    "carousel": [
+      {
+        "image": "/demo/gamja/carousel-1.jpg",
+        "caption": "Traditional Gamjatang (전통 감자탕)",
+        "subcaption": "Slow-simmered pork bone and potato stew with 3-Gochugaru broth and perilla seed powder. S$15.80 lunch with rice, sharing pots from S$53.",
+        "alt": "GAMJA Traditional slow-simmered Gamjatang pork bone stew"
+      },
+      {
+        "image": "/demo/gamja/carousel-2.jpg",
+        "caption": "White Gamjatang (맑은 감자탕)",
+        "subcaption": "Clear, comforting, non-spicy pork bone broth with seaweed kombu notes and fall-off-the-bone tender ribs. S$15.80 lunch.",
+        "alt": "GAMJA White Gamjatang non-spicy broth"
+      },
+      {
+        "image": "/demo/gamja/carousel-3.jpg",
+        "caption": "Cast-Iron Lid Kimchi Samgyeopsal (솥뚜껑 김치 삼겹살)",
+        "subcaption": "Thick-cut pork belly sizzling on traditional cast-iron, served with pork-oil grilled aged ripe kimchi and potato.",
+        "alt": "GAMJA Cast iron lid kimchi samgyeopsal"
+      },
+      {
+        "image": "/demo/gamja/carousel-4.jpg",
+        "caption": "Fiery Flame-Torched Ppyeogui (직화 매운 뼈구이)",
+        "subcaption": "Korea's viral sensation: pork bones coated in secret spicy glaze, torched over an open flame for deep smoky char.",
+        "alt": "GAMJA Fiery Ppyeogui flame-torched pork bones"
+      },
+      {
+        "image": "/demo/gamja/carousel-5.jpg",
+        "caption": "Signature Pork & Beef KBBQ Set (코리안 바베큐)",
+        "subcaption": "600g feast with Japanese Miyazaki Wagyu sirloin, ribeye cap, black pork belly, pork kimchi stew, and condiments. S$128.80 (limited to 5 tables daily).",
+        "alt": "GAMJA KBBQ Japanese Miyazaki Wagyu and black pork set"
+      },
+      {
+        "image": "/demo/gamja/carousel-6.jpg",
+        "caption": "Korean Feast Spread & Unlimited Banchan (한상차림)",
+        "subcaption": "Complete Korean dining table with refillable banchan, grated cheese potato salad, chive jeon, and steaming stews.",
+        "alt": "GAMJA Full table dining feast with banchan"
+      },
+      {
+        "image": "/demo/gamja/carousel-7.jpg",
+        "caption": "Weekday Lunch 50% Off Drinks & Soju Shots (낮술)",
+        "subcaption": "Celebrate weekday lunch with 50% off Soju, chilled Terra beer, and Makgeolli from 11:00 AM to 3:00 PM, plus S$10 soju shots.",
+        "alt": "GAMJA Drinks pairing Terra beer and Korean soju"
+      }
+    ]
+  },
+  "menu": {
+    "title": "Authentic Korean Soul Menu",
+    "subtitle": "Comforting Lunch Bowls • Sharing Hotpots • Cast-Iron BBQ",
+    "currency": "SGD",
+    "basePrice": "From S$15.80",
+    "price": "From S$15.80 (Lunch) • S$53 (Sharing Pots)",
+    "description": "Slow-simmered pork bone stews, sizzling cast-iron cauldron-lid barbecues, and authentic Korean side dishes cooked with uncompromising care at 21 Boon Tat Street.",
+    "disclaimer": "All lunch soup bowls include fragrant white rice and refillable Korean banchan side dishes. Prices are subject to 10% service charge and prevailing GST. KBBQ sets are grilled table-side and limited to 5 tables daily.",
+    "dietaryNotes": [
+      "Lunch bowls served with fragrant white rice and complimentary refillable banchan",
+      "White Gamjatang is completely non-spicy and kid-friendly",
+      "KBBQ sets feature authentic table-side grilling service by our culinary staff"
+    ],
+    "courses": [
+      {
+        "title": "Lunch Pork Bone Soups (Haejangguk)",
+        "description": "Available Monday to Friday, 11:00 AM - 3:00 PM. Served with steamed rice & banchan."
+      },
+      {
+        "title": "Evening Sharing Hotpots & Mains",
+        "description": "Hearty communal hotpots served over table burners for 2 to 4 guests."
+      },
+      {
+        "title": "Cast-Iron Cauldron-Lid KBBQ",
+        "description": "Table-side grilling on authentic Korean cast-iron lids. Limited to 5 tables daily."
+      },
+      {
+        "title": "Artisanal Sides & Add-Ons",
+        "description": "Handcrafted Korean side dishes and hotpot accompaniments."
+      },
+      {
+        "title": "Korean Drinks & Spirits",
+        "description": "Weekday Lunch Special: 50% off Soju, Beer & Makgeolli (11 AM - 3 PM)."
+      }
+    ],
+    "categories": [
+      {
+        "name": "Lunch Pork Bone Soups (Haejangguk)",
+        "description": "Available Monday to Friday, 11:00 AM - 3:00 PM. Served with fragrant steamed white rice and refillable banchan.",
+        "items": [
+          {
+            "name": "Traditional Gamjatang",
+            "description": "Classic slow-simmered pork bone and potato stew with aromatic perilla seed powder and three-chili blend.",
+            "price": "S$15.80",
+            "dietary": ["Signature", "Spicy"]
+          },
+          {
+            "name": "White Gamjatang",
+            "description": "Clear, non-spicy pork bone broth with seaweed kombu infusion and melt-in-your-mouth tender pork.",
+            "price": "S$15.80",
+            "dietary": ["Non-Spicy", "Comfort"]
+          },
+          {
+            "name": "Aged Kimchi Gamjatang",
+            "description": "Deep, tangy pork bone soup simmered with whole aged ripe kimchi (Mukeunji) for an invigorating sour-spicy kick.",
+            "price": "S$17.80",
+            "dietary": ["Spicy", "Tangy"]
+          },
+          {
+            "name": "Boneless Gamjatang",
+            "description": "Fuss-free pork bone soup with tender hand-pulled meat for clean eating during CBD work lunches.",
+            "price": "S$17.80",
+            "dietary": ["Convenient", "Limited"]
+          },
+          {
+            "name": "Perilla Seed Gamjatang",
+            "description": "Nutty, velvety broth enriched with roasted wild Korean perilla powder (Deulkkae) for deep earthy comfort.",
+            "price": "S$18.80",
+            "dietary": ["Signature", "Nutty"]
+          }
+        ]
+      },
+      {
+        "name": "Evening Sharing Hotpots & Specialties",
+        "description": "Hearty communal stews served over table burners for sharing with family and colleagues.",
+        "items": [
+          {
+            "name": "Signature Gamjatang Sharing Hotpot",
+            "description": "Generous cauldron of meaty pork bones, potatoes, ugeoji napa cabbage greens, and glass noodles simmering at your table.",
+            "price": "From S$53.00",
+            "dietary": ["Sharing", "Signature"]
+          },
+          {
+            "name": "Mukeunji (Aged Kimchi) Gamjatang Hotpot",
+            "description": "Full communal hotpot packed with whole aged sour kimchi, pork bones, and deep savory broth.",
+            "price": "From S$58.00",
+            "dietary": ["Sharing", "Spicy"]
+          },
+          {
+            "name": "Fiery Flame-Torched Ppyeogui",
+            "description": "Tender pork bones coated in secret spicy glaze and charred over open flame. Toss noodles into the sauce for the finish.",
+            "price": "S$42.00",
+            "dietary": ["Spicy", "Smoky"]
+          },
+          {
+            "name": "Cheese Grilled Pork Back Ribs",
+            "description": "Slow-cooked pork back ribs glazed with fiery sauce and smothered with bubbling melted cheese.",
+            "price": "S$46.00",
+            "dietary": ["Cheesy", "Spicy"]
+          }
+        ]
+      },
+      {
+        "name": "Cast-Iron Cauldron-Lid KBBQ",
+        "description": "Grilled on traditional Korean cast-iron lids. Limited to 5 tables daily for optimal meat quality.",
+        "items": [
+          {
+            "name": "Signature Pork & Beef Mix (600g Set)",
+            "description": "Japanese Miyazaki Wagyu sirloin and ribeye cap paired with black pork belly, pork kimchi stew, grilled aged kimchi, and spicy oysters.",
+            "price": "S$128.80",
+            "dietary": ["Premium", "Limited"]
+          },
+          {
+            "name": "Cast-Iron Lid Kimchi Samgyeopsal",
+            "description": "Thick-cut pork belly sizzling in its own drippings alongside aged kimchi and golden potato slices.",
+            "price": "S$28.00",
+            "dietary": ["Classic BBQ"]
+          },
+          {
+            "name": "Black Pork Collar",
+            "description": "Juicy, well-marbled black pork collar grilled table-side by our staff.",
+            "price": "S$30.00",
+            "dietary": ["Pork"]
+          }
+        ]
+      },
+      {
+        "name": "Artisanal Side Dishes & Add-Ons",
+        "description": "Nourishing accompaniments made fresh daily in our kitchen.",
+        "items": [
+          {
+            "name": "GAMJA Signature Potato Salad",
+            "description": "Warm potato salad tossed with bacon crisps and generously blanketed in grated cheese.",
+            "price": "S$10.00",
+            "dietary": ["Must Try"]
+          },
+          {
+            "name": "Crispy Kimchi or Chive Pancake (Jeon)",
+            "description": "Pan-fried golden pancake made with aged ripe kimchi or fresh fragrant garlic chives.",
+            "price": "S$12.80 (Lunch) / S$19.80",
+            "dietary": ["Crispy"]
+          },
+          {
+            "name": "Fluffy Korean Rolled Omelette",
+            "description": "Tender, layered egg roll seasoned with sea salt and scallions.",
+            "price": "S$14.80",
+            "dietary": ["Comfort"]
+          },
+          {
+            "name": "Perilla Oil Fried Eggs",
+            "description": "Two sunny-side eggs sizzling in aromatic toasted Korean wild perilla oil.",
+            "price": "S$8.80",
+            "dietary": ["Aromatic"]
+          },
+          {
+            "name": "Ramyeon Sari or Tableside Bokkeumbap",
+            "description": "Add curly ramyeon noodles to soup broth or finish your meal with seaweed fried rice.",
+            "price": "S$6.00",
+            "dietary": ["Finish"]
+          }
+        ]
+      },
+      {
+        "name": "Korean Spirits, Beer & Day Drinking",
+        "description": "Weekday Lunch Special: 50% off Soju, Beer & Makgeolli from 11:00 AM to 3:00 PM.",
+        "items": [
+          {
+            "name": "Single Soju Shot",
+            "description": "Enjoy soju by the shot, a beloved Korean casual tradition rare in Singapore.",
+            "price": "S$10.00",
+            "dietary": ["Spirit"]
+          },
+          {
+            "name": "Terra Draft & Bottled Beer",
+            "description": "Clean, crisp Korean lager brewed from 100% pure malt.",
+            "price": "S$14.00 (50% Off Lunch)",
+            "dietary": ["Chilled"]
+          },
+          {
+            "name": "Chamisul Fresh / Jinro Soju",
+            "description": "The quintessential Korean green bottle soju, clean and smooth.",
+            "price": "S$18.00 (50% Off Lunch)",
+            "dietary": ["Soju"]
+          },
+          {
+            "name": "Traditional Korean Makgeolli",
+            "description": "Sparkling unfiltered Korean rice wine served cold in traditional brass bowls.",
+            "price": "S$22.00 (50% Off Lunch)",
+            "dietary": ["Rice Wine"]
+          }
+        ]
+      }
+    ]
+  },
+  "contact": {
+    "headline": "Visit GAMJA in Telok Ayer",
+    "subline": "21 Boon Tat Street, 2 minutes from Telok Ayer MRT Exit A in the Singapore CBD.",
+    "hours": {
+      "monday": "11:00 AM - 3:00 PM, 5:30 PM - 11:00 PM",
+      "tuesday": "11:00 AM - 3:00 PM, 5:30 PM - 11:00 PM",
+      "wednesday": "11:00 AM - 3:00 PM, 5:30 PM - 11:00 PM",
+      "thursday": "11:00 AM - 3:00 PM, 5:30 PM - 11:00 PM",
+      "friday": "11:00 AM - 3:00 PM, 5:30 PM - 11:00 PM",
+      "saturday": "12:00 PM - 10:00 PM",
+      "sunday": "12:00 PM - 10:00 PM"
+    },
+    "transit": "Telok Ayer MRT (DT18, 2 min walk) • Tanjong Pagar MRT (EW15, 6 min walk)",
+    "phone": "+65 6222 1206",
+    "whatsapp": "+6562221206",
+    "email": "contact@gamja.sg"
+  },
+  "reservations": {
+    "title": "Table & BBQ Reservations",
+    "subtitle": "Book your table in advance or request our 5-table daily KBBQ seating at 21 Boon Tat Street",
+    "capacity": "Full Dining Room & 5 Dedicated KBBQ Tables Daily",
+    "capacityText": "Indoor Dining Room & 5 KBBQ Tables Daily",
+    "seatingTimes": [
+      "Weekday Lunch: 11:30 AM",
+      "Weekday Lunch: 12:30 PM",
+      "Weekday Lunch: 1:30 PM",
+      "Dinner First Seating: 5:30 PM",
+      "Dinner Second Seating: 7:00 PM",
+      "Dinner Third Seating: 8:30 PM",
+      "Weekend All-Day: 12:00 PM",
+      "Weekend All-Day: 2:00 PM",
+      "Weekend All-Day: 5:30 PM",
+      "Weekend All-Day: 7:30 PM"
+    ],
+    "policies": [
+      "Lunch bookings and dinner walk-ins are welcomed warmly throughout operating hours.",
+      "Our signature Cast-Iron K-BBQ is strictly limited to 5 tables per day to ensure pristine meat quality and dedicated grilling service.",
+      "Weekend Early Bird: Visit before 12:00 PM on weekends with 2+ guests and order a main dish to receive a complimentary plate of Ppyeogui (Spicy Grilled Pork Bones).",
+      "Direct reservation requests via this demo connect directly to the team on WhatsApp with zero booking platform commissions."
+    ],
+    "closedDaysNotice": "Open 7 days a week. Weekdays 11:00 AM - 3:00 PM & 5:30 PM - 11:00 PM; Weekends 12:00 PM - 10:00 PM."
+  }
+}

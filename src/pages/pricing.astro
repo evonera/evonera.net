@@ -1,0 +1,27 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { ProjectBriefForm } from "../components/ProjectBriefForm";
+---
+
+<Layout title="Project Pricing — Evonera Technologies" description="How Evonera scopes and prices AI app rescue projects.">
+  <section class="max-w-6xl mx-auto px-4 sm:px-6 pt-16 sm:pt-24 pb-16">
+    <div class="max-w-3xl">
+      <p class="text-sm font-medium text-blue-300">Pricing and scope</p>
+      <h1 class="mt-4 text-4xl sm:text-5xl font-semibold text-neutral-50 tracking-tight">A clear quote after we understand the project.</h1>
+      <p class="mt-5 text-base text-neutral-300 leading-relaxed">AI-generated projects vary a lot in how much is complete and how they are built. We review the current app and the outcome you want, then send a fixed scope and price for you to approve before work begins.</p>
+    </div>
+    <div class="mt-10 max-w-3xl border-l-4 border-blue-400 bg-ink-900 p-6 sm:p-8">
+      <h2 class="text-xl font-semibold text-neutral-100">What to expect</h2>
+      <ul class="mt-4 space-y-3 text-sm text-neutral-300 leading-relaxed">
+        <li><strong class="text-neutral-100">Small, well-defined fixes may start around $500 USD.</strong> The final quote depends on the code and scope.</li>
+        <li>We’ll identify what is already working and what needs to change.</li>
+        <li>You approve the written scope, price, and timeline before paid work starts.</li>
+        <li>There is no automated quote: a project review is needed to price the work responsibly.</li>
+      </ul>
+    </div>
+    <p class="mt-6 text-sm text-neutral-400">Third-party hosting, AI usage, payment processing, and other vendor fees are separate from engineering work.</p>
+  </section>
+  <section id="project-review" class="border-t border-white/10 bg-ink-950 px-4 sm:px-6 py-16 sm:py-20">
+    <div class="max-w-6xl mx-auto"><ProjectBriefForm client:load /></div>
+  </section>
+</Layout>

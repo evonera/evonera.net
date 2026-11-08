@@ -1,0 +1,22 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { ProjectBriefForm } from "../components/ProjectBriefForm";
+---
+
+<Layout title="Finish Your Lovable App — Evonera Technologies" description="Get help completing, fixing, and launching your Lovable app.">
+  <section class="max-w-6xl mx-auto px-4 sm:px-6 pt-16 sm:pt-24 pb-16">
+    <p class="text-sm font-medium text-blue-300">Lovable project rescue</p>
+    <h1 class="mt-4 max-w-3xl text-4xl sm:text-6xl font-semibold text-neutral-50 tracking-tight leading-[1.08]">Stuck on the last part of your Lovable app?</h1>
+    <p class="mt-5 max-w-2xl text-base sm:text-lg text-neutral-300 leading-relaxed">Share what you’ve built and what is blocking you. We can help finish features, debug the app, connect real data or payments, and prepare it to launch. We’ll review the project before recommending a scope.</p>
+  </section>
+  <section class="border-y border-white/10 bg-ink-900">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-12 grid grid-cols-1 sm:grid-cols-3 gap-8">
+      <div><h2 class="font-semibold text-neutral-100">UI is ready, flows aren’t</h2><p class="mt-2 text-sm text-neutral-300 leading-relaxed">Finish the user journeys behind the screens.</p></div>
+      <div><h2 class="font-semibold text-neutral-100">Data or sign-in breaks</h2><p class="mt-2 text-sm text-neutral-300 leading-relaxed">Debug the current setup and connect the pieces your product needs.</p></div>
+      <div><h2 class="font-semibold text-neutral-100">You need to launch</h2><p class="mt-2 text-sm text-neutral-300 leading-relaxed">Get a clear deployment and handoff plan for your app.</p></div>
+    </div>
+  </section>
+  <section id="project-review" class="max-w-6xl mx-auto px-4 sm:px-6 py-16 sm:py-20">
+    <ProjectBriefForm client:load />
+  </section>
+</Layout>

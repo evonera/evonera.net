@@ -1,46 +1,35 @@
-# Astro Starter Kit: Basics
+# Evonera Technologies Pvt Ltd
+
+Company website for Evonera Technologies Pvt Ltd. The main offer is helping founders finish, fix, and launch web apps started with Lovable, Emergent, and other AI builders. The site also has a separate page for Evonera's own software products.
+
+## Stack
+
+- Astro with static output
+- Tailwind CSS v4
+- React islands for the project inquiry form
+- Cloudflare Pages deployment
+
+## Main pages
+
+- `/`: AI app rescue offer, process, pricing note, products, and inquiry form
+- `/fix-my-ai-site`: focused project rescue page
+- `/lovable` and `/emergent`: platform-specific project pages
+- `/ventures`: Evonera's own products
+- `/services`, `/pricing`, and `/contact`: supporting service and inquiry details
+- `/privacy` and `/terms`: site policies
+
+The inquiry form prepares an email draft addressed to `connect@evonera.net`. A visitor must send the message from their email app; the static site does not store submissions.
+
+## Development
+
+Start the background development server with:
 
 ```sh
-npm create astro@latest -- --template basics
+astro dev --background
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+Manage it with `astro dev status`, `astro dev logs`, and `astro dev stop`.
 
-## 🚀 Project Structure
+## Deployment
 
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
-```
-
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Build the static site with `npm run build` and deploy the generated `dist/` directory to Cloudflare Pages.

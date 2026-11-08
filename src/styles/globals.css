@@ -1,0 +1,68 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: 'GeistSans';
+  src: url('/fonts/Geist_Variable-s.p.2-i4fw5gbtlb7.woff2') format('woff2');
+  font-display: swap;
+  font-weight: 100 900;
+}
+
+@font-face {
+  font-family: 'GeistMono';
+  src: url('/fonts/GeistMono_Variable.p.0b02cdm7g7y6h.woff2') format('woff2');
+  font-display: swap;
+  font-weight: 100 900;
+}
+
+:root {
+  --font-sans: 'GeistSans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'GeistMono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  --color-ink-950: #111318;
+  --color-ink-900: #191d24;
+  --color-ink-800: #242a33;
+  --color-panel: #191d24;
+  --color-faint: #9ba3af;
+  --color-cream: #f1eee7;
+  --color-cream-line: #d9d3c4;
+  --color-cream-ink: #17150f;
+  --color-cream-muted: #6a6459;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--color-ink-950);
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  background-color: var(--color-ink-950);
+  color: #e5e7eb;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color-scheme: dark;
+  overflow-x: clip;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+.font-mono { font-family: var(--font-mono); }
+.font-sans { font-family: var(--font-sans); }
+.bg-cream { background-color: var(--color-cream); }
+.text-cream-ink { color: var(--color-cream-ink); }
+.text-cream-muted { color: var(--color-cream-muted); }
+.border-cream-line { border-color: var(--color-cream-line); }
+.divide-cream-line > :not([hidden]) ~ :not([hidden]) { border-color: var(--color-cream-line); }
+.bg-ink-950 { background-color: var(--color-ink-950); }
+.bg-ink-900 { background-color: var(--color-ink-900); }
+.bg-ink-800 { background-color: var(--color-ink-800); }
+.text-faint { color: var(--color-faint); }

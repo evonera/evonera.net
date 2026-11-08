@@ -1,11 +1,133 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Layout from "../layouts/Layout.astro";
+import { ProjectBriefForm } from "../components/ProjectBriefForm";
 ---
 
-<Layout>
-	<Welcome />
+<Layout
+  title="Finish Your Lovable or Emergent App — Evonera Technologies"
+  description="Evonera Technologies helps founders finish, fix, and launch web apps started with Lovable, Emergent, and other AI builders."
+>
+  <section class="max-w-6xl mx-auto px-4 sm:px-6 pt-20 sm:pt-28 pb-20">
+    <div class="max-w-3xl">
+      <p class="text-sm font-medium text-blue-300">Evonera Technologies Pvt Ltd · AI app project rescue</p>
+      <h1 class="mt-5 text-4xl sm:text-6xl font-semibold text-neutral-50 tracking-tight leading-[1.08] text-balance">
+        You started your app with AI.<br class="hidden sm:block" />
+        <span class="text-blue-300">We help you finish it.</span>
+      </h1>
+      <p class="mt-6 max-w-2xl text-base sm:text-lg text-neutral-300 leading-relaxed">
+        When your Lovable or Emergent project gets stuck, we help turn the prototype into a working product: complete unfinished features, fix bugs, connect the backend, and prepare it to launch.
+      </p>
+      <div class="mt-8 flex flex-col sm:flex-row gap-3">
+        <a href="#project-review" class="inline-flex items-center justify-center rounded-lg bg-blue-600 px-6 py-3.5 text-sm font-semibold text-white hover:bg-blue-500 transition-colors">
+          Tell us what’s stuck <span aria-hidden="true" class="ml-2">→</span>
+        </a>
+        <a href="/ventures" class="inline-flex items-center justify-center rounded-lg border border-white/20 bg-ink-900 px-6 py-3.5 text-sm font-medium text-neutral-100 hover:bg-ink-800 transition-colors">
+          See products we run
+        </a>
+      </div>
+      <p class="mt-4 text-sm text-neutral-400">We review what you share, then agree on scope and price before any paid work begins.</p>
+    </div>
+  </section>
+
+  <section class="border-y border-white/10 bg-ink-900" aria-labelledby="rescue-title">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-16 sm:py-20">
+      <div class="max-w-2xl">
+        <p class="text-sm font-medium text-blue-300">A practical handoff from prototype to product</p>
+        <h2 id="rescue-title" class="mt-3 text-3xl sm:text-4xl font-semibold text-neutral-50">Make the app work beyond the demo.</h2>
+        <p class="mt-4 text-neutral-300 leading-relaxed">We start by understanding what you have and what you need next. Then we focus the work on the blockers that are keeping you from shipping.</p>
+      </div>
+      <div class="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px border border-white/10 bg-ink-800">
+        <article class="bg-ink-900 p-6">
+          <h3 class="font-semibold text-neutral-100">Finish features</h3>
+          <p class="mt-2 text-sm text-neutral-300 leading-relaxed">Complete key flows that are only partly built or still using placeholder data.</p>
+        </article>
+        <article class="bg-ink-900 p-6">
+          <h3 class="font-semibold text-neutral-100">Fix bugs</h3>
+          <p class="mt-2 text-sm text-neutral-300 leading-relaxed">Trace issues across the generated code and repair the parts that keep breaking.</p>
+        </article>
+        <article class="bg-ink-900 p-6">
+          <h3 class="font-semibold text-neutral-100">Connect the backend</h3>
+          <p class="mt-2 text-sm text-neutral-300 leading-relaxed">Set up the data, authentication, integrations, or payments your app actually needs.</p>
+        </article>
+        <article class="bg-ink-900 p-6">
+          <h3 class="font-semibold text-neutral-100">Prepare to launch</h3>
+          <p class="mt-2 text-sm text-neutral-300 leading-relaxed">Help you deploy the app, connect your domain, and understand the handoff.</p>
+        </article>
+      </div>
+      <p class="mt-5 text-xs text-neutral-400">The right technical approach depends on the project. We review your setup before recommending changes.</p>
+    </div>
+  </section>
+
+  <section id="how-it-works" class="max-w-6xl mx-auto px-4 sm:px-6 py-16 sm:py-20">
+    <div class="max-w-2xl">
+      <p class="text-sm font-medium text-blue-300">How it works</p>
+      <h2 class="mt-3 text-3xl sm:text-4xl font-semibold text-neutral-50">A clear next step, before a big commitment.</h2>
+    </div>
+    <ol class="mt-9 grid grid-cols-1 md:grid-cols-3 gap-8">
+      <li class="border-t-2 border-blue-400 pt-5">
+        <span class="text-sm font-mono text-blue-300">01</span>
+        <h3 class="mt-2 text-lg font-semibold text-neutral-100">Share the project</h3>
+        <p class="mt-2 text-sm leading-relaxed text-neutral-300">Tell us which builder you used, share a link if you can, and describe what is unfinished.</p>
+      </li>
+      <li class="border-t-2 border-red-400 pt-5">
+        <span class="text-sm font-mono text-red-300">02</span>
+        <h3 class="mt-2 text-lg font-semibold text-neutral-100">Review the scope</h3>
+        <p class="mt-2 text-sm leading-relaxed text-neutral-300">We discuss the code, the blockers, and the outcome you want before proposing paid work.</p>
+      </li>
+      <li class="border-t-2 border-yellow-400 pt-5">
+        <span class="text-sm font-mono text-yellow-300">03</span>
+        <h3 class="mt-2 text-lg font-semibold text-neutral-100">Agree and build</h3>
+        <p class="mt-2 text-sm leading-relaxed text-neutral-300">You get a defined scope, price, and delivery plan to approve before work starts.</p>
+      </li>
+    </ol>
+  </section>
+
+  <section class="bg-ink-900 border-y border-white/10">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-12 flex flex-col md:flex-row md:items-center justify-between gap-6">
+      <div>
+        <p class="text-sm font-medium text-red-300">Pricing</p>
+        <h2 class="mt-2 text-2xl font-semibold text-neutral-50">Scope first. Fixed quote before we start.</h2>
+        <p class="mt-2 max-w-2xl text-sm leading-relaxed text-neutral-300">Small, well-defined fixes may start around $500 USD. Larger or unclear projects need a code review and a custom scope.</p>
+      </div>
+      <a href="/pricing" class="shrink-0 inline-flex items-center justify-center rounded-lg border border-yellow-300/50 bg-ink-950 px-5 py-3 text-sm font-medium text-neutral-100 hover:border-yellow-200 transition-colors">How pricing works</a>
+    </div>
+  </section>
+
+  <section id="products" class="max-w-6xl mx-auto px-4 sm:px-6 py-16 sm:py-20">
+    <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-white/15 pb-6">
+      <div>
+        <p class="text-sm font-medium text-yellow-300">Our own products</p>
+        <h2 class="mt-2 text-3xl font-semibold text-neutral-50">We build and operate SaaS too.</h2>
+        <p class="mt-2 text-sm text-neutral-300">Client engineering is one part of Evonera. We also build products of our own.</p>
+      </div>
+      <a href="/ventures" class="text-sm font-medium text-blue-300 hover:text-blue-200">Explore our products →</a>
+    </div>
+    <div class="mt-6 grid grid-cols-1 md:grid-cols-3 gap-5">
+      <article class="rounded-lg border border-white/15 border-t-2 border-t-blue-400 bg-ink-900 p-5">
+        <h3 class="font-semibold text-neutral-100">Booky</h3>
+        <p class="mt-2 text-sm text-neutral-300">An on-device audiobook reader for macOS.</p>
+        <a class="mt-4 inline-block text-sm text-blue-300 hover:text-blue-200" href="https://bookyapp.com" target="_blank" rel="noreferrer">Visit Booky ↗</a>
+      </article>
+      <article class="rounded-lg border border-white/15 border-t-2 border-t-red-400 bg-ink-900 p-5">
+        <h3 class="font-semibold text-neutral-100">Prop&Roll</h3>
+        <p class="mt-2 text-sm text-neutral-300">NBA player prop research and odds tracking.</p>
+        <a class="mt-4 inline-block text-sm text-blue-300 hover:text-blue-200" href="https://www.propandrollapp.com" target="_blank" rel="noreferrer">Visit Prop&Roll ↗</a>
+      </article>
+      <article class="rounded-lg border border-white/15 border-t-2 border-t-yellow-400 bg-ink-900 p-5">
+        <h3 class="font-semibold text-neutral-100">VodClip</h3>
+        <p class="mt-2 text-sm text-neutral-300">A tool for turning long streams into short clips.</p>
+        <a class="mt-4 inline-block text-sm text-blue-300 hover:text-blue-200" href="https://www.vodclip.com" target="_blank" rel="noreferrer">Visit VodClip ↗</a>
+      </article>
+    </div>
+  </section>
+
+  <section id="project-review" class="border-t border-white/10 bg-ink-950 px-4 sm:px-6 py-16 sm:py-20">
+    <div class="max-w-6xl mx-auto">
+      <div class="max-w-2xl mx-auto text-center mb-8">
+        <p class="text-sm font-medium text-blue-300">Start with the blocker</p>
+        <h2 class="mt-2 text-3xl sm:text-4xl font-semibold text-neutral-50">What do you need help finishing?</h2>
+      </div>
+      <ProjectBriefForm client:load />
+    </div>
+  </section>
 </Layout>

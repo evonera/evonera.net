@@ -1,0 +1,44 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#191919"/>
+  <!-- Grid Background -->
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <circle cx="20" cy="20" r="1" fill="#ffffff" fill-opacity="0.08" />
+    </pattern>
+    <linearGradient id="glow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3B82F6" stop-opacity="0.4"/>
+      <stop offset="50%" stop-color="#8B5CF6" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#10B981" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+  <circle cx="600" cy="315" r="280" fill="url(#glow)" filter="blur(60px)"/>
+  
+  <!-- Outer Frame -->
+  <rect x="60" y="60" width="1080" height="510" rx="16" stroke="#333333" stroke-width="1.5" fill="#1e1e1e" fill-opacity="0.6"/>
+  
+  <!-- Content -->
+  <rect x="100" y="100" width="130" height="32" rx="6" fill="#3B82F6" fill-opacity="0.15" stroke="#3B82F6" stroke-opacity="0.4"/>
+  <text x="114" y="121" fill="#60A5FA" font-family="monospace" font-size="12" font-weight="600" letter-spacing="1">AI ENGINEERING</text>
+  
+  <text x="100" y="220" fill="#FFFFFF" font-family="sans-serif" font-size="44" font-weight="700" letter-spacing="-1">Agentic Engineering in 2026</text>
+  <text x="100" y="270" fill="#9CA3AF" font-family="sans-serif" font-size="22" font-weight="400">Architecting Reliable Multi-Agent Production Systems</text>
+  
+  <!-- Node visualizer -->
+  <g transform="translate(100, 360)">
+    <rect x="0" y="0" width="180" height="60" rx="8" fill="#141414" stroke="#3B82F6" stroke-width="1.5"/>
+    <text x="20" y="35" fill="#FFFFFF" font-family="monospace" font-size="14">Planner Agent</text>
+    
+    <path d="M180 30 H260" stroke="#3B82F6" stroke-width="1.5" stroke-dasharray="4 4"/>
+    
+    <rect x="260" y="0" width="180" height="60" rx="8" fill="#141414" stroke="#8B5CF6" stroke-width="1.5"/>
+    <text x="280" y="35" fill="#FFFFFF" font-family="monospace" font-size="14">Execution Engine</text>
+    
+    <path d="M440 30 H520" stroke="#8B5CF6" stroke-width="1.5" stroke-dasharray="4 4"/>
+    
+    <rect x="520" y="0" width="180" height="60" rx="8" fill="#141414" stroke="#10B981" stroke-width="1.5"/>
+    <text x="540" y="35" fill="#FFFFFF" font-family="monospace" font-size="14">Verifier & Tool</text>
+  </g>
+  
+  <text x="100" y="520" fill="#6B7280" font-family="monospace" font-size="13">Evonera Research · 2026 Architecture Series</text>
+</svg>

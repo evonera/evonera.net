@@ -1,0 +1,43 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#191919"/>
+  <defs>
+    <pattern id="grid2" width="40" height="40" patternUnits="userSpaceOnUse">
+      <circle cx="20" cy="20" r="1" fill="#ffffff" fill-opacity="0.08" />
+    </pattern>
+    <linearGradient id="glow2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10B981" stop-opacity="0.4"/>
+      <stop offset="50%" stop-color="#06B6D4" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#3B82F6" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#grid2)"/>
+  <circle cx="600" cy="315" r="280" fill="url(#glow2)" filter="blur(60px)"/>
+  
+  <rect x="60" y="60" width="1080" height="510" rx="16" stroke="#333333" stroke-width="1.5" fill="#1e1e1e" fill-opacity="0.6"/>
+  
+  <rect x="100" y="100" width="160" height="32" rx="6" fill="#10B981" fill-opacity="0.15" stroke="#10B981" stroke-opacity="0.4"/>
+  <text x="114" y="121" fill="#34D399" font-family="monospace" font-size="12" font-weight="600" letter-spacing="1">FRONTEND &amp; UI</text>
+  
+  <text x="100" y="220" fill="#FFFFFF" font-family="sans-serif" font-size="44" font-weight="700" letter-spacing="-1">All the UI Component Libraries You Need</text>
+  <text x="100" y="270" fill="#9CA3AF" font-family="sans-serif" font-size="22" font-weight="400">Shadcn, Base UI, Radix &amp; Tailwind CSS v4 in 2026</text>
+  
+  <!-- UI Components preview -->
+  <g transform="translate(100, 340)">
+    <rect x="0" y="0" width="220" height="120" rx="8" fill="#141414" stroke="#333333"/>
+    <text x="20" y="35" fill="#A3E635" font-family="monospace" font-size="12">shadcn/ui registry</text>
+    <rect x="20" y="55" width="180" height="8" rx="4" fill="#333333"/>
+    <rect x="20" y="75" width="120" height="8" rx="4" fill="#262626"/>
+    
+    <rect x="250" y="0" width="220" height="120" rx="8" fill="#141414" stroke="#333333"/>
+    <text x="270" y="35" fill="#38BDF8" font-family="monospace" font-size="12">Base UI / Radix</text>
+    <circle cx="280" cy="75" r="14" fill="#38BDF8" fill-opacity="0.2"/>
+    <circle cx="330" cy="75" r="14" fill="#818CF8" fill-opacity="0.2"/>
+    
+    <rect x="500" y="0" width="220" height="120" rx="8" fill="#141414" stroke="#333333"/>
+    <text x="520" y="35" fill="#F472B6" font-family="monospace" font-size="12">Tailwind v4 Engine</text>
+    <rect x="520" y="60" width="160" height="30" rx="6" fill="#3B82F6"/>
+    <text x="550" y="80" fill="#FFFFFF" font-family="sans-serif" font-size="12" font-weight="600">Button Component</text>
+  </g>
+  
+  <text x="100" y="520" fill="#6B7280" font-family="monospace" font-size="13">Evonera Frontend Guide · Design Systems 2026</text>
+</svg>

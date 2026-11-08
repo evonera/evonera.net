@@ -1,0 +1,53 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { ProjectBriefForm } from "../components/ProjectBriefForm";
+---
+
+<Layout
+  title="Finish Your AI-Built App — Lovable, Emergent & More | Evonera"
+  description="Get help finishing, fixing, and launching an unfinished web app from Lovable, Emergent, Bolt, or v0."
+>
+  <section class="max-w-6xl mx-auto px-4 sm:px-6 pt-16 sm:pt-24 pb-16">
+    <div class="max-w-3xl">
+      <p class="text-sm font-medium text-blue-300">Lovable · Emergent · other AI builders</p>
+      <h1 class="mt-4 text-4xl sm:text-6xl font-semibold text-neutral-50 tracking-tight leading-[1.08] text-balance">
+        Your prototype is close.<br class="hidden sm:block" />
+        <span class="text-blue-300">Let’s get it over the line.</span>
+      </h1>
+      <p class="mt-5 text-base sm:text-lg text-neutral-300 leading-relaxed max-w-2xl">
+        We work with you to finish the important parts of your AI-generated app: complete features, repair bugs, connect real data and services, and get it ready to launch.
+      </p>
+      <div class="mt-7 flex flex-wrap gap-3 text-sm text-neutral-200">
+        <span class="rounded-md border border-white/15 bg-ink-900 px-3 py-2">Lovable projects</span>
+        <span class="rounded-md border border-white/15 bg-ink-900 px-3 py-2">Emergent projects</span>
+        <span class="rounded-md border border-white/15 bg-ink-900 px-3 py-2">Other generated apps</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="border-y border-white/10 bg-ink-900">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-12 grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div>
+        <h2 class="font-semibold text-neutral-100">Keep what’s already working</h2>
+        <p class="mt-2 text-sm leading-relaxed text-neutral-300">We review the existing project and focus on the parts that need attention, rather than assuming you need to start over.</p>
+      </div>
+      <div>
+        <h2 class="font-semibold text-neutral-100">Agree on the scope first</h2>
+        <p class="mt-2 text-sm leading-relaxed text-neutral-300">You’ll see the proposed work, price, and delivery plan before any paid work begins.</p>
+      </div>
+      <div>
+        <h2 class="font-semibold text-neutral-100">Work toward a real launch</h2>
+        <p class="mt-2 text-sm leading-relaxed text-neutral-300">The goal is a product you can operate and continue improving, with access to your code and services.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="project-review" class="max-w-6xl mx-auto px-4 sm:px-6 py-16 sm:py-20">
+    <div class="max-w-2xl mx-auto text-center mb-8">
+      <p class="text-sm font-medium text-blue-300">Start with a project review</p>
+      <h2 class="mt-2 text-3xl sm:text-4xl font-semibold text-neutral-50">What’s stopping your app from shipping?</h2>
+      <p class="mt-3 text-sm text-neutral-300">A few details are enough to start. We can work out the technical specifics together.</p>
+    </div>
+    <ProjectBriefForm client:load />
+  </section>
+</Layout>

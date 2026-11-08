@@ -1,0 +1,22 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { ProjectBriefForm } from "../components/ProjectBriefForm";
+---
+
+<Layout title="Finish Your Emergent App — Evonera Technologies" description="Get help completing, fixing, and launching your Emergent app.">
+  <section class="max-w-6xl mx-auto px-4 sm:px-6 pt-16 sm:pt-24 pb-16">
+    <p class="text-sm font-medium text-blue-300">Emergent project rescue</p>
+    <h1 class="mt-4 max-w-3xl text-4xl sm:text-6xl font-semibold text-neutral-50 tracking-tight leading-[1.08]">Turn your Emergent build into a product you can ship.</h1>
+    <p class="mt-5 max-w-2xl text-base sm:text-lg text-neutral-300 leading-relaxed">If your Emergent app is almost there but unfinished, share the current project and the blockers. We’ll review what exists, then propose a focused plan to complete, fix, and launch it.</p>
+  </section>
+  <section class="border-y border-white/10 bg-ink-900">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-12 grid grid-cols-1 sm:grid-cols-3 gap-8">
+      <div><h2 class="font-semibold text-neutral-100">Complete the core workflow</h2><p class="mt-2 text-sm text-neutral-300 leading-relaxed">Connect the screens and actions into a usable end-to-end experience.</p></div>
+      <div><h2 class="font-semibold text-neutral-100">Stabilize the project</h2><p class="mt-2 text-sm text-neutral-300 leading-relaxed">Investigate bugs and improve the existing implementation where needed.</p></div>
+      <div><h2 class="font-semibold text-neutral-100">Prepare for launch</h2><p class="mt-2 text-sm text-neutral-300 leading-relaxed">Plan the production setup, deployment, and ownership handoff.</p></div>
+    </div>
+  </section>
+  <section id="project-review" class="max-w-6xl mx-auto px-4 sm:px-6 py-16 sm:py-20">
+    <ProjectBriefForm client:load />
+  </section>
+</Layout>

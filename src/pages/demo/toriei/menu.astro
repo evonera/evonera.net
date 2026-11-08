@@ -1,0 +1,108 @@
+---
+import RestaurantDemoLayout from "../../../layouts/RestaurantDemoLayout.astro";
+import data from "../../../data/restaurants/toriei.json";
+
+const { restaurant, menu } = data;
+---
+
+<RestaurantDemoLayout
+  title={`18-Course Tasting Menu | ${restaurant.name} Singapore`}
+  description={`Explore Chef Roy Koh's 18-course Shio Yakitori Omakase at Toriei Singapore (${menu.price}). Whole-bird French poulet grilled over Kishu Binchotan.`}
+  currentPath="/demo/toriei/menu"
+>
+  <!-- Subpage Header -->
+  <section class="w-full bg-[#3d0915] text-[#FDF1DC] pt-28 pb-16 sm:pt-36 sm:pb-20 px-4 sm:px-6 text-center border-b border-[#FDF1DC]/10">
+    <div class="max-w-3xl mx-auto">
+      <span class="text-xs uppercase tracking-[0.3em] text-[#FDF1DC]/60 font-semibold mb-3 block">
+        Nightly Tasting Experience
+      </span>
+      <h1 class="font-display text-4xl sm:text-5xl md:text-6xl font-light tracking-tight mb-4 text-[#FDF1DC]">
+        The 18-Course Omakase
+      </h1>
+      <p class="text-lg text-[#FDF1DC]/85 font-light leading-relaxed max-w-xl mx-auto mb-6">
+        {menu.description}
+      </p>
+      <div class="inline-flex items-center gap-4 px-6 py-2 rounded-full bg-[#FDF1DC]/10 border border-[#FDF1DC]/20 text-[#FDF1DC] text-sm">
+        <span class="font-semibold text-[#C5A059]">{menu.price}</span>
+        <span>•</span>
+        <span>10 Seats Nightly</span>
+        <span>•</span>
+        <span>7:00 PM Seating</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Menu Body (Warm Cream Surface #FDF1DC with Maroon Text) -->
+  <section class="w-full bg-[#FDF1DC] text-[#5A0F22] py-20 sm:py-28 px-4 sm:px-6">
+    <div class="max-w-4xl mx-auto space-y-16">
+      {menu.categories.map((cat, idx) => (
+        <div class="border-b border-[#5A0F22]/20 pb-12 last:border-b-0">
+          <!-- Category Header -->
+          <div class="flex items-baseline justify-between mb-8 pb-3 border-b-2 border-[#5A0F22]">
+            <h2 class="font-display text-2xl sm:text-3xl md:text-4xl font-light text-[#5A0F22]">
+              {cat.name}
+            </h2>
+            <span class="text-xs uppercase tracking-widest text-[#5A0F22]/60 font-medium">
+              Course 0{idx + 1}
+            </span>
+          </div>
+
+          <!-- Items Grid -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {cat.items.map((item) => (
+              <div class="flex flex-col justify-between p-4 rounded-xl hover:bg-black/[0.02] transition-colors">
+                <div>
+                  <div class="flex items-baseline justify-between gap-4 mb-2">
+                    <h3 class="font-display text-xl font-normal text-[#5A0F22]">
+                      {item.name}
+                    </h3>
+                    {item.price && (
+                      <span class="text-xs font-semibold uppercase tracking-wider text-[#C5A059] bg-[#4A0D1C] px-2.5 py-1 rounded-full text-white">
+                        {item.price}
+                      </span>
+                    )}
+                  </div>
+                  <p class="text-sm text-[#5A0F22]/80 font-light leading-relaxed mb-3">
+                    {item.description}
+                  </p>
+                </div>
+                {item.tags && (
+                  <div class="flex flex-wrap gap-1.5 mt-auto">
+                    {item.tags.map((tag) => (
+                      <span class="text-[10px] uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-[#5A0F22]/10 text-[#5A0F22] font-medium">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+
+      <!-- Dietary & Allergens Notice -->
+      <div class="p-6 rounded-2xl bg-white border border-[#5A0F22]/15 shadow-sm text-xs text-[#5A0F22]/80 space-y-2">
+        <p class="font-semibold text-[#5A0F22] uppercase tracking-wider">
+          Dining Notes & Dietary Accommodations
+        </p>
+        <p>
+          • Our menu focuses strictly on poultry, whole-bird cuts, egg, and seasonal produce. Please inform us of any severe dietary restrictions or allergies at the time of reservation.
+        </p>
+        <p>
+          • Prices are subject to 10% service charge and prevailing GST. Single seating commences promptly at 7:00 PM.
+        </p>
+      </div>
+
+      <!-- Action Button -->
+      <div class="text-center pt-8">
+        <a
+          href="/demo/toriei/reservations"
+          class="btn-pill-burgundy text-xs uppercase tracking-widest px-10 py-4 font-medium shadow-xl inline-block"
+        >
+          Request A Counter Reservation
+        </a>
+      </div>
+    </div>
+  </section>
+</RestaurantDemoLayout>

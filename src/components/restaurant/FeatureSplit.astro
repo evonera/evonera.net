@@ -1,0 +1,50 @@
+---
+interface Props {
+  heading: string;
+  paragraph: string;
+  ctaLabel: string;
+  ctaHref: string;
+  image: string;
+}
+
+const { heading, paragraph, ctaLabel, ctaHref, image } = Astro.props;
+---
+
+<section class="w-full bg-[#4A0D1C] text-[#FDF1DC] overflow-hidden">
+  <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 items-center">
+    <!-- Left Column: Copy & CTA -->
+    <div class="lg:col-span-6 px-6 sm:px-10 lg:px-16 py-20 sm:py-28 lg:py-36 flex flex-col items-start">
+      <span class="text-xs uppercase tracking-[0.3em] text-[#FDF1DC]/60 font-semibold mb-4">
+        The Nose-to-Tail Craft
+      </span>
+
+      <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-light leading-[1.18] tracking-tight mb-6">
+        {heading}
+      </h2>
+
+      <p class="text-base sm:text-lg text-[#FDF1DC]/85 font-light leading-relaxed mb-10 max-w-xl">
+        {paragraph}
+      </p>
+
+      <a
+        href={ctaHref}
+        class="btn-pill-cream text-xs uppercase tracking-widest px-8 py-3.5 font-medium"
+      >
+        {ctaLabel}
+      </a>
+    </div>
+
+    <!-- Right Column: Tall Close-up Bleed Photo -->
+    <div class="lg:col-span-6 h-[400px] sm:h-[500px] lg:h-[680px] w-full relative">
+      <img
+        src={image}
+        alt="Artisanal knife prep and Kishu Binchotan yakitori craft"
+        class="w-full h-full object-cover object-center filter brightness-[0.9] contrast-[1.05]"
+        loading="lazy"
+      />
+      <!-- Subtle edge shading to blend seamlessly into burgundy -->
+      <div class="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-[#4A0D1C] to-transparent hidden lg:block"></div>
+      <div class="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-[#4A0D1C] to-transparent lg:hidden"></div>
+    </div>
+  </div>
+</section>

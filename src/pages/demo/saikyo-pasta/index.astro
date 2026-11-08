@@ -26,7 +26,6 @@ const { restaurant, hero, sections, story } = data;
     image={hero.image}
     ctaLabel={hero.ctaLabel}
     ctaHref="/demo/saikyo-pasta/reservations"
-    eyebrow={hero.eyebrow}
     imageAlt="Saikyo Pasta signature dishes on wooden counter"
   />
 
@@ -37,7 +36,7 @@ const { restaurant, hero, sections, story } = data;
     eyebrow="The Saikyo Story"
   />
 
-  <!-- 3. Five-Tile Image Strip -->
+  <!-- 3. Four-Tile Image Strip -->
   <FiveTileStrip tiles={sections.fiveTiles} />
 
   <!-- 4. Feature Split Block -->
@@ -51,41 +50,41 @@ const { restaurant, hero, sections, story } = data;
     imageAlt="Homemade secret mentaiko sauce craft"
   />
 
-  <!-- 5. Founders Story & Philosophy Section -->
-  <section id="story" class="w-full text-[var(--color-on-primary)] py-20 sm:py-28 px-4 sm:px-6 border-t border-[var(--color-on-primary)]/10" style="background-color: color-mix(in srgb, var(--color-primary) 85%, black);">
+  <!-- 5. Founders Story & Philosophy Section (Refined Warm Light Sand) -->
+  <section id="story" class="w-full bg-[#F5F1EB] text-[var(--color-ink)] py-20 sm:py-28 px-4 sm:px-6 border-t border-[var(--color-ink)]/10">
     <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
-      <div class="md:col-span-5 h-[460px] sm:h-[520px] rounded-2xl overflow-hidden shadow-2xl relative">
+      <div class="md:col-span-5 h-[460px] sm:h-[520px] rounded-2xl overflow-hidden shadow-xl relative">
         <img
           src={story.image}
           alt="Founders and Chef at Saikyo Pasta"
-          class="w-full h-full object-cover object-center filter brightness-[0.9]"
+          class="w-full h-full object-cover object-center filter brightness-[0.98]"
           loading="lazy"
         />
         <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
-        <div class="absolute inset-x-0 bottom-0 p-6 text-[var(--color-on-primary)]">
-          <span class="text-xs uppercase tracking-widest text-[var(--color-on-primary)]/70 font-semibold block">{story.chefRole}</span>
-          <p class="font-display text-2xl font-light text-[var(--color-on-primary)]">{story.chefName}</p>
+        <div class="absolute inset-x-0 bottom-0 p-6 text-white">
+          <span class="text-xs uppercase tracking-widest text-white/70 font-semibold block">{story.chefRole}</span>
+          <p class="font-display text-2xl font-light text-white">{story.chefName}</p>
         </div>
       </div>
 
       <div class="md:col-span-7 flex flex-col items-start">
-        <span class="text-xs uppercase tracking-[0.3em] text-[var(--color-on-primary)]/60 font-semibold mb-3">
+        <span class="text-xs uppercase tracking-[0.3em] text-[var(--color-accent)] font-semibold mb-3">
           {story.tag}
         </span>
-        <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-light leading-[1.2] mb-6">
+        <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-light leading-[1.2] mb-6 text-[var(--color-ink)]">
           {story.title}
         </h2>
-        <div class="space-y-4 text-base sm:text-lg text-[var(--color-on-primary)]/85 font-light leading-relaxed mb-8">
+        <div class="space-y-4 text-base sm:text-lg text-[var(--color-ink)]/80 font-light leading-relaxed mb-8">
           {story.paragraphs.map((p) => (
             <p>{p}</p>
           ))}
         </div>
-        <div class="p-4 rounded-xl border border-[var(--color-on-primary)]/15 bg-black/20 text-xs sm:text-sm text-[var(--color-accent)] font-medium mb-6">
+        <div class="p-4 rounded-xl border border-[var(--color-ink)]/10 bg-white text-xs sm:text-sm text-[var(--color-accent)] font-medium mb-6 shadow-sm">
           "{story.quote}"
         </div>
         <a
           href="/demo/saikyo-pasta/menu"
-          class="btn-pill-cream text-xs uppercase tracking-widest px-8 py-3.5 font-medium"
+          class="btn-pill-burgundy text-xs uppercase tracking-widest px-8 py-3.5 font-medium"
         >
           Explore Our Wafu Menu
         </a>
@@ -93,12 +92,12 @@ const { restaurant, hero, sections, story } = data;
     </div>
   </section>
 
-  <!-- 6. Photo Carousel -->
+  <!-- 6. Photo Carousel (4 Signature Dishes) -->
   <PhotoCarousel
     items={sections.carousel}
-    title="Moments at the Counter"
-    subtitle="Signature Dishes"
-    tagPrefix="Plate"
+    title="Signature Wafu Pastas"
+    subtitle="Simmered Fresh Upon Order"
+    tagPrefix="Dish"
   />
 
   <!-- 7. Location & Transit Block -->

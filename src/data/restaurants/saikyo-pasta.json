@@ -40,13 +40,13 @@
     }
   },
   "branding": {
-    "archetype": "Japanese Kissaten & Wafu Pasta Bar",
+    "archetype": "Tokyo Kissaten & Artisanal Wafu Bar",
     "colors": {
-      "primary": "#9E2A2B",
-      "surface": "#FDFBF7",
-      "ink": "#331812",
-      "onPrimary": "#FDFBF7",
-      "accent": "#D48B47",
+      "primary": "#221D1A",
+      "surface": "#FAF7F2",
+      "ink": "#221D1A",
+      "onPrimary": "#FAF7F2",
+      "accent": "#C87D38",
       "card": "#FFFFFF"
     },
     "typography": {
@@ -64,8 +64,8 @@
     "conceptDisclaimer": "Demo concept by Evonera Technologies. Not the official website of Saikyo Pasta."
   },
   "hero": {
-    "eyebrow": "12 Counter Seats • Icon Village Tanjong Pagar",
-    "headline": "A Cosy 12-Seat Counter Dedicated to Japanese-Italian Wafu Pasta",
+    "eyebrow": "",
+    "headline": "Tokyo Nostalgia. Handcrafted Wafu Pasta.",
     "subline": "Artisanal dashi-simmered pastas, ocean-fresh mentaiko, and nostalgic traditional Napolitan cooked fresh upon order at Tanjong Pagar.",
     "image": "/demo/saikyo-pasta/hero.jpg",
     "ctaText": "Reserve a Counter Seat",
@@ -83,18 +83,11 @@
   },
   "fiveTiles": [
     {
-      "title": "Menu",
+      "title": "The Menu",
       "label": "Wafu Signatures",
       "subtitle": "Wafu Signatures",
       "href": "/demo/saikyo-pasta/menu",
       "image": "/demo/saikyo-pasta/tile-menu.jpg"
-    },
-    {
-      "title": "Reservations",
-      "label": "12 Counter Seats",
-      "subtitle": "12 Counter Seats",
-      "href": "/demo/saikyo-pasta/reservations",
-      "image": "/demo/saikyo-pasta/tile-atmosphere.jpg"
     },
     {
       "title": "Our Story",
@@ -105,17 +98,17 @@
     },
     {
       "title": "Dashi Craft",
-      "label": "Slow Stock Prep",
-      "subtitle": "Slow Stock Prep",
+      "label": "House-Simmered Stocks",
+      "subtitle": "House-Simmered Stocks",
       "href": "/demo/saikyo-pasta/menu",
       "image": "/demo/saikyo-pasta/tile-craft.jpg"
     },
     {
-      "title": "Takeaway & Eco",
-      "label": "Biocane Boxes",
-      "subtitle": "Biocane Boxes",
-      "href": "/demo/saikyo-pasta/contact",
-      "image": "/demo/saikyo-pasta/tile-reservations.jpg"
+      "title": "The Counter",
+      "label": "12-Seat Experience",
+      "subtitle": "12-Seat Experience",
+      "href": "/demo/saikyo-pasta/reservations",
+      "image": "/demo/saikyo-pasta/tile-counter.jpg"
     }
   ],
   "craftFeature": {
@@ -140,18 +133,11 @@
     },
     "fiveTiles": [
       {
-        "title": "Menu",
+        "title": "The Menu",
         "label": "Wafu Signatures",
         "subtitle": "Wafu Signatures",
         "href": "/demo/saikyo-pasta/menu",
         "image": "/demo/saikyo-pasta/tile-menu.jpg"
-      },
-      {
-        "title": "Reservations",
-        "label": "12 Counter Seats",
-        "subtitle": "12 Counter Seats",
-        "href": "/demo/saikyo-pasta/reservations",
-        "image": "/demo/saikyo-pasta/tile-atmosphere.jpg"
       },
       {
         "title": "Our Story",
@@ -162,17 +148,17 @@
       },
       {
         "title": "Dashi Craft",
-        "label": "Slow Stock Prep",
-        "subtitle": "Slow Stock Prep",
+        "label": "House-Simmered Stocks",
+        "subtitle": "House-Simmered Stocks",
         "href": "/demo/saikyo-pasta/menu",
         "image": "/demo/saikyo-pasta/tile-craft.jpg"
       },
       {
-        "title": "Takeaway & Eco",
-        "label": "Biocane Boxes",
-        "subtitle": "Biocane Boxes",
-        "href": "/demo/saikyo-pasta/contact",
-        "image": "/demo/saikyo-pasta/tile-reservations.jpg"
+        "title": "The Counter",
+        "label": "12-Seat Experience",
+        "subtitle": "12-Seat Experience",
+        "href": "/demo/saikyo-pasta/reservations",
+        "image": "/demo/saikyo-pasta/tile-counter.jpg"
       }
     ],
     "feature": {
@@ -186,31 +172,19 @@
     "carousel": [
       {
         "image": "/demo/saikyo-pasta/carousel-1.jpg",
-        "caption": "Tiger Prawn Mentaiko Pasta ($22.90 / $24.90): Large succulent prawns in dairy-free dashi and popping mentaiko"
+        "caption": "Tiger Prawn Mentaiko Pasta (S$22.90 / S$24.90): Plump sweet tiger prawns in dairy-free dashi reduction with popping Japanese mentaiko."
       },
       {
         "image": "/demo/saikyo-pasta/carousel-2.jpg",
-        "caption": "Shiso Mushroom Wafu Pasta ($22.90): Homemade shoyu dashi simmered with shimeji, shiitake, and eringi"
+        "caption": "Shiso Mushroom Wafu Pasta (S$22.90): Slow-simmered shoyu mushroom dashi with shimeji, shiitake, eringi, and fresh aromatic shiso."
       },
       {
         "image": "/demo/saikyo-pasta/carousel-3.jpg",
-        "caption": "Traditional Napolitan Pasta ($21.90): Caramelized ketchup in butter, Japanese sausage, onions, and bell peppers"
+        "caption": "Traditional Napolitan Pasta (S$21.90 / S$22.90): Nostalgic Tokyo kissaten classic caramelized in butter, Arabiki pork sausage, and sweet onions."
       },
       {
         "image": "/demo/saikyo-pasta/carousel-4.jpg",
-        "caption": "Signature Cold Kombu Pasta with Ikura ($15.90): Chilled capellini tossed with shio kombu and popping salmon roe"
-      },
-      {
-        "image": "/demo/saikyo-pasta/carousel-5.jpg",
-        "caption": "Fresh Japanese Shiso & Artisanal Produce: Aromatic shiso leaves hand-picked to brighten each dish"
-      },
-      {
-        "image": "/demo/saikyo-pasta/carousel-6.jpg",
-        "caption": "Sea Salt Monaka Wafers ($6.90): Crispy roasted Japanese wafers filled with artisanal sweet-salty sea salt ice cream"
-      },
-      {
-        "image": "/demo/saikyo-pasta/carousel-7.jpg",
-        "caption": "Cosy 12-Seat Counter Bar: Tanjong Pagar's intimate spot where every bowl is cooked to order"
+        "caption": "Signature Cold Kombu Pasta with Ikura (S$15.90): Chilled capellini tossed in savoury shio kombu, white truffle essence, and glistening ikura."
       }
     ]
   },
@@ -229,49 +203,31 @@
   },
   "carousel": {
     "title": "Moments at the Counter",
-    "subtitle": "At The Wafu Bar",
+    "subtitle": "Signature Dishes",
     "slides": [
       {
         "image": "/demo/saikyo-pasta/carousel-1.jpg",
-        "caption": "Tiger Prawn Mentaiko Pasta ($22.90 / $24.90)",
+        "caption": "Tiger Prawn Mentaiko Pasta (S$22.90 / S$24.90)",
         "subcaption": "Dairy-free dashi broth with ocean-fresh mentaiko and tiger prawns",
         "alt": "Tiger Prawn Mentaiko Pasta at Saikyo Pasta"
       },
       {
         "image": "/demo/saikyo-pasta/carousel-2.jpg",
-        "caption": "Shiso Mushroom Wafu Pasta ($22.90)",
+        "caption": "Shiso Mushroom Wafu Pasta (S$22.90)",
         "subcaption": "Homemade shoyu dashi with shimeji, shiitake, and eringi",
         "alt": "Shiso Mushroom Wafu Pasta"
       },
       {
         "image": "/demo/saikyo-pasta/carousel-3.jpg",
-        "caption": "Traditional Napolitan Pasta ($21.90)",
+        "caption": "Traditional Napolitan Pasta (S$21.90 / S$22.90)",
         "subcaption": "Caramelized ketchup reduction with Japanese pork sausage",
         "alt": "Traditional Napolitan Pasta"
       },
       {
         "image": "/demo/saikyo-pasta/carousel-4.jpg",
-        "caption": "Signature Cold Kombu Pasta with Ikura ($15.90)",
+        "caption": "Signature Cold Kombu Pasta with Ikura (S$15.90)",
         "subcaption": "Chilled capellini with shio kombu and salmon roe pearls",
         "alt": "Cold Kombu Pasta with Ikura"
-      },
-      {
-        "image": "/demo/saikyo-pasta/carousel-5.jpg",
-        "caption": "Aromatic Japanese Shiso Leaf",
-        "subcaption": "Hand-selected fresh herbs to elevate our wafu sauces",
-        "alt": "Fresh Japanese Shiso Leaf"
-      },
-      {
-        "image": "/demo/saikyo-pasta/carousel-6.jpg",
-        "caption": "Sea Salt Monaka Wafers ($6.90)",
-        "subcaption": "Crispy roasted Japanese wafers with sweet-and-salty ice cream",
-        "alt": "Sea Salt Monaka Wafers dessert"
-      },
-      {
-        "image": "/demo/saikyo-pasta/carousel-7.jpg",
-        "caption": "12-Seat Counter Dining Bar",
-        "subcaption": "Icon Village Tanjong Pagar open kitchen counter",
-        "alt": "Saikyo Pasta counter seating"
       }
     ]
   },

@@ -15,7 +15,7 @@ const {
   image,
   ctaLabel,
   ctaHref = "#",
-  eyebrow = "Counter Seating • Singapore",
+  eyebrow = "",
   imageAlt = "Dining experience",
 } = Astro.props;
 ---
@@ -35,10 +35,12 @@ const {
 
   <!-- Center Content Area -->
   <div class="relative z-10 flex-grow flex flex-col items-center justify-center text-center px-4 sm:px-6 max-w-4xl mx-auto pt-24 pb-28 sm:pt-28 sm:pb-32">
-    <!-- Subtle Tagline Badge -->
-    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[var(--color-on-primary)]/10 backdrop-blur-sm border border-[var(--color-on-primary)]/20 text-[var(--color-on-primary)] text-[10px] sm:text-xs uppercase tracking-[0.2em] sm:tracking-[0.3em] font-medium mb-6">
-      <span>{eyebrow}</span>
-    </div>
+    <!-- Optional Tagline Badge (Rendered only when eyebrow is provided) -->
+    {eyebrow && eyebrow.trim() !== "" && (
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[var(--color-on-primary)]/10 backdrop-blur-sm border border-[var(--color-on-primary)]/20 text-[var(--color-on-primary)] text-[10px] sm:text-xs uppercase tracking-[0.2em] sm:tracking-[0.3em] font-medium mb-6">
+        <span>{eyebrow}</span>
+      </div>
+    )}
 
     <!-- Editorial Light-Weight Serif Headline in Cream -->
     <h1 class="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light text-[var(--color-on-primary)] leading-[1.12] tracking-tight mb-5 sm:mb-6 drop-shadow-sm">

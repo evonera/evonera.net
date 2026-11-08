@@ -1,0 +1,114 @@
+---
+import RestaurantDemoLayout from "../../../layouts/RestaurantDemoLayout.astro";
+import HeroWave from "../../../components/restaurant/HeroWave.astro";
+import IntroSection from "../../../components/restaurant/IntroSection.astro";
+import FiveTileStrip from "../../../components/restaurant/FiveTileStrip.astro";
+import FeatureSplit from "../../../components/restaurant/FeatureSplit.astro";
+import PhotoCarousel from "../../../components/restaurant/PhotoCarousel.astro";
+import LocationBlock from "../../../components/restaurant/LocationBlock.astro";
+import ClosingCta from "../../../components/restaurant/ClosingCta.astro";
+
+import data from "../../../data/restaurants/toriei.json";
+
+const { restaurant, hero, sections } = data;
+---
+
+<RestaurantDemoLayout
+  title={`${restaurant.name} | ${restaurant.tagline}`}
+  description={hero.subline}
+  currentPath="/demo/toriei"
+>
+  <!-- 1. Hero with Dark Overlay and SVG Wavy Divider -->
+  <HeroWave
+    headline={hero.headline}
+    subline={hero.subline}
+    image={hero.image}
+    ctaLabel={hero.ctaLabel}
+    ctaHref="/demo/toriei/reservations"
+  />
+
+  <!-- 2. Intro Section (Warm Cream #FDF1DC + Maroon Serif H1) -->
+  <IntroSection
+    heading={sections.intro.heading}
+    paragraphs={sections.intro.paragraphs}
+  />
+
+  <!-- 3. Five-Tile Image Strip (Menu, Reservations, Story, Buyout, Contact) -->
+  <FiveTileStrip tiles={sections.fiveTiles} />
+
+  <!-- 4. Feature Split Block (Burgundy #4A0D1C + Knife/Charcoal Bleed Photo) -->
+  <FeatureSplit
+    heading={sections.feature.heading}
+    paragraph={sections.feature.paragraph}
+    ctaLabel={sections.feature.ctaLabel}
+    ctaHref={sections.feature.ctaHref}
+    image={sections.feature.image}
+  />
+
+  <!-- 5. Chef Story & Philosophy Section (Targeted by #story anchor) -->
+  <section id="story" class="w-full bg-[#3d0915] text-[#FDF1DC] py-20 sm:py-28 px-4 sm:px-6 border-t border-[#FDF1DC]/10">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
+      <div class="md:col-span-5 h-[460px] sm:h-[520px] rounded-2xl overflow-hidden shadow-2xl relative">
+        <img
+          src="/demo/toriei/chef-roy.jpg"
+          alt="Chef-Owner Roy Koh at Toriei Cuppage Plaza"
+          class="w-full h-full object-cover object-center filter brightness-[0.9]"
+          loading="lazy"
+        />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+        <div class="absolute inset-x-0 bottom-0 p-6 text-[#FDF1DC]">
+          <span class="text-xs uppercase tracking-widest text-[#FDF1DC]/70 font-semibold block">Founder & Grillmaster</span>
+          <p class="font-display text-2xl font-light text-[#FDF1DC]">Chef-Owner Roy Koh</p>
+        </div>
+      </div>
+
+      <div class="md:col-span-7 flex flex-col items-start">
+        <span class="text-xs uppercase tracking-[0.3em] text-[#FDF1DC]/60 font-semibold mb-3">
+          The Story Behind the Fire
+        </span>
+        <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-light leading-[1.2] mb-6">
+          Two Decades of Japanese Craft, Distilled into Ten Counter Seats
+        </h2>
+        <div class="space-y-4 text-base sm:text-lg text-[#FDF1DC]/85 font-light leading-relaxed mb-8">
+          <p>
+            Following the success of his casual yakitori izakaya <em>Skewers</em> a few doors down, Chef-Owner Roy Koh partnered with Head Chef Masashi Asai (formerly head chef of Bincho) to create Toriei, a dedicated ten-seat counter stripped of all distractions.
+          </p>
+          <p>
+            Here, cooking is focused entirely on the essentials: French Poulet from Toh Thye San butchered nose-to-tail in-house, white Kishu Binchotan charcoal burning cleanly at 1000°C, and minimal shio seasoning using unrefined sea salts from Kochi and Okinawa.
+          </p>
+          <p class="text-sm text-[#FDF1DC]/75 border-l-2 border-[#FDF1DC]/30 pl-4 py-1">
+            Every skewer is seasoned with natural sea salt rather than heavy tare glaze, allowing the natural sweetness and texture of the bird to take center stage.
+          </p>
+        </div>
+        <a
+          href="/demo/toriei/menu"
+          class="btn-pill-cream text-xs uppercase tracking-widest px-8 py-3.5 font-medium"
+        >
+          View The 18 Courses
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. Photo Carousel (Moments on the Grill) -->
+  <PhotoCarousel items={sections.carousel} />
+
+  <!-- 7. Location & Map Block (Cuppage Plaza) -->
+  <LocationBlock
+    heading={sections.location.heading}
+    subline={sections.location.subline}
+    address={restaurant.address}
+    mrt={restaurant.mrt}
+    hours={restaurant.hours}
+    phone={restaurant.phone}
+    googleMapsUrl={sections.location.googleMapsUrl}
+  />
+
+  <!-- 8. Closing Call to Action (Warm Cream #FDF1DC) -->
+  <ClosingCta
+    heading={sections.closingCta.heading}
+    subline={sections.closingCta.subline}
+    ctaLabel={sections.closingCta.ctaLabel}
+    ctaHref={sections.closingCta.ctaHref}
+  />
+</RestaurantDemoLayout>

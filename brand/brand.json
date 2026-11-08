@@ -1,0 +1,70 @@
+{
+  "brand": {
+    "restaurantName": "Toriei",
+    "japaneseName": "鳥栄",
+    "sources": [
+      {
+        "url": "https://www.instagram.com/toriei.sg/",
+        "type": "official_instagram",
+        "date": "2026-11-09"
+      },
+      {
+        "url": "https://www.instagram.com/toriei.sg/p/DcP4Cw8DSiW/",
+        "type": "chef_introduction_post",
+        "date": "2026-11-09"
+      },
+      {
+        "url": "https://therantingpanda.com/2026/08/25/food-review-toriei-cuppage-plaza/",
+        "type": "culinary_review_verification",
+        "date": "2026-11-09"
+      }
+    ],
+    "colors": {
+      "primary": "#4A0D1C",
+      "surface": "#FDF1DC",
+      "ink": "#5A0F22",
+      "onPrimary": "#FDF1DC",
+      "accent": "#C5A059"
+    },
+    "fonts": {
+      "display": "'Fraunces', 'Cormorant Garamond', Georgia, serif",
+      "body": "'Plus Jakarta Sans', 'Inter', -apple-system, sans-serif",
+      "fallback": "serif"
+    },
+    "logo": "/demo/toriei/logo.svg",
+    "photos": [
+      {
+        "file": "/demo/toriei/hero.jpg",
+        "sourceUrl": "https://www.instagram.com/toriei.sg/p/DbAQa0xh-y_/",
+        "caption": "Binchotan counter and yakitori grill setting",
+        "approved": true
+      },
+      {
+        "file": "/demo/toriei/chef-roy.jpg",
+        "sourceUrl": "https://www.instagram.com/toriei.sg/p/DcP4Cw8DSiW/",
+        "caption": "Chef-Owner Roy Koh at the counter",
+        "approved": true
+      },
+      {
+        "file": "/demo/toriei/tile-menu.jpg",
+        "sourceUrl": "https://www.instagram.com/toriei.sg/p/DdINHxrDEv4/",
+        "caption": "Shio Yakitori skewer presentation",
+        "approved": true
+      },
+      {
+        "file": "/demo/toriei/tile-reservations.jpg",
+        "sourceUrl": "https://www.instagram.com/toriei.sg/p/DdINHxrDEv4/",
+        "caption": "10-seater wooden dining counter",
+        "approved": true
+      },
+      {
+        "file": "/demo/toriei/feature-craft.jpg",
+        "sourceUrl": "https://www.instagram.com/toriei.sg/p/Daw6ljJhO3p/",
+        "caption": "Whole-bird butchery preparation",
+        "approved": true
+      }
+    ],
+    "mood": "Dark, intimate, artisanal, Japanese counter omakase",
+    "voice": "Restrained, craft-driven, welcoming, unhurried"
+  }
+}

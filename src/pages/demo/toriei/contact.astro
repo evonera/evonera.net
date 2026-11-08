@@ -1,0 +1,127 @@
+---
+import RestaurantDemoLayout from "../../../layouts/RestaurantDemoLayout.astro";
+import data from "../../../data/restaurants/toriei.json";
+
+const { restaurant } = data;
+const cleanPhone = restaurant.whatsapp.replace(/[^0-9]/g, "");
+---
+
+<RestaurantDemoLayout
+  title={`Contact & Location | ${restaurant.name} Cuppage Plaza`}
+  description={`Visit Toriei at Cuppage Plaza #04-15, Singapore. Find directions from Somerset MRT, opening hours, WhatsApp contact, and phone.`}
+  currentPath="/demo/toriei/contact"
+>
+  <!-- Header -->
+  <section class="w-full bg-[#3d0915] text-[#FDF1DC] pt-28 pb-16 sm:pt-36 sm:pb-20 px-4 sm:px-6 text-center border-b border-[#FDF1DC]/10">
+    <div class="max-w-3xl mx-auto">
+      <span class="text-xs uppercase tracking-[0.3em] text-[#FDF1DC]/60 font-semibold mb-3 block">
+        Find Us in Orchard
+      </span>
+      <h1 class="font-display text-4xl sm:text-5xl md:text-6xl font-light tracking-tight mb-4 text-[#FDF1DC]">
+        Location & Contact
+      </h1>
+      <p class="text-lg text-[#FDF1DC]/85 font-light leading-relaxed max-w-xl mx-auto">
+        Toriei is situated on Level 4 of Cuppage Plaza, an authentic haven for Japanese dining in Singapore.
+      </p>
+    </div>
+  </section>
+
+  <!-- Contact Cards & Map -->
+  <section class="w-full bg-[#FDF1DC] text-[#5A0F22] py-20 sm:py-28 px-4 sm:px-6">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12">
+      <!-- Left Column: Details -->
+      <div class="lg:col-span-5 flex flex-col gap-8">
+        <div class="bg-white p-8 rounded-[24px] shadow-sm border border-[#5A0F22]/10 space-y-6">
+          <div>
+            <span class="text-[10px] uppercase tracking-[0.25em] text-[#4A0D1C] font-bold block mb-1">
+              Address & Unit
+            </span>
+            <p class="text-xl font-medium text-[#191919]">
+              {restaurant.name} (鳥栄)
+            </p>
+            <p class="text-sm text-neutral-600 mt-1 leading-relaxed">
+              {restaurant.address}<br />
+              Singapore {restaurant.postalCode}
+            </p>
+          </div>
+
+          <div class="pt-4 border-t border-neutral-100">
+            <span class="text-[10px] uppercase tracking-[0.25em] text-neutral-500 font-semibold block mb-1">
+              Nearest MRT
+            </span>
+            <p class="text-sm text-neutral-800 font-medium">
+              Somerset MRT Station (NS23)
+            </p>
+            <p class="text-xs text-neutral-500 mt-0.5">
+              Approx. 5-minute sheltered walk via Orchard Central / Cuppage Road. Take elevator to Level 4.
+            </p>
+          </div>
+
+          <div class="pt-4 border-t border-neutral-100">
+            <span class="text-[10px] uppercase tracking-[0.25em] text-neutral-500 font-semibold block mb-1">
+              Operating Schedule
+            </span>
+            <div class="text-xs text-neutral-700 space-y-1">
+              <p><strong>Monday - Saturday:</strong> 7:00 PM - 10:00 PM</p>
+              <p><strong>Sunday:</strong> Closed</p>
+              <p class="text-neutral-500 pt-1">Single seating commencing promptly at 7:00 PM.</p>
+            </div>
+          </div>
+
+          <div class="pt-4 border-t border-neutral-100 flex flex-col sm:flex-row gap-3">
+            <a
+              href={`https://wa.me/${cleanPhone}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="w-full py-3.5 px-4 rounded-full bg-[#25D366] text-white font-medium text-xs uppercase tracking-wider text-center hover:opacity-95 transition-opacity flex items-center justify-center gap-2 shadow"
+            >
+              <span>WhatsApp Us</span>
+            </a>
+            <a
+              href={`tel:${restaurant.phone}`}
+              class="w-full py-3.5 px-4 rounded-full bg-[#4A0D1C] text-[#FDF1DC] font-medium text-xs uppercase tracking-wider text-center hover:opacity-95 transition-opacity flex items-center justify-center gap-2 shadow"
+            >
+              <span>Call Us</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Private Counter Buyout Notice -->
+        <div class="bg-[#4A0D1C] text-[#FDF1DC] p-8 rounded-[24px] shadow-sm">
+          <span class="text-[10px] uppercase tracking-[0.25em] text-[#C5A059] font-bold block mb-2">
+            Private Counter Dining
+          </span>
+          <h3 class="font-display text-2xl font-light mb-3">
+            Host a 10-Seat Buyout
+          </h3>
+          <p class="text-xs text-[#FDF1DC]/85 font-light leading-relaxed mb-6">
+            Looking for an intimate celebration or executive private dinner? The entire 10-seat counter can be reserved exclusively with custom beverage pairings curated by Chef Roy.
+          </p>
+          <a
+            href="/demo/toriei/reservations"
+            class="btn-pill-cream text-xs uppercase tracking-wider px-6 py-2.5 inline-block"
+          >
+            Inquire for Private Buyout
+          </a>
+        </div>
+      </div>
+
+      <!-- Right Column: Interactive Map Frame -->
+      <div class="lg:col-span-7 h-[500px] lg:h-auto rounded-[24px] overflow-hidden shadow-lg border border-[#5A0F22]/15 bg-white relative">
+        <iframe
+          title="Toriei Location Map"
+          width="100%"
+          height="100%"
+          style="border:0;"
+          loading="lazy"
+          allowfullscreen
+          referrerpolicy="no-referrer-when-downgrade"
+          src="https://maps.google.com/maps?q=Toriei%20Yakitori%20Omakase%20Cuppage%20Plaza%20Singapore&t=&z=17&ie=UTF8&iwloc=&output=embed"
+          class="w-full h-full filter grayscale-[0.2] contrast-[1.05] brightness-[0.96]"
+        ></iframe>
+      </div>
+    </div>
+  </section>
+</RestaurantDemoLayout>
+
+

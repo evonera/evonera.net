@@ -1,0 +1,97 @@
+---
+import RestaurantDemoLayout from "../../../layouts/RestaurantDemoLayout.astro";
+import ReservationForm from "../../../components/restaurant/ReservationForm.tsx";
+import data from "../../../data/restaurants/toriei.json";
+
+const { restaurant } = data;
+---
+
+<RestaurantDemoLayout
+  title={`Counter Reservations | ${restaurant.name} Singapore`}
+  description={`Book your counter seat at Toriei Singapore. 10 exclusive seats nightly for Chef Roy Koh's 18-course Shio Yakitori Omakase at Cuppage Plaza.`}
+  currentPath="/demo/toriei/reservations"
+>
+  <!-- Header -->
+  <section class="w-full bg-[#3d0915] text-[#FDF1DC] pt-28 pb-16 sm:pt-36 sm:pb-20 px-4 sm:px-6 text-center border-b border-[#FDF1DC]/10">
+    <div class="max-w-3xl mx-auto">
+      <span class="text-xs uppercase tracking-[0.3em] text-[#FDF1DC]/60 font-semibold mb-3 block">
+        Nightly Counter Seating
+      </span>
+      <h1 class="font-display text-4xl sm:text-5xl md:text-6xl font-light tracking-tight mb-4 text-[#FDF1DC]">
+        Reserve Your Space
+      </h1>
+      <p class="text-lg text-[#FDF1DC]/85 font-light leading-relaxed max-w-xl mx-auto">
+        Due to our intimate 10-seat format and single 7:00 PM seating, advance reservations are highly recommended.
+      </p>
+    </div>
+  </section>
+
+  <!-- Reservation Section (Warm Cream #FDF1DC) -->
+  <section class="w-full bg-[#FDF1DC] text-[#5A0F22] py-20 sm:py-28 px-4 sm:px-6">
+    <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-12 items-start">
+      <!-- Left: Interactive Booking Form Component (React) -->
+      <div class="md:col-span-7">
+        <ReservationForm
+          client:load
+          whatsappNumber={restaurant.whatsapp}
+          restaurantName={restaurant.name}
+        />
+      </div>
+
+      <!-- Right: Policies & What to Expect -->
+      <div class="md:col-span-5 space-y-6">
+        <div class="bg-white p-6 sm:p-8 rounded-[24px] shadow-sm border border-[#5A0F22]/10 space-y-5">
+          <span class="text-[10px] uppercase tracking-[0.25em] text-[#4A0D1C] font-bold block">
+            Counter Policy & Dining Notes
+          </span>
+
+          <div class="space-y-4 text-xs text-neutral-700 leading-relaxed">
+            <div>
+              <p class="font-semibold text-neutral-900 mb-0.5">Seating Time & Promptness</p>
+              <p>
+                Service begins promptly at 7:00 PM for all guests to ensure skewers are served hot off the binchotan embers. Seats are held for up to 15 minutes past the booking time.
+              </p>
+            </div>
+
+            <div class="pt-2 border-t border-neutral-100">
+              <p class="font-semibold text-neutral-900 mb-0.5">Capacity & Group Size</p>
+              <p>
+                The counter accommodates parties from 1 up to 10 guests. For full counter buyouts (10 seats), please select 10 guests in the form to coordinate private dining.
+              </p>
+            </div>
+
+            <div class="pt-2 border-t border-neutral-100">
+              <p class="font-semibold text-neutral-900 mb-0.5">Dietary Restrictions</p>
+              <p>
+                Our tasting menu is dedicated to French chicken butchery, poultry offal, and seasonal Japanese vegetables. Please inform us of any allergies in advance.
+              </p>
+            </div>
+
+            <div class="pt-2 border-t border-neutral-100">
+              <p class="font-semibold text-neutral-900 mb-0.5">Assistance via WhatsApp</p>
+              <p>
+                Prefer to chat directly? Message Chef Roy's team at{" "}
+                <a
+                  href={`https://wa.me/${restaurant.whatsapp.replace(/[^0-9]/g, "")}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="font-semibold text-[#4A0D1C] underline"
+                >
+                  {restaurant.phone}
+                </a>.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Evonera Demo Note -->
+        <div class="p-6 rounded-[20px] bg-[#4A0D1C]/5 border border-[#4A0D1C]/15 text-xs text-[#5A0F22]">
+          <p class="font-semibold mb-1">Evonera Technologies Demo Concept</p>
+          <p class="text-[11px] leading-relaxed text-[#5A0F22]/80">
+            This reservation interface demonstrates how a high-converting booking experience can connect directly with your restaurant's WhatsApp without monthly SaaS booking fees or third-party commissions.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</RestaurantDemoLayout>

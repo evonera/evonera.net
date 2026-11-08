@@ -1,0 +1,288 @@
+{
+  "restaurant": {
+    "name": "Toriei",
+    "japaneseName": "鳥栄",
+    "tagline": "Intimate 10-Seat Shio Yakitori Omakase in Orchard",
+    "cuisine": "Japanese Yakitori Omakase",
+    "area": "Cuppage Plaza, Orchard",
+    "mrt": "Somerset MRT (NS23, 5 min walk)",
+    "address": "5 Koek Road, Cuppage Plaza, #04-15",
+    "city": "Singapore",
+    "postalCode": "228796",
+    "phone": "+65 9898 4044",
+    "whatsapp": "+6598984044",
+    "email": "inquiries@toriei.sg",
+    "hours": {
+      "monday": "7:00 PM - 10:00 PM",
+      "tuesday": "7:00 PM - 10:00 PM",
+      "wednesday": "7:00 PM - 10:00 PM",
+      "thursday": "7:00 PM - 10:00 PM",
+      "friday": "7:00 PM - 10:00 PM",
+      "saturday": "7:00 PM - 10:00 PM",
+      "sunday": "Closed"
+    },
+    "seatingTime": "7:00 PM (Single Seating Nightly)",
+    "capacity": "10 counter seats",
+    "priceRange": "$$$$",
+    "tastingPrice": "S$180++ per guest",
+    "social": {
+      "instagram": "https://www.instagram.com/toriei.sg/"
+    },
+    "chef": {
+      "owner": "Chef Roy Koh",
+      "headChef": "Chef Masashi Asai",
+      "background": "Chef-Owner Roy Koh and Head Chef Masashi Asai (formerly head chef at Bincho) bring over two decades of Japanese culinary devotion to Cuppage Plaza, focusing on whole-bird butchery, Kishu Binchotan fire, and minimalist shio seasoning."
+    }
+  },
+  "branding": {
+    "theme": "counter",
+    "colors": {
+      "primary": "#4A0D1C",
+      "surface": "#FDF1DC",
+      "ink": "#5A0F22",
+      "onPrimary": "#FDF1DC",
+      "accent": "#C5A059",
+      "card": "#FFFFFF"
+    },
+    "fonts": {
+      "display": "'Fraunces', 'Cormorant Garamond', Georgia, serif",
+      "body": "'Plus Jakarta Sans', 'Inter', -apple-system, sans-serif"
+    },
+    "logo": "/demo/toriei/logo.svg"
+  },
+  "hero": {
+    "headline": "A Ten-Seat Counter Dedicated to Binchotan Yakitori",
+    "subline": "Eighteen courses of French poulet, artisanal salt seasoning, and live charcoal embers on Cuppage Plaza Level 4.",
+    "image": "/demo/toriei/hero.jpg",
+    "ctaLabel": "Reserve a Seat"
+  },
+  "sections": {
+    "intro": {
+      "heading": "Artisanal Yakitori Omakase in the Heart of Cuppage",
+      "paragraphs": [
+        "Hidden away on the fourth floor of Cuppage Plaza, Toriei is a dedicated ten-seat yakitori counter celebrating the pure, unmasked flavors of French-breed chicken grilled over white Kishu Binchotan charcoal.",
+        "Unlike traditional yakitori seasoned with heavy, sweet tare glazes, Chef-Owner Roy Koh and Head Chef Masashi Asai present a focused shio (salt-led) omakase. Rare cuts are brined, skewered by hand, and seasoned only with mineral-rich Kochi and Okinawan sea salts.",
+        "With a single seating each evening, dining at Toriei is an unhurried, intimate ritual where guests watch every skewer turn over glowing coals from inches away."
+      ]
+    },
+    "fiveTiles": [
+      {
+        "title": "Menu",
+        "label": "18-Course Omakase",
+        "href": "/demo/toriei/menu",
+        "image": "/demo/toriei/tile-menu.jpg"
+      },
+      {
+        "title": "Reservations",
+        "label": "Reserve 10 Seats",
+        "href": "/demo/toriei/reservations",
+        "image": "/demo/toriei/tile-reservations.jpg"
+      },
+      {
+        "title": "Story & Chefs",
+        "label": "Chef Roy Koh",
+        "href": "#story",
+        "image": "/demo/toriei/tile-story.jpg"
+      },
+      {
+        "title": "Private Buyout",
+        "label": "Counter Events",
+        "href": "/demo/toriei/contact",
+        "image": "/demo/toriei/tile-events.jpg"
+      },
+      {
+        "title": "Contact",
+        "label": "Cuppage Plaza",
+        "href": "/demo/toriei/contact",
+        "image": "/demo/toriei/tile-contact.jpg"
+      }
+    ],
+    "feature": {
+      "heading": "Kishu Binchotan and Kochi Sea Salt Are Just The Start",
+      "paragraph": "Every skewer begins with whole GG French Poulet from Toh Thye San, broken down in-house daily. Each cut (including chicken oyster soriresu, crispy skin, and tender cartilage) is paired with precise heat zones on the grill, allowing the bird's natural sweetness and collagen to shine without compromise.",
+      "ctaLabel": "Explore The 18 Courses",
+      "ctaHref": "/demo/toriei/menu",
+      "image": "/demo/toriei/feature-craft.jpg"
+    },
+    "carousel": [
+      {
+        "image": "/demo/toriei/carousel-1.jpg",
+        "caption": "Artisanal shio yakitori skewer grilled to golden perfection"
+      },
+      {
+        "image": "/demo/toriei/carousel-2.jpg",
+        "caption": "White Kishu Binchotan charcoal burning cleanly at 1000°C"
+      },
+      {
+        "image": "/demo/toriei/carousel-3.jpg",
+        "caption": "Hand-skewered French poulet cuts resting on the wooden counter"
+      },
+      {
+        "image": "/demo/toriei/carousel-4.jpg",
+        "caption": "Rich collagen chicken chawanmushi with fresh egg yolk"
+      },
+      {
+        "image": "/demo/toriei/carousel-5.jpg",
+        "caption": "Juicy Japanese shiitake mushroom grilled with sea salt and sake"
+      },
+      {
+        "image": "/demo/toriei/carousel-6.jpg",
+        "caption": "Claypot Tori Zosui slow-simmered chicken porridge finale"
+      },
+      {
+        "image": "/demo/toriei/carousel-7.jpg",
+        "caption": "House highballs and Japanese fruit refreshments"
+      }
+    ],
+    "location": {
+      "heading": "Your Next Orchard Yakitori Destination",
+      "subline": "Tucked away on the fourth floor of Cuppage Plaza, five minutes from Somerset MRT.",
+      "googleMapsUrl": "https://www.google.com/maps/place/Toriei+%E9%B3%A5%E6%A6%AE+%7C+Yakitori+Omakase/@1.3019408,103.8407663,17z"
+    },
+    "closingCta": {
+      "heading": "Your Seat Awaits",
+      "subline": "Ten counter seats. One evening seating at 7:00 PM. Book your date ahead to secure your space.",
+      "ctaLabel": "Reserve Your Seat",
+      "ctaHref": "/demo/toriei/reservations"
+    }
+  },
+  "menu": {
+    "price": "S$180++ per guest",
+    "courseCount": "18 Courses",
+    "description": "Our nightly omakase transitions seamlessly from delicate starters into ten specialty chicken skewers, four seasonal vegetables, a comforting claypot rice soup, and dessert.",
+    "categories": [
+      {
+        "name": "Opening & Starters",
+        "items": [
+          {
+            "name": "Collagen Chicken Chawanmushi",
+            "description": "Silky steamed egg custard prepared exclusively with slow-simmered, concentrated chicken collagen broth and tender shredded meat.",
+            "tags": ["Signature", "Rich Collagen"]
+          },
+          {
+            "name": "Seasonal Otsumami",
+            "description": "Chef's daily seasonal appetizer showcasing Japanese market ingredients to awaken the palate.",
+            "tags": ["Seasonal"]
+          }
+        ]
+      },
+      {
+        "name": "Signature Shio Skewers (10 Cuts)",
+        "items": [
+          {
+            "name": "Soriresu (Chicken Oyster)",
+            "description": "The prized nugget nestled in the thigh bone socket. Crisp charred skin concealing intensely juicy, tender dark meat.",
+            "tags": ["Rare Cut", "Chef's Favorite"]
+          },
+          {
+            "name": "Sasami (Tender Breast with Wasabi)",
+            "description": "Delicate white meat gently kissed with charcoal heat, topped with freshly grated Shizuoka wasabi.",
+            "tags": ["Delicate"]
+          },
+          {
+            "name": "Kawa (Crisp Chicken Skin)",
+            "description": "Slowly rendered over low embers until each fold turns paper-thin and shattering crisp.",
+            "tags": ["Texture"]
+          },
+          {
+            "name": "Seseri (Chicken Neck)",
+            "description": "Richly flavored meat from around the neck bone, offering remarkable chew and natural juices.",
+            "tags": ["Succulent"]
+          },
+          {
+            "name": "Sunagimo (Gizzard with Green Sansho)",
+            "description": "Snap-crunch texture finished with a dusting of citrusy, tingling Japanese sansho pepper.",
+            "tags": ["Snappy"]
+          },
+          {
+            "name": "Hatsu (Chicken Heart)",
+            "description": "Plump and sweet, grilled medium to retain tenderness and natural mineral sweetness.",
+            "tags": ["Mineral Sweetness"]
+          },
+          {
+            "name": "Nankotsu (Cartilage)",
+            "description": "Soft knee cartilage offering an addictive, crunchy bite seasoned with Kochi sea salt.",
+            "tags": ["Crunch"]
+          },
+          {
+            "name": "Tsukune (House Minced Meatball)",
+            "description": "Hand-minced chicken thigh blended with minced cartilage for texture, roasted to golden perfection.",
+            "tags": ["House Classic"]
+          },
+          {
+            "name": "Bonjiri (Chicken Tail)",
+            "description": "Crisp outer shell with rich, melting pockets of natural poultry fats.",
+            "tags": ["Rich"]
+          },
+          {
+            "name": "Momo (Chicken Thigh & Charred Leek)",
+            "description": "Juicy thigh cut skewered with sweet Japanese negi, charred until fragrant.",
+            "tags": ["Classic Negima"]
+          }
+        ]
+      },
+      {
+        "name": "Seasonal Vegetables (4 Cuts)",
+        "items": [
+          {
+            "name": "Ginnan (Japanese Ginkgo Nuts)",
+            "description": "Tender, jade-green ginkgo nuts roasted in their shells with Kochi salt.",
+            "tags": ["Seasonal"]
+          },
+          {
+            "name": "Shiitake Mushroom",
+            "description": "Fleshy caps brushed with sake and grilled until the natural umami broth pools on top.",
+            "tags": ["Umami"]
+          },
+          {
+            "name": "Sweet Hokkaido Corn",
+            "description": "Golden kernel skewer lightly grilled over binchotan embers for sweet caramelization.",
+            "tags": ["Sweet"]
+          },
+          {
+            "name": "Shishito Pepper",
+            "description": "Blistered sweet Japanese peppers with a mild smoky finish.",
+            "tags": ["Charred"]
+          }
+        ]
+      },
+      {
+        "name": "Finale & Sweet",
+        "items": [
+          {
+            "name": "Claypot Tori Zosui",
+            "description": "Comforting, slow-simmered rich chicken porridge with beaten Japanese egg, scallions, and roasted nori.",
+            "tags": ["Signature Finale"]
+          },
+          {
+            "name": "Sweet Potato Monaka Ice Cream",
+            "description": "Crispy Japanese rice wafer sandwich filled with roasted sweet potato ice cream.",
+            "tags": ["Sweet Finish"]
+          }
+        ]
+      },
+      {
+        "name": "Sake & Pairings",
+        "items": [
+          {
+            "name": "Curated Junmai Daiginjo",
+            "description": "A rotating cellar selection of boutique Japanese sakes curated to complement shio yakitori.",
+            "price": "From S$88/bottle"
+          },
+          {
+            "name": "Highballs & Craft Beers",
+            "description": "Refreshing Japanese craft yuzu ales and ice-cold whisk(e)y highballs.",
+            "price": "From S$16/glass"
+          }
+        ]
+      }
+    ]
+  },
+  "demo": {
+    "isDemo": true,
+    "demoNotice": "Demo concept by Evonera Technologies. Not the official website of Toriei.",
+    "agencyUrl": "https://evonera.net",
+    "agencyName": "Evonera Technologies",
+    "expiryDays": 30
+  }
+}

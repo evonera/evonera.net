@@ -1,0 +1,32 @@
+---
+interface Props {
+  heading: string;
+  paragraphs: string[];
+}
+
+const { heading, paragraphs } = Astro.props;
+---
+
+<section class="w-full bg-[#FDF1DC] text-[#5A0F22] py-20 sm:py-28 md:py-36 px-4 sm:px-6">
+  <div class="max-w-[760px] mx-auto text-center flex flex-col items-center">
+    <!-- Small Category Label -->
+    <span class="text-xs uppercase tracking-[0.35em] text-[#5A0F22]/70 font-semibold mb-4">
+      The Toriei Philosophy
+    </span>
+
+    <!-- Large Maroon Serif H1 -->
+    <h2 class="font-display text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] font-light leading-[1.18] text-[#5A0F22] mb-8 tracking-tight">
+      {heading}
+    </h2>
+
+    <!-- Decorative Subtle Divider -->
+    <div class="w-16 h-px bg-[#5A0F22]/25 mb-8"></div>
+
+    <!-- Editorial Paragraphs -->
+    <div class="space-y-6 text-[#5A0F22]/90 text-base sm:text-lg leading-relaxed font-light text-left sm:text-center">
+      {paragraphs.map((p) => (
+        <p>{p}</p>
+      ))}
+    </div>
+  </div>
+</section>

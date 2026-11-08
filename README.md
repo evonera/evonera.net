@@ -1,6 +1,6 @@
 # Evonera Technologies Pvt Ltd
 
-Company website for Evonera Technologies Pvt Ltd. The main offer is helping founders finish, fix, and launch web apps started with Lovable, Emergent, and other AI builders. The site also has a separate page for Evonera's own software products.
+Company website for Evonera Technologies Pvt Ltd. Services include building bespoke, high-converting websites for businesses and restaurants, and helping founders finish, fix, and launch web apps started with Lovable, Emergent, and other AI builders.
 
 ## Stack
 
@@ -11,10 +11,10 @@ Company website for Evonera Technologies Pvt Ltd. The main offer is helping foun
 
 ## Main pages
 
-- `/`: AI app rescue offer, process, pricing note, products, and inquiry form
-- `/fix-my-ai-site`: focused project rescue page
+- `/`: Bespoke websites and AI app completion offer, process, pricing note, and inquiry form
+- `/restaurants`: Bespoke editorial websites for independent dining rooms and restaurants
+- `/fix-my-ai-site`: focused AI app project rescue page
 - `/lovable` and `/emergent`: platform-specific project pages
-- `/ventures`: Evonera's own products
 - `/services`, `/pricing`, and `/contact`: supporting service and inquiry details
 - `/privacy` and `/terms`: site policies
 

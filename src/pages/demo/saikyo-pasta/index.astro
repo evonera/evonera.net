@@ -1,0 +1,125 @@
+---
+import RestaurantDemoLayout from "../../../layouts/RestaurantDemoLayout.astro";
+import HeroWave from "../../../components/restaurant/HeroWave.astro";
+import IntroSection from "../../../components/restaurant/IntroSection.astro";
+import FiveTileStrip from "../../../components/restaurant/FiveTileStrip.astro";
+import FeatureSplit from "../../../components/restaurant/FeatureSplit.astro";
+import PhotoCarousel from "../../../components/restaurant/PhotoCarousel.astro";
+import LocationBlock from "../../../components/restaurant/LocationBlock.astro";
+import ClosingCta from "../../../components/restaurant/ClosingCta.astro";
+
+import data from "../../../data/restaurants/saikyo-pasta.json";
+
+const { restaurant, hero, sections, story } = data;
+---
+
+<RestaurantDemoLayout
+  restaurantData={data}
+  title={`${restaurant.name} | ${restaurant.tagline}`}
+  description={hero.subline}
+  currentPath="/demo/saikyo-pasta"
+>
+  <!-- 1. Hero with Organic Wave Transition -->
+  <HeroWave
+    headline={hero.headline}
+    subline={hero.subline}
+    image={hero.image}
+    ctaLabel={hero.ctaLabel}
+    ctaHref="/demo/saikyo-pasta/reservations"
+    eyebrow={hero.eyebrow}
+    imageAlt="Saikyo Pasta signature dishes on wooden counter"
+  />
+
+  <!-- 2. Intro Section -->
+  <IntroSection
+    heading={sections.intro.heading}
+    paragraphs={sections.intro.paragraphs}
+    eyebrow="The Saikyo Story"
+  />
+
+  <!-- 3. Five-Tile Image Strip -->
+  <FiveTileStrip tiles={sections.fiveTiles} />
+
+  <!-- 4. Feature Split Block -->
+  <FeatureSplit
+    heading={sections.feature.heading}
+    paragraph={sections.feature.paragraph}
+    ctaLabel={sections.feature.ctaLabel}
+    ctaHref={sections.feature.ctaHref}
+    image={sections.feature.image}
+    tag={sections.feature.tag}
+    imageAlt="Homemade secret mentaiko sauce craft"
+  />
+
+  <!-- 5. Founders Story & Philosophy Section -->
+  <section id="story" class="w-full text-[var(--color-on-primary)] py-20 sm:py-28 px-4 sm:px-6 border-t border-[var(--color-on-primary)]/10" style="background-color: color-mix(in srgb, var(--color-primary) 85%, black);">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
+      <div class="md:col-span-5 h-[460px] sm:h-[520px] rounded-2xl overflow-hidden shadow-2xl relative">
+        <img
+          src={story.image}
+          alt="Founders and Chef at Saikyo Pasta"
+          class="w-full h-full object-cover object-center filter brightness-[0.9]"
+          loading="lazy"
+        />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+        <div class="absolute inset-x-0 bottom-0 p-6 text-[var(--color-on-primary)]">
+          <span class="text-xs uppercase tracking-widest text-[var(--color-on-primary)]/70 font-semibold block">{story.chefRole}</span>
+          <p class="font-display text-2xl font-light text-[var(--color-on-primary)]">{story.chefName}</p>
+        </div>
+      </div>
+
+      <div class="md:col-span-7 flex flex-col items-start">
+        <span class="text-xs uppercase tracking-[0.3em] text-[var(--color-on-primary)]/60 font-semibold mb-3">
+          {story.tag}
+        </span>
+        <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-light leading-[1.2] mb-6">
+          {story.title}
+        </h2>
+        <div class="space-y-4 text-base sm:text-lg text-[var(--color-on-primary)]/85 font-light leading-relaxed mb-8">
+          {story.paragraphs.map((p) => (
+            <p>{p}</p>
+          ))}
+        </div>
+        <div class="p-4 rounded-xl border border-[var(--color-on-primary)]/15 bg-black/20 text-xs sm:text-sm text-[var(--color-accent)] font-medium mb-6">
+          "{story.quote}"
+        </div>
+        <a
+          href="/demo/saikyo-pasta/menu"
+          class="btn-pill-cream text-xs uppercase tracking-widest px-8 py-3.5 font-medium"
+        >
+          Explore Our Wafu Menu
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. Photo Carousel -->
+  <PhotoCarousel
+    items={sections.carousel}
+    title="Moments at the Counter"
+    subtitle="Signature Dishes"
+    tagPrefix="Plate"
+  />
+
+  <!-- 7. Location & Transit Block -->
+  <LocationBlock
+    heading="Join Us at Icon Village"
+    subline="12 Gopeng Street #01-86/87, 2 minutes from Tanjong Pagar MRT Exit A."
+    address={restaurant.address}
+    postalCode={restaurant.postalCode}
+    mrt={restaurant.mrt}
+    hoursText="Mon - Sat: Lunch 11:30 AM - 2:00 PM, Dinner 6:00 PM - 8:00 PM"
+    hoursSubtext="Closed on Sundays • 12 counter seats"
+    phone={restaurant.phone}
+    googleMapsUrl={restaurant.googleMapsUrl}
+    mapTitle="Saikyo Pasta Icon Village Location Map"
+  />
+
+  <!-- 8. Closing CTA -->
+  <ClosingCta
+    heading="Your Counter Seat Awaits"
+    subline="Experience Japanese-Italian wafu comfort, cooked fresh upon order in Tanjong Pagar."
+    ctaLabel="Reserve a Table via WhatsApp"
+    ctaHref="/demo/saikyo-pasta/reservations"
+  />
+</RestaurantDemoLayout>

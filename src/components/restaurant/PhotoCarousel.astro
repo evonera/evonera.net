@@ -2,25 +2,34 @@
 interface CarouselItem {
   image: string;
   caption: string;
+  subcaption?: string;
 }
 
 interface Props {
   items: CarouselItem[];
+  title?: string;
+  subtitle?: string;
+  tagPrefix?: string;
 }
 
-const { items } = Astro.props;
+const {
+  items,
+  title = "Moments at the Counter",
+  subtitle = "At The Counter",
+  tagPrefix = "Plate",
+} = Astro.props;
 ---
 
-<section class="w-full bg-[#4A0D1C] text-[#FDF1DC] py-16 sm:py-24 overflow-hidden border-t border-[#FDF1DC]/10">
+<section class="w-full bg-[var(--color-primary)] text-[var(--color-on-primary)] py-16 sm:py-24 overflow-hidden border-t border-[var(--color-on-primary)]/10">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <!-- Header with Section Title and Arrow Navigation Buttons -->
     <div class="flex items-end justify-between mb-8 sm:mb-12">
       <div>
-        <span class="text-xs uppercase tracking-[0.3em] text-[#FDF1DC]/60 font-semibold block mb-2">
-          At The Counter
+        <span class="text-xs uppercase tracking-[0.3em] text-[var(--color-on-primary)]/60 font-semibold block mb-2">
+          {subtitle}
         </span>
         <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-light">
-          Moments on the Grill
+          {title}
         </h2>
       </div>
 
@@ -30,7 +39,7 @@ const { items } = Astro.props;
           type="button"
           id="carousel-prev"
           aria-label="Previous photo"
-          class="w-12 h-12 rounded-full border border-[#FDF1DC]/30 flex items-center justify-center text-[#FDF1DC] hover:bg-[#FDF1DC] hover:text-[#4A0D1C] transition-all focus:outline-none focus:ring-2 focus:ring-[#FDF1DC]"
+          class="w-12 h-12 rounded-full border border-[var(--color-on-primary)]/30 flex items-center justify-center text-[var(--color-on-primary)] hover:bg-[var(--color-surface)] hover:text-[var(--color-primary)] transition-all focus:outline-none focus:ring-2 focus:ring-[var(--color-on-primary)]"
         >
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
@@ -40,7 +49,7 @@ const { items } = Astro.props;
           type="button"
           id="carousel-next"
           aria-label="Next photo"
-          class="w-12 h-12 rounded-full border border-[#FDF1DC]/30 flex items-center justify-center text-[#FDF1DC] hover:bg-[#FDF1DC] hover:text-[#4A0D1C] transition-all focus:outline-none focus:ring-2 focus:ring-[#FDF1DC]"
+          class="w-12 h-12 rounded-full border border-[var(--color-on-primary)]/30 flex items-center justify-center text-[var(--color-on-primary)] hover:bg-[var(--color-surface)] hover:text-[var(--color-primary)] transition-all focus:outline-none focus:ring-2 focus:ring-[var(--color-on-primary)]"
         >
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
@@ -56,7 +65,7 @@ const { items } = Astro.props;
       tabindex="0"
       role="region"
       aria-roledescription="carousel"
-      aria-label="Toriei photo gallery"
+      aria-label="Photo gallery"
     >
       {items.map((item, index) => (
         <div
@@ -72,11 +81,11 @@ const { items } = Astro.props;
             loading="lazy"
           />
           <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-80 group-hover:opacity-95 transition-opacity"></div>
-          <div class="absolute inset-x-0 bottom-0 p-6 text-[#FDF1DC]">
-            <span class="text-[10px] uppercase tracking-[0.25em] text-[#C5A059] font-medium block mb-1">
-              Course 0{index + 1}
+          <div class="absolute inset-x-0 bottom-0 p-6 text-[var(--color-on-primary)]">
+            <span class="text-[10px] uppercase tracking-[0.25em] text-[var(--color-accent)] font-medium block mb-1">
+              {tagPrefix} 0{index + 1}
             </span>
-            <p class="text-sm font-light leading-snug text-[#FDF1DC]/90">
+            <p class="text-sm font-light leading-snug text-[var(--color-on-primary)]/90">
               {item.caption}
             </p>
           </div>
@@ -91,23 +100,15 @@ const { items } = Astro.props;
   const prevBtn = document.getElementById("carousel-prev");
   const nextBtn = document.getElementById("carousel-next");
 
-  function scrollByCard(direction: number) {
-    if (!track) return;
-    const cardWidth = track.firstElementChild?.clientWidth || 380;
-    track.scrollBy({ left: direction * (cardWidth + 24), behavior: "smooth" });
-  }
+  prevBtn?.addEventListener("click", () => {
+    if (track) {
+      track.scrollBy({ left: -380, behavior: "smooth" });
+    }
+  });
 
-  prevBtn?.addEventListener("click", () => scrollByCard(-1));
-  nextBtn?.addEventListener("click", () => scrollByCard(1));
-
-  // Keyboard support when focused
-  track?.addEventListener("keydown", (e) => {
-    if (e.key === "ArrowLeft") {
-      e.preventDefault();
-      scrollByCard(-1);
-    } else if (e.key === "ArrowRight") {
-      e.preventDefault();
-      scrollByCard(1);
+  nextBtn?.addEventListener("click", () => {
+    if (track) {
+      track.scrollBy({ left: 380, behavior: "smooth" });
     }
   });
 </script>

@@ -35,7 +35,11 @@ function buildMailto(data: BriefState) {
   return `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 }
 
-export function ProjectBriefForm() {
+interface ProjectBriefFormProps {
+  showHeader?: boolean;
+}
+
+export function ProjectBriefForm({ showHeader = false }: ProjectBriefFormProps) {
   const [formData, setFormData] = useState<BriefState>({
     name: "",
     email: "",
@@ -85,13 +89,15 @@ export function ProjectBriefForm() {
       onSubmit={handleSubmit}
       className="w-full max-w-2xl mx-auto rounded-xl border border-white/15 bg-ink-900 p-6 sm:p-8 space-y-5"
     >
-      <div>
-        <span className="text-xs font-mono uppercase tracking-wider text-blue-300">Project inquiry</span>
-        <h2 className="text-2xl font-medium text-neutral-100 mt-1">Tell us about your project.</h2>
-        <p className="mt-2 text-sm text-neutral-300 leading-relaxed">
-          Whether you need a fast, reliable website or help finishing an app prototype, share your details below and we will reply within 24 hours.
-        </p>
-      </div>
+      {showHeader && (
+        <div>
+          <span className="text-xs font-mono uppercase tracking-wider text-blue-300">Project inquiry</span>
+          <h2 className="text-2xl font-medium text-neutral-100 mt-1">Tell us about your project.</h2>
+          <p className="mt-2 text-sm text-neutral-300 leading-relaxed">
+            Whether you need a fast, reliable website or help finishing an app prototype, share your details below and we will reply within 24 hours.
+          </p>
+        </div>
+      )}
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <label className="block text-sm text-neutral-300">

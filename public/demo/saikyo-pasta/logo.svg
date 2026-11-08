@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 300" fill="none">
+  <!-- Outer Pill / Stadium Border -->
+  <rect x="15" y="15" width="190" height="270" rx="95" stroke="#9E2A2B" stroke-width="2.5" fill="none" opacity="0.85"/>
+  <rect x="22" y="22" width="176" height="256" rx="88" stroke="#9E2A2B" stroke-width="1" fill="none" opacity="0.35"/>
+  
+  <!-- Chopsticks & Noodle Twirl Illustration -->
+  <g stroke="#9E2A2B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <!-- Slanted Chopsticks -->
+    <line x1="85" y1="65" x2="148" y2="92" stroke-width="2.5" />
+    <line x1="90" y1="73" x2="152" y2="100" stroke-width="2.2" />
+    
+    <!-- Twirled Pasta Swirls -->
+    <path d="M102 82 C108 96, 126 94, 128 108 C130 120, 110 126, 102 134 C94 142, 108 152, 118 152 C126 152, 132 144, 134 136" />
+    <path d="M108 92 C116 102, 122 112, 116 122 C112 130, 98 136, 106 146 C112 152, 124 150, 128 142" opacity="0.75" />
+    
+    <!-- Pasta Bowl Base -->
+    <path d="M78 145 C86 168, 134 168, 142 145" stroke-width="2.5" />
+    <line x1="72" y1="145" x2="148" y2="145" stroke-width="2.5" />
+    <ellipse cx="110" cy="168" rx="18" ry="4" stroke-width="1.5" />
+  </g>
+
+  <!-- Brand Typography -->
+  <!-- Japanese Kanji 最強 -->
+  <text x="110" y="196" font-family="'Fraunces', serif" font-size="14" font-weight="600" fill="#9E2A2B" text-anchor="middle" letter-spacing="0.3em">最強</text>
+  
+  <!-- English Brand Name -->
+  <text x="110" y="220" font-family="'Fraunces', 'Cormorant Garamond', Georgia, serif" font-size="19" font-weight="500" fill="#9E2A2B" text-anchor="middle" letter-spacing="0.08em">Saikyo Pasta</text>
+  
+  <!-- Tagline -->
+  <text x="110" y="240" font-family="'Plus Jakarta Sans', sans-serif" font-size="8.5" font-weight="600" fill="#9E2A2B" text-anchor="middle" letter-spacing="0.25em" opacity="0.8">JAPANESE ITALIAN</text>
+</svg>

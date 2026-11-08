@@ -5,24 +5,34 @@ interface Props {
   ctaLabel: string;
   ctaHref: string;
   image: string;
+  tag?: string;
+  imageAlt?: string;
 }
 
-const { heading, paragraph, ctaLabel, ctaHref, image } = Astro.props;
+const {
+  heading,
+  paragraph,
+  ctaLabel,
+  ctaHref,
+  image,
+  tag = "Artisanal Craft",
+  imageAlt = "Culinary craft",
+} = Astro.props;
 ---
 
-<section class="w-full bg-[#4A0D1C] text-[#FDF1DC] overflow-hidden">
+<section class="w-full bg-[var(--color-primary)] text-[var(--color-on-primary)] overflow-hidden">
   <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 items-center">
     <!-- Left Column: Copy & CTA -->
     <div class="lg:col-span-6 px-6 sm:px-10 lg:px-16 py-20 sm:py-28 lg:py-36 flex flex-col items-start">
-      <span class="text-xs uppercase tracking-[0.3em] text-[#FDF1DC]/60 font-semibold mb-4">
-        The Nose-to-Tail Craft
+      <span class="text-xs uppercase tracking-[0.3em] text-[var(--color-on-primary)]/60 font-semibold mb-4">
+        {tag}
       </span>
 
       <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-light leading-[1.18] tracking-tight mb-6">
         {heading}
       </h2>
 
-      <p class="text-base sm:text-lg text-[#FDF1DC]/85 font-light leading-relaxed mb-10 max-w-xl">
+      <p class="text-base sm:text-lg text-[var(--color-on-primary)]/85 font-light leading-relaxed mb-10 max-w-xl">
         {paragraph}
       </p>
 
@@ -38,13 +48,13 @@ const { heading, paragraph, ctaLabel, ctaHref, image } = Astro.props;
     <div class="lg:col-span-6 h-[400px] sm:h-[500px] lg:h-[680px] w-full relative">
       <img
         src={image}
-        alt="Artisanal knife prep and Kishu Binchotan yakitori craft"
+        alt={imageAlt}
         class="w-full h-full object-cover object-center filter brightness-[0.9] contrast-[1.05]"
         loading="lazy"
       />
-      <!-- Subtle edge shading to blend seamlessly into burgundy -->
-      <div class="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-[#4A0D1C] to-transparent hidden lg:block"></div>
-      <div class="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-[#4A0D1C] to-transparent lg:hidden"></div>
+      <!-- Subtle edge shading to blend seamlessly into primary background -->
+      <div class="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-[var(--color-primary)] to-transparent hidden lg:block"></div>
+      <div class="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-[var(--color-primary)] to-transparent lg:hidden"></div>
     </div>
   </div>
 </section>

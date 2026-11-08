@@ -1,0 +1,159 @@
+---
+import RestaurantDemoLayout from "../../../layouts/RestaurantDemoLayout.astro";
+import data from "../../../data/restaurants/saikyo-pasta.json";
+
+const { restaurant, contact } = data;
+const encodedAddress = encodeURIComponent(`${restaurant.address} Singapore ${restaurant.postalCode}`);
+const mapEmbedSrc = `https://maps.google.com/maps?q=${encodedAddress}&t=&z=16&ie=UTF8&iwloc=&output=embed`;
+---
+
+<RestaurantDemoLayout
+  restaurantData={data}
+  title={`Location & Contact | ${restaurant.name} Tanjong Pagar`}
+  description={`Visit ${restaurant.name} at Icon Village, Tanjong Pagar (#01-86/87). Opening hours, MRT transit directions, and direct WhatsApp contact.`}
+  currentPath="/demo/saikyo-pasta/contact"
+>
+  <!-- Subpage Header -->
+  <section class="w-full text-[var(--color-on-primary)] pt-28 pb-12 sm:pt-36 sm:pb-16 px-4 sm:px-6 text-center border-b border-[var(--color-on-primary)]/10" style="background-color: color-mix(in srgb, var(--color-primary) 90%, black);">
+    <div class="max-w-2xl mx-auto">
+      <span class="text-xs uppercase tracking-[0.3em] text-[var(--color-on-primary)]/60 font-semibold mb-3 block">
+        Getting Here
+      </span>
+      <h1 class="font-display text-4xl sm:text-5xl md:text-6xl font-light tracking-tight mb-4 text-[var(--color-on-primary)]">
+        {contact.headline}
+      </h1>
+      <p class="text-base sm:text-lg text-[var(--color-on-primary)]/85 font-light leading-relaxed">
+        {contact.subline}
+      </p>
+    </div>
+  </section>
+
+  <!-- Contact & Access Details (Warm Surface) -->
+  <section class="w-full bg-[var(--color-surface)] text-[var(--color-ink)] py-16 sm:py-24 px-4 sm:px-6">
+    <div class="max-w-5xl mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+        <!-- Col 1: Detail Cards -->
+        <div class="lg:col-span-5 space-y-6">
+          <!-- Card 1: Address & Transit -->
+          <div class="bg-white p-6 sm:p-8 rounded-2xl border border-[var(--color-ink)]/10 shadow-sm space-y-4">
+            <span class="text-[10px] uppercase tracking-[0.25em] text-[var(--color-primary)] font-bold block">
+              Address & Transit
+            </span>
+            <div class="space-y-1">
+              <p class="font-display text-xl font-medium text-[var(--color-ink)]">
+                {restaurant.address}
+              </p>
+              <p class="text-xs text-[var(--color-ink)]/70">
+                Singapore {restaurant.postalCode}
+              </p>
+            </div>
+            <div class="pt-3 border-t border-neutral-100 space-y-1 text-xs">
+              <p class="font-semibold text-[var(--color-ink)]">MRT Access:</p>
+              <p class="text-[var(--color-ink)]/80">{restaurant.mrt}</p>
+            </div>
+            <div class="pt-3">
+              <a
+                href={restaurant.googleMapsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-2 text-xs uppercase tracking-wider text-[var(--color-primary)] font-semibold underline hover:opacity-80 transition-opacity"
+              >
+                <span>Open in Google Maps</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Card 2: Operating Hours -->
+          <div class="bg-white p-6 sm:p-8 rounded-2xl border border-[var(--color-ink)]/10 shadow-sm space-y-4">
+            <span class="text-[10px] uppercase tracking-[0.25em] text-[var(--color-primary)] font-bold block">
+              Operating Hours
+            </span>
+            <div class="space-y-2 text-xs text-[var(--color-ink)]/90">
+              <div class="flex justify-between py-1 border-b border-neutral-100">
+                <span class="font-semibold">Monday - Saturday</span>
+                <span class="text-right">11:30 AM - 2:00 PM<br/>6:00 PM - 8:00 PM</span>
+              </div>
+              <div class="flex justify-between py-1 border-b border-neutral-100">
+                <span class="font-semibold">Sunday</span>
+                <span class="text-red-700 font-medium">Closed</span>
+              </div>
+              <p class="text-[11px] text-[var(--color-ink)]/60 pt-1">
+                Last orders accepted 30 minutes before closing. Counter seating subject to availability.
+              </p>
+            </div>
+          </div>
+
+          <!-- Card 3: Direct Reach -->
+          <div class="bg-white p-6 sm:p-8 rounded-2xl border border-[var(--color-ink)]/10 shadow-sm space-y-3">
+            <span class="text-[10px] uppercase tracking-[0.25em] text-[var(--color-primary)] font-bold block">
+              Direct Contact
+            </span>
+            <div class="space-y-2 text-xs">
+              <p>
+                <strong>Phone / WhatsApp:</strong>{" "}
+                <a href={`https://wa.me/${restaurant.whatsapp.replace(/[^0-9]/g, '')}`} class="underline text-[var(--color-primary)] font-semibold">
+                  {restaurant.phone}
+                </a>
+              </p>
+              <p>
+                <strong>Email:</strong>{" "}
+                <a href={`mailto:${restaurant.email}`} class="underline text-[var(--color-primary)]">
+                  {restaurant.email}
+                </a>
+              </p>
+              <p>
+                <strong>Instagram:</strong>{" "}
+                <a href={restaurant.social.instagram} target="_blank" rel="noopener noreferrer" class="underline text-[var(--color-primary)]">
+                  @saikyopasta
+                </a>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Col 2: Interactive Map & Takeaway Feature -->
+        <div class="lg:col-span-7 space-y-6">
+          <div class="h-[360px] sm:h-[420px] w-full rounded-2xl overflow-hidden relative border border-[var(--color-ink)]/15 shadow-md bg-neutral-100">
+            <iframe
+              title="Saikyo Pasta Icon Village Map"
+              width="100%"
+              height="100%"
+              style="border:0;"
+              loading="lazy"
+              allowfullscreen
+              referrerpolicy="no-referrer-when-downgrade"
+              src={mapEmbedSrc}
+              class="w-full h-full filter saturate-[0.9] contrast-[1.05]"
+            ></iframe>
+          </div>
+
+          <!-- Biocane Packaging & Takeaway Note -->
+          <div class="bg-white p-6 sm:p-8 rounded-2xl border border-[var(--color-ink)]/10 shadow-sm grid grid-cols-1 sm:grid-cols-12 gap-6 items-center">
+            <div class="sm:col-span-4 h-36 rounded-xl overflow-hidden shadow-inner">
+              <img
+                src="/demo/saikyo-pasta/tile-reservations.jpg"
+                alt="Eco Biocane packaging boxes for Saikyo Pasta"
+                class="w-full h-full object-cover"
+                loading="lazy"
+              />
+            </div>
+            <div class="sm:col-span-8 space-y-2 text-xs text-[var(--color-ink)]/85">
+              <span class="text-[10px] uppercase tracking-widest text-[var(--color-primary)] font-bold block">
+                Takeaway & Eco Packaging
+              </span>
+              <h3 class="font-display text-lg font-medium text-[var(--color-ink)]">
+                Crafted for Delivery with Biocane
+              </h3>
+              <p class="leading-relaxed text-[var(--color-ink)]/75">
+                We tested plastic (steamed soggy) and paper (dried out noodles) before choosing natural Biocane boxes. They preserve our pasta sauce and al dente texture for up to 2 hours without plastic leaching.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</RestaurantDemoLayout>

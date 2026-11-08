@@ -1,0 +1,449 @@
+{
+  "restaurant": {
+    "name": "Saikyo Pasta",
+    "japaneseName": "最強パスタ",
+    "slug": "saikyo-pasta",
+    "tagline": "Intimate 12-Seat Japanese-Italian Wafu Pasta Bar in Tanjong Pagar",
+    "cuisine": "Japanese-Italian Wafu Pasta",
+    "area": "Icon Village, Tanjong Pagar",
+    "mrt": "Tanjong Pagar MRT (EW15, Exit A, 2 min walk)",
+    "address": "12 Gopeng Street, Icon Village, #01-86/87",
+    "unit": "#01-86/87",
+    "city": "Singapore",
+    "postalCode": "078877",
+    "country": "Singapore",
+    "phone": "+65 8723 1220",
+    "whatsapp": "+6587231220",
+    "email": "saikyopasta.sg@gmail.com",
+    "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Saikyo+Pasta+Icon+Village+12+Gopeng+Street+Singapore+078877",
+    "hours": {
+      "monday": "11:30 AM - 2:00 PM, 6:00 PM - 8:00 PM",
+      "tuesday": "11:30 AM - 2:00 PM, 6:00 PM - 8:00 PM",
+      "wednesday": "11:30 AM - 2:00 PM, 6:00 PM - 8:00 PM",
+      "thursday": "11:30 AM - 2:00 PM, 6:00 PM - 8:00 PM",
+      "friday": "11:30 AM - 2:00 PM, 6:00 PM - 8:00 PM",
+      "saturday": "11:30 AM - 2:00 PM, 6:00 PM - 8:00 PM",
+      "sunday": "Closed"
+    },
+    "seatingTime": "Lunch: 11:30 AM, 12:30 PM, 1:15 PM • Dinner: 6:00 PM, 7:00 PM, 7:45 PM",
+    "capacity": "12 counter seats",
+    "priceRange": "$$",
+    "tastingPrice": "S$39.90 3-Course Signature Set",
+    "social": {
+      "instagram": "https://www.instagram.com/saikyopasta/"
+    },
+    "chef": {
+      "owner": "Arya Masagung & Angeline Chandraatmadja",
+      "headChef": "Chef Keisuke & Founding Team",
+      "summary": "Founders Arya Masagung & Angeline Chandraatmadja • Chef Keisuke & Team",
+      "background": "Founded by husband-and-wife duo Arya Masagung and Angeline Chandraatmadja, Saikyo Pasta was inspired by Tokyo mom-and-pop kissaten diners. After testing over 7 ketchups, 10 soy sauces, and hundreds of dashi simmerings as a cult home-based business, they brought their comforting, unpretentious Japanese-Italian creations to an intimate 12-seater counter bar at Icon Village, Tanjong Pagar."
+    }
+  },
+  "branding": {
+    "archetype": "Japanese Kissaten & Wafu Pasta Bar",
+    "colors": {
+      "primary": "#9E2A2B",
+      "surface": "#FDFBF7",
+      "ink": "#331812",
+      "onPrimary": "#FDFBF7",
+      "accent": "#D48B47",
+      "card": "#FFFFFF"
+    },
+    "typography": {
+      "display": "'Fraunces', serif",
+      "body": "'Plus Jakarta Sans', sans-serif"
+    },
+    "logo": "/demo/saikyo-pasta/logo.svg"
+  },
+  "demo": {
+    "isDemo": true,
+    "recipientName": "Arya, Angeline & Saikyo Pasta Team",
+    "agencyName": "Evonera Technologies",
+    "agencyUrl": "https://evonera.net",
+    "bannerNotice": "Concept demo prepared for Arya, Angeline & Chef Keisuke (Saikyo Pasta)",
+    "conceptDisclaimer": "Demo concept by Evonera Technologies. Not the official website of Saikyo Pasta."
+  },
+  "hero": {
+    "eyebrow": "12 Counter Seats • Icon Village Tanjong Pagar",
+    "headline": "A Cosy 12-Seat Counter Dedicated to Japanese-Italian Wafu Pasta",
+    "subline": "Artisanal dashi-simmered pastas, ocean-fresh mentaiko, and nostalgic traditional Napolitan cooked fresh upon order at Tanjong Pagar.",
+    "image": "/demo/saikyo-pasta/hero.jpg",
+    "ctaText": "Reserve a Counter Seat",
+    "ctaLabel": "Reserve a Counter Seat",
+    "ctaHref": "/demo/saikyo-pasta/reservations"
+  },
+  "intro": {
+    "eyebrow": "The Saikyo Story",
+    "headline": "From a Passion-Driven Home Kitchen to Tanjong Pagar",
+    "paragraphs": [
+      "Saikyo Pasta was born out of late-night trips to Tokyo, wandering through quiet backstreets and falling in love with unassuming mom-and-pop kissaten diners that served comforting, soul-warming bowls of Japanese-Italian pasta.",
+      "Before opening at Icon Village, founders Arya and Angeline spent months obsession-testing every element in their home kitchen: cycling through 7 types of ketchup, 10 artisanal soy sauces, and 3 varieties of eringi mushrooms until the balance of sweet, savory, and umami was unmistakable.",
+      "At our intimate 12-seat counter, there are no shortcuts. Every bowl is simmered fresh upon order: our signature mentaiko is crafted dairy-free with pure dashi and ocean freshness, while our Napolitan is caramelized in butter and extra virgin olive oil for that warm, nostalgic hug."
+    ]
+  },
+  "fiveTiles": [
+    {
+      "title": "Menu",
+      "label": "Wafu Signatures",
+      "subtitle": "Wafu Signatures",
+      "href": "/demo/saikyo-pasta/menu",
+      "image": "/demo/saikyo-pasta/tile-menu.jpg"
+    },
+    {
+      "title": "Reservations",
+      "label": "12 Counter Seats",
+      "subtitle": "12 Counter Seats",
+      "href": "/demo/saikyo-pasta/reservations",
+      "image": "/demo/saikyo-pasta/tile-atmosphere.jpg"
+    },
+    {
+      "title": "Our Story",
+      "label": "Arya & Angeline",
+      "subtitle": "Arya & Angeline",
+      "href": "#story",
+      "image": "/demo/saikyo-pasta/tile-story.jpg"
+    },
+    {
+      "title": "Dashi Craft",
+      "label": "Slow Stock Prep",
+      "subtitle": "Slow Stock Prep",
+      "href": "/demo/saikyo-pasta/menu",
+      "image": "/demo/saikyo-pasta/tile-craft.jpg"
+    },
+    {
+      "title": "Takeaway & Eco",
+      "label": "Biocane Boxes",
+      "subtitle": "Biocane Boxes",
+      "href": "/demo/saikyo-pasta/contact",
+      "image": "/demo/saikyo-pasta/tile-reservations.jpg"
+    }
+  ],
+  "craftFeature": {
+    "tag": "The Pure Ocean Craft",
+    "title": "Pure Ocean Mentaiko and Homemade Dashi Are Just The Start",
+    "bodyParagraphs": [
+      "Unlike commercial mentaiko pastas laden with heavy cream or milk, our secret mentaiko sauce is built on an ocean-fresh dashi reduction and succulent tiger prawns.",
+      "Every bite pops with bright umami, finished with crisp mekabu seaweed and fresh Japanese shiso leaf."
+    ],
+    "ctaText": "Explore The Full Menu",
+    "ctaHref": "/demo/saikyo-pasta/menu",
+    "image": "/demo/saikyo-pasta/feature-craft.jpg"
+  },
+  "sections": {
+    "intro": {
+      "heading": "From a Passion-Driven Home Kitchen to Tanjong Pagar",
+      "paragraphs": [
+        "Saikyo Pasta was born out of late-night trips to Tokyo, wandering through quiet backstreets and falling in love with unassuming mom-and-pop kissaten diners that served comforting, soul-warming bowls of Japanese-Italian pasta.",
+        "Before opening at Icon Village, founders Arya and Angeline spent months obsession-testing every element in their home kitchen: cycling through 7 types of ketchup, 10 artisanal soy sauces, and 3 varieties of eringi mushrooms until the balance of sweet, savory, and umami was unmistakable.",
+        "At our intimate 12-seat counter, there are no shortcuts. Every bowl is simmered fresh upon order: our signature mentaiko is crafted dairy-free with pure dashi and ocean freshness, while our Napolitan is caramelized in butter and extra virgin olive oil for that warm, nostalgic hug."
+      ]
+    },
+    "fiveTiles": [
+      {
+        "title": "Menu",
+        "label": "Wafu Signatures",
+        "subtitle": "Wafu Signatures",
+        "href": "/demo/saikyo-pasta/menu",
+        "image": "/demo/saikyo-pasta/tile-menu.jpg"
+      },
+      {
+        "title": "Reservations",
+        "label": "12 Counter Seats",
+        "subtitle": "12 Counter Seats",
+        "href": "/demo/saikyo-pasta/reservations",
+        "image": "/demo/saikyo-pasta/tile-atmosphere.jpg"
+      },
+      {
+        "title": "Our Story",
+        "label": "Arya & Angeline",
+        "subtitle": "Arya & Angeline",
+        "href": "#story",
+        "image": "/demo/saikyo-pasta/tile-story.jpg"
+      },
+      {
+        "title": "Dashi Craft",
+        "label": "Slow Stock Prep",
+        "subtitle": "Slow Stock Prep",
+        "href": "/demo/saikyo-pasta/menu",
+        "image": "/demo/saikyo-pasta/tile-craft.jpg"
+      },
+      {
+        "title": "Takeaway & Eco",
+        "label": "Biocane Boxes",
+        "subtitle": "Biocane Boxes",
+        "href": "/demo/saikyo-pasta/contact",
+        "image": "/demo/saikyo-pasta/tile-reservations.jpg"
+      }
+    ],
+    "feature": {
+      "tag": "The Pure Ocean Craft",
+      "heading": "Pure Ocean Mentaiko and Homemade Dashi Are Just The Start",
+      "paragraph": "Unlike commercial mentaiko pastas laden with heavy cream or milk, our secret mentaiko sauce is built on an ocean-fresh dashi reduction and succulent tiger prawns. Every bite pops with bright umami, finished with crisp mekabu seaweed and fresh Japanese shiso leaf.",
+      "ctaLabel": "Explore The Full Menu",
+      "ctaHref": "/demo/saikyo-pasta/menu",
+      "image": "/demo/saikyo-pasta/feature-craft.jpg"
+    },
+    "carousel": [
+      {
+        "image": "/demo/saikyo-pasta/carousel-1.jpg",
+        "caption": "Tiger Prawn Mentaiko Pasta ($22.90 / $24.90): Large succulent prawns in dairy-free dashi and popping mentaiko"
+      },
+      {
+        "image": "/demo/saikyo-pasta/carousel-2.jpg",
+        "caption": "Shiso Mushroom Wafu Pasta ($22.90): Homemade shoyu dashi simmered with shimeji, shiitake, and eringi"
+      },
+      {
+        "image": "/demo/saikyo-pasta/carousel-3.jpg",
+        "caption": "Traditional Napolitan Pasta ($21.90): Caramelized ketchup in butter, Japanese sausage, onions, and bell peppers"
+      },
+      {
+        "image": "/demo/saikyo-pasta/carousel-4.jpg",
+        "caption": "Signature Cold Kombu Pasta with Ikura ($15.90): Chilled capellini tossed with shio kombu and popping salmon roe"
+      },
+      {
+        "image": "/demo/saikyo-pasta/carousel-5.jpg",
+        "caption": "Fresh Japanese Shiso & Artisanal Produce: Aromatic shiso leaves hand-picked to brighten each dish"
+      },
+      {
+        "image": "/demo/saikyo-pasta/carousel-6.jpg",
+        "caption": "Sea Salt Monaka Wafers ($6.90): Crispy roasted Japanese wafers filled with artisanal sweet-salty sea salt ice cream"
+      },
+      {
+        "image": "/demo/saikyo-pasta/carousel-7.jpg",
+        "caption": "Cosy 12-Seat Counter Bar: Tanjong Pagar's intimate spot where every bowl is cooked to order"
+      }
+    ]
+  },
+  "story": {
+    "tag": "The Founders' Journey",
+    "title": "Late Nights, 10 Soy Sauces, and a Dream of Authentic Wafu Comfort",
+    "paragraphs": [
+      "When Arya Masagung and Angeline Chandraatmadja returned from Tokyo, they could not stop thinking about the comforting plates of pasta they had eaten at humble neighbourhood diners. Rather than accepting heavy, westernized adaptations, they set out to recreate that precise balance at home.",
+      "What followed was three months of obsessive kitchen experiments: tasting seven ketchups to find the one with just the right acidity to caramelize gently in butter, simmering ten different artisanal soy sauces, and precision-sautéing eringi mushrooms into scallop-like coins.",
+      "Their home-based business gained a passionate following across Singapore, leading to their permanent 12-seat diner at Icon Village. Here, Chef Keisuke and the founding team cook every portion directly in front of diners at the wooden counter."
+    ],
+    "chefName": "Arya Masagung & Angeline Chandraatmadja",
+    "chefRole": "Founders & Recipe Creators",
+    "quote": "We cycled through 7 ketchups, 10 soy sauces, and 3 months of late nights to bring authentic wafu pasta to Tanjong Pagar.",
+    "image": "/demo/saikyo-pasta/chef.jpg"
+  },
+  "carousel": {
+    "title": "Moments at the Counter",
+    "subtitle": "At The Wafu Bar",
+    "slides": [
+      {
+        "image": "/demo/saikyo-pasta/carousel-1.jpg",
+        "caption": "Tiger Prawn Mentaiko Pasta ($22.90 / $24.90)",
+        "subcaption": "Dairy-free dashi broth with ocean-fresh mentaiko and tiger prawns",
+        "alt": "Tiger Prawn Mentaiko Pasta at Saikyo Pasta"
+      },
+      {
+        "image": "/demo/saikyo-pasta/carousel-2.jpg",
+        "caption": "Shiso Mushroom Wafu Pasta ($22.90)",
+        "subcaption": "Homemade shoyu dashi with shimeji, shiitake, and eringi",
+        "alt": "Shiso Mushroom Wafu Pasta"
+      },
+      {
+        "image": "/demo/saikyo-pasta/carousel-3.jpg",
+        "caption": "Traditional Napolitan Pasta ($21.90)",
+        "subcaption": "Caramelized ketchup reduction with Japanese pork sausage",
+        "alt": "Traditional Napolitan Pasta"
+      },
+      {
+        "image": "/demo/saikyo-pasta/carousel-4.jpg",
+        "caption": "Signature Cold Kombu Pasta with Ikura ($15.90)",
+        "subcaption": "Chilled capellini with shio kombu and salmon roe pearls",
+        "alt": "Cold Kombu Pasta with Ikura"
+      },
+      {
+        "image": "/demo/saikyo-pasta/carousel-5.jpg",
+        "caption": "Aromatic Japanese Shiso Leaf",
+        "subcaption": "Hand-selected fresh herbs to elevate our wafu sauces",
+        "alt": "Fresh Japanese Shiso Leaf"
+      },
+      {
+        "image": "/demo/saikyo-pasta/carousel-6.jpg",
+        "caption": "Sea Salt Monaka Wafers ($6.90)",
+        "subcaption": "Crispy roasted Japanese wafers with sweet-and-salty ice cream",
+        "alt": "Sea Salt Monaka Wafers dessert"
+      },
+      {
+        "image": "/demo/saikyo-pasta/carousel-7.jpg",
+        "caption": "12-Seat Counter Dining Bar",
+        "subcaption": "Icon Village Tanjong Pagar open kitchen counter",
+        "alt": "Saikyo Pasta counter seating"
+      }
+    ]
+  },
+  "menu": {
+    "title": "Japanese-Italian Wafu Pasta Menu",
+    "subtitle": "Handcrafted with Homemade Dashi & Ocean Ingredients",
+    "currency": "S$",
+    "basePrice": "$39.90 (3-Course Set)",
+    "price": "S$39.90 (3-Course Signature Set)",
+    "disclaimer": "All prices subject to prevailing service charge and GST. Dishes cooked fresh upon order.",
+    "courses": [
+      {
+        "name": "Starters & Appetisers",
+        "description": "Light, refreshing starters to awaken the palate",
+        "items": [
+          {
+            "name": "Signature Cold Kombu Pasta with Ikura",
+            "description": "Al dente capellini tossed with savory shio kombu, popping salmon ikura pearls, and a touch of white truffle oil.",
+            "price": "S$15.90",
+            "dietary": ["Seafood", "Signature"]
+          },
+          {
+            "name": "Seasonal Cherry Tomato & Burrata on Sourdough",
+            "description": "Sweet Japanese cherry tomatoes, creamy fresh burrata, and toasted sourdough drizzled with extra virgin olive oil.",
+            "price": "S$15.90",
+            "dietary": ["Vegetarian"]
+          }
+        ]
+      },
+      {
+        "name": "Signature Wafu Mains",
+        "description": "Cooked fresh to order in homemade dashi reductions",
+        "items": [
+          {
+            "name": "Tiger Prawn Mentaiko Pasta",
+            "description": "Large succulent tiger prawns tossed in homemade secret mentaiko sauce, dairy-free dashi broth, mekabu seaweed, and fresh shiso.",
+            "price": "S$22.90 / S$24.90",
+            "dietary": ["Seafood", "Signature", "Dairy-Free"]
+          },
+          {
+            "name": "Shiso Mushroom Wafu Pasta",
+            "description": "Gentle homemade shoyu dashi stock simmered with freshly sautéed shimeji, shiitake, and eringi mushrooms, finished with fresh shiso.",
+            "price": "S$22.90",
+            "dietary": ["Vegetarian Option", "Signature"]
+          },
+          {
+            "name": "Traditional Napolitan Pasta",
+            "description": "Caramelized Japanese ketchup in butter and extra virgin olive oil, layered with Japanese pork sausage, sweet onions, and crisp bell peppers.",
+            "price": "S$21.90",
+            "dietary": ["Pork", "Signature"]
+          }
+        ]
+      },
+      {
+        "name": "Artisanal Desserts",
+        "description": "Sweet and savory finishes inspired by Japanese kissaten traditions",
+        "items": [
+          {
+            "name": "Sea Salt Monaka Wafers",
+            "description": "Crispy, airy roasted Japanese wafers filled with creamy sweet-and-salty sea salt ice cream.",
+            "price": "S$6.90",
+            "dietary": ["Signature", "Dessert"]
+          },
+          {
+            "name": "Vanilla Bean Ice Cream with EVOO & Honeycomb",
+            "description": "Rich vanilla bean ice cream finished with cold-pressed olive oil, Maldon sea salt, and crisp honeycomb.",
+            "price": "S$6.90",
+            "dietary": ["Dessert"]
+          }
+        ]
+      }
+    ],
+    "categories": [
+      {
+        "name": "Starters & Appetisers",
+        "description": "Light, refreshing starters to awaken the palate",
+        "items": [
+          {
+            "name": "Signature Cold Kombu Pasta with Ikura",
+            "description": "Al dente capellini tossed with savory shio kombu, popping salmon ikura pearls, and a touch of white truffle oil.",
+            "price": "S$15.90",
+            "dietary": ["Seafood", "Signature"]
+          },
+          {
+            "name": "Seasonal Cherry Tomato & Burrata on Sourdough",
+            "description": "Sweet Japanese cherry tomatoes, creamy fresh burrata, and toasted sourdough drizzled with extra virgin olive oil.",
+            "price": "S$15.90",
+            "dietary": ["Vegetarian"]
+          }
+        ]
+      },
+      {
+        "name": "Signature Wafu Mains",
+        "description": "Cooked fresh to order in homemade dashi reductions",
+        "items": [
+          {
+            "name": "Tiger Prawn Mentaiko Pasta",
+            "description": "Large succulent tiger prawns tossed in homemade secret mentaiko sauce, dairy-free dashi broth, mekabu seaweed, and fresh shiso.",
+            "price": "S$22.90 / S$24.90",
+            "dietary": ["Seafood", "Signature", "Dairy-Free"]
+          },
+          {
+            "name": "Shiso Mushroom Wafu Pasta",
+            "description": "Gentle homemade shoyu dashi stock simmered with freshly sautéed shimeji, shiitake, and eringi mushrooms, finished with fresh shiso.",
+            "price": "S$22.90",
+            "dietary": ["Vegetarian Option", "Signature"]
+          },
+          {
+            "name": "Traditional Napolitan Pasta",
+            "description": "Caramelized Japanese ketchup in butter and extra virgin olive oil, layered with Japanese pork sausage, sweet onions, and crisp bell peppers.",
+            "price": "S$21.90",
+            "dietary": ["Pork", "Signature"]
+          }
+        ]
+      },
+      {
+        "name": "Artisanal Desserts",
+        "description": "Sweet and savory finishes inspired by Japanese kissaten traditions",
+        "items": [
+          {
+            "name": "Sea Salt Monaka Wafers",
+            "description": "Crispy, airy roasted Japanese wafers filled with creamy sweet-and-salty sea salt ice cream.",
+            "price": "S$6.90",
+            "dietary": ["Signature", "Dessert"]
+          },
+          {
+            "name": "Vanilla Bean Ice Cream with EVOO & Honeycomb",
+            "description": "Rich vanilla bean ice cream finished with cold-pressed olive oil, Maldon sea salt, and crisp honeycomb.",
+            "price": "S$6.90",
+            "dietary": ["Dessert"]
+          }
+        ]
+      }
+    ]
+  },
+  "reservations": {
+    "title": "Reserve Your Counter Seat",
+    "subtitle": "12 Counter Seats • Tanjong Pagar Icon Village",
+    "seatingTimes": [
+      "11:30 AM (Lunch)",
+      "12:30 PM (Lunch)",
+      "1:15 PM (Lunch)",
+      "6:00 PM (Dinner)",
+      "7:00 PM (Dinner)",
+      "7:45 PM (Dinner)"
+    ],
+    "capacity": "12 counter seats",
+    "capacityText": "12 counter seats • Lunch & Dinner Seatings",
+    "closedDaysNotice": "Saikyo Pasta is closed on Sundays. Please select a dining date between Monday and Saturday.",
+    "policies": [
+      "Seats are held for 10 minutes past reservation time.",
+      "Full 12-seat counter buyout requests can be made via WhatsApp.",
+      "Please advise any dietary requirements or allergies in advance."
+    ]
+  },
+  "contact": {
+    "headline": "Find Saikyo Pasta at Icon Village",
+    "subline": "Located on ground level of Icon Village, steps from Tanjong Pagar MRT Exit A.",
+    "hoursText": "Mon - Sat: Lunch 11:30 AM - 2:00 PM, Dinner 6:00 PM - 8:00 PM",
+    "hoursSubtext": "Closed on Sundays • Last order 30 mins before closing",
+    "phone": "+65 8723 1220",
+    "whatsapp": "+6587231220",
+    "email": "saikyopasta.sg@gmail.com",
+    "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Saikyo+Pasta+Icon+Village+12+Gopeng+Street+Singapore+078877",
+    "hours": {
+      "monday": "11:30 AM - 2:00 PM, 6:00 PM - 8:00 PM",
+      "tuesday": "11:30 AM - 2:00 PM, 6:00 PM - 8:00 PM",
+      "wednesday": "11:30 AM - 2:00 PM, 6:00 PM - 8:00 PM",
+      "thursday": "11:30 AM - 2:00 PM, 6:00 PM - 8:00 PM",
+      "friday": "11:30 AM - 2:00 PM, 6:00 PM - 8:00 PM",
+      "saturday": "11:30 AM - 2:00 PM, 6:00 PM - 8:00 PM",
+      "sunday": "Closed"
+    }
+  }
+}

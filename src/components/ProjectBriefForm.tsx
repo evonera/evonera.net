@@ -11,17 +11,24 @@ interface BriefState {
   blocker: string;
 }
 
-const PLATFORMS = ["Lovable", "Emergent", "Bolt", "v0", "Other"];
+const PLATFORMS = [
+  "Bespoke Website (Restaurant / Business)",
+  "Lovable",
+  "Emergent",
+  "Bolt / v0",
+  "Full-Stack Web App",
+  "Other",
+];
 
 function buildMailto(data: BriefState) {
-  const subject = `AI app project review — ${data.platform}`;
+  const subject = `Project inquiry — ${data.platform}`;
   const body = [
     `Name: ${data.name || "Not provided"}`,
     `Reply to: ${data.email}`,
-    `Platform: ${data.platform}`,
-    `Project URL: ${data.projectUrl || "Not provided"}`,
+    `Project Type: ${data.platform}`,
+    `Link / Reference: ${data.projectUrl || "Not provided"}`,
     "",
-    "What is unfinished or not working?",
+    "Project details & goals:",
     data.blocker || "Not provided",
   ].join("\n");
 
@@ -32,7 +39,7 @@ export function ProjectBriefForm() {
   const [formData, setFormData] = useState<BriefState>({
     name: "",
     email: "",
-    platform: "Lovable",
+    platform: "Bespoke Website (Restaurant / Business)",
     projectUrl: "",
     blocker: "",
   });
@@ -79,10 +86,10 @@ export function ProjectBriefForm() {
       className="w-full max-w-2xl mx-auto rounded-xl border border-white/15 bg-ink-900 p-6 sm:p-8 space-y-5"
     >
       <div>
-        <span className="text-xs font-mono uppercase tracking-wider text-blue-300">Project review</span>
-        <h2 className="text-2xl font-medium text-neutral-100 mt-1">Tell us what’s unfinished.</h2>
+        <span className="text-xs font-mono uppercase tracking-wider text-blue-300">Project inquiry</span>
+        <h2 className="text-2xl font-medium text-neutral-100 mt-1">Tell us about your project.</h2>
         <p className="mt-2 text-sm text-neutral-300 leading-relaxed">
-          Share the project link and the part you’re stuck on. We’ll review the scope and reply with a practical next step.
+          Whether you need a bespoke restaurant/business website or help finishing an AI app prototype, share your details below and we will reply within 24 hours.
         </p>
       </div>
 
@@ -114,7 +121,7 @@ export function ProjectBriefForm() {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <label className="block text-sm text-neutral-300">
-          Built with
+          Project type
           <select
             value={formData.platform}
             onChange={(event) => updateField("platform", event.target.value)}
@@ -124,7 +131,7 @@ export function ProjectBriefForm() {
           </select>
         </label>
         <label className="block text-sm text-neutral-300">
-          Project link <span className="text-neutral-500">(optional)</span>
+          Project link or reference <span className="text-neutral-500">(optional)</span>
           <input
             type="url"
             value={formData.projectUrl}
@@ -136,27 +143,40 @@ export function ProjectBriefForm() {
       </div>
 
       <label className="block text-sm text-neutral-300">
-        What’s unfinished or not working?
+        What are you building or trying to solve?
         <textarea
           rows={4}
           value={formData.blocker}
           onChange={(event) => updateField("blocker", event.target.value)}
           className="mt-1.5 w-full resize-y rounded-lg border border-white/15 bg-ink-950 px-3.5 py-3 text-neutral-100 placeholder:text-neutral-500 focus:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-400/30"
-          placeholder="For example: the UI is done, but sign-in and payments are not connected."
+          placeholder="For example: A bespoke website for my restaurant, or finishing authentication, database, and payments in our web app."
         />
       </label>
 
       <button
         type="submit"
-        className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-blue-600 px-5 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-blue-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-300"
+        className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-blue-600 px-5 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-blue-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-300 shadow-md"
       >
         <Send className="size-4" aria-hidden="true" />
         Prepare project email
         <ArrowRight className="size-4" aria-hidden="true" />
       </button>
+
       <p className="text-center text-xs text-neutral-400">
-        This opens an email draft addressed to Evonera. Your request is sent when you press Send in your email app. Don’t include passwords or API keys.
+        This opens an email draft addressed to connect@evonera.net. You can review and edit before sending.
       </p>
+
+      <div className="pt-4 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-neutral-400">
+        <span>Prefer an instant message?</span>
+        <a
+          href="https://wa.me/919361664440?text=Hi%20Shakthi%2C%20I%20have%20a%20project%20inquiry%20for%20Evonera"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-1.5 text-emerald-400 hover:text-emerald-300 font-medium transition-colors"
+        >
+          <span>Chat on WhatsApp (+91 93616 64440) →</span>
+        </a>
+      </div>
     </form>
   );
 }

@@ -1,0 +1,123 @@
+---
+import CornerFrame from "./CornerFrame.astro";
+
+interface Props {
+  restaurantName?: string;
+  address?: string;
+  phone?: string;
+  instagram?: string;
+  hoursMondayFriday?: string;
+  hoursSaturdaySunday?: string;
+}
+
+const {
+  restaurantName = "GAMJA",
+  address = "21 Boon Tat Street, Singapore 069620",
+  phone = "+65 6222 1206",
+  instagram = "https://www.instagram.com/gamja_sg/",
+  hoursMondayFriday = "11:00 AM - 3:00 PM • 5:30 PM - 11:00 PM",
+  hoursSaturdaySunday = "12:00 PM - 10:00 PM",
+} = Astro.props;
+---
+
+<footer class="w-full bg-[#070707] text-[#F5EFEB] pt-16 pb-12 px-4 sm:px-6 lg:px-8 border-t border-white/5">
+  <div class="max-w-7xl mx-auto">
+    
+    <!-- Top Grid: Logo & Concept, Hours, Contact, Links -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 pb-14 border-b border-white/10">
+      
+      <!-- Brand & Concept (5 cols on lg) -->
+      <div class="lg:col-span-5 flex flex-col items-start">
+        <a href="/demo/gamja" class="flex items-center gap-3.5 mb-5 group">
+          <img
+            src="/demo/gamja/logo.svg"
+            alt="GAMJA Official Seal"
+            class="w-12 h-12 rounded-full border border-[#DAC5A7]/40 p-0.5 bg-black group-hover:scale-105 transition-transform"
+          />
+          <div>
+            <div class="flex items-baseline gap-2">
+              <span class="font-display text-2xl font-normal tracking-wider text-white">GAMJA</span>
+              <span class="text-sm font-serif text-[#DAC5A7]">감자</span>
+            </div>
+            <span class="block text-[10px] uppercase tracking-[0.22em] text-[#F5EFEB]/50">
+              Korean Soul Food & Gamjatang
+            </span>
+          </div>
+        </a>
+
+        <p class="text-xs sm:text-sm text-[#F5EFEB]/65 font-light leading-relaxed max-w-sm mb-6">
+          Four hours of simmered dedication. Pork bone stews, table-side cast-iron cauldron lid K-BBQ, and vibrant day-drinking in the heart of Telok Ayer shophouses.
+        </p>
+
+        <!-- Instagram Pill Button -->
+        <a
+          href={instagram}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 text-xs text-[#DAC5A7] font-medium transition-colors"
+        >
+          <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+          </svg>
+          <span>@gamja_sg on Instagram</span>
+        </a>
+      </div>
+
+      <!-- Opening Hours (3 cols on lg) -->
+      <div class="lg:col-span-3">
+        <span class="text-[10px] uppercase tracking-[0.25em] text-[#DAC5A7] font-semibold block mb-4">
+          HOURS OF HOSPITALITY
+        </span>
+        <div class="space-y-3 text-xs">
+          <div>
+            <strong class="text-white block font-medium">Monday - Friday</strong>
+            <span class="text-[#F5EFEB]/65">Lunch: 11:00 AM - 3:00 PM</span>
+            <span class="block text-[#DAC5A7]/90 text-[11px]">(50% off lunch drinks)</span>
+            <span class="text-[#F5EFEB]/65 block mt-0.5">Dinner: 5:30 PM - 11:00 PM</span>
+          </div>
+          <div class="pt-2 border-t border-white/5">
+            <strong class="text-white block font-medium">Saturday - Sunday</strong>
+            <span class="text-[#F5EFEB]/65">Continuous: 12:00 PM - 10:00 PM</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Location & Transit (4 cols on lg) -->
+      <div class="lg:col-span-4">
+        <span class="text-[10px] uppercase tracking-[0.25em] text-[#DAC5A7] font-semibold block mb-4">
+          LOCATION & ACCESS
+        </span>
+        <div class="space-y-2 text-xs text-[#F5EFEB]/70">
+          <p class="text-white font-medium">{address}</p>
+          <p class="text-[#DAC5A7]">Telok Ayer MRT (DT18, Exit A, 2 min walk)</p>
+          <p>Tanjong Pagar MRT (EW15, 6 min walk)</p>
+          <p class="pt-2">Reservations & Phone: <strong class="text-white">{phone}</strong></p>
+          
+          <div class="pt-3">
+            <a
+              href="https://www.google.com/maps/search/?api=1&query=GAMJA+21+Boon+Tat+Street+Singapore+069620"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-1.5 text-xs text-[#DAC5A7] hover:underline"
+            >
+              <span>Get Directions on Google Maps</span>
+              <span>↗</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Bottom Bar: Demo Attribution & Legal -->
+    <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-[#F5EFEB]/40 gap-4">
+      <div>
+        <span>© {new Date().getFullYear()} GAMJA. All rights reserved.</span>
+      </div>
+      <div class="text-center sm:text-right">
+        <span>Bespoke digital design concept curated by <a href="https://evonera.net" target="_blank" rel="noopener noreferrer" class="text-[#DAC5A7] hover:underline">Evonera Technologies</a>.</span>
+      </div>
+    </div>
+
+  </div>
+</footer>

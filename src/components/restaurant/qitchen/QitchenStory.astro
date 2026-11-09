@@ -1,0 +1,108 @@
+---
+import CornerFrame from "./CornerFrame.astro";
+
+interface Props {
+  chefImage?: string;
+}
+
+const {
+  chefImage = "/demo/gamja/chef-nam.jpg",
+} = Astro.props;
+---
+
+<section class="relative w-full bg-[#0A0B0A] text-[#F5EFEB] py-20 sm:py-28 px-4 sm:px-6 lg:px-8 border-b border-white/5 overflow-hidden">
+  <!-- Subtle ambient crimson warm glow -->
+  <div class="absolute -bottom-20 right-10 w-[500px] h-[300px] bg-[radial-gradient(ellipse_at_center,rgba(194,59,34,0.1),transparent_70%)] pointer-events-none blur-3xl"></div>
+
+  <div class="max-w-7xl mx-auto">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+      
+      <!-- Col 1: Chef Nam Portrait with CornerFrame (5 cols on lg) -->
+      <div class="lg:col-span-5 w-full">
+        <CornerFrame class="bg-[#141312] overflow-hidden group shadow-2xl">
+          <div class="relative h-[480px] sm:h-[540px] w-full overflow-hidden">
+            <img
+              src={chefImage}
+              alt="Master Chef Nam Wan-Hyuk, Head Chef & Co-Founder of GAMJA"
+              class="w-full h-full object-cover object-top filter brightness-[0.92] contrast-[1.05] transform group-hover:scale-105 transition-transform duration-700"
+              loading="lazy"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-[#0A0B0A] via-transparent to-black/20"></div>
+
+            <!-- Top Tag -->
+            <div class="absolute top-4 left-4 z-10">
+              <span class="px-3 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/15 text-[10px] uppercase tracking-widest text-[#DAC5A7] font-semibold">
+                Tsuji Culinary Institute
+              </span>
+            </div>
+
+            <!-- Bottom Floating Caption -->
+            <div class="absolute inset-x-0 bottom-0 p-6 z-10">
+              <span class="text-[10px] uppercase tracking-[0.25em] text-[#DAC5A7] font-bold block mb-1">
+                MASTER CHEF & CO-FOUNDER
+              </span>
+              <p class="font-display text-2xl font-normal text-white">
+                Nam Wan-Hyuk
+              </p>
+              <p class="text-xs text-[#F5EFEB]/70 mt-1">
+                Tsuji Culinary Institute Graduate • 15+ Years Culinary Directorship
+              </p>
+            </div>
+          </div>
+        </CornerFrame>
+      </div>
+
+      <!-- Col 2: Editorial Narrative (7 cols on lg) -->
+      <div class="lg:col-span-7 flex flex-col items-start">
+        
+        <!-- Eyebrow Badge -->
+        <div class="inline-flex items-center gap-2 text-xs uppercase tracking-[0.28em] text-[#DAC5A7] font-medium mb-4">
+          <span class="w-1.5 h-1.5 rounded-full bg-[#DAC5A7]"></span>
+          <span>THE FOUNDERS' PROMISE • SHIN NAM F&B</span>
+        </div>
+
+        <!-- Grand Roman Serif Display Heading -->
+        <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-normal text-white leading-tight mb-4">
+          When Shin Meets Nam: Bringing Authentic Korean Comfort to Singapore
+        </h2>
+
+        <!-- Korean Syllable Meaning Note -->
+        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded bg-white/[0.03] border border-white/10 text-xs text-[#DAC5A7] mb-6">
+          <span class="font-serif">신남 (Shin Nam)</span>
+          <span class="text-white/40">•</span>
+          <span class="font-light italic">"Exciting" in Korean - Founded by Shin Jae-Yoon & Chef Nam Wan-Hyuk</span>
+        </div>
+
+        <!-- Story Paragraphs -->
+        <div class="space-y-4 text-sm sm:text-base text-[#F5EFEB]/75 font-light leading-relaxed mb-8 max-w-2xl">
+          <p>
+            SHIN NAM F&B was born from the harmony of two founders: Shin Jae-Yoon, the energetic host whose warmth fills every corner of the dining room, and Master Chef Nam Wan-Hyuk, an alumnus of Japan's prestigious Tsuji Culinary Institute with over 15 years developing acclaimed culinary ventures across Seoul, Tokyo, and Hong Kong (including Mister Gyoza and Woojik Seoul).
+          </p>
+          <p>
+            Together, they chose 21 Boon Tat Street in Singapore's historic Telok Ayer shophouse enclave to introduce Singaporeans to true, unpretentious Korean comfort food. No artificial broth pastes, no shortcuts. Only clean-soaked pork spine simmered for four unhurried hours with fresh Korean ginger, garlic, and their secret three-chili Gochugaru blend.
+          </p>
+        </div>
+
+        <!-- The Potato Philosophy Callout -->
+        <div class="w-full max-w-xl p-5 rounded-xl bg-white/[0.02] border-l-2 border-[#DAC5A7] border-y border-r border-white/10 mb-8">
+          <p class="font-display text-lg text-white font-normal italic leading-relaxed mb-2">
+            "Potatoes are never the main character, but the ultimate partner that completes every delicious moment at GAMJA."
+          </p>
+          <span class="text-xs uppercase tracking-widest text-[#DAC5A7] font-semibold">
+            - Master Chef Nam Wan-Hyuk
+          </span>
+        </div>
+
+        <!-- Michelin 3-Star Guest Endorsement Badge -->
+        <div class="w-full max-w-xl p-4 rounded-lg bg-white/[0.03] border border-white/10 flex items-center gap-3.5">
+          <span class="text-xl flex-shrink-0 text-[#DAC5A7]">⭐️</span>
+          <p class="text-xs text-[#F5EFEB]/75 font-light leading-snug">
+            <strong class="text-white font-medium">VIP Connoisseur Endorsement:</strong> During Singapore F1 Grand Prix, Michelin 3-Star Chef Yim Jungsik (Jungsik Seoul & NYC) and his entire culinary crew selected GAMJA as their after-hours soul-food haven.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>

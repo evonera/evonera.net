@@ -41,18 +41,20 @@
     }
   },
   "branding": {
-    "archetype": "Modern Korean Dining Room & Gamjatang Specialist",
+    "archetype": "Korean Soul Food & Gamjatang Specialist",
     "colors": {
-      "primary": "#4A0E0A",
-      "surface": "#FAF3E9",
-      "ink": "#2A0806",
-      "onPrimary": "#FAF3E9",
-      "accent": "#D48B47",
-      "card": "#FFFFFF"
+      "primary": "#0A0B0A",
+      "surface": "#141312",
+      "ink": "#F5EFEB",
+      "onPrimary": "#F5EFEB",
+      "accent": "#DAC5A7",
+      "accentRed": "#C23B22",
+      "card": "#161514",
+      "border": "rgba(218, 197, 167, 0.16)"
     },
     "typography": {
-      "display": "'Fraunces', serif",
-      "body": "'Plus Jakarta Sans', sans-serif"
+      "display": "'Forum', serif",
+      "body": "'Geist', 'Plus Jakarta Sans', sans-serif"
     },
     "logo": "/demo/gamja/logo.svg"
   },

@@ -1,0 +1,29 @@
+---
+interface Props {
+  class?: string;
+  borderColor?: string;
+  bracketColor?: string;
+}
+
+const {
+  class: className = "",
+  borderColor = "border-white/10",
+  bracketColor = "border-[var(--color-accent)]",
+} = Astro.props;
+---
+
+<div class={`relative border ${borderColor} rounded-2xl ${className}`}>
+  <!-- Top-Left Corner Bracket ┌ -->
+  <span class={`absolute -top-[1px] -left-[1px] w-3.5 h-3.5 border-t-2 border-l-2 ${bracketColor} rounded-tl-sm pointer-events-none z-10`}></span>
+  
+  <!-- Top-Right Corner Bracket ┐ -->
+  <span class={`absolute -top-[1px] -right-[1px] w-3.5 h-3.5 border-t-2 border-r-2 ${bracketColor} rounded-tr-sm pointer-events-none z-10`}></span>
+  
+  <!-- Bottom-Left Corner Bracket └ -->
+  <span class={`absolute -bottom-[1px] -left-[1px] w-3.5 h-3.5 border-b-2 border-l-2 ${bracketColor} rounded-bl-sm pointer-events-none z-10`}></span>
+  
+  <!-- Bottom-Right Corner Bracket ┘ -->
+  <span class={`absolute -bottom-[1px] -right-[1px] w-3.5 h-3.5 border-b-2 border-r-2 ${bracketColor} rounded-br-sm pointer-events-none z-10`}></span>
+
+  <slot />
+</div>

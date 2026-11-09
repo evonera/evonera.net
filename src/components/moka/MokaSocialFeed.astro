@@ -1,0 +1,63 @@
+---
+interface FeedItem {
+  image: string;
+  caption: string;
+}
+
+interface Props {
+  feed: {
+    tagline: string;
+    handle: string;
+    handleUrl: string;
+    images: FeedItem[];
+  };
+}
+
+const { feed } = Astro.props;
+---
+
+<section class="w-full bg-[var(--color-surface)] text-[var(--color-ink)] py-20 sm:py-28 px-4 sm:px-8 border-t border-[var(--color-ink)]/10">
+  <div class="max-w-6xl mx-auto space-y-10">
+    <!-- Header -->
+    <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-[var(--color-ink)]/15 pb-6">
+      <div>
+        <span class="text-xs font-mono lowercase tracking-wider text-[var(--color-primary)] font-semibold block mb-2">
+          community & counter
+        </span>
+        <h2 class="font-display text-3xl sm:text-4xl font-bold lowercase text-[var(--color-ink)]">
+          {feed.tagline}
+        </h2>
+      </div>
+
+      <a
+        href={feed.handleUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--color-ink)] text-[var(--color-surface)] text-xs font-mono lowercase tracking-wider hover:bg-[var(--color-primary)] transition-colors self-start sm:self-auto"
+      >
+        <span>follow on instagram</span>
+        <span class="font-bold">{feed.handle}</span>
+        <span>↗</span>
+      </a>
+    </div>
+
+    <!-- 4-Column Grid -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
+      {feed.images.map((item) => (
+        <div class="group relative rounded-2xl overflow-hidden aspect-square bg-neutral-200 border border-[var(--color-ink)]/10 shadow-sm">
+          <img
+            src={item.image}
+            alt={item.caption}
+            class="w-full h-full object-cover object-center group-hover:scale-108 transition-transform duration-500"
+            loading="lazy"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+            <p class="text-xs text-[var(--color-surface)] font-light lowercase leading-snug">
+              {item.caption}
+            </p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,183 @@
+---
+interface Card {
+  tag: string;
+  heading: string;
+  scriptAccent?: string;
+  subheading: string;
+  body: string;
+  image: string;
+  badge?: string;
+  offerPrice?: string;
+}
+
+interface Props {
+  cards: Card[];
+}
+
+const { cards } = Astro.props;
+---
+
+<section id="about" class="relative w-full bg-[var(--color-ink)] text-[var(--color-surface)]">
+  <!-- Tall Scroll Track Container (350vh allows unhurried scrolling across 4 cards) -->
+  <div id="sticky-deck-track" class="relative w-full h-[360vh]">
+    <!-- Sticky Pinned Viewport (100vh) -->
+    <div class="sticky top-0 h-screen w-full flex flex-col justify-between py-16 sm:py-20 px-4 sm:px-8 overflow-hidden">
+      <!-- Top Track Header / Progress Bar -->
+      <div class="max-w-6xl mx-auto w-full flex items-center justify-between border-b border-white/10 pb-4 z-20">
+        <div class="flex items-center gap-3">
+          <span class="text-xs font-mono uppercase tracking-[0.25em] text-[var(--color-accent)] font-semibold">
+            stories & sourcing
+          </span>
+          <span class="text-xs text-white/40 font-mono">/</span>
+          <span id="deck-progress-indicator" class="text-xs text-white/70 font-mono lowercase">
+            chapter 01 of 0{cards.length}
+          </span>
+        </div>
+
+        <!-- Stage Navigation Pills -->
+        <div class="flex items-center gap-1.5">
+          {cards.map((_, i) => (
+            <button
+              type="button"
+              data-card-idx={i}
+              class="deck-nav-dot w-7 h-7 rounded-full border border-white/20 text-[10px] font-mono flex items-center justify-center transition-all hover:border-[var(--color-accent)] text-white/60"
+            >
+              0{i + 1}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <!-- Center Deck Stage: Cards Stack & Cross-Fade -->
+      <div class="relative max-w-6xl mx-auto w-full flex-grow flex items-center justify-center my-auto z-10">
+        {cards.map((card, idx) => (
+          <div
+            id={`deck-card-${idx}`}
+            class={`deck-card absolute inset-0 w-full flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-16 transition-all duration-700 ease-out ${
+              idx === 0
+                ? "opacity-100 translate-y-0 scale-100 pointer-events-auto"
+                : "opacity-0 translate-y-12 scale-95 pointer-events-none"
+            }`}
+          >
+            <!-- Left Narrative Column -->
+            <div class="w-full lg:w-1/2 flex flex-col items-start text-left">
+              <span class="px-3 py-1 rounded-full bg-white/10 text-[var(--color-accent)] text-xs font-mono lowercase tracking-wider mb-4 sm:mb-6">
+                {card.tag}
+              </span>
+
+              <h2 class="font-display text-3xl sm:text-5xl md:text-6xl font-light text-[var(--color-surface)] leading-[1.12] tracking-tight lowercase">
+                {card.heading}{" "}
+                {card.scriptAccent && (
+                  <span class="font-accent text-3xl sm:text-5xl text-[var(--color-accent)] font-normal inline-block lowercase ml-1">
+                    {card.scriptAccent}
+                  </span>
+                )}
+              </h2>
+
+              <p class="font-display text-base sm:text-xl font-normal text-[var(--color-accent)]/90 leading-snug mt-4 sm:mt-6 lowercase">
+                {card.subheading}
+              </p>
+
+              <p class="text-sm sm:text-base text-white/75 font-light leading-relaxed mt-4 max-w-lg lowercase">
+                {card.body}
+              </p>
+
+              {card.offerPrice && (
+                <div class="mt-6 inline-flex items-center gap-3 px-4 py-2 rounded-xl bg-white/10 border border-[var(--color-accent)]/30 text-[var(--color-accent)] font-mono text-sm">
+                  <span class="w-2 h-2 rounded-full bg-[var(--color-accent)] animate-ping"></span>
+                  <span class="font-semibold">{card.offerPrice}</span>
+                </div>
+              )}
+            </div>
+
+            <!-- Right Visual Column (Pill-Framed Editorial Photo) -->
+            <div class="w-full lg:w-1/2 h-[280px] sm:h-[400px] md:h-[460px] rounded-3xl overflow-hidden shadow-2xl relative border border-white/10 bg-black/40">
+              <img
+                src={card.image}
+                alt={card.heading}
+                class="w-full h-full object-cover object-center filter brightness-[0.92] contrast-[1.05]"
+                loading="lazy"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+              {card.badge && (
+                <div class="absolute bottom-4 left-4 sm:bottom-6 sm:left-6 px-3.5 py-1.5 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-xs font-mono text-[var(--color-accent)] lowercase">
+                  {card.badge}
+                </div>
+              )}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- Bottom Hint -->
+      <div class="max-w-6xl mx-auto w-full flex items-center justify-between text-xs text-white/40 font-mono lowercase pt-4 border-t border-white/10 z-20">
+        <span>continue scrolling to reveal all chapters</span>
+        <span>scroll momentum active</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Scrub Animation Script -->
+<script>
+  function setupStickyDeck() {
+    const track = document.getElementById("sticky-deck-track");
+    if (!track) return;
+
+    const cards = Array.from(document.querySelectorAll(".deck-card"));
+    const dots = Array.from(document.querySelectorAll(".deck-nav-dot"));
+    const indicator = document.getElementById("deck-progress-indicator");
+    const numCards = cards.length;
+    if (numCards === 0) return;
+
+    function onScroll() {
+      const rect = track.getBoundingClientRect();
+      const trackHeight = track.offsetHeight - window.innerHeight;
+      if (trackHeight <= 0) return;
+
+      // Calculate progress from 0 to 1
+      const progress = Math.min(Math.max(-rect.top / trackHeight, 0), 1);
+      
+      // Determine active card index
+      const activeIdx = Math.min(Math.floor(progress * numCards), numCards - 1);
+
+      cards.forEach((card, idx) => {
+        if (idx === activeIdx) {
+          card.classList.remove("opacity-0", "translate-y-12", "scale-95", "pointer-events-none");
+          card.classList.add("opacity-100", "translate-y-0", "scale-100", "pointer-events-auto");
+        } else {
+          card.classList.remove("opacity-100", "translate-y-0", "scale-100", "pointer-events-auto");
+          card.classList.add("opacity-0", "translate-y-12", "scale-95", "pointer-events-none");
+        }
+      });
+
+      dots.forEach((dot, idx) => {
+        if (idx === activeIdx) {
+          dot.classList.add("bg-[var(--color-accent)]", "text-[var(--color-ink)]", "font-bold");
+          dot.classList.remove("text-white/60");
+        } else {
+          dot.classList.remove("bg-[var(--color-accent)]", "text-[var(--color-ink)]", "font-bold");
+          dot.classList.add("text-white/60");
+        }
+      });
+
+      if (indicator) {
+        indicator.textContent = `chapter 0${activeIdx + 1} of 0${numCards}`;
+      }
+    }
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+
+    // Dot click jumping
+    dots.forEach((dot, i) => {
+      dot.addEventListener("click", () => {
+        const targetScroll = track.offsetTop + (i / numCards) * (track.offsetHeight - window.innerHeight) + 50;
+        window.scrollTo({ top: targetScroll, behavior: "smooth" });
+      });
+    });
+  }
+
+  setupStickyDeck();
+  document.addEventListener("astro:page-load", setupStickyDeck);
+</script>

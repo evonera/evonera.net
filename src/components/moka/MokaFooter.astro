@@ -1,0 +1,99 @@
+---
+interface Props {
+  footer: {
+    hugeWordmark: string;
+    hours: string;
+    bookingNotice: string;
+    disclaimer: string;
+  };
+  restaurant: {
+    name: string;
+    address: string;
+    postalCode: string;
+    city: string;
+    phone: string;
+    whatsapp: string;
+    googleMapsUrl: string;
+  };
+}
+
+const { footer, restaurant } = Astro.props;
+---
+
+<footer id="contact" class="w-full bg-[var(--color-ink)] text-[var(--color-surface)] pt-20 pb-12 px-4 sm:px-8 border-t border-white/10 overflow-hidden">
+  <div class="max-w-6xl mx-auto space-y-16">
+    <!-- Top Contact & Location Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-10 items-start">
+      <div class="md:col-span-5 space-y-4">
+        <span class="text-xs font-mono text-[var(--color-accent)] lowercase tracking-widest block">
+          visit the bar
+        </span>
+        <h3 class="font-display text-2xl sm:text-3xl font-light text-[var(--color-surface)] lowercase">
+          {restaurant.address}
+        </h3>
+        <p class="text-xs text-white/70 font-mono lowercase">
+          {restaurant.city} · {restaurant.postalCode}
+        </p>
+        <div class="pt-2">
+          <a
+            href={restaurant.googleMapsUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-1.5 text-xs text-[var(--color-accent)] underline hover:opacity-80 lowercase font-mono"
+          >
+            open in google maps ↗
+          </a>
+        </div>
+      </div>
+
+      <div class="md:col-span-4 space-y-4">
+        <span class="text-xs font-mono text-[var(--color-accent)] lowercase tracking-widest block">
+          operating hours
+        </span>
+        <p class="font-display text-xl sm:text-2xl font-light text-[var(--color-surface)] lowercase">
+          {footer.hours}
+        </p>
+        <p class="text-xs text-white/70 font-light leading-relaxed lowercase max-w-xs">
+          {footer.bookingNotice}
+        </p>
+      </div>
+
+      <div class="md:col-span-3 space-y-4">
+        <span class="text-xs font-mono text-[var(--color-accent)] lowercase tracking-widest block">
+          direct reach
+        </span>
+        <div class="space-y-2 text-xs font-mono lowercase">
+          <p>
+            <span class="text-white/50">call:</span>{" "}
+            <a href={`tel:${restaurant.phone.replace(/[^0-9+]/g, '')}`} class="underline hover:text-[var(--color-accent)]">
+              {restaurant.phone}
+            </a>
+          </p>
+          <p>
+            <span class="text-white/50">whatsapp:</span>{" "}
+            <a href={`https://wa.me/${restaurant.whatsapp.replace(/[^0-9]/g, '')}`} class="underline text-[var(--color-accent)]">
+              chat on whatsapp ↗
+            </a>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Giant Lowercase Footer Typography Wordmark -->
+    <div class="w-full text-center py-6 select-none border-y border-white/10">
+      <h2 class="font-display text-[18vw] font-black lowercase text-[var(--color-surface)] leading-none tracking-tighter opacity-90 hover:opacity-100 transition-opacity">
+        {footer.hugeWordmark}
+      </h2>
+    </div>
+
+    <!-- Bottom Disclaimer & Evonera Copyright -->
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/50 font-mono lowercase pt-4">
+      <p>{footer.disclaimer}</p>
+      <div class="flex items-center gap-4">
+        <a href="#about" class="hover:text-[var(--color-accent)]">back to top ↑</a>
+        <span>·</span>
+        <a href="https://evonera.net" class="hover:text-[var(--color-accent)]">evonera.net</a>
+      </div>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,52 @@
+---
+import MokaDemoLayout from "../../../layouts/MokaDemoLayout.astro";
+import MokaHero from "../../../components/moka/MokaHero.astro";
+import MokaStickyDeck from "../../../components/moka/MokaStickyDeck.astro";
+import MokaStickyMenu from "../../../components/moka/MokaStickyMenu.astro";
+import MokaSpotlight from "../../../components/moka/MokaSpotlight.astro";
+import MokaSocialFeed from "../../../components/moka/MokaSocialFeed.astro";
+import MokaFooter from "../../../components/moka/MokaFooter.astro";
+
+import data from "../../../data/restaurants/moka.json";
+
+const { restaurant, hero, stickyDeck, stickyMenu, spotlight, socialFeed, footer } = data;
+---
+
+<MokaDemoLayout
+  data={data}
+  title={`${restaurant.name} — ${restaurant.tagline}`}
+  description={hero.description}
+>
+  <!-- 1. Hero Viewport with Live Time & Kinetic Typography -->
+  <MokaHero
+    hero={hero}
+    restaurant={restaurant}
+  />
+
+  <!-- 2. Scrubbed Sticky Narrative Deck (360vh Tall Track) -->
+  <MokaStickyDeck
+    cards={stickyDeck}
+  />
+
+  <!-- 3. Sticky Menu Rail & Offerings -->
+  <MokaStickyMenu
+    menu={stickyMenu}
+  />
+
+  <!-- 4. Takeaway Edition Spotlight -->
+  <MokaSpotlight
+    spotlight={spotlight}
+    restaurant={restaurant}
+  />
+
+  <!-- 5. Social & Community Gallery -->
+  <MokaSocialFeed
+    feed={socialFeed}
+  />
+
+  <!-- 6. Giant Lowercase Wordmark Footer -->
+  <MokaFooter
+    footer={footer}
+    restaurant={restaurant}
+  />
+</MokaDemoLayout>

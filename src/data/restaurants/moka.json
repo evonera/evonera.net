@@ -1,0 +1,217 @@
+{
+  "restaurant": {
+    "name": "Moka",
+    "slug": "moka",
+    "tagline": "A neighbourhood cafe for good coffee, fresh bakes, and slow mornings",
+    "city": "London",
+    "timezone": "Europe/London",
+    "address": "18 Charlotte Street, Fitzrovia",
+    "postalCode": "W1T 2LZ",
+    "country": "United Kingdom",
+    "phone": "+44 20 7946 0912",
+    "whatsapp": "+442079460912",
+    "email": "hello@moka-cafe.com",
+    "googleMapsUrl": "https://maps.google.com/?q=18+Charlotte+Street+London+W1T+2LZ"
+  },
+  "theme": {
+    "colors": {
+      "primary": "#8A6E5A",
+      "surface": "#FEFAE7",
+      "ink": "#362618",
+      "accent": "#FFFFA8",
+      "card": "#F5ECE1",
+      "darkBg": "#251A12"
+    },
+    "fonts": {
+      "display": "'Unbounded', sans-serif",
+      "accentScript": "'Caveat', cursive",
+      "body": "'Plus Jakarta Sans', sans-serif"
+    }
+  },
+  "hero": {
+    "eyebrow": "specialty roastery & kitchen",
+    "massiveTitle": "moka",
+    "accentWord": "cafe",
+    "description": "a neighbourhood cafe for good coffee, fresh food, days that start solo, get social, take a detour, and somehow end with you still here.",
+    "badgeText": "open daily 7:30am - 6:00pm",
+    "image": "/demo/moka/hero-bg.webp"
+  },
+  "stickyDeck": [
+    {
+      "tag": "01 / philosophy",
+      "heading": "coffee when you need it,",
+      "scriptAccent": "something sweet",
+      "subheading": "food when you're hungry, plus somewhere nice to be while the day figures itself out.",
+      "body": "we roast in small batches, bake every morning at 5am, and leave plenty of time for unhurried conversations.",
+      "image": "/demo/moka/coffee-1.webp",
+      "badge": "single origin batch"
+    },
+    {
+      "tag": "02 / sourcing",
+      "heading": "careful roasting, fresh grinds,",
+      "scriptAccent": "honest origins",
+      "subheading": "coffee people will get it. everyone else gets really good coffee.",
+      "body": "directly sourced from independent high-altitude washing stations across colombia, ethiopia, and guatemala.",
+      "image": "/demo/moka/item-beans.webp",
+      "badge": "washed & natural"
+    },
+    {
+      "tag": "03 / new this week",
+      "heading": "menus change. new things land.",
+      "scriptAccent": "plans happen",
+      "subheading": "some things disappear quickly. this is where we keep track of what's currently happening.",
+      "body": "classic cold coffees, nitro cocoa infusions, and warm double-laminated butter croissants.",
+      "image": "/demo/moka/coffee-2.webp",
+      "badge": "seasonal drop",
+      "offerPrice": "2 for $10 cold brew"
+    },
+    {
+      "tag": "04 / best seller duo",
+      "heading": "name a better duo.",
+      "scriptAccent": "zero crumbs left",
+      "subheading": "steaming cappuccino + warm morning butter croissant.",
+      "body": "flaky, buttery layers fresh out of the deck oven paired with rich double-ristretto steamed milk foam.",
+      "image": "/demo/moka/pastry-1.webp",
+      "badge": "daily morning duo",
+      "offerPrice": "$8 combo"
+    }
+  ],
+  "stickyMenu": {
+    "sideTitle": "first sips, flaky layers, cravings, buttery crumbs",
+    "sideDescription": "all espresso shots pulled on our synesso mvp. oat, almond, and whole milk options available. baked fresh every single morning.",
+    "categories": [
+      {
+        "name": "drinks",
+        "slug": "drinks",
+        "items": [
+          {
+            "name": "cappuccino",
+            "price": "$5.00",
+            "description": "double ristretto espresso with dense velvety microfoam.",
+            "badge": "classic",
+            "image": "/demo/moka/item-cappuccino.webp"
+          },
+          {
+            "name": "cocoa cappuccino",
+            "price": "$5.50",
+            "description": "dusted with single-origin 70% peruvian cacao nibs.",
+            "badge": "signature",
+            "image": "/demo/moka/coffee-1.webp"
+          },
+          {
+            "name": "cafe mocha",
+            "price": "$6.00",
+            "description": "melted house dark chocolate ganache and espresso.",
+            "badge": "popular",
+            "image": "/demo/moka/item-cup.png"
+          },
+          {
+            "name": "roasted hazelnut latte",
+            "price": "$6.00",
+            "description": "cold pressed hazelnut paste with steamed oat milk.",
+            "badge": "nutty",
+            "image": "/demo/moka/coffee-2.webp"
+          },
+          {
+            "name": "vanilla cold brew",
+            "price": "$5.50",
+            "description": "16-hour steeped cold brew infused with madagascar vanilla pod.",
+            "badge": "iced",
+            "image": "/demo/moka/item-cup.png"
+          }
+        ]
+      },
+      {
+        "name": "pastries",
+        "slug": "pastries",
+        "items": [
+          {
+            "name": "butter croissant",
+            "price": "$4.50",
+            "description": "72-hour fermented french butter laminated pastry.",
+            "badge": "fresh baked",
+            "image": "/demo/moka/pastry-1.webp"
+          },
+          {
+            "name": "cardamom cinnamon roll",
+            "price": "$5.50",
+            "description": "soft brioche dough rolled with ceylon cinnamon and ground cardamom.",
+            "badge": "must try",
+            "image": "/demo/moka/item-cinnamon.webp"
+          },
+          {
+            "name": "pain au chocolat",
+            "price": "$5.00",
+            "description": "double batons of valrhona bittersweet chocolate.",
+            "badge": "classic",
+            "image": "/demo/moka/pastry-1.webp"
+          }
+        ]
+      },
+      {
+        "name": "dolci",
+        "slug": "dolci",
+        "items": [
+          {
+            "name": "house espresso tiramisu",
+            "price": "$8.50",
+            "description": "savoiardi soaked in fresh moka espresso, mascarpone mousse.",
+            "badge": "dessert",
+            "image": "/demo/moka/item-tiramisu.png"
+          },
+          {
+            "name": "sea salt chocolate cookie",
+            "price": "$4.00",
+            "description": "gooey center chocolate chip cookie finished with maldon salt flakes.",
+            "badge": "sweet",
+            "image": "/demo/moka/feed-2.webp"
+          }
+        ]
+      }
+    ]
+  },
+  "spotlight": {
+    "tag": "takeaway edition",
+    "title": "moka takeaway insulated tote",
+    "description": "a premium structured insulated tote made from durable 16oz recycled canvas with internal cup stabilization holsters to keep your coffee upright.",
+    "image": "/demo/moka/merch-tote.webp",
+    "price": "$38.00",
+    "specs": [
+      "16oz heavy organic recycled canvas",
+      "internal dual cup stabilization holster",
+      "water-repellent base lining",
+      "reinforced cross-stitched handles"
+    ],
+    "ctaText": "reserve via whatsapp",
+    "ctaHref": "#contact"
+  },
+  "socialFeed": {
+    "tagline": "from our morning bar",
+    "handle": "@moka",
+    "handleUrl": "https://instagram.com",
+    "images": [
+      {
+        "image": "/demo/moka/feed-1.webp",
+        "caption": "first pour of the day"
+      },
+      {
+        "image": "/demo/moka/feed-2.webp",
+        "caption": "straight out of the deck oven"
+      },
+      {
+        "image": "/demo/moka/feed-3.webp",
+        "caption": "iced cold brew on tap"
+      },
+      {
+        "image": "/demo/moka/feed-4.webp",
+        "caption": "counter seating at noon"
+      }
+    ]
+  },
+  "footer": {
+    "hugeWordmark": "moka",
+    "hours": "mon - sun: 7:30am - 6:00pm",
+    "bookingNotice": "walk-ins always welcome. direct booking requests and bean pre-orders via whatsapp.",
+    "disclaimer": "demo concept by evonera technologies. inspired by the moka kinetic framer system."
+  }
+}

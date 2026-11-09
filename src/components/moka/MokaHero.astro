@@ -1,0 +1,118 @@
+---
+interface Props {
+  hero: {
+    eyebrow: string;
+    massiveTitle: string;
+    accentWord: string;
+    description: string;
+    image: string;
+    badgeText?: string;
+  };
+  restaurant: {
+    city: string;
+    timezone?: string;
+    whatsapp: string;
+  };
+}
+
+const { hero, restaurant } = Astro.props;
+---
+
+<section class="relative w-full min-h-screen flex flex-col justify-between pt-24 pb-12 px-4 sm:px-8 bg-[var(--color-primary)] text-[var(--color-surface)] overflow-hidden">
+  <!-- Atmospheric Background Image with Rich Mocha Overlay -->
+  <div class="absolute inset-0 z-0">
+    <img
+      src={hero.image}
+      alt="Moka Cafe Interior Atmosphere"
+      class="w-full h-full object-cover object-center filter brightness-[0.62] contrast-[1.08] scale-105"
+      loading="eager"
+      fetchpriority="high"
+    />
+    <div class="absolute inset-0 bg-gradient-to-t from-[var(--color-dark-bg)] via-[var(--color-primary)]/50 to-black/60"></div>
+  </div>
+
+  <!-- Top Hero Meta Bar -->
+  <div class="relative z-10 max-w-6xl mx-auto w-full flex items-center justify-between text-xs font-mono uppercase tracking-widest pt-4 sm:pt-6">
+    <div class="flex items-center gap-2 px-3 py-1 rounded-full bg-black/40 backdrop-blur-md border border-white/10 text-[var(--color-surface)]">
+      <span class="w-1.5 h-1.5 rounded-full bg-[var(--color-accent)] animate-ping"></span>
+      <span class="text-[11px]">{hero.eyebrow}</span>
+    </div>
+
+    <!-- Live City Clock -->
+    <div
+      id="hero-live-clock"
+      data-timezone={restaurant.timezone || "Europe/London"}
+      data-city={restaurant.city}
+      class="px-3 py-1 rounded-full bg-black/40 backdrop-blur-md border border-white/10 text-[11px] text-[var(--color-accent)] lowercase font-mono"
+    >
+      {restaurant.city} · loading time...
+    </div>
+  </div>
+
+  <!-- Center Typography: Ultra-Wide Lowercase Headline -->
+  <div class="relative z-10 max-w-6xl mx-auto w-full my-auto py-12 flex flex-col items-start justify-center">
+    <div class="flex items-baseline gap-4 sm:gap-6 flex-wrap">
+      <h1 class="font-display text-6xl sm:text-8xl md:text-9xl lg:text-[11rem] font-black lowercase tracking-tighter text-[var(--color-surface)] leading-none select-none drop-shadow-md">
+        {hero.massiveTitle}
+      </h1>
+      <span class="font-accent text-3xl sm:text-5xl md:text-6xl text-[var(--color-accent)] font-normal -rotate-6 transform lowercase select-none">
+        {hero.accentWord}
+      </span>
+    </div>
+
+    <!-- Lowercase Editorial Paragraph -->
+    <p class="max-w-2xl text-base sm:text-xl md:text-2xl font-light text-[var(--color-surface)]/90 leading-relaxed mt-6 sm:mt-8 lowercase">
+      {hero.description}
+    </p>
+
+    <!-- CTAs -->
+    <div class="flex items-center gap-4 mt-8 sm:mt-10 flex-wrap">
+      <a href="#menu" class="btn-moka-pill bg-[var(--color-surface)] text-[var(--color-ink)] hover:bg-[var(--color-accent)]">
+        view full menu ↓
+      </a>
+      <a
+        href={`https://wa.me/${restaurant.whatsapp.replace(/[^0-9]/g, '')}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn-moka-pill bg-black/40 text-[var(--color-surface)] border border-white/20 hover:border-white/50"
+      >
+        reach on whatsapp ↗
+      </a>
+    </div>
+  </div>
+
+  <!-- Bottom Bar: Scroll Indicator & Hours -->
+  <div class="relative z-10 max-w-6xl mx-auto w-full flex items-center justify-between text-xs text-[var(--color-surface)]/70 pt-4 border-t border-white/10">
+    <span class="lowercase font-mono text-[11px]">{hero.badgeText}</span>
+    <div class="flex items-center gap-2 lowercase text-[11px]">
+      <span>scroll down for the story</span>
+      <span class="animate-bounce">↓</span>
+    </div>
+  </div>
+</section>
+
+<!-- Live Clock Script -->
+<script>
+  function updateLiveClock() {
+    const clockEl = document.getElementById("hero-live-clock");
+    if (!clockEl) return;
+    const tz = clockEl.dataset.timezone || "Europe/London";
+    const city = clockEl.dataset.city || "London";
+
+    try {
+      const now = new Date();
+      const timeStr = new Intl.DateTimeFormat("en-GB", {
+        timeZone: tz,
+        hour: "numeric",
+        minute: "2-digit",
+        hour12: true,
+      }).format(now);
+      clockEl.textContent = `${city.toLowerCase()} · ${timeStr.toLowerCase()}`;
+    } catch (e) {
+      clockEl.textContent = `${city.toLowerCase()} · live`;
+    }
+  }
+
+  updateLiveClock();
+  setInterval(updateLiveClock, 30000);
+</script>

@@ -1,5 +1,6 @@
 ---
 import RestaurantDemoLayout from "../../../layouts/RestaurantDemoLayout.astro";
+import QitchenNavbar from "../../../components/restaurant/qitchen/QitchenNavbar.astro";
 import CornerFrame from "../../../components/restaurant/qitchen/CornerFrame.astro";
 import QitchenFooter from "../../../components/restaurant/qitchen/QitchenFooter.astro";
 import data from "../../../data/restaurants/gamja.json";
@@ -14,176 +15,188 @@ const mapEmbedSrc = `https://maps.google.com/maps?q=${encodedAddress}&t=&z=16&ie
   title={`Location & Contact | ${restaurant.name} Telok Ayer`}
   description={`Visit ${restaurant.name} at 21 Boon Tat Street, Singapore. Opening hours, MRT transit directions, and direct WhatsApp contact.`}
   currentPath="/demo/gamja/contact"
+  hideHeader={true}
   hideFooter={true}
 >
-  <!-- Page Header in Qitchen Nocturnal Style -->
-  <section class="relative w-full bg-[#0A0B0A] text-[#F5EFEB] pt-24 pb-14 sm:pt-32 sm:pb-18 px-4 sm:px-6 lg:px-8 border-b border-white/5 overflow-hidden">
-    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-[radial-gradient(ellipse_at_center,rgba(218,197,167,0.08),transparent_70%)] pointer-events-none blur-3xl"></div>
-
-    <div class="max-w-3xl mx-auto text-center relative z-10">
-      <div class="inline-flex items-center gap-2 text-xs uppercase tracking-[0.28em] text-[#DAC5A7] font-medium mb-4">
-        <span class="w-1.5 h-1.5 rounded-full bg-[#C23B22]"></span>
-        <span>LOCATION & HOSPITALITY</span>
+  <div class="min-h-screen bg-[#0A0B0A] text-[#F5EFEB] flex flex-col justify-between">
+    
+    <!-- Top Floating Navbar Container -->
+    <div class="p-4 sm:p-6 max-w-7xl mx-auto w-full flex items-center justify-between">
+      <QitchenNavbar currentPath="/demo/gamja/contact" bookUrl="/demo/gamja/reservations" />
+      <div class="hidden sm:block text-xs uppercase tracking-[0.25em] text-[#DAC5A7]/70 font-mono">
+        TELOK AYER MRT (DT18)
       </div>
-      <h1 class="font-display text-4xl sm:text-5xl md:text-6xl font-normal text-white tracking-tight leading-tight mb-4">
-        {contact.headline}
-      </h1>
-      <p class="text-sm sm:text-base text-[#F5EFEB]/70 font-light leading-relaxed max-w-xl mx-auto">
-        {contact.subline}
-      </p>
     </div>
-  </section>
 
-  <!-- Contact Grid in Qitchen Framed Architectural Layout -->
-  <section class="w-full bg-[#0A0B0A] text-[#F5EFEB] py-16 sm:py-24 px-4 sm:px-6 lg:px-8 border-b border-white/5">
-    <div class="max-w-6xl mx-auto">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
-        
-        <!-- Col 1: Information Cards (5 cols on lg) -->
-        <div class="lg:col-span-5 space-y-6">
-          
-          <!-- Card 1: Address & Transit -->
-          <CornerFrame class="bg-[#141312] p-6 sm:p-7 space-y-4">
-            <span class="text-[10px] uppercase tracking-[0.25em] text-[#DAC5A7] font-bold block">
-              ADDRESS & TRANSIT
-            </span>
-            <div class="space-y-1">
-              <p class="font-display text-2xl font-normal text-white">
-                {restaurant.address}
-              </p>
-              <p class="text-xs text-[#F5EFEB]/60 font-light">
-                Singapore {restaurant.postalCode} • Ground Floor Shophouse
-              </p>
-            </div>
+    <!-- Page Header in Qitchen Nocturnal Style -->
+    <section class="relative w-full text-[#F5EFEB] pt-8 pb-12 sm:pt-14 sm:pb-16 px-4 sm:px-6 lg:px-8 overflow-hidden">
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-[radial-gradient(ellipse_at_center,rgba(218,197,167,0.08),transparent_70%)] pointer-events-none blur-3xl"></div>
 
-            <div class="pt-3 border-t border-white/10 space-y-1 text-xs">
-              <p class="text-[#DAC5A7] font-medium">MRT Access:</p>
-              <p class="text-[#F5EFEB]/75 font-light">{restaurant.mrt}</p>
-            </div>
-
-            <div class="pt-3 border-t border-white/10 space-y-1 text-xs">
-              <p class="text-[#DAC5A7] font-medium">Parking:</p>
-              <p class="text-[#F5EFEB]/75 font-light">{restaurant.parking}</p>
-            </div>
-
-            <div class="pt-3">
-              <a
-                href={restaurant.googleMapsUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                class="inline-flex items-center gap-2 text-xs uppercase tracking-wider text-[#DAC5A7] hover:text-white font-medium transition-colors"
-              >
-                <span>Open in Google Maps</span>
-                <span class="text-sm">↗</span>
-              </a>
-            </div>
-          </CornerFrame>
-
-          <!-- Card 2: Operating Hours -->
-          <CornerFrame class="bg-[#141312] p-6 sm:p-7 space-y-4">
-            <span class="text-[10px] uppercase tracking-[0.25em] text-[#DAC5A7] font-bold block">
-              OPERATING HOURS
-            </span>
-            <div class="space-y-3 text-xs">
-              <div class="flex justify-between py-1.5 border-b border-white/5">
-                <span class="text-white font-medium">Monday - Friday</span>
-                <span class="text-right text-[#F5EFEB]/75">
-                  11:00 AM - 3:00 PM<br/>
-                  <span class="text-[#DAC5A7] text-[10px]">(50% off lunch drinks)</span><br/>
-                  5:30 PM - 11:00 PM
-                </span>
-              </div>
-              <div class="flex justify-between py-1.5 border-b border-white/5">
-                <span class="text-white font-medium">Saturday - Sunday</span>
-                <span class="text-right text-[#F5EFEB]/75">
-                  12:00 PM - 10:00 PM<br/>
-                  <span class="text-[10px] text-[#F5EFEB]/50">(No break time)</span>
-                </span>
-              </div>
-              <p class="text-[11px] text-[#F5EFEB]/50 pt-1 font-light leading-relaxed">
-                Last food orders accepted 45 minutes before closing. Walk-ins and table reservations are welcomed.
-              </p>
-            </div>
-          </CornerFrame>
-
-          <!-- Card 3: Direct Reach -->
-          <CornerFrame class="bg-[#141312] p-6 sm:p-7 space-y-3">
-            <span class="text-[10px] uppercase tracking-[0.25em] text-[#DAC5A7] font-bold block">
-              DIRECT CONTACT
-            </span>
-            <div class="space-y-2 text-xs">
-              <p>
-                <strong class="text-white">Phone:</strong>{" "}
-                <a href={`tel:${restaurant.phone}`} class="text-[#DAC5A7] hover:underline font-mono">
-                  {restaurant.phone}
-                </a>
-              </p>
-              <p>
-                <strong class="text-white">WhatsApp:</strong>{" "}
-                <a
-                  href={`https://wa.me/${restaurant.whatsapp.replace(/[^0-9]/g, '')}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="text-[#DAC5A7] hover:underline font-mono"
-                >
-                  {restaurant.phone}
-                </a>
-              </p>
-              <p>
-                <strong class="text-white">Instagram:</strong>{" "}
-                <a
-                  href={restaurant.social.instagram}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="text-[#DAC5A7] hover:underline"
-                >
-                  @gamja_sg
-                </a>
-              </p>
-            </div>
-          </CornerFrame>
-
+      <div class="max-w-3xl mx-auto text-center relative z-10">
+        <div class="inline-flex items-center gap-2 text-xs uppercase tracking-[0.28em] text-[#DAC5A7] font-medium mb-4">
+          <span class="w-1.5 h-1.5 rounded-full bg-[#C23B22]"></span>
+          <span>LOCATION & HOSPITALITY</span>
         </div>
+        <h1 class="font-display text-4xl sm:text-5xl md:text-6xl font-normal text-white tracking-tight leading-tight mb-4">
+          {contact.headline}
+        </h1>
+        <p class="text-sm sm:text-base text-[#F5EFEB]/70 font-light leading-relaxed max-w-xl mx-auto">
+          {contact.subline}
+        </p>
+      </div>
+    </section>
 
-        <!-- Col 2: Interactive Shophouse Map (7 cols on lg) -->
-        <div class="lg:col-span-7">
-          <CornerFrame class="bg-[#141312] overflow-hidden p-2 sm:p-3">
-            <div class="relative w-full h-[450px] sm:h-[580px] rounded-xl overflow-hidden bg-neutral-900">
-              <iframe
-                title="GAMJA 21 Boon Tat Street Google Map"
-                src={mapEmbedSrc}
-                width="100%"
-                height="100%"
-                style="border:0; filter: invert(90%) hue-rotate(180deg) contrast(1.15) brightness(0.85);"
-                allowfullscreen=""
-                loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"
-                class="w-full h-full"
-              ></iframe>
-              <div class="absolute bottom-4 left-4 right-4 p-3.5 rounded-lg bg-black/80 backdrop-blur-md border border-white/10 text-xs text-center flex items-center justify-between">
-                <span class="text-white font-medium">GAMJA • 21 Boon Tat Street</span>
+    <!-- Contact Grid in Qitchen Framed Architectural Layout -->
+    <section class="w-full text-[#F5EFEB] pb-16 sm:pb-24 px-4 sm:px-6 lg:px-8">
+      <div class="max-w-6xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
+          
+          <!-- Col 1: Information Cards (5 cols on lg) -->
+          <div class="lg:col-span-5 space-y-6">
+            
+            <!-- Card 1: Address & Transit -->
+            <CornerFrame class="bg-[#141312] p-6 sm:p-7 space-y-4">
+              <span class="text-[10px] uppercase tracking-[0.25em] text-[#DAC5A7] font-bold block">
+                ADDRESS & TRANSIT
+              </span>
+              <div class="space-y-1">
+                <p class="font-display text-2xl font-normal text-white">
+                  {restaurant.address}
+                </p>
+                <p class="text-xs text-[#F5EFEB]/60 font-light">
+                  Singapore {restaurant.postalCode} • Ground Floor Shophouse
+                </p>
+              </div>
+
+              <div class="pt-3 border-t border-white/10 space-y-1 text-xs">
+                <p class="text-[#DAC5A7] font-medium">MRT Access:</p>
+                <p class="text-[#F5EFEB]/75 font-light">{restaurant.mrt}</p>
+              </div>
+
+              <div class="pt-3 border-t border-white/10 space-y-1 text-xs">
+                <p class="text-[#DAC5A7] font-medium">Parking:</p>
+                <p class="text-[#F5EFEB]/75 font-light">{restaurant.parking}</p>
+              </div>
+
+              <div class="pt-3">
                 <a
                   href={restaurant.googleMapsUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="text-[#DAC5A7] underline text-[11px] font-semibold"
+                  class="inline-flex items-center gap-2 text-xs uppercase tracking-wider text-[#DAC5A7] hover:text-white font-medium transition-colors"
                 >
-                  Get Directions ↗
+                  <span>Open in Google Maps</span>
+                  <span class="text-sm">↗</span>
                 </a>
               </div>
-            </div>
-          </CornerFrame>
+            </CornerFrame>
+
+            <!-- Card 2: Operating Hours -->
+            <CornerFrame class="bg-[#141312] p-6 sm:p-7 space-y-4">
+              <span class="text-[10px] uppercase tracking-[0.25em] text-[#DAC5A7] font-bold block">
+                OPERATING HOURS
+              </span>
+              <div class="space-y-3 text-xs">
+                <div class="flex justify-between py-1.5 border-b border-white/5">
+                  <span class="text-white font-medium">Monday - Friday</span>
+                  <span class="text-right text-[#F5EFEB]/75">
+                    11:00 AM - 3:00 PM<br/>
+                    <span class="text-[#DAC5A7] text-[10px]">(50% off lunch drinks)</span><br/>
+                    5:30 PM - 11:00 PM
+                  </span>
+                </div>
+                <div class="flex justify-between py-1.5 border-b border-white/5">
+                  <span class="text-white font-medium">Saturday - Sunday</span>
+                  <span class="text-right text-[#F5EFEB]/75">
+                    12:00 PM - 10:00 PM<br/>
+                    <span class="text-[10px] text-[#F5EFEB]/50">(No break time)</span>
+                  </span>
+                </div>
+                <p class="text-[11px] text-[#F5EFEB]/50 pt-1 font-light leading-relaxed">
+                  Last food orders accepted 45 minutes before closing. Walk-ins and table reservations are welcomed.
+                </p>
+              </div>
+            </CornerFrame>
+
+            <!-- Card 3: Direct Reach -->
+            <CornerFrame class="bg-[#141312] p-6 sm:p-7 space-y-3">
+              <span class="text-[10px] uppercase tracking-[0.25em] text-[#DAC5A7] font-bold block">
+                DIRECT CONTACT
+              </span>
+              <div class="space-y-2 text-xs">
+                <p>
+                  <strong class="text-white">Phone:</strong>{" "}
+                  <a href={`tel:${restaurant.phone}`} class="text-[#DAC5A7] hover:underline font-mono">
+                    {restaurant.phone}
+                  </a>
+                </p>
+                <p>
+                  <strong class="text-white">WhatsApp:</strong>{" "}
+                  <a
+                    href={`https://wa.me/${restaurant.whatsapp.replace(/[^0-9]/g, '')}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="text-[#DAC5A7] hover:underline font-mono"
+                  >
+                    {restaurant.phone}
+                  </a>
+                </p>
+                <p>
+                  <strong class="text-white">Instagram:</strong>{" "}
+                  <a
+                    href={restaurant.social.instagram}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="text-[#DAC5A7] hover:underline"
+                  >
+                    @gamja_sg
+                  </a>
+                </p>
+              </div>
+            </CornerFrame>
+
+          </div>
+
+          <!-- Col 2: Interactive Shophouse Map (7 cols on lg) -->
+          <div class="lg:col-span-7">
+            <CornerFrame class="bg-[#141312] overflow-hidden p-2 sm:p-3">
+              <div class="relative w-full h-[450px] sm:h-[580px] rounded-xl overflow-hidden bg-neutral-900">
+                <iframe
+                  title="GAMJA 21 Boon Tat Street Google Map"
+                  src={mapEmbedSrc}
+                  width="100%"
+                  height="100%"
+                  style="border:0; filter: invert(90%) hue-rotate(180deg) contrast(1.15) brightness(0.85);"
+                  allowfullscreen=""
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"
+                  class="w-full h-full"
+                ></iframe>
+                <div class="absolute bottom-4 left-4 right-4 p-3.5 rounded-lg bg-black/80 backdrop-blur-md border border-white/10 text-xs text-center flex items-center justify-between">
+                  <span class="text-white font-medium">GAMJA • 21 Boon Tat Street</span>
+                  <a
+                    href={restaurant.googleMapsUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="text-[#DAC5A7] underline text-[11px] font-semibold"
+                  >
+                    Get Directions ↗
+                  </a>
+                </div>
+              </div>
+            </CornerFrame>
+          </div>
+
         </div>
-
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Architectural Footer -->
-  <QitchenFooter
-    restaurantName={restaurant.name}
-    address={`${restaurant.address}, ${restaurant.city} ${restaurant.postalCode}`}
-    phone={restaurant.phone}
-    instagram={restaurant.social.instagram}
-  />
+    <!-- Architectural Footer -->
+    <QitchenFooter
+      restaurantName={restaurant.name}
+      address={`${restaurant.address}, ${restaurant.city} ${restaurant.postalCode}`}
+      phone={restaurant.phone}
+      instagram={restaurant.social.instagram}
+    />
+  </div>
 </RestaurantDemoLayout>

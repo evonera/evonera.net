@@ -1,5 +1,6 @@
 ---
 import RestaurantDemoLayout from "../../../layouts/RestaurantDemoLayout.astro";
+import QitchenNavbar from "../../../components/restaurant/qitchen/QitchenNavbar.astro";
 import CornerFrame from "../../../components/restaurant/qitchen/CornerFrame.astro";
 import ReservationForm from "../../../components/restaurant/ReservationForm.astro";
 import QitchenFooter from "../../../components/restaurant/qitchen/QitchenFooter.astro";
@@ -13,122 +14,134 @@ const { restaurant, reservations } = data;
   title={`Table & BBQ Reservations | ${restaurant.name} Telok Ayer`}
   description={`Request a dining table or K-BBQ seating at ${restaurant.name} (21 Boon Tat Street, Singapore). Book instantly online or connect directly via WhatsApp.`}
   currentPath="/demo/gamja/reservations"
+  hideHeader={true}
   hideFooter={true}
 >
-  <!-- Page Header in Qitchen Nocturnal Style -->
-  <section class="relative w-full bg-[#0A0B0A] text-[#F5EFEB] pt-24 pb-14 sm:pt-32 sm:pb-18 px-4 sm:px-6 lg:px-8 border-b border-white/5 overflow-hidden">
-    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-[radial-gradient(ellipse_at_center,rgba(218,197,167,0.08),transparent_70%)] pointer-events-none blur-3xl"></div>
-
-    <div class="max-w-3xl mx-auto text-center relative z-10">
-      <div class="inline-flex items-center gap-2 text-xs uppercase tracking-[0.28em] text-[#DAC5A7] font-medium mb-4">
-        <span class="w-1.5 h-1.5 rounded-full bg-[#C23B22]"></span>
-        <span>HOSPITALITY AT 21 BOON TAT</span>
+  <div class="min-h-screen bg-[#0A0B0A] text-[#F5EFEB] flex flex-col justify-between">
+    
+    <!-- Top Floating Navbar Container -->
+    <div class="p-4 sm:p-6 max-w-7xl mx-auto w-full flex items-center justify-between">
+      <QitchenNavbar currentPath="/demo/gamja/reservations" bookUrl="/demo/gamja/reservations" />
+      <div class="hidden sm:block text-xs uppercase tracking-[0.25em] text-[#DAC5A7]/70 font-mono">
+        TELOK AYER CBD
       </div>
-      <h1 class="font-display text-4xl sm:text-5xl md:text-6xl font-normal text-white tracking-tight leading-tight mb-4">
-        {reservations.title}
-      </h1>
-      <p class="text-sm sm:text-base text-[#F5EFEB]/70 font-light leading-relaxed max-w-xl mx-auto">
-        {reservations.subtitle}. Request your preferred lunch or dinner seating directly with the founding team.
-      </p>
     </div>
-  </section>
 
-  <!-- Reservation Body Area -->
-  <section class="w-full bg-[#0A0B0A] text-[#F5EFEB] py-16 sm:py-24 px-4 sm:px-6 lg:px-8 border-b border-white/5">
-    <div class="max-w-4xl mx-auto">
-      
-      <!-- Instant Online Booking Option (MyNeon Engine) -->
-      <CornerFrame class="bg-[#141312] p-6 sm:p-8 mb-10 max-w-xl mx-auto border-[#DAC5A7]/30 hover:border-[#DAC5A7] transition-colors">
-        <div class="flex flex-col sm:flex-row items-center justify-between gap-5 text-center sm:text-left">
-          <div>
-            <div class="flex items-center justify-center sm:justify-start gap-2 mb-1.5">
-              <span class="text-[10px] uppercase tracking-widest text-[#DAC5A7] font-bold">
-                INSTANT CONFIRMATION
-              </span>
-              <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+    <!-- Page Header in Qitchen Nocturnal Style -->
+    <section class="relative w-full text-[#F5EFEB] pt-8 pb-12 sm:pt-14 sm:pb-16 px-4 sm:px-6 lg:px-8 overflow-hidden">
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-[radial-gradient(ellipse_at_center,rgba(218,197,167,0.08),transparent_70%)] pointer-events-none blur-3xl"></div>
+
+      <div class="max-w-3xl mx-auto text-center relative z-10">
+        <div class="inline-flex items-center gap-2 text-xs uppercase tracking-[0.28em] text-[#DAC5A7] font-medium mb-4">
+          <span class="w-1.5 h-1.5 rounded-full bg-[#C23B22]"></span>
+          <span>HOSPITALITY AT 21 BOON TAT</span>
+        </div>
+        <h1 class="font-display text-4xl sm:text-5xl md:text-6xl font-normal text-white tracking-tight leading-tight mb-4">
+          {reservations.title}
+        </h1>
+        <p class="text-sm sm:text-base text-[#F5EFEB]/70 font-light leading-relaxed max-w-xl mx-auto">
+          {reservations.subtitle}. Request your preferred lunch or dinner seating directly with the founding team.
+        </p>
+      </div>
+    </section>
+
+    <!-- Reservation Body Area -->
+    <section class="w-full text-[#F5EFEB] pb-16 sm:pb-24 px-4 sm:px-6 lg:px-8">
+      <div class="max-w-4xl mx-auto">
+        
+        <!-- Instant Online Booking Option (MyNeon Engine) -->
+        <CornerFrame class="bg-[#141312] p-6 sm:p-8 mb-10 max-w-xl mx-auto border-[#DAC5A7]/30 hover:border-[#DAC5A7] transition-colors">
+          <div class="flex flex-col sm:flex-row items-center justify-between gap-5 text-center sm:text-left">
+            <div>
+              <div class="flex items-center justify-center sm:justify-start gap-2 mb-1.5">
+                <span class="text-[10px] uppercase tracking-widest text-[#DAC5A7] font-bold">
+                  INSTANT CONFIRMATION
+                </span>
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+              </div>
+              <p class="text-base font-display text-white">
+                Prefer immediate online table booking?
+              </p>
+              <p class="text-xs text-[#F5EFEB]/65 mt-0.5 font-light">
+                Book live via GAMJA's official MyNeon reservation engine.
+              </p>
             </div>
-            <p class="text-base font-display text-white">
-              Prefer immediate online table booking?
-            </p>
-            <p class="text-xs text-[#F5EFEB]/65 mt-0.5 font-light">
-              Book live via GAMJA's official MyNeon reservation engine.
-            </p>
+            <a
+              href="https://myneon.me/?m=booking&sno=1500"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center justify-center font-semibold rounded-full bg-[#DAC5A7] text-[#0A0B0A] hover:bg-white text-xs uppercase tracking-widest px-6 py-3.5 shadow-md hover:shadow-lg transition-all duration-200 flex-shrink-0"
+            >
+              <span>Book on MyNeon →</span>
+            </a>
           </div>
-          <a
-            href="https://myneon.me/?m=booking&sno=1500"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="inline-flex items-center justify-center font-semibold rounded-full bg-[#DAC5A7] text-[#0A0B0A] hover:bg-white text-xs uppercase tracking-widest px-6 py-3.5 shadow-md hover:shadow-lg transition-all duration-200 flex-shrink-0"
-          >
-            <span>Book on MyNeon →</span>
-          </a>
-        </div>
-      </CornerFrame>
+        </CornerFrame>
 
-      <!-- Custom Form Container -->
-      <div class="max-w-xl mx-auto mb-16">
-        <ReservationForm
-          whatsappNumber={restaurant.whatsapp}
-          restaurantName={restaurant.name}
-          recipientName="Shin Jae-Yoon & Chef Nam Wan-Hyuk"
-          seatingTimes={reservations.seatingTimes}
-          capacityText={reservations.capacityText}
-          closedDaysNotice={reservations.closedDaysNotice}
-          maxPartySize={12}
-          eyebrow="Dining Room & K-BBQ Request"
-        />
+        <!-- Custom Form Container -->
+        <div class="max-w-xl mx-auto mb-16">
+          <ReservationForm
+            whatsappNumber={restaurant.whatsapp}
+            restaurantName={restaurant.name}
+            recipientName="Shin Jae-Yoon & Chef Nam Wan-Hyuk"
+            seatingTimes={reservations.seatingTimes}
+            capacityText={reservations.capacityText}
+            closedDaysNotice={reservations.closedDaysNotice}
+            maxPartySize={12}
+            eyebrow="Dining Room & K-BBQ Request"
+          />
+        </div>
+
+        <!-- Guidelines Grid with Qitchen CornerFrames -->
+        <div class="max-w-3xl mx-auto pt-10 border-t border-white/10">
+          <div class="text-center mb-8">
+            <span class="text-xs uppercase tracking-[0.25em] text-[#DAC5A7] font-semibold block mb-1">
+              GUEST EXPERIENCE GUIDELINES
+            </span>
+            <h2 class="font-display text-2xl text-white font-normal">
+              Dining Policies & House Etiquette
+            </h2>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <CornerFrame class="bg-[#141312] p-5">
+              <span class="font-display text-base text-white block mb-1.5">Table Holding Policy</span>
+              <p class="text-xs text-[#F5EFEB]/70 font-light leading-relaxed">
+                Tables are held for 10 minutes (lunch) and 15 minutes (dinner) past your reserved time before being released to walk-in diners.
+              </p>
+            </CornerFrame>
+
+            <CornerFrame class="bg-[#141312] p-5">
+              <span class="font-display text-base text-white block mb-1.5">5 K-BBQ Tables Daily</span>
+              <p class="text-xs text-[#F5EFEB]/70 font-light leading-relaxed">
+                To keep meat preparation and table-side grilling at their finest, our Cast-Iron K-BBQ is strictly limited to 5 tables per day.
+              </p>
+            </CornerFrame>
+
+            <CornerFrame class="bg-[#141312] p-5">
+              <span class="font-display text-base text-white block mb-1.5">Dining Duration</span>
+              <p class="text-xs text-[#F5EFEB]/70 font-light leading-relaxed">
+                Dining time is up to 120 minutes during peak hours. Please kindly modify or cancel your reservation at least 2 hours prior.
+              </p>
+            </CornerFrame>
+
+            <CornerFrame class="bg-[#141312] p-5">
+              <span class="font-display text-base text-white block mb-1.5">Group Gatherings (> 8 Pax)</span>
+              <p class="text-xs text-[#F5EFEB]/70 font-light leading-relaxed">
+                For gatherings of more than 8 guests, please connect with our team directly via WhatsApp or call <strong class="text-white">+65 6222 1206</strong>.
+              </p>
+            </CornerFrame>
+          </div>
+        </div>
+
       </div>
+    </section>
 
-      <!-- Guidelines Grid with Qitchen CornerFrames -->
-      <div class="max-w-3xl mx-auto pt-10 border-t border-white/10">
-        <div class="text-center mb-8">
-          <span class="text-xs uppercase tracking-[0.25em] text-[#DAC5A7] font-semibold block mb-1">
-            GUEST EXPERIENCE GUIDELINES
-          </span>
-          <h2 class="font-display text-2xl text-white font-normal">
-            Dining Policies & House Etiquette
-          </h2>
-        </div>
-
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
-          <CornerFrame class="bg-[#141312] p-5">
-            <span class="font-display text-base text-white block mb-1.5">Table Holding Policy</span>
-            <p class="text-xs text-[#F5EFEB]/70 font-light leading-relaxed">
-              Tables are held for 10 minutes (lunch) and 15 minutes (dinner) past your reserved time before being released to walk-in diners.
-            </p>
-          </CornerFrame>
-
-          <CornerFrame class="bg-[#141312] p-5">
-            <span class="font-display text-base text-white block mb-1.5">5 K-BBQ Tables Daily</span>
-            <p class="text-xs text-[#F5EFEB]/70 font-light leading-relaxed">
-              To keep meat preparation and table-side grilling at their finest, our Cast-Iron K-BBQ is strictly limited to 5 tables per day.
-            </p>
-          </CornerFrame>
-
-          <CornerFrame class="bg-[#141312] p-5">
-            <span class="font-display text-base text-white block mb-1.5">Dining Duration</span>
-            <p class="text-xs text-[#F5EFEB]/70 font-light leading-relaxed">
-              Dining time is up to 120 minutes during peak hours. Please kindly modify or cancel your reservation at least 2 hours prior.
-            </p>
-          </CornerFrame>
-
-          <CornerFrame class="bg-[#141312] p-5">
-            <span class="font-display text-base text-white block mb-1.5">Group Gatherings (> 8 Pax)</span>
-            <p class="text-xs text-[#F5EFEB]/70 font-light leading-relaxed">
-              For gatherings of more than 8 guests, please connect with our team directly via WhatsApp or call <strong class="text-white">+65 6222 1206</strong>.
-            </p>
-          </CornerFrame>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- Architectural Footer -->
-  <QitchenFooter
-    restaurantName={restaurant.name}
-    address={`${restaurant.address}, ${restaurant.city} ${restaurant.postalCode}`}
-    phone={restaurant.phone}
-    instagram={restaurant.social.instagram}
-  />
+    <!-- Architectural Footer -->
+    <QitchenFooter
+      restaurantName={restaurant.name}
+      address={`${restaurant.address}, ${restaurant.city} ${restaurant.postalCode}`}
+      phone={restaurant.phone}
+      instagram={restaurant.social.instagram}
+    />
+  </div>
 </RestaurantDemoLayout>

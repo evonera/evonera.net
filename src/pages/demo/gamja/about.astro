@@ -1,0 +1,179 @@
+---
+import RestaurantDemoLayout from "../../../layouts/RestaurantDemoLayout.astro";
+import QitchenNavbar from "../../../components/restaurant/qitchen/QitchenNavbar.astro";
+import CornerFrame from "../../../components/restaurant/qitchen/CornerFrame.astro";
+import QitchenFooter from "../../../components/restaurant/qitchen/QitchenFooter.astro";
+import data from "../../../data/restaurants/gamja.json";
+
+const { restaurant, story } = data;
+---
+
+<RestaurantDemoLayout
+  restaurantData={data}
+  title={`Our Story & Craft | ${restaurant.name} Telok Ayer`}
+  description={`Discover the culinary craft of Master Chef Nam Wan-Hyuk and the founding story of ${restaurant.name} at 21 Boon Tat Street.`}
+  currentPath="/demo/gamja/about"
+  hideHeader={true}
+  hideFooter={true}
+>
+  <div class="min-h-screen bg-[#0A0B0A] text-[#F5EFEB] flex flex-col justify-between">
+    
+    <!-- Top Floating Navbar Container -->
+    <div class="p-4 sm:p-6 max-w-7xl mx-auto w-full flex items-center justify-between">
+      <QitchenNavbar currentPath="/demo/gamja/about" bookUrl="/demo/gamja/reservations" />
+      <div class="hidden sm:block text-xs uppercase tracking-[0.25em] text-[#DAC5A7]/70 font-mono">
+        EST. 2024 • TELOK AYER
+      </div>
+    </div>
+
+    <!-- Main About Editorial Canvas -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 flex-grow w-full">
+      
+      <!-- Page Title & Introduction -->
+      <div class="max-w-3xl mb-12 sm:mb-16">
+        <div class="inline-flex items-center gap-2 text-xs uppercase tracking-[0.28em] text-[#DAC5A7] font-medium mb-4">
+          <span class="w-1.5 h-1.5 rounded-full bg-[#C23B22]"></span>
+          <span>THE FOUNDING STORY • SHIN NAM F&B</span>
+        </div>
+        <h1 class="font-display text-4xl sm:text-5xl md:text-6xl font-normal text-white tracking-tight leading-tight mb-6">
+          When Shin Meets Nam: Honest Korean Soul Food
+        </h1>
+        <p class="text-base sm:text-lg text-[#F5EFEB]/75 font-light leading-relaxed">
+          SHIN NAM F&B was born from the harmony of two founders: Shin Jae-Yoon (The Energetic Host) and Master Chef Nam Wan-Hyuk (The Master Chef). In Korean, "Shin Nam" (신남) means "Exciting" - bringing genuine warmth, rich flavors, and honest hospitality to 21 Boon Tat Street.
+        </p>
+      </div>
+
+      <!-- Split Story Bento -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center mb-16">
+        
+        <!-- Col 1: Master Chef Nam Portrait in CornerFrame (5 cols) -->
+        <div class="lg:col-span-5 w-full">
+          <CornerFrame class="bg-[#141312] overflow-hidden group shadow-2xl">
+            <div class="relative h-[480px] sm:h-[540px] w-full overflow-hidden">
+              <img
+                src="/demo/gamja/chef-nam.jpg"
+                alt="Master Chef Nam Wan-Hyuk, Tsuji Culinary Institute Graduate"
+                class="w-full h-full object-cover object-top filter brightness-[0.92] contrast-[1.05] transform group-hover:scale-105 transition-transform duration-700"
+                loading="eager"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-[#0A0B0A] via-transparent to-black/25"></div>
+
+              <!-- Top Credential Pill -->
+              <div class="absolute top-4 left-4 z-10">
+                <span class="px-3 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/15 text-[10px] uppercase tracking-widest text-[#DAC5A7] font-semibold">
+                  Tsuji Culinary Institute
+                </span>
+              </div>
+
+              <!-- Bottom Chef Label -->
+              <div class="absolute inset-x-0 bottom-0 p-6 z-10">
+                <span class="text-[10px] uppercase tracking-[0.25em] text-[#DAC5A7] font-bold block mb-1">
+                  HEAD CHEF & CO-FOUNDER
+                </span>
+                <p class="font-display text-2xl font-normal text-white">
+                  Nam Wan-Hyuk
+                </p>
+                <p class="text-xs text-[#F5EFEB]/70 mt-1">
+                  15+ Years Directorship across Seoul, Tokyo & Hong Kong
+                </p>
+              </div>
+            </div>
+          </CornerFrame>
+        </div>
+
+        <!-- Col 2: Narrative & Philosophy (7 cols) -->
+        <div class="lg:col-span-7 flex flex-col items-start space-y-6">
+          
+          <!-- The Potato Philosophy Highlight Box -->
+          <div class="w-full p-6 sm:p-7 rounded-2xl bg-[#141312] border border-[#DAC5A7]/30 shadow-xl">
+            <span class="text-2xl text-[#DAC5A7] block mb-2">🥔</span>
+            <p class="font-display text-xl sm:text-2xl text-white font-normal italic leading-relaxed mb-3">
+              "Potatoes are never the main character, but the ultimate partner that completes every delicious moment at GAMJA."
+            </p>
+            <span class="text-xs uppercase tracking-widest text-[#DAC5A7] font-semibold block">
+              - Master Chef Nam Wan-Hyuk
+            </span>
+          </div>
+
+          <!-- The Unhurried Simmer Narrative -->
+          <div class="space-y-4 text-sm sm:text-base text-[#F5EFEB]/75 font-light leading-relaxed">
+            <p>
+              Chef Nam was classically trained at Japan's famed Tsuji Culinary Institute and honed his craft launching and managing over 10 dining concepts across Seoul, Tokyo, and Hong Kong (including the beloved Mister Gyoza and Woojik Seoul).
+            </p>
+            <p>
+              At GAMJA, every pot of Gamjatang begins with four hours of cold-water bone soaking to draw out all impurities, followed by a vigorous blanching and low-heat simmering with a secret paste of three distinct Korean Gochugaru chili varieties, crushed garlic, and fresh ginger. The pork effortlessly pulls apart from the bone, while golden potato chunks absorb the savory broth.
+            </p>
+          </div>
+
+          <!-- Michelin 3-Star Guest Endorsement -->
+          <div class="w-full p-5 rounded-xl bg-white/[0.03] border border-white/10 flex items-start gap-4">
+            <span class="text-2xl flex-shrink-0 text-[#DAC5A7]">⭐️</span>
+            <div>
+              <strong class="text-white text-xs sm:text-sm font-medium block mb-1">
+                VIP Connoisseur Haven: Michelin 3-Star Chef Yim Jungsik
+              </strong>
+              <p class="text-xs text-[#F5EFEB]/70 font-light leading-relaxed">
+                During the Singapore F1 Grand Prix, Michelin 3-Star Chef Yim Jungsik (Jungsik Seoul & NYC) and his entire culinary crew selected GAMJA as their after-hours soul-food sanctuary after cooking at the F1 Paddock Club.
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- 4 Pillars / Review Badges (Signature Qitchen Component) -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16">
+        <CornerFrame class="bg-[#141312] p-5 text-center">
+          <span class="text-xs font-mono text-[#DAC5A7] block mb-1">01 / CRAFT</span>
+          <span class="font-display text-2xl text-white block">4 Hours</span>
+          <span class="text-[11px] text-[#F5EFEB]/60 uppercase tracking-wider block mt-1">Slow Simmer</span>
+        </CornerFrame>
+
+        <CornerFrame class="bg-[#141312] p-5 text-center">
+          <span class="text-xs font-mono text-[#DAC5A7] block mb-1">02 / HERITAGE</span>
+          <span class="font-display text-2xl text-white block">Tsuji Institute</span>
+          <span class="text-[11px] text-[#F5EFEB]/60 uppercase tracking-wider block mt-1">Culinary Mastery</span>
+        </CornerFrame>
+
+        <CornerFrame class="bg-[#141312] p-5 text-center">
+          <span class="text-xs font-mono text-[#DAC5A7] block mb-1">03 / EXCLUSIVE</span>
+          <span class="font-display text-2xl text-white block">5 Tables Daily</span>
+          <span class="text-[11px] text-[#F5EFEB]/60 uppercase tracking-wider block mt-1">Cast-Iron K-BBQ</span>
+        </CornerFrame>
+
+        <CornerFrame class="bg-[#141312] p-5 text-center">
+          <span class="text-xs font-mono text-[#DAC5A7] block mb-1">04 / DAY DRINK</span>
+          <span class="font-display text-2xl text-white block">50% Off Lunch</span>
+          <span class="text-[11px] text-[#F5EFEB]/60 uppercase tracking-wider block mt-1">Terra, Soju & Beer</span>
+        </CornerFrame>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 py-6">
+        <a
+          href="/demo/gamja/reservations"
+          class="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-[#DAC5A7] hover:bg-white text-[#0A0B0A] text-xs uppercase tracking-widest font-semibold transition-all duration-200 shadow-xl group"
+        >
+          <span>Reserve a Table</span>
+          <span class="transform group-hover:translate-x-1 transition-transform">→</span>
+        </a>
+        <a
+          href="/demo/gamja/menu"
+          class="inline-flex items-center gap-2 px-7 py-4 rounded-full bg-white/[0.04] hover:bg-white/[0.08] border border-white/15 text-[#F5EFEB] text-xs uppercase tracking-widest font-medium transition-colors"
+        >
+          <span>Explore Full Menu</span>
+        </a>
+      </div>
+
+    </main>
+
+    <!-- Architectural Qitchen Footer -->
+    <QitchenFooter
+      restaurantName={restaurant.name}
+      address={`${restaurant.address}, ${restaurant.city} ${restaurant.postalCode}`}
+      phone={restaurant.phone}
+      instagram={restaurant.social.instagram}
+    />
+  </div>
+</RestaurantDemoLayout>

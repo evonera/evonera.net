@@ -8,6 +8,7 @@ interface Props {
   description?: string;
   currentPath?: string;
   hideFooter?: boolean;
+  hideHeader?: boolean;
 }
 
 const {
@@ -16,6 +17,7 @@ const {
   description,
   currentPath = Astro.url.pathname,
   hideFooter = false,
+  hideHeader = false,
 } = Astro.props;
 
 const data = restaurantData;
@@ -205,7 +207,7 @@ const schemaData = {
   </head>
   <body class="min-h-screen flex flex-col" style="background-color: var(--color-primary); color: var(--color-on-primary);">
     <!-- Top Demo Banner (Non-intrusive) -->
-    {demo.isDemo && (
+    {demo.isDemo && !hideHeader && (
       <aside aria-label="Demo notice" class="w-full bg-black/40 text-[var(--color-on-primary)]/80 text-xs py-2 px-4 text-center border-b border-[var(--color-on-primary)]/10 flex items-center justify-center gap-2">
         <span>Concept demo prepared for <strong>{demo.recipientName || restaurant.name}</strong></span>
         <span class="hidden sm:inline opacity-40">•</span>
@@ -214,6 +216,7 @@ const schemaData = {
     )}
 
     <!-- Navigation Header -->
+    {!hideHeader && (
     <header class="sticky top-0 z-40 w-full transition-all duration-300 backdrop-blur-md border-b border-[var(--color-on-primary)]/10" style="background-color: color-mix(in srgb, var(--color-primary) 88%, transparent);" id="main-header">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between relative">
         <!-- Spacer on mobile to center the logo -->
@@ -273,6 +276,7 @@ const schemaData = {
         </div>
       </div>
     </header>
+    )}
 
     <!-- Full-Screen Mobile / Desktop Overlay Menu -->
     <div

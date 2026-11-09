@@ -26,7 +26,6 @@ const { restaurant, hero, sections, story } = data;
     image={hero.image}
     ctaLabel={hero.ctaLabel}
     ctaHref="/demo/gamja/reservations"
-    eyebrow={hero.eyebrow}
     imageAlt="GAMJA bubbling traditional Gamjatang pork bone stew"
   />
 
@@ -37,7 +36,7 @@ const { restaurant, hero, sections, story } = data;
     eyebrow="Authentic Korean Taste & Soul"
   />
 
-  <!-- 3. Five-Tile Image Strip -->
+  <!-- 3. Four-Tile Image Strip -->
   <FiveTileStrip tiles={sections.fiveTiles} />
 
   <!-- 4. Feature Split Block -->
@@ -57,7 +56,7 @@ const { restaurant, hero, sections, story } = data;
       <div class="md:col-span-5 h-[460px] sm:h-[520px] rounded-2xl overflow-hidden shadow-2xl relative">
         <img
           src={story.image}
-          alt="Michelin 3-Star Chef Yim Jungsik and the Jungsik team at GAMJA with the founders"
+          alt="Master Chef Nam Wan-Hyuk at GAMJA 21 Boon Tat Street"
           class="w-full h-full object-cover object-center filter brightness-[0.9]"
           loading="lazy"
         />
@@ -65,7 +64,7 @@ const { restaurant, hero, sections, story } = data;
         <div class="absolute inset-x-0 bottom-0 p-6 text-[var(--color-on-primary)]">
           <span class="text-xs uppercase tracking-widest text-[var(--color-accent)] font-semibold block">{story.chefRole}</span>
           <p class="font-display text-2xl font-light text-[var(--color-on-primary)]">{story.chefName}</p>
-          <span class="text-[11px] text-[var(--color-on-primary)]/70 block mt-1">Hosting Michelin 3-Star Chef Yim Jungsik (F1 GP Singapore)</span>
+          <span class="text-[11px] text-[var(--color-on-primary)]/70 block mt-1">SHIN NAM F&B • 21 Boon Tat Street</span>
         </div>
       </div>
 
@@ -76,11 +75,21 @@ const { restaurant, hero, sections, story } = data;
         <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-light leading-[1.2] mb-6">
           {story.title}
         </h2>
-        <div class="space-y-4 text-base sm:text-lg text-[var(--color-on-primary)]/85 font-light leading-relaxed mb-8">
+        <div class="space-y-4 text-base sm:text-lg text-[var(--color-on-primary)]/85 font-light leading-relaxed mb-6">
           {story.paragraphs.map((p) => (
             <p>{p}</p>
           ))}
         </div>
+
+        <!-- VIP Guest Endorsement Callout -->
+        <div class="p-4 rounded-xl border border-[var(--color-on-primary)]/15 bg-black/25 text-xs text-[var(--color-on-primary)]/80 flex items-start gap-3 mb-6">
+          <span class="text-base flex-shrink-0">🏎️</span>
+          <div>
+            <strong class="text-[var(--color-accent)] block mb-0.5">VIP Guest Endorsement</strong>
+            <span>During the Singapore F1 Grand Prix, Michelin 3-Star Chef Yim Jungsik and the Jungsik dining crew chose GAMJA as their soul-food haven after cooking at the F1 Paddock Club.</span>
+          </div>
+        </div>
+
         <div class="p-4 rounded-xl border border-[var(--color-on-primary)]/15 bg-black/20 text-xs sm:text-sm text-[var(--color-accent)] font-medium mb-6">
           "{story.quote}"
         </div>

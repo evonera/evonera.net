@@ -1,6 +1,6 @@
 ---
 import RestaurantDemoLayout from "../../../layouts/RestaurantDemoLayout.astro";
-import ReservationForm from "../../../components/restaurant/ReservationForm";
+import ReservationForm from "../../../components/restaurant/ReservationForm.astro";
 import data from "../../../data/restaurants/gamja.json";
 
 const { restaurant, reservations } = data;
@@ -8,15 +8,15 @@ const { restaurant, reservations } = data;
 
 <RestaurantDemoLayout
   restaurantData={data}
-  title={`Table Reservations | ${restaurant.name} Telok Ayer`}
-  description={`Request a table or KBBQ reservation at ${restaurant.name} (21 Boon Tat Street, Singapore). Connect directly with the team via WhatsApp.`}
+  title={`Table & BBQ Reservations | ${restaurant.name} Telok Ayer`}
+  description={`Request a dining table or K-BBQ seating at ${restaurant.name} (21 Boon Tat Street, Singapore). Book instantly online or connect directly via WhatsApp.`}
   currentPath="/demo/gamja/reservations"
 >
   <!-- Subpage Header -->
   <section class="w-full text-[var(--color-on-primary)] pt-28 pb-12 sm:pt-36 sm:pb-16 px-4 sm:px-6 text-center border-b border-[var(--color-on-primary)]/10" style="background-color: color-mix(in srgb, var(--color-primary) 90%, black);">
     <div class="max-w-2xl mx-auto">
       <span class="text-xs uppercase tracking-[0.3em] text-[var(--color-accent)] font-semibold mb-3 block">
-        Direct Table Bookings
+        Direct Table & BBQ Bookings
       </span>
       <h1 class="font-display text-4xl sm:text-5xl md:text-6xl font-light tracking-tight mb-4 text-[var(--color-on-primary)]">
         {reservations.title}
@@ -30,17 +30,39 @@ const { restaurant, reservations } = data;
   <!-- Reservation Form Area (Surface Background) -->
   <section class="w-full bg-[var(--color-surface)] py-16 sm:py-24 px-4 sm:px-6">
     <div class="max-w-4xl mx-auto">
-      <!-- React Form Component -->
+      <!-- Instant Online Booking Option (MyNeon) -->
+      <div class="max-w-xl mx-auto mb-8 p-5 rounded-2xl bg-white border border-[var(--color-primary)]/20 shadow-sm flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+        <div>
+          <span class="text-[10px] uppercase tracking-[0.25em] text-[var(--color-primary)] font-bold block mb-1">
+            Instant Confirmation
+          </span>
+          <p class="text-sm font-medium text-[var(--color-ink)]">
+            Prefer immediate online table confirmation?
+          </p>
+          <p class="text-xs text-[var(--color-ink)]/70">
+            Book live via GAMJA's official Neon Table booking system.
+          </p>
+        </div>
+        <a
+          href="https://myneon.me/?m=booking&sno=1500"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center justify-center font-medium rounded-full bg-[var(--color-primary)] text-[var(--color-on-primary)] text-xs uppercase tracking-widest px-6 py-3 shadow hover:shadow-md transition-all duration-200 flex-shrink-0"
+        >
+          Book on MyNeon →
+        </a>
+      </div>
+
+      <!-- Astro Form Component -->
       <ReservationForm
-        client:load
         whatsappNumber={restaurant.whatsapp}
         restaurantName={restaurant.name}
-        recipientName="Shin Jae-Yun & Chef Nam Wan-Hyuk"
+        recipientName="Shin Jae-Yoon & Chef Nam Wan-Hyuk"
         seatingTimes={reservations.seatingTimes}
         capacityText={reservations.capacityText}
-        closedDays={[]}
         closedDaysNotice={reservations.closedDaysNotice}
         maxPartySize={12}
+        eyebrow="Dining Room & K-BBQ Request"
       />
 
       <!-- Policies & Dining Information Grid -->
@@ -51,30 +73,30 @@ const { restaurant, reservations } = data;
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 text-xs leading-relaxed">
           <div class="space-y-2 p-4 rounded-xl bg-white border border-[var(--color-ink)]/10 shadow-sm">
-            <span class="font-semibold block text-sm text-[var(--color-primary)]">Open 7 Days a Week</span>
+            <span class="font-semibold block text-sm text-[var(--color-primary)]">Table Holding Policy</span>
             <p class="text-[var(--color-ink)]/75">
-              Weekday lunch from 11:00 AM to 3:00 PM and dinner from 5:30 PM to 11:00 PM. Weekends run all day from 12:00 PM to 10:00 PM without break.
+              Tables are held for 10 minutes (lunch) and 15 minutes (dinner) past your reserved time before being released to walk-in diners.
             </p>
           </div>
 
           <div class="space-y-2 p-4 rounded-xl bg-white border border-[var(--color-ink)]/10 shadow-sm">
             <span class="font-semibold block text-sm text-[var(--color-primary)]">5 K-BBQ Tables Daily</span>
             <p class="text-[var(--color-ink)]/75">
-              To keep meat preparation and table-side grilling at their finest, our Cast-Iron K-BBQ is limited to only 5 tables a day. Advance booking is recommended.
+              To keep meat preparation and table-side grilling at their finest, our Cast-Iron K-BBQ is strictly limited to only 5 tables per day.
             </p>
           </div>
 
           <div class="space-y-2 p-4 rounded-xl bg-white border border-[var(--color-ink)]/10 shadow-sm">
-            <span class="font-semibold block text-sm text-[var(--color-primary)]">Weekend Early Bird Special</span>
+            <span class="font-semibold block text-sm text-[var(--color-primary)]">Dining Duration & Changes</span>
             <p class="text-[var(--color-ink)]/75">
-              Visit before 12:00 PM on weekends with 2+ guests and order a main dish to receive a complimentary plate of Ppyeogui (Spicy Grilled Pork Bones).
+              Dining time is up to 120 minutes during peak hours. Please kindly modify or cancel your reservation at least 2 hours prior.
             </p>
           </div>
 
           <div class="space-y-2 p-4 rounded-xl bg-white border border-[var(--color-ink)]/10 shadow-sm">
-            <span class="font-semibold block text-sm text-[var(--color-primary)]">Direct WhatsApp Booking</span>
+            <span class="font-semibold block text-sm text-[var(--color-primary)]">Group Bookings (> 8 Pax)</span>
             <p class="text-[var(--color-ink)]/75">
-              This concept booking form sends your booking request directly to the GAMJA team via WhatsApp. No third-party platform booking fees.
+              For gatherings of more than 8 guests, please connect with our team directly via WhatsApp or call +65 6222 1206.
             </p>
           </div>
         </div>

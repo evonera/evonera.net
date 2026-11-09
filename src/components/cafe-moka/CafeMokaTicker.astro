@@ -1,0 +1,35 @@
+---
+import data from '../../data/restaurants/cafe_moka.json';
+const { ticker } = data;
+const items = [...ticker, ...ticker, ...ticker];
+---
+
+<div class="py-6 bg-[#FFFFA8] text-[#362618] overflow-hidden whitespace-nowrap border-y border-[#362618]/20 select-none">
+  <div class="inline-flex items-center gap-8 animate-moka-marquee">
+    {items.map((text) => (
+      <span class="inline-flex items-center gap-6 font-display font-black text-xl sm:text-2xl uppercase tracking-tighter">
+        <span>{text}</span>
+        <span class="w-2.5 h-2.5 rounded-full bg-[#362618]"></span>
+      </span>
+    ))}
+  </div>
+</div>
+
+<style>
+  @keyframes moka-marquee {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-33.333%);
+    }
+  }
+
+  .animate-moka-marquee {
+    animation: moka-marquee 24s linear infinite;
+  }
+
+  .animate-moka-marquee:hover {
+    animation-play-state: paused;
+  }
+</style>

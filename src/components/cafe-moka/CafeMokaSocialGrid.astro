@@ -1,0 +1,48 @@
+---
+import data from '../../data/restaurants/cafe_moka.json';
+const { socialGrid } = data;
+---
+
+<section class="relative bg-[#362618] text-[#FEFAE7] py-24 md:py-32 px-6 md:px-12 lg:px-16 overflow-hidden">
+  <div class="max-w-7xl mx-auto space-y-12">
+    
+    <div class="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-4 pb-8 border-b border-[#FEFAE7]/15">
+      <div>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FEFAE7]/10 text-[#FFFFA8] text-xs uppercase tracking-widest font-semibold mb-3">
+          {socialGrid.badge}
+        </div>
+        <h2 class="font-display text-4xl sm:text-5xl md:text-6xl font-black lowercase tracking-tight">
+          {socialGrid.title}
+        </h2>
+      </div>
+      <a
+        href={`https://instagram.com/${socialGrid.handle.replace('@', '')}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="font-mono text-sm sm:text-base text-[#FFFFA8] hover:underline"
+      >
+        {socialGrid.handle}
+      </a>
+    </div>
+
+    <!-- 4-Column Photo Grid -->
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+      {socialGrid.photos.map((photo) => (
+        <div class="rounded-2xl md:rounded-[28px] overflow-hidden aspect-square relative group bg-black/40 border border-white/10">
+          <img
+            src={photo.url}
+            alt={photo.caption}
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+            loading="lazy"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-4 flex items-end">
+            <p class="text-xs text-[#FEFAE7] font-medium leading-snug">
+              {photo.caption}
+            </p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>

@@ -1,0 +1,299 @@
+{
+  "branding": {
+    "brandName": "moka",
+    "brandSub": "neighbourhood cafe & specialty roasters",
+    "tagline": "a neighbourhood cafe for good coffee, fresh food, and slow mornings.",
+    "cityClock": "Asia/Singapore",
+    "cityLabel": "singapore",
+    "colors": {
+      "bg": "#8A6E5A",
+      "text": "#FEFAE7",
+      "darkRoast": "#362618",
+      "frothCream": "#FEFAE7",
+      "butterYellow": "#FFFFA8",
+      "cardBg": "#FEFAE7",
+      "cardText": "#362618",
+      "muted": "#EFE6DD",
+      "border": "rgba(254, 250, 231, 0.2)"
+    },
+    "fonts": {
+      "displayFont": "'Unbounded', sans-serif",
+      "scriptFont": "'Caveat', cursive",
+      "bodyFont": "'Plus Jakarta Sans', sans-serif"
+    }
+  },
+  "hero": {
+    "eyebrow": "open daily from 07:30",
+    "badge": "fresh roast & slow pours",
+    "titleMain": "a neighbourhood cafe for good coffee, fresh food, days that start solo, get social, and take a detour.",
+    "scriptAccent": "always warm.",
+    "heroImage": "https://framerusercontent.com/images/SBS8PcUgI8Kp3RdmFxjNvcJm85Q.webp?width=1122&height=1402",
+    "scrollHint": "scroll to explore"
+  },
+  "aboutDeck": {
+    "badge": "our pace",
+    "title": "coffee when you need it, food when you are hungry, something sweet because obviously.",
+    "cards": [
+      {
+        "id": "card-1",
+        "tag": "chapter 01",
+        "title": "careful roasting, thoughtful sourcing.",
+        "script": "small batches daily",
+        "desc": "we source directly from micro-lot farms across east africa and latin america. every batch is profiled to preserve delicate florals and natural fruit sugars.",
+        "image": "https://framerusercontent.com/images/o0vWqc34QxKj4aqb8nQMU82Ja8k.webp?width=1023&height=1537",
+        "stat": "100%",
+        "statLabel": "direct trade arabica"
+      },
+      {
+        "id": "card-2",
+        "tag": "chapter 02",
+        "title": "baked before sunrise.",
+        "script": "laminated by hand",
+        "desc": "our viennoiserie and sourdough rolls are laminated in-house using cultured normandy butter. fresh out of the ovens at 7:00 am sharp.",
+        "image": "https://framerusercontent.com/images/z6K0XmYNTuUIykPcz6uixqtw.webp?width=1122&height=1402",
+        "stat": "72 hrs",
+        "statLabel": "slow cold ferment"
+      },
+      {
+        "id": "card-3",
+        "tag": "chapter 03",
+        "title": "community table and sunlit corners.",
+        "script": "stay as long as you like",
+        "desc": "plug in, read a chapter, talk with the baristas, or watch the world drift past. no rush, no assigned seating, just warm cups.",
+        "image": "https://framerusercontent.com/images/VnTY4dI0HMTqURXNDJPFC6fyQgk.webp?width=1076&height=1462",
+        "stat": "07:30 - 18:00",
+        "statLabel": "seven days a week"
+      }
+    ]
+  },
+  "splitStickyMenu": {
+    "badge": "kitchen & bar",
+    "title": "menu",
+    "stickyTeaser": "First sips, flaky layers, cravings, buttery crumbs, gooey centers, second coffees, warm cups.",
+    "stickyImage": "https://framerusercontent.com/images/8PVblnhG6dCFbdVOBgxDTkrZPU.webp?width=1122&height=1402",
+    "categories": [
+      {
+        "id": "drinks",
+        "name": "drinks",
+        "subtitle": "espresso, filter, botanicals & teas",
+        "items": [
+          {
+            "name": "Cappuccino",
+            "price": "$5.00",
+            "desc": "Double shot house espresso, velvety microfoam, dusted cocoa.",
+            "tags": ["signature", "whole milk / oat"],
+            "image": "https://framerusercontent.com/images/QvKbi5hUi02cZW7sm6jCDherYKI.webp?width=1254&height=1254",
+            "isSignature": true
+          },
+          {
+            "name": "Flat White",
+            "price": "$5.00",
+            "desc": "Double ristretto with silk steamed oat milk, sweet caramel undertones.",
+            "tags": ["classic", "oat milk standard"],
+            "image": "https://framerusercontent.com/images/aLSDunpMBeyNlXzLhWp2WJBYpA.webp?width=1254&height=1254",
+            "isSignature": false
+          },
+          {
+            "name": "House Cold Brew",
+            "price": "$6.00",
+            "desc": "Steeped for 18 hours in cold filtered spring water. Notes of black cherry and cacao nibs.",
+            "tags": ["chilled", "low acidity"],
+            "image": "https://framerusercontent.com/images/5fLahH3uspA24FDcRrqAEgxqw.png?width=1254&height=1254",
+            "isSignature": true
+          },
+          {
+            "name": "Espresso Romano",
+            "price": "$4.00",
+            "desc": "Single origin double espresso pulled over organic candied lemon peel.",
+            "tags": ["bright", "citrus finish"],
+            "image": "https://framerusercontent.com/images/3G23Yy4J6W5qNnKev06B62uEGE.webp?width=1254&height=1254",
+            "isSignature": false
+          },
+          {
+            "name": "Iced Uji Matcha Latte",
+            "price": "$6.50",
+            "desc": "Ceremonial grade stone-ground Uji matcha, clover honey, creamy milk.",
+            "tags": ["tea", "ceremonial grade"],
+            "image": "https://framerusercontent.com/images/xZhIQfZ3loY5NG3n6ahsC1jCI.png?width=1122&height=1402",
+            "isSignature": false
+          },
+          {
+            "name": "Cardamom Spiced Chai",
+            "price": "$6.00",
+            "desc": "Slow simmered assam black tea, crushed green cardamom pods, cinnamon bark, whole cloves.",
+            "tags": ["spiced", "house blend"],
+            "image": "https://framerusercontent.com/images/zk57rvdfNIL2aTtEeEFe7wpWBo.png?width=1024&height=1536",
+            "isSignature": false
+          }
+        ]
+      },
+      {
+        "id": "bakery",
+        "name": "bakery & sweets",
+        "subtitle": "rolled, proved, and baked every morning",
+        "items": [
+          {
+            "name": "Cardamom Cinnamon Bun",
+            "price": "$5.50",
+            "desc": "Swedish braided brioche dough with crushed green cardamom, cinnamon sugar, and pearl crystals.",
+            "tags": ["bestseller", "warm spices"],
+            "image": "https://framerusercontent.com/images/x7CuIEp9dvdAJcoyihKzTPY0Isk.png?width=1122&height=1402",
+            "isSignature": true
+          },
+          {
+            "name": "Cultured Butter Croissant",
+            "price": "$4.50",
+            "desc": "36 laminated honeycomb folds made with Normandy AOP butter. Crisp shell, tender core.",
+            "tags": ["classic", "normandy butter"],
+            "image": "https://framerusercontent.com/images/bv2CyWuY9XYs2pKEP1s7SQHbXE.png?width=1122&height=1402",
+            "isSignature": false
+          },
+          {
+            "name": "Valrhona Pain au Chocolat",
+            "price": "$5.20",
+            "desc": "Two batons of bittersweet 66% dark Valrhona chocolate folded into golden puff pastry.",
+            "tags": ["chocolate", "flaky"],
+            "image": "https://framerusercontent.com/images/RvuCaUs2Xo41qNRBEckrV4G8zU.png?width=1402&height=1122",
+            "isSignature": false
+          },
+          {
+            "name": "Espresso Tiramisu",
+            "price": "$8.50",
+            "desc": "Savoiardi ladyfingers soaked in our fresh house roast, layered with whipped zabaglione mascarpone.",
+            "tags": ["dessert", "contains caffeine"],
+            "image": "https://framerusercontent.com/images/QvKbi5hUi02cZW7sm6jCDherYKI.webp?width=1254&height=1254",
+            "isSignature": true
+          }
+        ]
+      },
+      {
+        "id": "savory",
+        "name": "savory plates",
+        "subtitle": "warm toasts and crusty pressed sourdough",
+        "items": [
+          {
+            "name": "Rosemary Sea Salt Focaccia",
+            "price": "$8.00",
+            "desc": "Naturally leavened high-hydration focaccia dimpled with virgin olive oil, confit garlic, and flaky sea salt.",
+            "tags": ["warm", "vegan"],
+            "image": "https://framerusercontent.com/images/aLSDunpMBeyNlXzLhWp2WJBYpA.webp?width=1254&height=1254",
+            "isSignature": false
+          },
+          {
+            "name": "Whipped Ricotta Toast",
+            "price": "$9.50",
+            "desc": "Grilled country sourdough, fresh whipped citrus ricotta, wild thyme honey, crushed pistachios.",
+            "tags": ["signature", "vegetarian"],
+            "image": "https://framerusercontent.com/images/5fLahH3uspA24FDcRrqAEgxqw.png?width=1254&height=1254",
+            "isSignature": true
+          }
+        ]
+      }
+    ]
+  },
+  "roastStory3D": {
+    "sectionBadge": "the bean story",
+    "title": "roast profile",
+    "scriptAccent": "single origin precision",
+    "subtitle": "scroll to inspect the bean in real 3D space. high-grown heirloom cultivars, medium-light roast curve, bursting with candied bergamot and honeycomb.",
+    "modelPath": "/demo/cafe-moka/coffee_bean.glb",
+    "normalMapPath": "/demo/cafe-moka/coffee_bean_normal.webp",
+    "modelScale": 3.7,
+    "clayColor": "#3D2B1B",
+    "specs": [
+      {
+        "label": "origin",
+        "value": "yirgacheffe & huila",
+        "detail": "ethiopia heirloom + colombia caturra"
+      },
+      {
+        "label": "elevation",
+        "value": "1,850 - 2,100 masl",
+        "detail": "dense high-altitude cell structure"
+      },
+      {
+        "label": "process",
+        "value": "anaerobic natural",
+        "detail": "slow 72h fruit fermentation"
+      },
+      {
+        "label": "profile",
+        "value": "medium light",
+        "detail": "clean finish with zero astringency"
+      },
+      {
+        "label": "cup notes",
+        "value": "jasmine, bergamot, apricot",
+        "detail": "lingering raw wildflower honey"
+      }
+    ]
+  },
+  "merchShowcase": {
+    "badge": "merch & carry",
+    "title": "takeaway objects",
+    "scriptAccent": "made to last",
+    "description": "heavyweight cotton canvas, matte stoneware ceramics, and freshly sealed whole bean bags.",
+    "items": [
+      {
+        "title": "heavy canvas market tote",
+        "price": "$28",
+        "material": "16oz washed organic cotton",
+        "features": ["reinforced double handles", "inner key clip pocket", "screenprinted moka wordmark"],
+        "image": "https://framerusercontent.com/images/3G23Yy4J6W5qNnKev06B62uEGE.webp?width=1254&height=1254"
+      },
+      {
+        "title": "matte ceramic 8oz tumbler",
+        "price": "$22",
+        "material": "speckled stoneware clay",
+        "features": ["comfort grip rim", "double wall thermal insulation", "dishwasher safe"],
+        "image": "https://framerusercontent.com/images/QvKbi5hUi02cZW7sm6jCDherYKI.webp?width=1254&height=1254"
+      },
+      {
+        "title": "house blend whole beans 250g",
+        "price": "$18",
+        "material": "nitrogen sealed valve bag",
+        "features": ["roasted within 48 hours", "optimal degassing window", "tasting card enclosed"],
+        "image": "https://framerusercontent.com/images/aLSDunpMBeyNlXzLhWp2WJBYpA.webp?width=1254&height=1254"
+      }
+    ]
+  },
+  "socialGrid": {
+    "badge": "neighbourhood moments",
+    "title": "zero crumbs left.",
+    "handle": "@moka.coffee",
+    "photos": [
+      {
+        "url": "https://framerusercontent.com/images/GfGkADagM4KEibNcIiRUWlfrR0.jpg",
+        "caption": "morning light through the front windows"
+      },
+      {
+        "url": "https://framerusercontent.com/images/aNsAT3jCvt4zglbWCUoFe33Q.jpg",
+        "caption": "freshly pulled cortado and cardamom bun"
+      },
+      {
+        "url": "https://framerusercontent.com/images/BYnxEV1zjYb9bhWh1IwBZ1ZoS60.jpg",
+        "caption": "our community table on a saturday"
+      },
+      {
+        "url": "https://framerusercontent.com/images/8PVblnhG6dCFbdVOBgxDTkrZPU.webp?width=1122&height=1402",
+        "caption": "steaming oat milk at the espresso bar"
+      }
+    ]
+  },
+  "ticker": [
+    "specialty coffee",
+    "laminated pastries",
+    "neighbourhood table",
+    "direct trade beans",
+    "open 7 days",
+    "good mornings"
+  ],
+  "footer": {
+    "giantWordmark": "moka",
+    "address": "42 amoy street, singapore 069868",
+    "hours": "monday - sunday | 07:30 - 18:00",
+    "reachLabel": "whatsapp coffee desk",
+    "whatsappNumber": "6591234567",
+    "copyright": "2026 moka coffee company. all rights reserved."
+  }
+}

@@ -1,0 +1,128 @@
+---
+interface MenuItem {
+  name: string;
+  price: string;
+  description: string;
+  badge?: string;
+  image?: string;
+}
+
+interface Category {
+  name: string;
+  slug: string;
+  items: MenuItem[];
+}
+
+interface Props {
+  menu: {
+    sideTitle: string;
+    sideDescription: string;
+    categories: Category[];
+  };
+}
+
+const { menu } = Astro.props;
+---
+
+<section id="menu" class="w-full bg-[var(--color-surface)] text-[var(--color-ink)] py-24 sm:py-32 px-4 sm:px-8 border-t border-[var(--color-ink)]/10">
+  <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+    <!-- Left Sticky Rail (Pins as user browses through menu items) -->
+    <div class="lg:col-span-5 lg:sticky lg:top-28 space-y-6">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-ink)]/5 text-[var(--color-primary)] text-xs font-mono lowercase">
+        <span>counter daily menu</span>
+      </div>
+
+      <h2 class="font-display text-4xl sm:text-5xl md:text-6xl font-bold lowercase tracking-tight leading-none text-[var(--color-ink)]">
+        menu
+      </h2>
+
+      <p class="font-display text-lg sm:text-xl font-normal text-[var(--color-primary)] lowercase leading-snug">
+        {menu.sideTitle}
+      </p>
+
+      <p class="text-xs sm:text-sm text-[var(--color-ink)]/75 font-light leading-relaxed lowercase max-w-sm">
+        {menu.sideDescription}
+      </p>
+
+      <!-- Category Anchor Filter Pills -->
+      <div class="pt-4 flex flex-wrap gap-2">
+        {menu.categories.map((cat, i) => (
+          <a
+            href={`#category-${cat.slug}`}
+            class={`px-4 py-2 rounded-full text-xs font-semibold lowercase tracking-wider border transition-all ${
+              i === 0
+                ? "bg-[var(--color-ink)] text-[var(--color-surface)] border-[var(--color-ink)]"
+                : "bg-white/60 text-[var(--color-ink)] border-[var(--color-ink)]/20 hover:border-[var(--color-ink)]"
+            }`}
+          >
+            {cat.name}
+          </a>
+        ))}
+      </div>
+
+      <!-- Quick note -->
+      <div class="p-4 rounded-2xl bg-[var(--color-card)] border border-[var(--color-ink)]/10 text-[11px] text-[var(--color-ink)]/70 lowercase space-y-1">
+        <p><strong>bar note:</strong> plant-based milks (oat, almond) available at no extra charge.</p>
+        <p>pastries baked in house daily. single origins change fortnightly.</p>
+      </div>
+    </div>
+
+    <!-- Right Dynamic Menu List Column -->
+    <div class="lg:col-span-7 space-y-16">
+      {menu.categories.map((cat) => (
+        <div id={`category-${cat.slug}`} class="scroll-mt-28 space-y-6">
+          <!-- Category Section Title -->
+          <div class="flex items-baseline justify-between border-b-2 border-[var(--color-ink)] pb-3">
+            <h3 class="font-display text-2xl sm:text-3xl font-bold lowercase text-[var(--color-ink)]">
+              {cat.name}
+            </h3>
+            <span class="text-xs font-mono text-[var(--color-primary)] lowercase">
+              {cat.items.length} offerings
+            </span>
+          </div>
+
+          <!-- Items Stack -->
+          <div class="space-y-4">
+            {cat.items.map((item) => (
+              <div class="group flex items-start justify-between gap-4 p-4 sm:p-5 rounded-2xl bg-white border border-[var(--color-ink)]/10 hover:border-[var(--color-primary)] transition-all shadow-sm hover:shadow-md">
+                <div class="flex items-start gap-4">
+                  {item.image && (
+                    <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-xl overflow-hidden bg-neutral-100 flex-shrink-0 border border-black/5">
+                      <img
+                        src={item.image}
+                        alt={item.name}
+                        class="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-300"
+                        loading="lazy"
+                      />
+                    </div>
+                  )}
+
+                  <div class="space-y-1">
+                    <div class="flex items-center gap-2 flex-wrap">
+                      <h4 class="font-display text-base sm:text-lg font-semibold lowercase text-[var(--color-ink)]">
+                        {item.name}
+                      </h4>
+                      {item.badge && (
+                        <span class="px-2 py-0.5 rounded-full text-[9px] font-mono lowercase tracking-wider bg-[var(--color-primary)]/10 text-[var(--color-primary)] font-semibold">
+                          {item.badge}
+                        </span>
+                      )}
+                    </div>
+                    <p class="text-xs text-[var(--color-ink)]/70 font-light leading-relaxed lowercase max-w-md">
+                      {item.description}
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Price Tag -->
+                <div class="font-display font-bold text-sm sm:text-base text-[var(--color-ink)] flex-shrink-0 pt-0.5">
+                  {item.price}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

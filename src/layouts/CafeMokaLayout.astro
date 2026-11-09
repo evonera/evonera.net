@@ -1,0 +1,265 @@
+---
+import "../styles/globals.css";
+import data from '../data/restaurants/cafe_moka.json';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title = `${data.branding.brandName} | ${data.branding.brandSub}`, description = data.branding.tagline } = Astro.props;
+const { colors, fonts } = data.branding;
+---
+
+<!doctype html>
+<html lang="en" class="lenis lenis-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="robots" content="noindex, nofollow, noarchive" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Unbounded:wght@300;400;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Dynamic Theme Custom Properties from JSON -->
+    <style is:global define:vars={{
+      bgCol: colors.bg,
+      textCol: colors.text,
+      darkRoastCol: colors.darkRoast,
+      frothCol: colors.frothCream,
+      butterCol: colors.butterYellow,
+      cardBgCol: colors.cardBg,
+      cardTextCol: colors.cardText,
+      mutedCol: colors.muted,
+      borderCol: colors.border,
+      displayFont: fonts.displayFont,
+      scriptFont: fonts.scriptFont,
+      bodyFont: fonts.bodyFont
+    }}>
+      :root {
+        --moka-bg: var(--bgCol);
+        --moka-text: var(--textCol);
+        --moka-dark-roast: var(--darkRoastCol);
+        --moka-froth: var(--frothCol);
+        --moka-butter: var(--butterCol);
+        --moka-card-bg: var(--cardBgCol);
+        --moka-card-text: var(--cardTextCol);
+        --moka-muted: var(--mutedCol);
+        --moka-border: var(--borderCol);
+        --font-display: var(--displayFont);
+        --font-script: var(--scriptFont);
+        --font-body: var(--bodyFont);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        background-color: var(--moka-bg) !important;
+        color: var(--moka-text) !important;
+        font-family: var(--font-body) !important;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-rendering: optimizeLegibility;
+      }
+
+      body {
+        min-height: 100vh;
+        overflow-x: hidden;
+        background-color: var(--moka-bg) !important;
+        color: var(--moka-text) !important;
+      }
+
+      /* Lenis Smooth Scroll Styles */
+      html.lenis, html.lenis body {
+        height: auto;
+      }
+
+      .lenis.lenis-smooth {
+        scroll-behavior: auto !important;
+      }
+
+      .lenis.lenis-smooth [data-lenis-prevent] {
+        overscroll-behavior: contain;
+      }
+
+      .lenis.lenis-stopped {
+        overflow: hidden;
+      }
+
+      .lenis.lenis-scrolling iframe {
+        pointer-events: none;
+      }
+
+      /* Utility classes */
+      .font-display {
+        font-family: var(--font-display);
+      }
+      .font-script {
+        font-family: var(--font-script);
+      }
+      .font-body {
+        font-family: var(--font-body);
+      }
+
+      /* Custom scrollbar */
+      ::-webkit-scrollbar {
+        width: 6px;
+      }
+      ::-webkit-scrollbar-track {
+        background: var(--moka-dark-roast);
+      }
+      ::-webkit-scrollbar-thumb {
+        background: var(--moka-muted);
+        border-radius: 3px;
+      }
+    </style>
+  </head>
+  <body class="selection:bg-[#FFFFA8] selection:text-[#362618]">
+    <!-- Floating Minimal Top Bar -->
+    <header class="fixed top-0 left-0 right-0 z-50 px-6 py-4 flex items-center justify-between mix-blend-difference pointer-events-none text-[#FEFAE7]">
+      <a href="/demo/cafe-moka" class="pointer-events-auto font-display font-extrabold text-2xl tracking-tighter lowercase hover:opacity-80 transition-opacity min-h-[44px] flex items-center">
+        {data.branding.brandName}
+      </a>
+
+      <!-- Desktop Nav with >= 44px Hit Targets -->
+      <nav class="pointer-events-auto hidden md:flex items-center gap-4 text-xs font-semibold uppercase tracking-widest">
+        <a href="#about" class="px-3 py-2.5 min-h-[44px] flex items-center hover:text-[#FFFFA8] transition-colors">story</a>
+        <a href="#menu" class="px-3 py-2.5 min-h-[44px] flex items-center hover:text-[#FFFFA8] transition-colors">menu</a>
+        <a href="#roast" class="px-3 py-2.5 min-h-[44px] flex items-center hover:text-[#FFFFA8] transition-colors">the bean 3d</a>
+        <a href="#merch" class="px-3 py-2.5 min-h-[44px] flex items-center hover:text-[#FFFFA8] transition-colors">goods</a>
+      </nav>
+
+      <!-- Right Header Actions (Clock + Mobile Menu Toggle) -->
+      <div class="pointer-events-auto flex items-center gap-4 text-xs tracking-wider">
+        <div class="flex items-center gap-2">
+          <span class="inline-block w-2 h-2 rounded-full bg-[#FFFFA8] animate-pulse"></span>
+          <span class="uppercase tracking-widest text-[11px] font-medium" id="header-city-clock">{data.branding.cityLabel}</span>
+        </div>
+
+        <!-- Mobile Drawer Toggle Button -->
+        <button
+          id="mobile-nav-toggle"
+          class="md:hidden px-3 py-2 min-h-[44px] flex items-center gap-1.5 uppercase font-mono text-[11px] font-bold text-[#FFFFA8] hover:opacity-80"
+          aria-label="Toggle navigation menu"
+        >
+          <span>menu</span>
+          <svg class="w-4 h-4 fill-none stroke-current" viewBox="0 0 24 24">
+            <path d="M4 6h16M4 12h16M4 18h16" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- Mobile Drawer Overlay -->
+    <div
+      id="mobile-nav-drawer"
+      class="fixed inset-0 z-40 bg-[#362618]/95 backdrop-blur-2xl text-[#FEFAE7] flex flex-col justify-between p-8 transform -translate-y-full transition-transform duration-500 ease-in-out md:hidden"
+    >
+      <div class="flex justify-between items-center pt-2 border-b border-white/10 pb-4">
+        <span class="font-display font-extrabold text-2xl lowercase text-[#FFFFA8]">{data.branding.brandName}</span>
+        <button id="mobile-nav-close" class="min-h-[44px] px-3 py-2 text-xs font-mono uppercase text-[#FEFAE7] tracking-wider hover:text-[#FFFFA8]">
+          close [x]
+        </button>
+      </div>
+
+      <nav class="flex flex-col gap-4 text-3xl font-display font-black lowercase tracking-tight">
+        <a href="#about" class="mobile-nav-link text-[#FEFAE7] hover:text-[#FFFFA8] min-h-[48px] flex items-center border-b border-white/5 pb-2">our story</a>
+        <a href="#menu" class="mobile-nav-link text-[#FEFAE7] hover:text-[#FFFFA8] min-h-[48px] flex items-center border-b border-white/5 pb-2">kitchen & bar</a>
+        <a href="#roast" class="mobile-nav-link text-[#FEFAE7] hover:text-[#FFFFA8] min-h-[48px] flex items-center border-b border-white/5 pb-2">the 3d bean</a>
+        <a href="#merch" class="mobile-nav-link text-[#FEFAE7] hover:text-[#FFFFA8] min-h-[48px] flex items-center border-b border-white/5 pb-2">goods & carry</a>
+      </nav>
+
+      <div class="pt-6 border-t border-white/10 space-y-2 text-xs text-[var(--moka-muted)]">
+        <div>{data.footer.hours}</div>
+        <div class="font-mono text-[#FFFFA8]">{data.footer.address}</div>
+      </div>
+    </div>
+
+    <main>
+      <slot />
+    </main>
+
+    <!-- Lenis Smooth Scroll Script -->
+    <script>
+      import Lenis from 'lenis';
+
+      const lenis = new Lenis({
+        duration: 1.2,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        orientation: 'vertical',
+        gestureOrientation: 'vertical',
+        smoothWheel: true,
+        wheelMultiplier: 1.15,
+        touchMultiplier: 2,
+        infinite: false,
+      });
+
+      function raf(time: number) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+      }
+      requestAnimationFrame(raf);
+
+      // Connect internal anchor links to Lenis
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener('click', (e) => {
+          const href = (anchor as HTMLAnchorElement).getAttribute('href');
+          if (href && href.length > 1) {
+            e.preventDefault();
+            const target = document.querySelector(href);
+            if (target) {
+              lenis.scrollTo(target as HTMLElement, { offset: -20 });
+            }
+          }
+        });
+      });
+
+      // Mobile Drawer Toggle Logic
+      const mobileToggle = document.getElementById('mobile-nav-toggle');
+      const mobileClose = document.getElementById('mobile-nav-close');
+      const mobileDrawer = document.getElementById('mobile-nav-drawer');
+      const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+
+      if (mobileToggle && mobileDrawer) {
+        mobileToggle.addEventListener('click', () => {
+          mobileDrawer.classList.remove('-translate-y-full');
+        });
+      }
+      if (mobileClose && mobileDrawer) {
+        mobileClose.addEventListener('click', () => {
+          mobileDrawer.classList.add('-translate-y-full');
+        });
+      }
+      mobileLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          if (mobileDrawer) mobileDrawer.classList.add('-translate-y-full');
+        });
+      });
+
+      // City Clock Updater
+      function updateClock() {
+        const clockEl = document.getElementById('header-city-clock');
+        if (!clockEl) return;
+        const now = new Date();
+        const timeStr = now.toLocaleTimeString('en-US', {
+          timeZone: 'Asia/Singapore',
+          hour: '2-digit',
+          minute: '2-digit',
+          hour12: false
+        });
+        clockEl.textContent = `singapore ${timeStr}`;
+      }
+      setInterval(updateClock, 1000);
+      updateClock();
+    </script>
+  </body>
+</html>

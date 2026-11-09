@@ -1,16 +1,15 @@
 ---
 import RestaurantDemoLayout from "../../../layouts/RestaurantDemoLayout.astro";
-import HeroWave from "../../../components/restaurant/HeroWave.astro";
-import IntroSection from "../../../components/restaurant/IntroSection.astro";
-import FiveTileStrip from "../../../components/restaurant/FiveTileStrip.astro";
-import FeatureSplit from "../../../components/restaurant/FeatureSplit.astro";
-import PhotoCarousel from "../../../components/restaurant/PhotoCarousel.astro";
-import LocationBlock from "../../../components/restaurant/LocationBlock.astro";
-import ClosingCta from "../../../components/restaurant/ClosingCta.astro";
+import QitchenHero from "../../../components/restaurant/qitchen/QitchenHero.astro";
+import QitchenBento from "../../../components/restaurant/qitchen/QitchenBento.astro";
+import QitchenMenuShowcase from "../../../components/restaurant/qitchen/QitchenMenuShowcase.astro";
+import QitchenStory from "../../../components/restaurant/qitchen/QitchenStory.astro";
+import QitchenReservationBento from "../../../components/restaurant/qitchen/QitchenReservationBento.astro";
+import QitchenFooter from "../../../components/restaurant/qitchen/QitchenFooter.astro";
 
 import data from "../../../data/restaurants/gamja.json";
 
-const { restaurant, hero, sections, story } = data;
+const { restaurant, hero, story } = data;
 ---
 
 <RestaurantDemoLayout
@@ -18,118 +17,39 @@ const { restaurant, hero, sections, story } = data;
   title={`${restaurant.name} | ${restaurant.tagline}`}
   description={hero.subline}
   currentPath="/demo/gamja"
+  hideFooter={true}
 >
-  <!-- 1. Hero with Organic Wave Transition -->
-  <HeroWave
+  <!-- 1. Qitchen Classical Serif Hero Section with Corner Frame -->
+  <QitchenHero
     headline={hero.headline}
     subline={hero.subline}
-    image={hero.image}
-    ctaLabel={hero.ctaLabel}
+    heroImage={hero.image}
+    ctaText="Reserve a Table"
     ctaHref="/demo/gamja/reservations"
-    imageAlt="GAMJA bubbling traditional Gamjatang pork bone stew"
+    menuHref="/demo/gamja/menu"
   />
 
-  <!-- 2. Intro Section -->
-  <IntroSection
-    heading={sections.intro.heading}
-    paragraphs={sections.intro.paragraphs}
-    eyebrow="Authentic Korean Taste & Soul"
-  />
+  <!-- 2. Signature 4-Card Asymmetric Bento Grid (Gamjatang, Ppyeogui, K-BBQ, Day-Drinking) -->
+  <QitchenBento />
 
-  <!-- 3. Four-Tile Image Strip -->
-  <FiveTileStrip tiles={sections.fiveTiles} />
+  <!-- 3. Dual-Column Menu Showcase with Dotted Leaders & Badges -->
+  <QitchenMenuShowcase />
 
-  <!-- 4. Feature Split Block -->
-  <FeatureSplit
-    heading={sections.feature.heading}
-    paragraph={sections.feature.paragraph}
-    ctaLabel={sections.feature.ctaLabel}
-    ctaHref={sections.feature.ctaHref}
-    image={sections.feature.image}
-    tag={sections.feature.tag}
-    imageAlt="Master broth preparation and cast-iron grilling"
-  />
+  <!-- 4. The Founders' Story & Philosophy (Chef Nam Wan-Hyuk & Shin Jae-Yoon) -->
+  <QitchenStory chefImage={story.image} />
 
-  <!-- 5. Founders Story & Philosophy Section -->
-  <section id="story" class="w-full text-[var(--color-on-primary)] py-20 sm:py-28 px-4 sm:px-6 border-t border-[var(--color-on-primary)]/10" style="background-color: color-mix(in srgb, var(--color-primary) 85%, black);">
-    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
-      <div class="md:col-span-5 h-[460px] sm:h-[520px] rounded-2xl overflow-hidden shadow-2xl relative">
-        <img
-          src={story.image}
-          alt="Master Chef Nam Wan-Hyuk at GAMJA 21 Boon Tat Street"
-          class="w-full h-full object-cover object-center filter brightness-[0.9]"
-          loading="lazy"
-        />
-        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
-        <div class="absolute inset-x-0 bottom-0 p-6 text-[var(--color-on-primary)]">
-          <span class="text-xs uppercase tracking-widest text-[var(--color-accent)] font-semibold block">{story.chefRole}</span>
-          <p class="font-display text-2xl font-light text-[var(--color-on-primary)]">{story.chefName}</p>
-          <span class="text-[11px] text-[var(--color-on-primary)]/70 block mt-1">SHIN NAM F&B • 21 Boon Tat Street</span>
-        </div>
-      </div>
-
-      <div class="md:col-span-7 flex flex-col items-start">
-        <span class="text-xs uppercase tracking-[0.3em] text-[var(--color-accent)] font-semibold mb-3">
-          {story.tag}
-        </span>
-        <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-light leading-[1.2] mb-6">
-          {story.title}
-        </h2>
-        <div class="space-y-4 text-base sm:text-lg text-[var(--color-on-primary)]/85 font-light leading-relaxed mb-6">
-          {story.paragraphs.map((p) => (
-            <p>{p}</p>
-          ))}
-        </div>
-
-        <!-- VIP Guest Endorsement Callout -->
-        <div class="p-4 rounded-xl border border-[var(--color-on-primary)]/15 bg-black/25 text-xs text-[var(--color-on-primary)]/80 flex items-start gap-3 mb-6">
-          <span class="text-base flex-shrink-0">🏎️</span>
-          <div>
-            <strong class="text-[var(--color-accent)] block mb-0.5">VIP Guest Endorsement</strong>
-            <span>During the Singapore F1 Grand Prix, Michelin 3-Star Chef Yim Jungsik and the Jungsik dining crew chose GAMJA as their soul-food haven after cooking at the F1 Paddock Club.</span>
-          </div>
-        </div>
-
-        <div class="p-4 rounded-xl border border-[var(--color-on-primary)]/15 bg-black/20 text-xs sm:text-sm text-[var(--color-accent)] font-medium mb-6">
-          "{story.quote}"
-        </div>
-        <a
-          href="/demo/gamja/menu"
-          class="btn-pill-cream text-xs uppercase tracking-widest px-8 py-3.5 font-medium"
-        >
-          Explore Our Menu
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- 6. Photo Carousel -->
-  <PhotoCarousel
-    items={sections.carousel}
-    title="Authentic Korean Comfort"
-    subtitle="Signature Dishes"
-    tagPrefix="Dish"
-  />
-
-  <!-- 7. Location & Transit Block -->
-  <LocationBlock
-    heading="Join Us at 21 Boon Tat Street"
-    subline="21 Boon Tat Street, 2 minutes walk from Telok Ayer MRT Exit A in the Singapore CBD."
-    address={restaurant.address}
-    postalCode={restaurant.postalCode}
-    mrt={restaurant.mrt}
-    hoursText="Mon - Fri: 11:00 AM - 3:00 PM, 5:30 PM - 11:00 PM • Sat - Sun & PH: 12:00 PM - 10:00 PM"
-    hoursSubtext="Open 7 Days a week • Indoor Dining & 5 Dedicated KBBQ Tables Daily"
+  <!-- 5. Dual Reservation Card (MyNeon Online Booking + WhatsApp Concierge) -->
+  <QitchenReservationBento
+    myNeonUrl="https://myneon.me/?m=booking&sno=1500"
     phone={restaurant.phone}
-    googleMapsUrl={restaurant.googleMapsUrl}
-    mapTitle="GAMJA 21 Boon Tat Street Location Map"
+    whatsapp={restaurant.whatsapp}
   />
 
-  <!-- 8. Closing CTA -->
-  <ClosingCta
-    heading="Your Table Awaits in Telok Ayer"
-    subline="Experience authentic Korean soul food, slow-simmered gamjatang, and sizzling cast-iron BBQ in the CBD."
-    ctaLabel="Reserve a Table via WhatsApp"
-    ctaHref="/demo/gamja/reservations"
+  <!-- 6. Architectural Qitchen Footer -->
+  <QitchenFooter
+    restaurantName={restaurant.name}
+    address={`${restaurant.address}, ${restaurant.city} ${restaurant.postalCode}`}
+    phone={restaurant.phone}
+    instagram={restaurant.social.instagram}
   />
 </RestaurantDemoLayout>

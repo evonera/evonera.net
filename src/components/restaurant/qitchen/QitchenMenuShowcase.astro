@@ -1,0 +1,251 @@
+---
+import CornerFrame from "./CornerFrame.astro";
+
+interface MenuItem {
+  name: string;
+  koreanName?: string;
+  description: string;
+  price: string;
+  tags?: string[];
+}
+
+const soupAndHotpotItems: MenuItem[] = [
+  {
+    name: "Traditional Gamjatang",
+    koreanName: "전통 감자탕",
+    description: "4-hour simmered pork bone & potato stew with aromatic perilla seed powder & 3-chili blend.",
+    price: "S$15.80 / S$53.00",
+    tags: ["Signature", "Lunch & Dinner"],
+  },
+  {
+    name: "White Gamjatang",
+    koreanName: "맑은 감자탕",
+    description: "Clear, deeply comforting non-spicy pork bone broth with seaweed kombu notes & tender meat.",
+    price: "S$15.80 / S$53.00",
+    tags: ["Non-Spicy", "Kid-Friendly"],
+  },
+  {
+    name: "Mukeunji (Aged Kimchi) Gamjatang",
+    koreanName: "묵은지 감자탕",
+    description: "Whole aged sour kimchi simmered into rich pork bone broth for an invigorating tangy kick.",
+    price: "S$17.80 / S$58.00",
+    tags: ["Aged Kimchi", "Spicy"],
+  },
+  {
+    name: "Perilla Seed Gamjatang",
+    koreanName: "들깨 감자탕",
+    description: "Velvety broth enriched with roasted wild Korean perilla powder (Deulkkae) for nutty warmth.",
+    price: "S$18.80",
+    tags: ["Aromatic", "CBD Lunch"],
+  },
+  {
+    name: "Fiery Flame-Torched Ppyeogui",
+    koreanName: "직화 매운 뼈구이",
+    description: "Tender pork spine torched with high flame and glazed in fiery smoky chili sauce.",
+    price: "S$42.00",
+    tags: ["Viral Sensation", "Spicy"],
+  },
+];
+
+const bbqAndSidesItems: MenuItem[] = [
+  {
+    name: "Signature Pork & Beef Mix (600g Set)",
+    koreanName: "시그니처 바베큐 세트",
+    description: "Japanese Miyazaki Wagyu sirloin & ribeye cap, black pork belly, pork kimchi stew & spicy oysters.",
+    price: "S$128.80",
+    tags: ["5 Tables Daily", "Table-Side Grilling"],
+  },
+  {
+    name: "Cast-Iron Lid Kimchi Samgyeopsal",
+    koreanName: "솥뚜껑 삼겹살",
+    description: "Thick-cut pork belly sizzling in natural drippings alongside aged ripe kimchi & golden potato.",
+    price: "S$28.00",
+    tags: ["Cauldron Lid", "Pork Belly"],
+  },
+  {
+    name: "GAMJA Grated Cheese Potato Salad",
+    koreanName: "감자 시그니처 샐러드",
+    description: "Warm potato salad tossed with bacon crisps and blanketed with freshly grated cheese.",
+    price: "S$10.00",
+    tags: ["House Favorite"],
+  },
+  {
+    name: "Crispy Kimchi or Chive Pancake (Jeon)",
+    koreanName: "바삭 해물/김치전",
+    description: "Ultra-crispy pan-fried golden pancake made with aged ripe kimchi or fresh garlic chives.",
+    price: "S$12.80 / S$19.80",
+    tags: ["Lunch Special"],
+  },
+  {
+    name: "Tableside Bokkeumbap (Fried Rice)",
+    koreanName: "볶음밥",
+    description: "Fragrant rice tossed into rich leftover soup broth with seasoned seaweed, sesame oil & perilla.",
+    price: "S$6.00",
+    tags: ["Essential Finale"],
+  },
+];
+---
+
+<section class="relative w-full bg-[#0A0B0A] text-[#F5EFEB] py-20 sm:py-28 px-4 sm:px-6 lg:px-8 border-b border-white/5">
+  <div class="max-w-7xl mx-auto">
+    
+    <!-- Editorial Section Heading -->
+    <div class="text-center max-w-3xl mx-auto mb-16 sm:mb-20">
+      <div class="inline-flex items-center gap-2 text-xs uppercase tracking-[0.28em] text-[#DAC5A7] font-medium mb-3">
+        <span class="w-1.5 h-1.5 rounded-full bg-[#C23B22]"></span>
+        <span>MENU HIGHLIGHTS • HAND-CRAFTED AT 21 BOON TAT</span>
+      </div>
+      <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-normal text-white leading-tight mb-4">
+        Simmered Stews, Cauldron Grills & Soul Food
+      </h2>
+      <p class="text-sm sm:text-base text-[#F5EFEB]/70 font-light leading-relaxed">
+        All lunch soup bowls include fragrant steamed white rice and complimentary refillable banchan side dishes. Dinner features communal stews, hotpots, and table-side cast-iron barbecues.
+      </p>
+    </div>
+
+    <!-- Dual Column Menu Layout with Dotted Leaders in Corner Frames -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 mb-14">
+      
+      <!-- Column 1: Stews & Hotpots -->
+      <CornerFrame class="bg-[#141312] p-6 sm:p-8 lg:p-10 flex flex-col justify-between">
+        <div>
+          <!-- Column Header -->
+          <div class="flex items-center justify-between pb-5 mb-6 border-b border-white/10">
+            <div>
+              <span class="text-[10px] uppercase tracking-[0.25em] text-[#DAC5A7] font-semibold block mb-1">
+                CATEGORY 01
+              </span>
+              <h3 class="font-display text-2xl font-normal text-white">
+                Slow-Simmered Soups & Hotpots
+              </h3>
+            </div>
+            <span class="px-2.5 py-1 rounded bg-white/[0.04] text-[11px] text-[#DAC5A7] border border-white/10 font-mono">
+              탕 & 찌개
+            </span>
+          </div>
+
+          <!-- Items List -->
+          <div class="space-y-6">
+            {soupAndHotpotItems.map((item) => (
+              <div class="group">
+                <div class="flex items-baseline justify-between w-full gap-2">
+                  <div class="flex items-baseline gap-2">
+                    <h4 class="font-display text-lg text-white group-hover:text-[#DAC5A7] transition-colors">
+                      {item.name}
+                    </h4>
+                    {item.koreanName && (
+                      <span class="text-xs text-[#F5EFEB]/40 font-light hidden sm:inline">
+                        {item.koreanName}
+                      </span>
+                    )}
+                  </div>
+                  <span class="flex-grow border-b border-dotted border-white/20 mx-2 mb-1"></span>
+                  <span class="font-mono text-sm text-[#DAC5A7] font-semibold whitespace-nowrap">
+                    {item.price}
+                  </span>
+                </div>
+                <p class="text-xs text-[#F5EFEB]/65 font-light leading-relaxed mt-1 pr-4">
+                  {item.description}
+                </p>
+                {item.tags && item.tags.length > 0 && (
+                  <div class="flex flex-wrap gap-1.5 mt-2">
+                    {item.tags.map((tag) => (
+                      <span class="px-2 py-0.5 rounded-full bg-white/[0.03] border border-white/10 text-[9px] uppercase tracking-wider text-[#DAC5A7]/80">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div class="mt-8 pt-4 border-t border-white/10 flex items-center justify-between text-xs text-[#F5EFEB]/60">
+          <span>* Lunch bowls served 11:00 AM - 3:00 PM</span>
+          <span class="text-[#DAC5A7]">Refillable Banchan</span>
+        </div>
+      </CornerFrame>
+
+      <!-- Column 2: Cast-Iron BBQ & Artisanal Sides -->
+      <CornerFrame class="bg-[#141312] p-6 sm:p-8 lg:p-10 flex flex-col justify-between">
+        <div>
+          <!-- Column Header -->
+          <div class="flex items-center justify-between pb-5 mb-6 border-b border-white/10">
+            <div>
+              <span class="text-[10px] uppercase tracking-[0.25em] text-[#DAC5A7] font-semibold block mb-1">
+                CATEGORY 02
+              </span>
+              <h3 class="font-display text-2xl font-normal text-white">
+                Cast-Iron BBQ & Comfort Sides
+              </h3>
+            </div>
+            <span class="px-2.5 py-1 rounded bg-white/[0.04] text-[11px] text-[#DAC5A7] border border-white/10 font-mono">
+              구이 & 요리
+            </span>
+          </div>
+
+          <!-- Items List -->
+          <div class="space-y-6">
+            {bbqAndSidesItems.map((item) => (
+              <div class="group">
+                <div class="flex items-baseline justify-between w-full gap-2">
+                  <div class="flex items-baseline gap-2">
+                    <h4 class="font-display text-lg text-white group-hover:text-[#DAC5A7] transition-colors">
+                      {item.name}
+                    </h4>
+                    {item.koreanName && (
+                      <span class="text-xs text-[#F5EFEB]/40 font-light hidden sm:inline">
+                        {item.koreanName}
+                      </span>
+                    )}
+                  </div>
+                  <span class="flex-grow border-b border-dotted border-white/20 mx-2 mb-1"></span>
+                  <span class="font-mono text-sm text-[#DAC5A7] font-semibold whitespace-nowrap">
+                    {item.price}
+                  </span>
+                </div>
+                <p class="text-xs text-[#F5EFEB]/65 font-light leading-relaxed mt-1 pr-4">
+                  {item.description}
+                </p>
+                {item.tags && item.tags.length > 0 && (
+                  <div class="flex flex-wrap gap-1.5 mt-2">
+                    {item.tags.map((tag) => (
+                      <span class="px-2 py-0.5 rounded-full bg-white/[0.03] border border-white/10 text-[9px] uppercase tracking-wider text-[#DAC5A7]/80">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div class="mt-8 pt-4 border-t border-white/10 flex items-center justify-between text-xs text-[#F5EFEB]/60">
+          <span>* BBQ sets grilled table-side (5 daily tables)</span>
+          <span class="text-[#DAC5A7]">Miyazaki Wagyu</span>
+        </div>
+      </CornerFrame>
+
+    </div>
+
+    <!-- Centered Action Link -->
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+      <a
+        href="/demo/gamja/menu"
+        class="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-[#DAC5A7] hover:bg-white text-[#0A0B0A] text-xs uppercase tracking-widest font-semibold transition-all duration-200 shadow-md group"
+      >
+        <span>Explore Full Menu & Lunch Specials</span>
+        <span class="transform group-hover:translate-x-1 transition-transform">→</span>
+      </a>
+      <a
+        href="/demo/gamja/reservations"
+        class="inline-flex items-center gap-2 px-7 py-4 rounded-full bg-white/[0.04] hover:bg-white/[0.08] border border-white/15 text-[#F5EFEB] text-xs uppercase tracking-widest font-medium transition-all duration-200"
+      >
+        <span>Reserve BBQ Table (5 Daily)</span>
+      </a>
+    </div>
+
+  </div>
+</section>

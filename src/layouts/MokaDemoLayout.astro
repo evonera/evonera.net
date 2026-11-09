@@ -1,0 +1,205 @@
+---
+import "../styles/globals.css";
+
+interface Props {
+  data: any;
+  title?: string;
+  description?: string;
+}
+
+const { data, title, description } = Astro.props;
+const { restaurant, theme } = data;
+const { colors, fonts } = theme;
+
+const resolvedTitle = title || `${restaurant.name} — ${restaurant.tagline}`;
+const resolvedDescription = description || data.hero?.description || restaurant.tagline;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || "https://evonera.net").toString();
+const ogImageURL = new URL(data.hero?.image || "/demo/moka/hero-bg.webp", Astro.site || "https://evonera.net").toString();
+---
+
+<!doctype html>
+<html lang="en" class="lenis scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>{resolvedTitle}</title>
+    <meta name="description" content={resolvedDescription} />
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- Strict Crawler Protection -->
+    <meta name="robots" content="noindex, nofollow" />
+
+    <!-- Google Fonts: Unbounded (Ultra-Wide Display), Caveat (Script Accent), Plus Jakarta Sans (Body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Unbounded:wght@400;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content={resolvedTitle} />
+    <meta property="og:description" content={resolvedDescription} />
+    <meta property="og:image" content={ogImageURL} />
+    <meta property="og:type" content="website" />
+
+    <!-- Theme Tokens injected into CSS Variables -->
+    <style is:global define:vars={{
+      mokaPrimary: colors.primary,
+      mokaSurface: colors.surface,
+      mokaInk: colors.ink,
+      mokaAccent: colors.accent,
+      mokaCard: colors.card,
+      mokaDarkBg: colors.darkBg,
+      fontDisplay: fonts.display,
+      fontAccent: fonts.accentScript,
+      fontBody: fonts.body,
+    }}>
+      :root {
+        --color-primary: var(--mokaPrimary);
+        --color-surface: var(--mokaSurface);
+        --color-ink: var(--mokaInk);
+        --color-accent: var(--mokaAccent);
+        --color-card: var(--mokaCard);
+        --color-dark-bg: var(--mokaDarkBg);
+        --font-display: var(--fontDisplay);
+        --font-accent: var(--fontAccent);
+        --font-body: var(--fontBody);
+      }
+
+      body {
+        font-family: var(--font-body);
+        background-color: var(--color-surface);
+        color: var(--color-ink);
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      .font-display {
+        font-family: var(--font-display);
+        letter-spacing: 0.05em;
+      }
+
+      .font-accent {
+        font-family: var(--font-accent);
+      }
+
+      /* Lenis Recommended CSS */
+      html.lenis, html.lenis body {
+        height: auto;
+      }
+
+      .lenis.lenis-smooth {
+        scroll-behavior: auto !important;
+      }
+
+      .lenis.lenis-smooth [data-lenis-prevent] {
+        overscroll-behavior: contain;
+      }
+
+      .lenis.lenis-stopped {
+        overflow: hidden;
+      }
+
+      .lenis.lenis-scrolling iframe {
+        pointer-events: none;
+      }
+
+      /* Custom pill button utilities */
+      .btn-moka-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background-color: var(--color-ink);
+        color: var(--color-surface);
+        border-radius: 9999px;
+        padding: 0.65rem 1.6rem;
+        font-size: 0.8rem;
+        font-weight: 600;
+        text-transform: lowercase;
+        letter-spacing: 0.08em;
+        transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+        text-decoration: none;
+      }
+
+      .btn-moka-pill:hover {
+        transform: translateY(-2px);
+        background-color: var(--color-primary);
+        color: var(--color-accent);
+        box-shadow: 0 8px 20px rgba(54, 38, 24, 0.15);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Concept Demo Header Banner -->
+    <div class="fixed top-0 inset-x-0 z-50 bg-[var(--color-dark-bg)] text-[var(--color-accent)] text-[10px] sm:text-xs py-1.5 px-4 text-center font-mono tracking-wider flex items-center justify-between border-b border-[var(--color-accent)]/20 backdrop-blur-md">
+      <div class="flex items-center gap-2">
+        <span class="w-2 h-2 rounded-full bg-[var(--color-accent)] animate-pulse"></span>
+        <span class="uppercase tracking-widest font-semibold">Moka Kinetic Format</span>
+      </div>
+      <div class="hidden sm:block text-[var(--color-surface)]/80 text-[11px]">
+        Demo Concept by Evonera Technologies
+      </div>
+      <a href="#menu" class="hover:underline text-[var(--color-surface)]">
+        Jump to Menu →
+      </a>
+    </div>
+
+    <!-- Floating Minimalist Island Navigation -->
+    <header class="fixed top-9 sm:top-10 inset-x-0 z-40 px-4 sm:px-8 py-3 pointer-events-none">
+      <div class="max-w-6xl mx-auto flex items-center justify-between">
+        <!-- Logo Island -->
+        <a
+          href="/demo/moka"
+          class="pointer-events-auto flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--color-surface)]/90 backdrop-blur-md border border-[var(--color-ink)]/15 shadow-sm text-[var(--color-ink)] hover:scale-105 transition-transform"
+        >
+          <span class="font-display font-bold text-base sm:text-lg lowercase tracking-tight">{restaurant.name}</span>
+          <span class="font-accent text-sm text-[var(--color-primary)] font-semibold lowercase">cafe</span>
+        </a>
+
+        <!-- Right Navigation Links -->
+        <nav class="pointer-events-auto hidden md:flex items-center gap-1.5 p-1 rounded-full bg-[var(--color-surface)]/90 backdrop-blur-md border border-[var(--color-ink)]/15 shadow-sm text-xs font-medium text-[var(--color-ink)]">
+          <a href="#about" class="px-3.5 py-1.5 rounded-full hover:bg-[var(--color-ink)]/5 transition-colors lowercase">about</a>
+          <a href="#menu" class="px-3.5 py-1.5 rounded-full hover:bg-[var(--color-ink)]/5 transition-colors lowercase">menu</a>
+          <a href="#spotlight" class="px-3.5 py-1.5 rounded-full hover:bg-[var(--color-ink)]/5 transition-colors lowercase">takeaway</a>
+          <a href="#contact" class="px-3.5 py-1.5 rounded-full hover:bg-[var(--color-ink)]/5 transition-colors lowercase">contact</a>
+          <a
+            href={`https://wa.me/${restaurant.whatsapp.replace(/[^0-9]/g, '')}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="px-4 py-1.5 rounded-full bg-[var(--color-ink)] text-[var(--color-surface)] hover:bg-[var(--color-primary)] transition-colors lowercase font-semibold"
+          >
+            whatsapp
+          </a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Main Content Slot -->
+    <main class="w-full">
+      <slot />
+    </main>
+
+    <!-- Global Client Scripts: Lenis Smooth Scroll -->
+    <script>
+      import Lenis from "lenis";
+
+      // Initialize Lenis with gentle momentum
+      const lenis = new Lenis({
+        duration: 1.1,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        smoothWheel: true,
+        wheelMultiplier: 0.9,
+      });
+
+      function raf(time: number) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+      }
+
+      requestAnimationFrame(raf);
+    </script>
+  </body>
+</html>

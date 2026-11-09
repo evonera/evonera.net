@@ -1,0 +1,297 @@
+---
+import data from '../../data/restaurants/cafe_moka.json';
+const { roastStory3D } = data;
+---
+
+<section id="roast" class="relative bg-[var(--moka-dark-roast)] text-[var(--moka-froth)] py-24 md:py-32 px-6 md:px-12 lg:px-16 overflow-hidden">
+  <div class="max-w-7xl mx-auto space-y-16">
+    
+    <!-- Section Header -->
+    <div class="max-w-3xl space-y-4">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[rgba(254,250,231,0.1)] border border-[rgba(254,250,231,0.2)] text-[var(--moka-butter)] text-xs uppercase tracking-widest font-semibold">
+        <span class="w-1.5 h-1.5 rounded-full bg-[var(--moka-butter)]"></span>
+        {roastStory3D.sectionBadge}
+      </div>
+      <h2 class="font-display text-4xl sm:text-5xl md:text-6xl font-black lowercase tracking-tight">
+        {roastStory3D.title}
+        <span class="font-script text-3xl sm:text-4xl text-[var(--moka-butter)] font-normal block mt-2">
+          {roastStory3D.scriptAccent}
+        </span>
+      </h2>
+      <p class="text-sm sm:text-base text-[var(--moka-muted)] max-w-2xl leading-relaxed pt-2">
+        {roastStory3D.subtitle}
+      </p>
+    </div>
+
+    <!-- 3D Canvas Stage -->
+    <div class="relative w-full rounded-[40px] bg-gradient-to-b from-black/40 via-black/20 to-black/50 border border-[rgba(254,250,231,0.15)] overflow-hidden shadow-2xl">
+      
+      <!-- Top Canvas Controls Indicator -->
+      <div class="absolute top-6 left-6 right-6 z-10 flex items-center justify-between text-xs pointer-events-none">
+        <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-black/40 backdrop-blur-md text-[var(--moka-butter)] border border-white/10 uppercase tracking-widest font-mono text-[10px]">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
+          interactive 3d viewport
+        </span>
+        <span class="text-[var(--moka-muted)] font-mono uppercase tracking-wider text-[11px] hidden sm:inline">
+          drag to inspect | scroll to tumble
+        </span>
+      </div>
+
+      <!-- The Three.js WebGL Canvas -->
+      <div
+        id="coffee-bean-canvas-container"
+        class="w-full h-[450px] sm:h-[550px] md:h-[650px] cursor-grab active:cursor-grabbing flex items-center justify-center relative"
+        data-model-url={roastStory3D.modelPath}
+        data-normal-url={roastStory3D.normalMapPath}
+        data-scale={roastStory3D.modelScale}
+        data-clay-color={roastStory3D.clayColor}
+      >
+        <!-- Loading spinner placeholder -->
+        <div id="bean-loading" class="absolute flex flex-col items-center gap-3 text-xs text-[var(--moka-muted)] font-mono">
+          <div class="w-8 h-8 border-2 border-[var(--moka-butter)] border-t-transparent rounded-full animate-spin"></div>
+          <span>rendering 3d geometry...</span>
+        </div>
+      </div>
+
+      <!-- Bottom Hint Bar -->
+      <div class="p-6 bg-black/30 border-t border-[rgba(254,250,231,0.1)] flex flex-wrap items-center justify-between gap-4 text-xs text-[var(--moka-muted)]">
+        <div class="flex items-center gap-4">
+          <span class="font-mono text-[var(--moka-butter)]">BATCH NO. 0824</span>
+          <span>ROASTED LOCALLY IN SINGAPORE</span>
+        </div>
+        <div class="font-script text-xl text-[var(--moka-butter)]">
+          fresh whole bean aroma
+        </div>
+      </div>
+    </div>
+
+    <!-- Roast Specs Grid -->
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+      {roastStory3D.specs.map((spec) => (
+        <div class="p-6 rounded-2xl bg-[rgba(254,250,231,0.06)] border border-[rgba(254,250,231,0.12)] space-y-2 hover:border-[var(--moka-butter)] transition-colors">
+          <div class="text-[11px] uppercase font-mono tracking-wider text-[var(--moka-muted)] opacity-80">
+            {spec.label}
+          </div>
+          <div class="font-display text-lg font-bold text-[var(--moka-froth)] lowercase tracking-tight">
+            {spec.value}
+          </div>
+          <div class="text-xs text-[var(--moka-muted)] leading-relaxed">
+            {spec.detail}
+          </div>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>
+
+<!-- Three.js 3D Bean Engine Script -->
+<script>
+  import * as THREE from 'three';
+  import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
+
+  function init3DBean() {
+    const container = document.getElementById('coffee-bean-canvas-container');
+    const loaderEl = document.getElementById('bean-loading');
+    if (!container) return;
+
+    const modelUrl = container.getAttribute('data-model-url') || '/demo/cafe-moka/coffee_bean.glb';
+    const normalUrl = container.getAttribute('data-normal-url') || '/demo/cafe-moka/coffee_bean_normal.png';
+    const scale = parseFloat(container.getAttribute('data-scale') || '3.7');
+    const clayColor = container.getAttribute('data-clay-color') || '#3D2B1B';
+
+    // 1. Scene setup
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(
+      45,
+      container.clientWidth / container.clientHeight,
+      0.1,
+      1000
+    );
+    camera.position.set(0, 0, 10);
+
+    // 2. Renderer setup
+    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, powerPreference: 'high-performance' });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setSize(container.clientWidth, container.clientHeight);
+    renderer.toneMapping = THREE.ACESFilmicToneMapping;
+    renderer.toneMappingExposure = 1.1;
+    container.appendChild(renderer.domElement);
+
+    // 3. Lighting matching Framer's exact model
+    const ambientLight = new THREE.AmbientLight(0xffffff, 2.2);
+    scene.add(ambientLight);
+
+    const hemiLight = new THREE.HemisphereLight(0xffffff, 0x110700, 1.8);
+    scene.add(hemiLight);
+
+    const keyLight = new THREE.DirectionalLight(0xffffff, 2.5);
+    keyLight.position.set(5, 10, 7.5);
+    scene.add(keyLight);
+
+    const rimLight = new THREE.DirectionalLight(0xfff0dd, 1.5);
+    rimLight.position.set(-6, -4, -5);
+    scene.add(rimLight);
+
+    // 4. Load Normal Texture & GLTF Model
+    const textureLoader = new THREE.TextureLoader();
+    const normalMap = textureLoader.load(
+      normalUrl,
+      undefined,
+      undefined,
+      () => {
+        textureLoader.load('/demo/cafe-moka/coffee_bean_normal.png', (fallbackTex) => {
+          fallbackTex.wrapS = THREE.RepeatWrapping;
+          fallbackTex.wrapT = THREE.RepeatWrapping;
+          if (beanMesh) {
+            beanMesh.traverse((child) => {
+              if ((child as THREE.Mesh).isMesh && (child as THREE.Mesh).material) {
+                ((child as THREE.Mesh).material as THREE.MeshStandardMaterial).normalMap = fallbackTex;
+                ((child as THREE.Mesh).material as THREE.MeshStandardMaterial).needsUpdate = true;
+              }
+            });
+          }
+        });
+      }
+    );
+    normalMap.wrapS = THREE.RepeatWrapping;
+    normalMap.wrapT = THREE.RepeatWrapping;
+
+    let beanMesh: THREE.Object3D | null = null;
+    let targetRotationY = 135 * (Math.PI / 180);
+    let targetRotationX = 0;
+    let targetRotationZ = 50 * (Math.PI / 180);
+
+    let currentRotationY = targetRotationY;
+    let currentRotationX = targetRotationX;
+    let currentRotationZ = targetRotationZ;
+
+    const gltfLoader = new GLTFLoader();
+    gltfLoader.load(
+      modelUrl,
+      (gltf) => {
+        const root = gltf.scene;
+        root.scale.set(scale, scale, scale);
+
+        // Apply authentic clay material with normal mapping
+        root.traverse((child) => {
+          if ((child as THREE.Mesh).isMesh) {
+            const mesh = child as THREE.Mesh;
+            mesh.material = new THREE.MeshStandardMaterial({
+              color: new THREE.Color(clayColor),
+              normalMap: normalMap,
+              normalScale: new THREE.Vector2(1.2, 1.2),
+              roughness: 0.6,
+              metalness: 0.05,
+              bumpScale: 0.1
+            });
+            mesh.castShadow = true;
+            mesh.receiveShadow = true;
+          }
+        });
+
+        // Center model geometry
+        const box = new THREE.Box3().setFromObject(root);
+        const center = box.getCenter(new THREE.Vector3());
+        root.position.sub(center);
+
+        const group = new THREE.Group();
+        group.add(root);
+        scene.add(group);
+        beanMesh = group;
+
+        if (loaderEl) loaderEl.style.display = 'none';
+      },
+      undefined,
+      (err) => {
+        console.error('Failed to load 3D coffee bean model:', err);
+        if (loaderEl) loaderEl.innerHTML = '<span class="text-amber-300">3D preview unavailable</span>';
+      }
+    );
+
+    // 5. Scroll Interaction Kinematics
+    let lastScrollY = window.scrollY;
+    let scrollVelocity = 0;
+
+    window.addEventListener('scroll', () => {
+      const currentScrollY = window.scrollY;
+      const delta = currentScrollY - lastScrollY;
+      lastScrollY = currentScrollY;
+      scrollVelocity = delta * 0.008;
+
+      if (beanMesh) {
+        targetRotationY += scrollVelocity * 1.5;
+        targetRotationX += scrollVelocity * 0.8;
+      }
+    }, { passive: true });
+
+    // 6. Interactive Drag Interaction
+    let isDragging = false;
+    let previousPointerX = 0;
+    let previousPointerY = 0;
+
+    container.addEventListener('pointerdown', (e) => {
+      isDragging = true;
+      previousPointerX = e.clientX;
+      previousPointerY = e.clientY;
+      container.setPointerCapture(e.pointerId);
+    });
+
+    container.addEventListener('pointermove', (e) => {
+      if (!isDragging || !beanMesh) return;
+      const deltaX = e.clientX - previousPointerX;
+      const deltaY = e.clientY - previousPointerY;
+      previousPointerX = e.clientX;
+      previousPointerY = e.clientY;
+
+      targetRotationY += deltaX * 0.01;
+      targetRotationX += deltaY * 0.01;
+    });
+
+    const stopDrag = (e: PointerEvent) => {
+      if (isDragging) {
+        isDragging = false;
+        container.releasePointerCapture(e.pointerId);
+      }
+    };
+    container.addEventListener('pointerup', stopDrag);
+    container.addEventListener('pointercancel', stopDrag);
+
+    // 7. Responsive Resizing
+    window.addEventListener('resize', () => {
+      if (!container) return;
+      camera.aspect = container.clientWidth / container.clientHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(container.clientWidth, container.clientHeight);
+    });
+
+    // 8. Animation Render Loop with Inertial Damping
+    function animate() {
+      requestAnimationFrame(animate);
+
+      // Idle subtle floating spin
+      targetRotationY += 0.002;
+
+      // Smooth lerp damping (scroll friction ~0.79)
+      currentRotationY += (targetRotationY - currentRotationY) * 0.1;
+      currentRotationX += (targetRotationX - currentRotationX) * 0.1;
+      currentRotationZ += (targetRotationZ - currentRotationZ) * 0.1;
+
+      if (beanMesh) {
+        beanMesh.rotation.y = currentRotationY;
+        beanMesh.rotation.x = currentRotationX;
+        beanMesh.rotation.z = currentRotationZ;
+      }
+
+      renderer.render(scene, camera);
+    }
+    animate();
+  }
+
+  // Initialize once DOM is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init3DBean);
+  } else {
+    init3DBean();
+  }
+</script>

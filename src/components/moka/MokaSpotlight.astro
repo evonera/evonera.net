@@ -1,0 +1,82 @@
+---
+interface Props {
+  spotlight: {
+    tag: string;
+    title: string;
+    description: string;
+    image: string;
+    price?: string;
+    specs: string[];
+    ctaText?: string;
+    ctaHref?: string;
+  };
+  restaurant: {
+    whatsapp: string;
+  };
+}
+
+const { spotlight, restaurant } = Astro.props;
+---
+
+<section id="spotlight" class="w-full bg-[var(--color-dark-bg)] text-[var(--color-surface)] py-24 sm:py-32 px-4 sm:px-8 border-t border-white/10 overflow-hidden">
+  <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+    <!-- Left Narrative -->
+    <div class="lg:col-span-6 space-y-6">
+      <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-[var(--color-accent)] text-xs font-mono lowercase tracking-wider">
+        {spotlight.tag}
+      </span>
+
+      <h2 class="font-display text-4xl sm:text-5xl md:text-6xl font-light text-[var(--color-surface)] leading-[1.12] tracking-tight lowercase">
+        {spotlight.title}
+      </h2>
+
+      <p class="text-base sm:text-lg text-[var(--color-surface)]/80 font-light leading-relaxed lowercase">
+        {spotlight.description}
+      </p>
+
+      {spotlight.price && (
+        <div class="font-display text-2xl sm:text-3xl font-bold text-[var(--color-accent)] tracking-tight">
+          {spotlight.price}
+        </div>
+      )}
+
+      <!-- Specs Bullet Points -->
+      <div class="space-y-3 pt-2">
+        {spotlight.specs.map((spec) => (
+          <div class="flex items-center gap-3 text-xs sm:text-sm text-[var(--color-surface)]/85 lowercase font-light">
+            <span class="w-1.5 h-1.5 rounded-full bg-[var(--color-accent)] flex-shrink-0"></span>
+            <span>{spec}</span>
+          </div>
+        ))}
+      </div>
+
+      <!-- Action -->
+      <div class="pt-4">
+        <a
+          href={`https://wa.me/${restaurant.whatsapp.replace(/[^0-9]/g, '')}?text=${encodeURIComponent('Hi Moka, I would like to reserve the takeaway insulated tote.')}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn-moka-pill bg-[var(--color-accent)] text-[var(--color-ink)] hover:bg-[var(--color-surface)]"
+        >
+          {spotlight.ctaText || "reserve via whatsapp"} ↗
+        </a>
+      </div>
+    </div>
+
+    <!-- Right Image Showcase -->
+    <div class="lg:col-span-6 relative">
+      <div class="w-full h-[360px] sm:h-[460px] rounded-3xl overflow-hidden shadow-2xl relative border border-white/10 bg-black/40 group">
+        <img
+          src={spotlight.image}
+          alt={spotlight.title}
+          class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 filter brightness-[0.95]"
+          loading="lazy"
+        />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+        <div class="absolute bottom-6 left-6 px-4 py-2 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-xs font-mono text-[var(--color-accent)] lowercase">
+          limited studio edition
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

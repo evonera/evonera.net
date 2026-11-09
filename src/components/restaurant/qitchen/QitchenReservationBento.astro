@@ -1,0 +1,134 @@
+---
+import CornerFrame from "./CornerFrame.astro";
+
+interface Props {
+  myNeonUrl?: string;
+  phone?: string;
+  whatsapp?: string;
+}
+
+const {
+  myNeonUrl = "https://myneon.me/?m=booking&sno=1500",
+  phone = "+65 6222 1206",
+  whatsapp = "+6562221206",
+} = Astro.props;
+---
+
+<section class="relative w-full bg-[#0A0B0A] text-[#F5EFEB] py-20 sm:py-28 px-4 sm:px-6 lg:px-8 border-b border-white/5">
+  <div class="max-w-7xl mx-auto">
+    
+    <CornerFrame class="bg-[#141312] p-8 sm:p-12 lg:p-16 relative overflow-hidden">
+      <!-- Ambient background element -->
+      <div class="absolute -top-32 -right-32 w-96 h-96 bg-[radial-gradient(ellipse_at_center,rgba(218,197,167,0.08),transparent_70%)] pointer-events-none blur-3xl"></div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+        
+        <!-- Left: Booking Headline & Value Proposition (7 cols on lg) -->
+        <div class="lg:col-span-7 flex flex-col items-start">
+          <div class="inline-flex items-center gap-2 text-xs uppercase tracking-[0.28em] text-[#DAC5A7] font-medium mb-3">
+            <span class="w-1.5 h-1.5 rounded-full bg-[#C23B22]"></span>
+            <span>RESERVATIONS & PRIVATE TABLES</span>
+          </div>
+          
+          <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-normal text-white leading-tight mb-4">
+            Book Your Table at 21 Boon Tat Street
+          </h2>
+
+          <p class="text-sm sm:text-base text-[#F5EFEB]/70 font-light leading-relaxed mb-6 max-w-xl">
+            Join us for comforting workday lunch soups, evening sharing hotpots, and our coveted cast-iron cauldron-lid K-BBQ. Walk-ins are warmly welcomed subject to table availability.
+          </p>
+
+          <!-- Dining Policies Chips -->
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 w-full max-w-xl mb-8">
+            <div class="p-3 rounded-lg bg-white/[0.02] border border-white/10 text-center">
+              <span class="block text-[10px] uppercase tracking-wider text-[#DAC5A7] font-semibold mb-0.5">Holding Time</span>
+              <span class="text-xs text-white">10m Lunch / 15m Dinner</span>
+            </div>
+            <div class="p-3 rounded-lg bg-white/[0.02] border border-white/10 text-center">
+              <span class="block text-[10px] uppercase tracking-wider text-[#DAC5A7] font-semibold mb-0.5">Dining Duration</span>
+              <span class="text-xs text-white">120 Minutes</span>
+            </div>
+            <div class="p-3 rounded-lg bg-white/[0.02] border border-white/10 text-center">
+              <span class="block text-[10px] uppercase tracking-wider text-[#DAC5A7] font-semibold mb-0.5">K-BBQ Tables</span>
+              <span class="text-xs text-white">5 Tables Daily Limit</span>
+            </div>
+          </div>
+
+          <!-- Direct Phone & WhatsApp Notice -->
+          <div class="flex items-center gap-3 text-xs text-[#F5EFEB]/60">
+            <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+            <span>Immediate table inquiries or parties over 8 guests: call <strong class="text-white font-medium">{phone}</strong></span>
+          </div>
+        </div>
+
+        <!-- Right: Dual Booking Card (5 cols on lg) -->
+        <div class="lg:col-span-5 w-full space-y-4">
+          
+          <!-- Primary: Official Online Reservation (MyNeon) -->
+          <div class="p-6 sm:p-7 rounded-xl bg-white/[0.03] border border-[#DAC5A7]/30 hover:border-[#DAC5A7] transition-all duration-300">
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-[10px] uppercase tracking-widest text-[#DAC5A7] font-bold">
+                RECOMMENDED • INSTANT CONFIRMATION
+              </span>
+              <span class="text-xs px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                Official Booking
+              </span>
+            </div>
+            <h3 class="font-display text-xl sm:text-2xl font-normal text-white mb-2">
+              Online Table Booking
+            </h3>
+            <p class="text-xs text-[#F5EFEB]/65 mb-5 font-light leading-relaxed">
+              Book your lunch or dinner table instantly through GAMJA's official MyNeon reservation engine.
+            </p>
+            <a
+              href={myNeonUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-[#DAC5A7] hover:bg-white text-[#0A0B0A] text-xs uppercase tracking-widest font-semibold transition-all duration-200 shadow-lg"
+            >
+              <span>Book via MyNeon Engine</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
+            </a>
+          </div>
+
+          <!-- Secondary: Dedicated K-BBQ & Large Party Booking via WhatsApp / Form -->
+          <div class="p-6 sm:p-7 rounded-xl bg-white/[0.02] border border-white/10 hover:border-white/20 transition-all duration-300">
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-[10px] uppercase tracking-widest text-[#C23B22] font-semibold">
+                LIMITED 5 TABLES DAILY
+              </span>
+              <span class="text-xs text-[#F5EFEB]/50">WhatsApp Concierge</span>
+            </div>
+            <h3 class="font-display text-lg text-white mb-1.5">
+              K-BBQ & Large Party Inquiries
+            </h3>
+            <p class="text-xs text-[#F5EFEB]/65 mb-4 font-light leading-relaxed">
+              Reserve one of the 5 dedicated cast-iron BBQ tables or arrange group dining for 8+ guests directly.
+            </p>
+            <div class="flex items-center gap-3">
+              <a
+                href={`https://wa.me/${whatsapp.replace(/[^0-9]/g, '')}?text=Hi%20GAMJA%20team%2C%20I%20would%20like%20to%20inquire%20about%20a%20table%20reservation`}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="flex-1 inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-white/[0.06] hover:bg-white/[0.12] border border-white/15 text-white text-xs uppercase tracking-wider font-medium transition-colors"
+              >
+                <span>WhatsApp GAMJA</span>
+              </a>
+              <a
+                href="/demo/gamja/reservations"
+                class="px-5 py-3 rounded-full bg-white/[0.03] hover:bg-white/[0.07] border border-white/10 text-white text-xs uppercase tracking-wider font-medium transition-colors"
+              >
+                <span>Custom Form</span>
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </CornerFrame>
+
+  </div>
+</section>

@@ -1,0 +1,37 @@
+---
+import CafeMokaLayout from '../../../layouts/CafeMokaLayout.astro';
+import CafeMokaHero from '../../../components/cafe-moka/CafeMokaHero.astro';
+import CafeMokaStoryDeck from '../../../components/cafe-moka/CafeMokaStoryDeck.astro';
+import CafeMokaSplitMenu from '../../../components/cafe-moka/CafeMokaSplitMenu.astro';
+import CafeMoka3DBean from '../../../components/cafe-moka/CafeMoka3DBean.astro';
+import CafeMokaMerch from '../../../components/cafe-moka/CafeMokaMerch.astro';
+import CafeMokaTicker from '../../../components/cafe-moka/CafeMokaTicker.astro';
+import CafeMokaSocialGrid from '../../../components/cafe-moka/CafeMokaSocialGrid.astro';
+import CafeMokaFooter from '../../../components/cafe-moka/CafeMokaFooter.astro';
+---
+
+<CafeMokaLayout>
+  <!-- Hero Section with Lowercase Kinetic Title & Live Singapore Clock -->
+  <CafeMokaHero />
+
+  <!-- Infinite Marquee Ticker -->
+  <CafeMokaTicker />
+
+  <!-- About / Pace Deck -->
+  <CafeMokaStoryDeck />
+
+  <!-- Split Sticky Menu: Left Column Pinned, Right Column Scrolling -->
+  <CafeMokaSplitMenu />
+
+  <!-- 3D Coffee Bean Interactive WebGL Roast Experience -->
+  <CafeMoka3DBean />
+
+  <!-- Goods & Carry Merch Showcase -->
+  <CafeMokaMerch />
+
+  <!-- Neighbourhood Moments Social Photo Grid -->
+  <CafeMokaSocialGrid />
+
+  <!-- Giant Kinetic Wordmark Footer -->
+  <CafeMokaFooter />
+</CafeMokaLayout>

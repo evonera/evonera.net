@@ -1,0 +1,200 @@
+---
+interface Props {
+  currentPath?: string;
+  bookUrl?: string;
+}
+
+const {
+  currentPath = "/demo/gamja",
+  bookUrl = "/demo/gamja/reservations",
+} = Astro.props;
+
+const navLinks = [
+  { label: "MENU", href: "/demo/gamja/menu" },
+  { label: "ABOUT", href: "/demo/gamja/about" },
+  { label: "RESERVATION", href: "/demo/gamja/reservations" },
+  { label: "CONTACT", href: "/demo/gamja/contact" },
+];
+---
+
+<!-- Floating Pill Capsule Navbar (Signature Qitchen Component) -->
+<header class="w-full z-40 relative">
+  <nav class="max-w-fit mx-auto sm:mx-0 inline-flex items-center gap-3 sm:gap-6 px-4 py-2 sm:px-5 sm:py-2.5 rounded-full bg-[#141312]/80 backdrop-blur-xl border border-white/15 shadow-2xl text-xs uppercase tracking-widest text-[#F5EFEB]">
+    
+    <!-- Mobile Hamburger Toggle Button -->
+    <button
+      id="qitchen-menu-toggle"
+      type="button"
+      aria-label="Open Navigation Menu"
+      class="flex flex-col justify-center items-center gap-1 w-8 h-8 rounded-full bg-white/[0.06] hover:bg-white/[0.12] transition-colors"
+    >
+      <span class="w-4 h-[1.5px] bg-[#DAC5A7]"></span>
+      <span class="w-4 h-[1.5px] bg-[#DAC5A7]"></span>
+      <span class="w-4 h-[1.5px] bg-[#DAC5A7]"></span>
+    </button>
+
+    <!-- Brand Logo with Circular Seal -->
+    <a href="/demo/gamja" class="flex items-center gap-2.5 group pr-2">
+      <img
+        src="/demo/gamja/logo.svg"
+        alt="GAMJA Official Seal"
+        class="w-7 h-7 rounded-full border border-[#DAC5A7]/40 p-0.5 bg-black group-hover:scale-105 transition-transform"
+      />
+      <div class="flex items-baseline gap-1.5">
+        <span class="font-display text-lg font-normal tracking-wider text-white">GAMJA</span>
+        <span class="text-xs font-serif text-[#DAC5A7]">감자</span>
+      </div>
+    </a>
+
+    <!-- Desktop Navigation Links (hidden on mobile, visible on sm/md+) -->
+    <div class="hidden md:flex items-center gap-5 border-l border-white/10 pl-4">
+      {navLinks.slice(0, 2).map((link) => (
+        <a
+          href={link.href}
+          class={`transition-colors hover:text-[#DAC5A7] font-medium ${
+            currentPath === link.href ? "text-[#DAC5A7]" : "text-[#F5EFEB]/75"
+          }`}
+        >
+          {link.label}
+        </a>
+      ))}
+    </div>
+
+    <!-- CTA Button (Book a Table) -->
+    <a
+      href={bookUrl}
+      class="inline-flex items-center gap-1.5 px-4 py-2 sm:px-5 sm:py-2 rounded-full bg-[#DAC5A7] hover:bg-white text-[#0A0B0A] font-semibold text-[11px] sm:text-xs transition-all duration-200 shadow-md group"
+    >
+      <span>BOOK A TABLE</span>
+      <span class="transform group-hover:translate-x-0.5 transition-transform text-xs">→</span>
+    </a>
+  </nav>
+
+  <!-- Fullscreen Navigation Overlay (Appears on Hamburger Click) -->
+  <div
+    id="qitchen-fullscreen-menu"
+    class="fixed inset-0 bg-[#0A0B0A]/95 backdrop-blur-2xl z-50 flex flex-col justify-between p-6 sm:p-12 opacity-0 pointer-events-none transition-all duration-300 -translate-y-4"
+  >
+    <!-- Top Bar inside Overlay -->
+    <div class="flex items-center justify-between">
+      <a href="/demo/gamja" class="flex items-center gap-3">
+        <img
+          src="/demo/gamja/logo.svg"
+          alt="GAMJA Seal"
+          class="w-10 h-10 rounded-full border border-[#DAC5A7]/40 p-0.5 bg-black"
+        />
+        <div class="flex items-baseline gap-2">
+          <span class="font-display text-2xl text-white">GAMJA</span>
+          <span class="text-sm font-serif text-[#DAC5A7]">감자</span>
+        </div>
+      </a>
+
+      <!-- Close Button -->
+      <button
+        id="qitchen-menu-close"
+        type="button"
+        aria-label="Close Navigation Menu"
+        class="w-10 h-10 rounded-full bg-white/[0.06] hover:bg-white/[0.12] border border-white/15 flex items-center justify-center text-white text-lg transition-colors"
+      >
+        ✕
+      </button>
+    </div>
+
+    <!-- Center Navigation Links in Grand Roman Serif Display -->
+    <div class="max-w-xl mx-auto w-full my-auto py-8">
+      <ul class="space-y-6 sm:space-y-8">
+        <li>
+          <a
+            href="/demo/gamja"
+            class="group flex items-baseline justify-between text-3xl sm:text-5xl font-display font-normal text-white hover:text-[#DAC5A7] transition-colors"
+          >
+            <span>HOME</span>
+            <span class="text-xs font-mono text-[#DAC5A7]/60 tracking-widest uppercase">01</span>
+          </a>
+        </li>
+        <li>
+          <a
+            href="/demo/gamja/menu"
+            class="group flex items-baseline justify-between text-3xl sm:text-5xl font-display font-normal text-white hover:text-[#DAC5A7] transition-colors"
+          >
+            <span>MENU & COURSES</span>
+            <span class="text-xs font-mono text-[#DAC5A7]/60 tracking-widest uppercase">02</span>
+          </a>
+        </li>
+        <li>
+          <a
+            href="/demo/gamja/about"
+            class="group flex items-baseline justify-between text-3xl sm:text-5xl font-display font-normal text-white hover:text-[#DAC5A7] transition-colors"
+          >
+            <span>OUR STORY</span>
+            <span class="text-xs font-mono text-[#DAC5A7]/60 tracking-widest uppercase">03</span>
+          </a>
+        </li>
+        <li>
+          <a
+            href="/demo/gamja/reservations"
+            class="group flex items-baseline justify-between text-3xl sm:text-5xl font-display font-normal text-white hover:text-[#DAC5A7] transition-colors"
+          >
+            <span>RESERVATIONS</span>
+            <span class="text-xs font-mono text-[#DAC5A7]/60 tracking-widest uppercase">04</span>
+          </a>
+        </li>
+        <li>
+          <a
+            href="/demo/gamja/contact"
+            class="group flex items-baseline justify-between text-3xl sm:text-5xl font-display font-normal text-white hover:text-[#DAC5A7] transition-colors"
+          >
+            <span>LOCATION & HOURS</span>
+            <span class="text-xs font-mono text-[#DAC5A7]/60 tracking-widest uppercase">05</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Bottom Info inside Overlay -->
+    <div class="pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between text-xs text-[#F5EFEB]/60 gap-4">
+      <div>
+        <span>21 Boon Tat Street, Singapore 069620</span>
+        <span class="mx-2">•</span>
+        <a href="tel:+6562221206" class="text-[#DAC5A7] underline">+65 6222 1206</a>
+      </div>
+      <div>
+        <a
+          href="https://www.instagram.com/gamja_sg/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-[#DAC5A7] hover:underline"
+        >
+          @gamja_sg on Instagram ↗
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<script>
+  const toggleBtn = document.getElementById("qitchen-menu-toggle");
+  const closeBtn = document.getElementById("qitchen-menu-close");
+  const menu = document.getElementById("qitchen-fullscreen-menu");
+
+  function openMenu() {
+    if (!menu) return;
+    menu.classList.remove("opacity-0", "pointer-events-none", "-translate-y-4");
+    menu.classList.add("opacity-100", "pointer-events-auto", "translate-y-0");
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeMenu() {
+    if (!menu) return;
+    menu.classList.remove("opacity-100", "pointer-events-auto", "translate-y-0");
+    menu.classList.add("opacity-0", "pointer-events-none", "-translate-y-4");
+    document.body.style.overflow = "";
+  }
+
+  toggleBtn?.addEventListener("click", openMenu);
+  closeBtn?.addEventListener("click", closeMenu);
+
+  window.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeMenu();
+  });
+</script>

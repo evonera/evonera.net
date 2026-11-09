@@ -7,13 +7,13 @@ const { footer, branding } = data;
   <div class="max-w-7xl mx-auto space-y-20">
     
     <!-- Meta Details Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-sm text-[#D6C6B8]">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-sm text-[var(--moka-muted)]">
       <div class="space-y-3">
         <span class="text-[11px] uppercase font-mono tracking-widest text-[#FFFFA8] block">location</span>
         <p class="font-medium text-[#FEFAE7] text-base leading-relaxed">
           {footer.address}
         </p>
-        <span class="text-xs text-[#D6C6B8] block">telok ayer / chinatown district</span>
+        <span class="text-xs text-[var(--moka-muted)] block">telok ayer / chinatown district</span>
       </div>
 
       <div class="space-y-3">
@@ -21,7 +21,7 @@ const { footer, branding } = data;
         <p class="font-medium text-[#FEFAE7] text-base leading-relaxed">
           {footer.hours}
         </p>
-        <span class="text-xs text-[#D6C6B8] block">walk-ins warmly welcomed anytime</span>
+        <span class="text-xs text-[var(--moka-muted)] block">walk-ins warmly welcomed anytime</span>
       </div>
 
       <div class="space-y-4">
@@ -30,7 +30,7 @@ const { footer, branding } = data;
           href={`https://wa.me/${footer.whatsappNumber}?text=Hi%20Moka,%20I'd%20like%20to%20inquire%20about%20a%20table%20or%20pre-order.`}
           target="_blank"
           rel="noopener noreferrer"
-          class="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-[#FFFFA8] text-[#362618] font-display font-black text-xs uppercase tracking-wider hover:bg-[#FEFAE7] transition-colors"
+          class="inline-flex items-center gap-3 px-6 py-3.5 rounded-full bg-[#FFFFA8] text-[#362618] font-display font-black text-xs uppercase tracking-wider hover:bg-[#FEFAE7] transition-colors min-h-[44px]"
         >
           <span>{footer.reachLabel}</span>
           <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
@@ -48,13 +48,13 @@ const { footer, branding } = data;
     </div>
 
     <!-- Bottom Copyright & Back to Top -->
-    <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-8 border-t border-white/10 text-xs text-[#D6C6B8]">
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-8 border-t border-white/10 text-xs text-[var(--moka-muted)]">
       <p>{footer.copyright}</p>
-      <div class="flex items-center gap-6">
-        <a href="#about" class="hover:text-[#FFFFA8] transition-colors">story</a>
-        <a href="#menu" class="hover:text-[#FFFFA8] transition-colors">menu</a>
-        <a href="#roast" class="hover:text-[#FFFFA8] transition-colors">3d bean</a>
-        <a href="#merch" class="hover:text-[#FFFFA8] transition-colors">goods</a>
+      <div class="flex items-center gap-2">
+        <a href="#about" class="hover:text-[#FFFFA8] transition-colors px-3 py-2 min-h-[44px] inline-flex items-center">story</a>
+        <a href="#menu" class="hover:text-[#FFFFA8] transition-colors px-3 py-2 min-h-[44px] inline-flex items-center">menu</a>
+        <a href="#roast" class="hover:text-[#FFFFA8] transition-colors px-3 py-2 min-h-[44px] inline-flex items-center">3d bean</a>
+        <a href="#merch" class="hover:text-[#FFFFA8] transition-colors px-3 py-2 min-h-[44px] inline-flex items-center">goods</a>
       </div>
     </div>
 

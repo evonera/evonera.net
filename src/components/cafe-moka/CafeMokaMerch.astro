@@ -42,7 +42,7 @@ const { merchShowcase } = data;
             </div>
 
             <div class="space-y-2">
-              <span class="text-[11px] uppercase tracking-wider font-mono text-[#D6C6B8]">
+              <span class="text-[11px] uppercase tracking-wider font-mono text-[var(--moka-muted)]">
                 {item.material}
               </span>
               <h3 class="font-display text-xl sm:text-2xl font-bold lowercase text-[#FEFAE7] leading-snug">
@@ -50,7 +50,7 @@ const { merchShowcase } = data;
               </h3>
             </div>
 
-            <ul class="space-y-2 text-xs text-[#D6C6B8] border-t border-white/10 pt-4">
+            <ul class="space-y-2 text-xs text-[var(--moka-muted)] border-t border-white/10 pt-4">
               {item.features.map((feat) => (
                 <li class="flex items-center gap-2">
                   <span class="w-1.5 h-1.5 rounded-full bg-[#FFFFA8]"></span>
@@ -64,7 +64,7 @@ const { merchShowcase } = data;
             href={`https://wa.me/${data.footer.whatsappNumber}?text=Hi%20Moka,%20I'd%20like%20to%20order%20the%20${encodeURIComponent(item.title)}`}
             target="_blank"
             rel="noopener noreferrer"
-            class="w-full py-3.5 rounded-full bg-[#FEFAE7] text-[#362618] hover:bg-[#FFFFA8] font-display text-xs font-black uppercase tracking-wider text-center transition-colors shadow"
+            class="w-full py-3.5 px-4 rounded-full bg-[#FEFAE7] text-[#362618] hover:bg-[#FFFFA8] font-display text-xs font-black uppercase tracking-wider text-center transition-colors shadow min-h-[44px] flex items-center justify-center"
           >
             order via whatsapp
           </a>

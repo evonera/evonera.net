@@ -126,22 +126,63 @@ const { colors, fonts } = data.branding;
   <body class="selection:bg-[#FFFFA8] selection:text-[#362618]">
     <!-- Floating Minimal Top Bar -->
     <header class="fixed top-0 left-0 right-0 z-50 px-6 py-4 flex items-center justify-between mix-blend-difference pointer-events-none text-[#FEFAE7]">
-      <a href="/demo/cafe-moka" class="pointer-events-auto font-display font-extrabold text-2xl tracking-tighter lowercase hover:opacity-80 transition-opacity">
+      <a href="/demo/cafe-moka" class="pointer-events-auto font-display font-extrabold text-2xl tracking-tighter lowercase hover:opacity-80 transition-opacity min-h-[44px] flex items-center">
         {data.branding.brandName}
       </a>
 
-      <nav class="pointer-events-auto hidden md:flex items-center gap-8 text-xs font-semibold uppercase tracking-widest">
-        <a href="#about" class="hover:text-[#FFFFA8] transition-colors">story</a>
-        <a href="#menu" class="hover:text-[#FFFFA8] transition-colors">menu</a>
-        <a href="#roast" class="hover:text-[#FFFFA8] transition-colors">the bean 3d</a>
-        <a href="#merch" class="hover:text-[#FFFFA8] transition-colors">goods</a>
+      <!-- Desktop Nav with >= 44px Hit Targets -->
+      <nav class="pointer-events-auto hidden md:flex items-center gap-4 text-xs font-semibold uppercase tracking-widest">
+        <a href="#about" class="px-3 py-2.5 min-h-[44px] flex items-center hover:text-[#FFFFA8] transition-colors">story</a>
+        <a href="#menu" class="px-3 py-2.5 min-h-[44px] flex items-center hover:text-[#FFFFA8] transition-colors">menu</a>
+        <a href="#roast" class="px-3 py-2.5 min-h-[44px] flex items-center hover:text-[#FFFFA8] transition-colors">the bean 3d</a>
+        <a href="#merch" class="px-3 py-2.5 min-h-[44px] flex items-center hover:text-[#FFFFA8] transition-colors">goods</a>
       </nav>
 
-      <div class="pointer-events-auto flex items-center gap-3 text-xs tracking-wider">
-        <span class="inline-block w-2 h-2 rounded-full bg-[#FFFFA8] animate-pulse"></span>
-        <span class="uppercase tracking-widest text-[11px] font-medium" id="header-city-clock">{data.branding.cityLabel}</span>
+      <!-- Right Header Actions (Clock + Mobile Menu Toggle) -->
+      <div class="pointer-events-auto flex items-center gap-4 text-xs tracking-wider">
+        <div class="flex items-center gap-2">
+          <span class="inline-block w-2 h-2 rounded-full bg-[#FFFFA8] animate-pulse"></span>
+          <span class="uppercase tracking-widest text-[11px] font-medium" id="header-city-clock">{data.branding.cityLabel}</span>
+        </div>
+
+        <!-- Mobile Drawer Toggle Button -->
+        <button
+          id="mobile-nav-toggle"
+          class="md:hidden px-3 py-2 min-h-[44px] flex items-center gap-1.5 uppercase font-mono text-[11px] font-bold text-[#FFFFA8] hover:opacity-80"
+          aria-label="Toggle navigation menu"
+        >
+          <span>menu</span>
+          <svg class="w-4 h-4 fill-none stroke-current" viewBox="0 0 24 24">
+            <path d="M4 6h16M4 12h16M4 18h16" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
       </div>
     </header>
+
+    <!-- Mobile Drawer Overlay -->
+    <div
+      id="mobile-nav-drawer"
+      class="fixed inset-0 z-40 bg-[#362618]/95 backdrop-blur-2xl text-[#FEFAE7] flex flex-col justify-between p-8 transform -translate-y-full transition-transform duration-500 ease-in-out md:hidden"
+    >
+      <div class="flex justify-between items-center pt-2 border-b border-white/10 pb-4">
+        <span class="font-display font-extrabold text-2xl lowercase text-[#FFFFA8]">{data.branding.brandName}</span>
+        <button id="mobile-nav-close" class="min-h-[44px] px-3 py-2 text-xs font-mono uppercase text-[#FEFAE7] tracking-wider hover:text-[#FFFFA8]">
+          close [x]
+        </button>
+      </div>
+
+      <nav class="flex flex-col gap-4 text-3xl font-display font-black lowercase tracking-tight">
+        <a href="#about" class="mobile-nav-link text-[#FEFAE7] hover:text-[#FFFFA8] min-h-[48px] flex items-center border-b border-white/5 pb-2">our story</a>
+        <a href="#menu" class="mobile-nav-link text-[#FEFAE7] hover:text-[#FFFFA8] min-h-[48px] flex items-center border-b border-white/5 pb-2">kitchen & bar</a>
+        <a href="#roast" class="mobile-nav-link text-[#FEFAE7] hover:text-[#FFFFA8] min-h-[48px] flex items-center border-b border-white/5 pb-2">the 3d bean</a>
+        <a href="#merch" class="mobile-nav-link text-[#FEFAE7] hover:text-[#FFFFA8] min-h-[48px] flex items-center border-b border-white/5 pb-2">goods & carry</a>
+      </nav>
+
+      <div class="pt-6 border-t border-white/10 space-y-2 text-xs text-[var(--moka-muted)]">
+        <div>{data.footer.hours}</div>
+        <div class="font-mono text-[#FFFFA8]">{data.footer.address}</div>
+      </div>
+    </div>
 
     <main>
       <slot />
@@ -179,6 +220,28 @@ const { colors, fonts } = data.branding;
               lenis.scrollTo(target as HTMLElement, { offset: -20 });
             }
           }
+        });
+      });
+
+      // Mobile Drawer Toggle Logic
+      const mobileToggle = document.getElementById('mobile-nav-toggle');
+      const mobileClose = document.getElementById('mobile-nav-close');
+      const mobileDrawer = document.getElementById('mobile-nav-drawer');
+      const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+
+      if (mobileToggle && mobileDrawer) {
+        mobileToggle.addEventListener('click', () => {
+          mobileDrawer.classList.remove('-translate-y-full');
+        });
+      }
+      if (mobileClose && mobileDrawer) {
+        mobileClose.addEventListener('click', () => {
+          mobileDrawer.classList.add('-translate-y-full');
+        });
+      }
+      mobileLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          if (mobileDrawer) mobileDrawer.classList.add('-translate-y-full');
         });
       });
 

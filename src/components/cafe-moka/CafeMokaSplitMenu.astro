@@ -3,20 +3,34 @@ import data from '../../data/restaurants/cafe_moka.json';
 const { splitStickyMenu } = data;
 ---
 
-<section id="menu" class="relative bg-[#FEFAE7] text-[#362618] py-24 px-6 md:px-12 lg:px-16 overflow-visible">
+<section id="menu" class="relative bg-[#FEFAE7] text-[#362618] py-20 md:py-24 px-6 md:px-12 lg:px-16 overflow-visible">
   <div class="max-w-7xl mx-auto">
     <!-- Top Bar Header -->
-    <div class="flex items-center justify-between pb-8 mb-12 border-b border-[#362618]/15">
-      <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#362618] text-[#FFFFA8] text-xs uppercase tracking-widest font-semibold">
+    <div class="flex items-center justify-between pb-8 mb-8 border-b border-[#362618]/15">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#362618] text-[#FFFFA8] text-xs uppercase tracking-widest font-semibold">
         {splitStickyMenu.badge}
       </div>
       <span class="font-script text-2xl text-[#8A6E5A]">served fresh all day</span>
     </div>
 
+    <!-- MOBILE STICKY CATEGORY NAV (Visible below lg, pins at top-16 on mobile scroll) -->
+    <div class="lg:hidden sticky top-16 z-30 py-3 -mx-6 px-6 mb-8 bg-[#FEFAE7]/95 backdrop-blur-md border-y border-[#362618]/15 shadow-sm overflow-x-auto no-scrollbar flex items-center gap-2">
+      <span class="text-[10px] uppercase font-mono tracking-widest text-[#8A6E5A] mr-1 flex-shrink-0">categories:</span>
+      {splitStickyMenu.categories.map((cat) => (
+        <a
+          href={`#category-${cat.id}`}
+          class="mobile-cat-pill flex-shrink-0 px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wider transition-all duration-300 bg-[#362618]/10 text-[#362618] hover:bg-[#362618] hover:text-[#FFFFA8] min-h-[44px] flex items-center"
+          data-cat-target={`category-${cat.id}`}
+        >
+          {cat.name}
+        </a>
+      ))}
+    </div>
+
     <!-- The 2-Column Split Sticky Layout -->
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
       
-      <!-- LEFT HALF: STICKY VIEWPORT CONTAINER -->
+      <!-- LEFT HALF: STICKY VIEWPORT CONTAINER (DESKTOP) -->
       <div class="lg:col-span-5 lg:sticky lg:top-24 self-start">
         <div class="rounded-[36px] bg-[#362618] text-[#FEFAE7] p-8 md:p-10 shadow-xl space-y-8 overflow-hidden relative border border-[#362618]/30">
           
@@ -24,7 +38,7 @@ const { splitStickyMenu } = data;
             <h2 class="font-display text-5xl md:text-6xl font-black lowercase tracking-tighter text-[#FFFFA8]">
               {splitStickyMenu.title}
             </h2>
-            <p class="font-body text-sm md:text-base leading-relaxed text-[#D6C6B8]">
+            <p class="font-body text-sm md:text-base leading-relaxed text-[var(--moka-muted)]">
               {splitStickyMenu.stickyTeaser}
             </p>
           </div>
@@ -46,12 +60,12 @@ const { splitStickyMenu } = data;
 
           <!-- Category Quick Anchors with Dynamic Active State -->
           <div class="space-y-2 pt-2 border-t border-[#FEFAE7]/15">
-            <div class="text-[11px] uppercase tracking-widest font-mono text-[#D6C6B8]/70">quick browse</div>
+            <div class="text-[11px] uppercase tracking-widest font-mono text-[var(--moka-muted)]/80">quick browse</div>
             <div class="flex flex-wrap gap-2">
-              {splitStickyMenu.categories.map((cat, idx) => (
+              {splitStickyMenu.categories.map((cat) => (
                 <a
                   href={`#category-${cat.id}`}
-                  class="category-nav-pill px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wider transition-all duration-300 bg-[#FEFAE7]/10 text-[#FEFAE7] hover:bg-[#FFFFA8] hover:text-[#362618]"
+                  class="category-nav-pill px-4 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all duration-300 bg-[#FEFAE7]/10 text-[#FEFAE7] hover:bg-[#FFFFA8] hover:text-[#362618] min-h-[44px] inline-flex items-center"
                   data-cat-target={`category-${cat.id}`}
                 >
                   {cat.name}
@@ -66,7 +80,7 @@ const { splitStickyMenu } = data;
       <!-- RIGHT HALF: SCROLLING DETAILS COLUMN -->
       <div class="lg:col-span-7 space-y-20">
         {splitStickyMenu.categories.map((cat) => (
-          <div id={`category-${cat.id}`} class="category-block space-y-8 scroll-mt-28">
+          <div id={`category-${cat.id}`} class="category-block space-y-8 scroll-mt-36">
             <!-- Category Header -->
             <div class="space-y-2 pb-4 border-b-2 border-[#362618]">
               <div class="flex items-center justify-between">
@@ -134,14 +148,17 @@ const { splitStickyMenu } = data;
 
 <!-- Intersection Observer Script for Split Sticky Navigation -->
 <script>
-  const categoryPills = document.querySelectorAll('.category-nav-pill');
+  const desktopPills = document.querySelectorAll('.category-nav-pill');
+  const mobilePills = document.querySelectorAll('.mobile-cat-pill');
   const categoryBlocks = document.querySelectorAll('.category-block');
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         const id = entry.target.id;
-        categoryPills.forEach(pill => {
+        
+        // Update Desktop Pills
+        desktopPills.forEach(pill => {
           if (pill.getAttribute('data-cat-target') === id) {
             pill.classList.remove('bg-[#FEFAE7]/10', 'text-[#FEFAE7]');
             pill.classList.add('bg-[#FFFFA8]', 'text-[#362618]');
@@ -150,10 +167,21 @@ const { splitStickyMenu } = data;
             pill.classList.remove('bg-[#FFFFA8]', 'text-[#362618]');
           }
         });
+
+        // Update Mobile Pills
+        mobilePills.forEach(pill => {
+          if (pill.getAttribute('data-cat-target') === id) {
+            pill.classList.remove('bg-[#362618]/10', 'text-[#362618]');
+            pill.classList.add('bg-[#362618]', 'text-[#FFFFA8]');
+          } else {
+            pill.classList.add('bg-[#362618]/10', 'text-[#362618]');
+            pill.classList.remove('bg-[#362618]', 'text-[#FFFFA8]');
+          }
+        });
       }
     });
   }, {
-    rootMargin: '-20% 0px -70% 0px'
+    rootMargin: '-20% 0px -65% 0px'
   });
 
   categoryBlocks.forEach(block => observer.observe(block));

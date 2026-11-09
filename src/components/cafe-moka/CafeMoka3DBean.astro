@@ -135,7 +135,25 @@ const { roastStory3D } = data;
 
     // 4. Load Normal Texture & GLTF Model
     const textureLoader = new THREE.TextureLoader();
-    const normalMap = textureLoader.load(normalUrl);
+    const normalMap = textureLoader.load(
+      normalUrl,
+      undefined,
+      undefined,
+      () => {
+        textureLoader.load('/demo/cafe-moka/coffee_bean_normal.png', (fallbackTex) => {
+          fallbackTex.wrapS = THREE.RepeatWrapping;
+          fallbackTex.wrapT = THREE.RepeatWrapping;
+          if (beanMesh) {
+            beanMesh.traverse((child) => {
+              if ((child as THREE.Mesh).isMesh && (child as THREE.Mesh).material) {
+                ((child as THREE.Mesh).material as THREE.MeshStandardMaterial).normalMap = fallbackTex;
+                ((child as THREE.Mesh).material as THREE.MeshStandardMaterial).needsUpdate = true;
+              }
+            });
+          }
+        });
+      }
+    );
     normalMap.wrapS = THREE.RepeatWrapping;
     normalMap.wrapT = THREE.RepeatWrapping;
 

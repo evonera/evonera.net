@@ -13,7 +13,7 @@
       "butterYellow": "#FFFFA8",
       "cardBg": "#FEFAE7",
       "cardText": "#362618",
-      "muted": "#D6C6B8",
+      "muted": "#EFE6DD",
       "border": "rgba(254, 250, 231, 0.2)"
     },
     "fonts": {
@@ -197,7 +197,7 @@
     "scriptAccent": "single origin precision",
     "subtitle": "scroll to inspect the bean in real 3D space. high-grown heirloom cultivars, medium-light roast curve, bursting with candied bergamot and honeycomb.",
     "modelPath": "/demo/cafe-moka/coffee_bean.glb",
-    "normalMapPath": "/demo/cafe-moka/coffee_bean_normal.png",
+    "normalMapPath": "/demo/cafe-moka/coffee_bean_normal.webp",
     "modelScale": 3.7,
     "clayColor": "#3D2B1B",
     "specs": [

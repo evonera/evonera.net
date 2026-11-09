@@ -7,6 +7,7 @@ interface Props {
   capacityText?: string;
   closedDaysNotice?: string;
   maxPartySize?: number;
+  eyebrow?: string;
 }
 
 const {
@@ -17,6 +18,7 @@ const {
   capacityText = "Counter seating • Direct reservation",
   closedDaysNotice = `${restaurantName} is closed on Sundays. Please select an available dining date.`,
   maxPartySize = 10,
+  eyebrow = "Table Reservation Request",
 } = Astro.props;
 
 // Today's date in YYYY-MM-DD
@@ -28,7 +30,7 @@ const formId = `res-form-${Math.random().toString(36).substring(2, 7)}`;
 <div class="w-full max-w-xl mx-auto bg-white text-[#191919] rounded-[24px] p-6 sm:p-10 shadow-2xl border border-[var(--color-surface)]/20">
   <div class="mb-6 pb-6 border-b border-neutral-100 text-center">
     <span class="text-[10px] uppercase tracking-[0.25em] text-[var(--color-primary)] font-bold block mb-1">
-      Counter Seating Request
+      {eyebrow}
     </span>
     <h3 class="font-display text-2xl sm:text-3xl font-light text-[#191919]">
       Reserve Your Table

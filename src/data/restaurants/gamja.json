@@ -34,10 +34,10 @@
       "instagram": "https://www.instagram.com/gamja_sg/"
     },
     "chef": {
-      "owner": "Shin Jae-Yun & Chef Nam Wan-Hyuk",
+      "owner": "Shin Jae-Yoon & Chef Nam Wan-Hyuk",
       "headChef": "Chef Nam Wan-Hyuk",
-      "summary": "Founders Shin Jae-Yun (The Energetic Host) & Master Chef Nam Wan-Hyuk (Tsuji Culinary Institute)",
-      "background": "Founded by entrepreneur Shin Jae-Yun and Master Chef Nam Wan-Hyuk under SHIN NAM F&B ('Shin' + 'Nam' means 'Exciting' in Korean). Chef Nam brings over 15 years of culinary devotion and classical training from Japan's famed Tsuji Culinary Institute, managing more than 10 dining concepts across Seoul, Tokyo, and Hong Kong before opening GAMJA at 21 Boon Tat Street."
+      "summary": "Founders Shin Jae-Yoon (The Energetic Host) & Master Chef Nam Wan-Hyuk (Tsuji Culinary Institute)",
+      "background": "Founded by entrepreneur Shin Jae-Yoon and Master Chef Nam Wan-Hyuk under SHIN NAM F&B ('Shin' + 'Nam' means 'Exciting' in Korean). Chef Nam brings over 15 years of culinary devotion and classical training from Japan's famed Tsuji Culinary Institute, managing more than 10 dining concepts across Seoul, Tokyo, and Hong Kong before opening GAMJA at 21 Boon Tat Street."
     }
   },
   "branding": {
@@ -58,16 +58,16 @@
   },
   "demo": {
     "isDemo": true,
-    "recipientName": "Shin Jae-Yun, Chef Nam Wan-Hyuk & GAMJA Team",
+    "recipientName": "Shin Jae-Yoon, Chef Nam Wan-Hyuk & GAMJA Team",
     "agencyName": "Evonera Technologies",
     "agencyUrl": "https://evonera.net",
-    "bannerNotice": "Concept demo prepared for Shin Jae-Yun & Chef Nam Wan-Hyuk (GAMJA)",
+    "bannerNotice": "Concept demo prepared for Shin Jae-Yoon & Chef Nam Wan-Hyuk (GAMJA)",
     "conceptDisclaimer": "Demo concept by Evonera Technologies. Not the official website of GAMJA."
   },
   "hero": {
-    "eyebrow": "21 Boon Tat Street • Telok Ayer CBD",
-    "headline": "Soul-Warming Korean Gamjatang & Sizzling Cast-Iron BBQ in Telok Ayer",
-    "subline": "Four-hour slow-simmered pork bone broth, tender fall-off-the-bone ribs, and sizzling cauldron-lid kimchi samgyeopsal in the heart of Singapore.",
+    "eyebrow": "",
+    "headline": "Four Hours of Simmer. The Pure Soul of Gamjatang.",
+    "subline": "Fall-off-the-bone pork rib stews, rich Gochugaru master broth, and sizzling cauldron-lid kimchi samgyeopsal at 21 Boon Tat Street.",
     "ctaLabel": "Reserve a Table",
     "ctaText": "Reserve a Table",
     "ctaHref": "/demo/gamja/reservations",
@@ -78,7 +78,7 @@
     "heading": "Four Hours of Simmering Dedication at 21 Boon Tat Street",
     "headline": "Four Hours of Simmering Dedication at 21 Boon Tat Street",
     "paragraphs": [
-      "Founded by Korean entrepreneur Shin Jae-Yun and Master Chef Nam Wan-Hyuk (trained at Japan's famed Tsuji Culinary Institute with over 15 years developing dining concepts across Seoul, Tokyo, and Hong Kong), GAMJA brings Korea's most cherished comfort food to Singapore's CBD.",
+      "Founded by Korean entrepreneur Shin Jae-Yoon and Master Chef Nam Wan-Hyuk (trained at Japan's famed Tsuji Culinary Institute with over 15 years developing dining concepts across Seoul, Tokyo, and Hong Kong), GAMJA brings Korea's most cherished comfort food to Singapore's CBD.",
       "At GAMJA, we believe potatoes are never the main character, but the ultimate partner that completes every delicious moment. Absorbing the savory richness of pork broth, softening the fiery heat of flame-torched pork bones, and balancing the hearty depth of our slow-simmered Gamjatang.",
       "Hand-trimmed pork bones are soaked for four hours to eliminate gaminess, blanched clean, and simmered gently on low heat with our secret chili blend of three Korean Gochugaru varieties, fresh ginger, and garlic. Finished with fresh greens, potatoes, and glass noodles right before serving hot at your table."
     ]
@@ -103,16 +103,10 @@
       "href": "/demo/gamja/menu"
     },
     {
-      "title": "Nightly Vibes",
-      "subtitle": "Somaek & Pocha Gathering",
+      "title": "Somaek & Pocha",
+      "subtitle": "CBD Nightly Gathering",
       "image": "/demo/gamja/tile-4.jpg",
       "href": "/demo/gamja/reservations"
-    },
-    {
-      "title": "Hospitality",
-      "subtitle": "Shin Nam F&B Family",
-      "image": "/demo/gamja/tile-5.jpg",
-      "href": "/demo/gamja/contact"
     }
   ],
   "craftFeature": {
@@ -134,17 +128,17 @@
     "image": "/demo/gamja/feature-craft.jpg"
   },
   "story": {
-    "tag": "The Founders' Journey",
+    "tag": "The Founders' Dedication",
     "title": "When Shin Meets Nam: Bringing Exciting Korean Soul to Singapore",
     "paragraphs": [
-      "SHIN NAM F&B was born from the combination of two Korean surnames: Shin Jae-Yun (The Energetic Host) and Chef Nam Wan-Hyuk (The Master Chef). Together in Korean, 'Shin Nam' means 'Exciting'.",
-      "After traveling across Seoul and Busan researching the authentic roots of Korea's most comforting dishes, the duo set their sights on 21 Boon Tat Street in Singapore's Telok Ayer district to share true Korean soul food with office workers and dining enthusiasts alike.",
+      "SHIN NAM F&B was born from the harmony of two Korean surnames: Shin Jae-Yoon (The Energetic Host) and Master Chef Nam Wan-Hyuk (The Master Chef). Together in Korean, 'Shin Nam' means 'Exciting'.",
+      "After traveling across Seoul, Tokyo, and Hong Kong perfecting recipes for authentic comfort dishes, the duo established GAMJA at 21 Boon Tat Street in Singapore's Telok Ayer district to share true Korean soul food with office workers and dining enthusiasts alike.",
       "During the Singapore F1 Grand Prix, GAMJA had the honor of welcoming Michelin 3-Star Chef Yim Jungsik and the entire Jungsik dining crew, who chose GAMJA as their soul-food sanctuary after cooking at the world-class F1 Paddock Club."
     ],
-    "chefName": "Chef Nam Wan-Hyuk & Shin Jae-Yun",
+    "chefName": "Master Chef Nam Wan-Hyuk & Shin Jae-Yoon",
     "chefRole": "Founders & Culinary Director, SHIN NAM F&B",
     "quote": "Potatoes are never the main character. But they are the ultimate partner that completes every delicious moment at GAMJA.",
-    "image": "/demo/gamja/chef-jungsik.jpg"
+    "image": "/demo/gamja/chef-nam.jpg"
   },
   "carousel": {
     "title": "Authentic Korean Soul Dishes",
@@ -198,7 +192,7 @@
     "intro": {
       "heading": "Four Hours of Simmering Dedication at 21 Boon Tat Street",
       "paragraphs": [
-        "Founded by Korean entrepreneur Shin Jae-Yun and Master Chef Nam Wan-Hyuk (trained at Japan's famed Tsuji Culinary Institute with over 15 years developing dining concepts across Seoul, Tokyo, and Hong Kong), GAMJA brings Korea's most cherished comfort food to Singapore's CBD.",
+        "Founded by Korean entrepreneur Shin Jae-Yoon and Master Chef Nam Wan-Hyuk (trained at Japan's famed Tsuji Culinary Institute with over 15 years developing dining concepts across Seoul, Tokyo, and Hong Kong), GAMJA brings Korea's most cherished comfort food to Singapore's CBD.",
         "At GAMJA, we believe potatoes are never the main character, but the ultimate partner that completes every delicious moment. Absorbing the savory richness of pork broth, softening the fiery heat of flame-torched pork bones, and balancing the hearty depth of our slow-simmered Gamjatang.",
         "Hand-trimmed pork bones are soaked for four hours to eliminate gaminess, blanched clean, and simmered gently on low heat with our secret chili blend of three Korean Gochugaru varieties, fresh ginger, and garlic. Finished with fresh greens, potatoes, and glass noodles right before serving hot at your table."
       ]
@@ -223,16 +217,10 @@
         "href": "/demo/gamja/menu"
       },
       {
-        "title": "Nightly Vibes",
-        "subtitle": "Somaek & Pocha Gathering",
+        "title": "Somaek & Pocha",
+        "subtitle": "CBD Nightly Gathering",
         "image": "/demo/gamja/tile-4.jpg",
         "href": "/demo/gamja/reservations"
-      },
-      {
-        "title": "Hospitality",
-        "subtitle": "Shin Nam F&B Family",
-        "image": "/demo/gamja/tile-5.jpg",
-        "href": "/demo/gamja/contact"
       }
     ],
     "feature": {

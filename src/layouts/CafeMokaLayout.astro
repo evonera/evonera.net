@@ -1,4 +1,5 @@
 ---
+import "../styles/globals.css";
 import data from '../data/restaurants/cafe_moka.json';
 
 interface Props {
@@ -28,7 +29,7 @@ const { colors, fonts } = data.branding;
     />
 
     <!-- Dynamic Theme Custom Properties from JSON -->
-    <style define:vars={{
+    <style is:global define:vars={{
       bgCol: colors.bg,
       textCol: colors.text,
       darkRoastCol: colors.darkRoast,
@@ -59,14 +60,12 @@ const { colors, fonts } = data.branding;
 
       * {
         box-sizing: border-box;
-        margin: 0;
-        padding: 0;
       }
 
       html {
-        background-color: var(--moka-bg);
-        color: var(--moka-text);
-        font-family: var(--font-body);
+        background-color: var(--moka-bg) !important;
+        color: var(--moka-text) !important;
+        font-family: var(--font-body) !important;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
         text-rendering: optimizeLegibility;
@@ -75,7 +74,8 @@ const { colors, fonts } = data.branding;
       body {
         min-height: 100vh;
         overflow-x: hidden;
-        background-color: var(--moka-bg);
+        background-color: var(--moka-bg) !important;
+        color: var(--moka-text) !important;
       }
 
       /* Lenis Smooth Scroll Styles */
